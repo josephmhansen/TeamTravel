@@ -13,6 +13,7 @@
 		72602F631DBFC02A00FC53EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72602F611DBFC02A00FC53EC /* LaunchScreen.storyboard */; };
 		72602F6E1DBFC02A00FC53EC /* TeamTravelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72602F6D1DBFC02A00FC53EC /* TeamTravelTests.swift */; };
 		72602F791DBFC02A00FC53EC /* TeamTravelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72602F781DBFC02A00FC53EC /* TeamTravelUITests.swift */; };
+		D0272A931DC014AB00565EDB /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0272A921DC014AB00565EDB /* Location.swift */; };
 		D0D8024E1DC0096100F02629 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8024D1DC0096100F02629 /* Badge.swift */; };
 		D0D802531DC00E1900F02629 /* AwardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D802521DC00E1900F02629 /* AwardController.swift */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,7 @@
 		72602F741DBFC02A00FC53EC /* TeamTravelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamTravelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72602F781DBFC02A00FC53EC /* TeamTravelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTravelUITests.swift; sourceTree = "<group>"; };
 		72602F7A1DBFC02A00FC53EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0272A921DC014AB00565EDB /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		D0D8024D1DC0096100F02629 /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		D0D802521DC00E1900F02629 /* AwardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				D0D8024D1DC0096100F02629 /* Badge.swift */,
+				D0272A921DC014AB00565EDB /* Location.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			files = (
 				D0D802531DC00E1900F02629 /* AwardController.swift in Sources */,
 				72602F591DBFC02A00FC53EC /* AppDelegate.swift in Sources */,
+				D0272A931DC014AB00565EDB /* Location.swift in Sources */,
 				D0D8024E1DC0096100F02629 /* Badge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

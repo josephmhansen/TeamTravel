@@ -14,13 +14,13 @@ struct AwardController {
     static func updateTravelerPoints() -> Int {
         var points = 0
 //        for location in TravelerController.shared.masterTraveler.locationsVisited {
-//            if location.locationType == locationType.Landmarks {
+//            if location.type == LocationType.Landmarks {
 //                points += 2
 //            }
-//            if location.locationType == locationType.Museums {
+//            if location.type == LocationType.Museums {
 //                points += 4
 //            }
-//            if location.locationType == locationType.Parks {
+//            if location.type == LocationType.Parks {
 //                points += 5
 //            } else {
 //                points += 0

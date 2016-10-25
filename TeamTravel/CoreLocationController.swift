@@ -53,9 +53,15 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         self.locationManager = locMan
         getCurrentLocation()
     }
-    
+/// checks Authorization status each time
     func getCurrentLocation() {
-        locationManager?.requestLocation()
+        
+        if hasAccess == true {
+            locationManager?.requestLocation()
+        } else {
+            locationManager?.requestAlwaysAuthorization()
+        }
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		72602F591DBFC02A00FC53EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72602F581DBFC02A00FC53EC /* AppDelegate.swift */; };
-		72602F5B1DBFC02A00FC53EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72602F5A1DBFC02A00FC53EC /* ViewController.swift */; };
 		72602F5E1DBFC02A00FC53EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72602F5C1DBFC02A00FC53EC /* Main.storyboard */; };
 		72602F601DBFC02A00FC53EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72602F5F1DBFC02A00FC53EC /* Assets.xcassets */; };
 		72602F631DBFC02A00FC53EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72602F611DBFC02A00FC53EC /* LaunchScreen.storyboard */; };
 		72602F6E1DBFC02A00FC53EC /* TeamTravelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72602F6D1DBFC02A00FC53EC /* TeamTravelTests.swift */; };
 		72602F791DBFC02A00FC53EC /* TeamTravelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72602F781DBFC02A00FC53EC /* TeamTravelUITests.swift */; };
+		D0D8024E1DC0096100F02629 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8024D1DC0096100F02629 /* Badge.swift */; };
+		D0D802531DC00E1900F02629 /* AwardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D802521DC00E1900F02629 /* AwardController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,6 @@
 /* Begin PBXFileReference section */
 		72602F551DBFC02A00FC53EC /* TeamTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72602F581DBFC02A00FC53EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		72602F5A1DBFC02A00FC53EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		72602F5D1DBFC02A00FC53EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		72602F5F1DBFC02A00FC53EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72602F621DBFC02A00FC53EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +47,8 @@
 		72602F741DBFC02A00FC53EC /* TeamTravelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamTravelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72602F781DBFC02A00FC53EC /* TeamTravelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTravelUITests.swift; sourceTree = "<group>"; };
 		72602F7A1DBFC02A00FC53EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0D8024D1DC0096100F02629 /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		D0D802521DC00E1900F02629 /* AwardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +99,10 @@
 		72602F571DBFC02A00FC53EC /* TeamTravel */ = {
 			isa = PBXGroup;
 			children = (
+				D0D8024F1DC0096A00F02629 /* Models */,
+				D0D802501DC0098700F02629 /* Model Controllers */,
+				D0D802511DC0099F00F02629 /* View Controllers */,
 				72602F581DBFC02A00FC53EC /* AppDelegate.swift */,
-				72602F5A1DBFC02A00FC53EC /* ViewController.swift */,
 				72602F5C1DBFC02A00FC53EC /* Main.storyboard */,
 				72602F5F1DBFC02A00FC53EC /* Assets.xcassets */,
 				72602F611DBFC02A00FC53EC /* LaunchScreen.storyboard */,
@@ -123,6 +127,29 @@
 				72602F7A1DBFC02A00FC53EC /* Info.plist */,
 			);
 			path = TeamTravelUITests;
+			sourceTree = "<group>";
+		};
+		D0D8024F1DC0096A00F02629 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D0D8024D1DC0096100F02629 /* Badge.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D0D802501DC0098700F02629 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D0D802521DC00E1900F02629 /* AwardController.swift */,
+			);
+			name = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		D0D802511DC0099F00F02629 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,8 +289,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72602F5B1DBFC02A00FC53EC /* ViewController.swift in Sources */,
+				D0D802531DC00E1900F02629 /* AwardController.swift in Sources */,
 				72602F591DBFC02A00FC53EC /* AppDelegate.swift in Sources */,
+				D0D8024E1DC0096100F02629 /* Badge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +540,7 @@
 				72602F7F1DBFC02A00FC53EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		72602F801DBFC02A00FC53EC /* Build configuration list for PBXNativeTarget "TeamTravelTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +549,7 @@
 				72602F821DBFC02A00FC53EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		72602F831DBFC02A00FC53EC /* Build configuration list for PBXNativeTarget "TeamTravelUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +558,7 @@
 				72602F851DBFC02A00FC53EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

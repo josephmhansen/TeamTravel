@@ -12,7 +12,12 @@ import MapKit
 class SearchLocationController  {
     
     static let shared = SearchLocationController()
-    var allReturnedLocations: [Location] = []
+    var allReturnedLocations: [Location] = [] {
+        didSet {
+            let notification = Notification(name: Notification.Name(rawValue: "allLocationsReturned"))
+        }
+    }
+    
     var allVisibleLocations: [Location] {
       return allReturnedLocations.filter{$0.isVisible}
     }
@@ -32,13 +37,13 @@ class SearchLocationController  {
         }
     }
     
-    func queryForLocations(locations: [CLLocation]) {
-        guard let currentLocation = locations.first else { return }
+    func queryForLocations(location: CLLocation) {
+       
         SearchLocationController.shared.allReturnedLocations = []
         let locationsTypes: [LocationType] = [LocationType.Landmarks, LocationType.Museums, LocationType.Parks]
         for type in locationsTypes {
             
-            queryForLocation(ofType: type, location: currentLocation)
+            queryForLocation(ofType: type, location: location)
         }
     }
     

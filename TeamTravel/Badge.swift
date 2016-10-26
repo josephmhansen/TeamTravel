@@ -23,11 +23,15 @@ struct Badge {
     static let kName = "name"
     static let kHasEarned = "hasEarned"
     static let kCategory = "category"
+    static let kShouldEarn = "shouldEarn"
+    static let kDescription = "description"
     
     var hasEarned: Bool
-    let image: UIImage
+    var image: UIImage?
     let name: String
     let type: BadgeType
+    var shouldEarn: Bool
+    let description: String
     
     let travelerReference: CKReference?
     let cloudKitRecordID: String?

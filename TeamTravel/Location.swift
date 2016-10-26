@@ -37,14 +37,29 @@ class Location: NSObject, MKAnnotation {
     var hasVisitedToday: Bool = false
     
     var isVisible: Bool = true
+// geo fence radius to change for different locationtypes
+    var geoRadiusSize: CLLocationDistance = 100
+    
+    
     
 //    let travelerReference: CKReference?
 //    let cloudKitRecordID: String?
     
-    init(locationName: String, coordinate: CLLocationCoordinate2D, location: CLLocation, type: LocationType) {
+    init(locationName: String, location: CLLocation, type: LocationType) {
         self.locationName = locationName
-        self.coordinate = coordinate
+        self.coordinate = location.coordinate
         self.location = location
         self.type = type
     }
+    
+    
+    
+    func createRegion() -> CLCircularRegion {
+        let region = CLCircularRegion(center: self.coordinate, radius: self.geoRadiusSize, identifier: self.locationName)
+        
+        region.notifyOnEntry = true
+        //region.notifyOnExit = true
+        return region
+    }
+    
 }

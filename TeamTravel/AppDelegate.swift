@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    //Do not delete
+    var strongReferenceToLocationManager: CLLocationManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        CoreLocationController.shared.setupLocationManager()
+        self.strongReferenceToLocationManager = CoreLocationController.shared.locationManager
+        
         return true
     }
 

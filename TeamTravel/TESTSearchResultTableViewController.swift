@@ -20,12 +20,13 @@ class TESTSearchResultTableViewController: UITableViewController {
         super.viewDidLoad()
 
         NotificationCenter.default.addObserver(self, selector: #selector(startSearch), name: Notification.Name(rawValue: "currentLocationUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateSearchResults), name: Notification.Name(rawValue: "allLocationsReturned"), object: nil)
      
     }
 
     func startSearch(){
         if let location = CoreLocationController.shared.currentTravelerLocation {
-            SearchLocationController.shared.queryForLocations(locations: location)
+            SearchLocationController.shared.queryForLocations(location: location)
         }
     }
     
@@ -42,16 +43,16 @@ class TESTSearchResultTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return SearchLocationController.shared.allVisibleLocations.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath)
-
+        let location = SearchLocationController.shared.allVisibleLocations[indexPath.row]
         // Configure the cell...
-        cell.textLabel?.text = "PLACE NAME"
-        cell.detailTextLabel?.text = "Address"
+        cell.textLabel?.text = location.locationName
+        cell.detailTextLabel?.text = "\(location.type.rawValue) + \(location.coordinate)"
 
         return cell
     }

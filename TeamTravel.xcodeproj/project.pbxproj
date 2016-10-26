@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7200D9FA1DC1059400C2CF22 /* SearchLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7200D9F91DC1059400C2CF22 /* SearchLocationController.swift */; };
 		72602F591DBFC02A00FC53EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72602F581DBFC02A00FC53EC /* AppDelegate.swift */; };
 		72602F5E1DBFC02A00FC53EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72602F5C1DBFC02A00FC53EC /* Main.storyboard */; };
 		72602F601DBFC02A00FC53EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72602F5F1DBFC02A00FC53EC /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7200D9F91DC1059400C2CF22 /* SearchLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchLocationController.swift; sourceTree = "<group>"; };
 		72602F551DBFC02A00FC53EC /* TeamTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72602F581DBFC02A00FC53EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72602F5D1DBFC02A00FC53EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				72E8A5951DC01B9000729613 /* CoreLocationController.swift */,
+				7200D9F91DC1059400C2CF22 /* SearchLocationController.swift */,
 			);
 			name = SupportFiles;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				D0D802531DC00E1900F02629 /* AwardController.swift in Sources */,
 				72602F591DBFC02A00FC53EC /* AppDelegate.swift in Sources */,
 				D0272A931DC014AB00565EDB /* Location.swift in Sources */,
+				7200D9FA1DC1059400C2CF22 /* SearchLocationController.swift in Sources */,
 				9CB491231DC1004B003DBC17 /* Traveler.swift in Sources */,
 				D0D8024E1DC0096100F02629 /* Badge.swift in Sources */,
 				9CA177991DC10636001D655B /* TravelerController.swift in Sources */,

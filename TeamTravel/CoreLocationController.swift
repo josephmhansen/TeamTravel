@@ -61,7 +61,6 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         } else {
             locationManager?.requestAlwaysAuthorization()
         }
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

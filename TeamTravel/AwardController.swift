@@ -9,6 +9,28 @@
 import Foundation
 
 struct AwardController {
+    
+    
+    //first place visited
+    var babySteps: Badge
+    //100 pts earned
+    var seriousAdventurer: Badge
+    //5 parks visited
+    var notJustAnUrbanExplorer: Badge
+    //5 landmarks visited
+    var historicalSignificance: Badge
+    //5 museums visited
+    var oldBones: Badge
+    //visit where it all started (DevMountain)
+    var homewardBound: Badge
+    //visit a non local location
+    var oneSmallStep: Badge
+    //visit a location twice
+    var repeatOffender: Badge
+    //use app for 3 months
+    var loyalTraveler: Badge
+    
+    
     var staticBadges: [Badge]
     
     static func updateTravelerPoints() -> Int {

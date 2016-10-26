@@ -31,4 +31,7 @@ struct Badge {
     
     let travelerReference: CKReference?
     let cloudKitRecordID: String?
+    
+    //checks if requirements for each badge are met, if all requirements are meet hasEarned = true
+
 }

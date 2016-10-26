@@ -21,6 +21,7 @@
 		D0D8024E1DC0096100F02629 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8024D1DC0096100F02629 /* Badge.swift */; };
 		D0D802531DC00E1900F02629 /* AwardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D802521DC00E1900F02629 /* AwardController.swift */; };
 		FA6384ED1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6384EC1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift */; };
+		FA6384EF1DC11E6D0026C6F6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6384EE1DC11E6D0026C6F6 /* MockData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		D0D8024D1DC0096100F02629 /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		D0D802521DC00E1900F02629 /* AwardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardController.swift; sourceTree = "<group>"; };
 		FA6384EC1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TESTSearchResultTableViewController.swift; sourceTree = "<group>"; };
+		FA6384EE1DC11E6D0026C6F6 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 		72E8A5971DC01B9500729613 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				FA6384EE1DC11E6D0026C6F6 /* MockData.swift */,
 				72E8A5951DC01B9000729613 /* CoreLocationController.swift */,
 				7200D9F91DC1059400C2CF22 /* SearchLocationController.swift */,
 			);
@@ -324,6 +327,7 @@
 				9CB491231DC1004B003DBC17 /* Traveler.swift in Sources */,
 				D0D8024E1DC0096100F02629 /* Badge.swift in Sources */,
 				9CA177991DC10636001D655B /* TravelerController.swift in Sources */,
+				FA6384EF1DC11E6D0026C6F6 /* MockData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

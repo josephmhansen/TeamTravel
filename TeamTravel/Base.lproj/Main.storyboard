@@ -9,7 +9,7 @@
         <!--Title-->
         <scene sceneID="oGN-mk-1gM">
             <objects>
-                <tableViewController id="h9t-Ol-j8J" sceneMemberID="viewController">
+                <tableViewController id="h9t-Ol-j8J" customClass="TESTSearchResultTableViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="rHN-6J-sNw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,7 +46,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="CXZ-Zp-gw9">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="abm-XU-sRh"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="abm-XU-sRh">
+                            <connections>
+                                <action selector="refreshButtonTapped:" destination="h9t-Ol-j8J" id="Skp-xp-MYP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYU-Sh-0fN" userLabel="First Responder" sceneMemberID="firstResponder"/>

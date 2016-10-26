@@ -15,6 +15,7 @@ class SearchLocationController  {
     var allReturnedLocations: [Location] = [] {
         didSet {
             let notification = Notification(name: Notification.Name(rawValue: "allLocationsReturned"))
+            NotificationCenter.default.post(notification)
         }
     }
     

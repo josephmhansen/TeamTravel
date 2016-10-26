@@ -25,6 +25,7 @@ class TESTSearchResultTableViewController: UITableViewController {
     }
 
     func startSearch(){
+         MockData.shared.setUpTraveler()
         if let location = CoreLocationController.shared.currentTravelerLocation {
             SearchLocationController.shared.queryForLocations(location: location)
         }

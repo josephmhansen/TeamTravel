@@ -33,7 +33,14 @@ class MockData {
     
     static let name = "Doctor Who"
     
-    func setUpTraveler(){
+    static let shared = MockData()
+    
+    init(){
+        NotificationCenter.default.addObserver(self, selector: #selector(setUpTraveler), name: Notification.Name(rawValue:"currentLocationUpdated"), object: nil)
+    }
+    
+    @objc func setUpTraveler(){
+        print("SetUP traveler")
         guard let location = CoreLocationController.shared.currentTravelerLocation else { return }
             let traveler = Traveler(badges: MockData.badges, locationsVisited: MockData.locationsVisited, locationsWishList: MockData.locationsWishList, homeLocation: location, name: MockData.name, cloudKitRecordID: nil)
         TravelerController.shared.masterTraveler = traveler

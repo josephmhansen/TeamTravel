@@ -25,7 +25,10 @@ class MockData {
     }
     
     static var locationsWishList: [Location]{
-        return []
+        let loc1 = Location(locationName: "Utah State Capitol", location: CLLocation(latitude: 40.7774, longitude: 111.8882), type: .Landmarks)
+        let loc2 = Location(locationName: "Beehive House", location: CLLocation(latitude: 40.7696, longitude: 111.8888), type: .Museums)
+        let loc3 = Location(locationName: "Pioneer Park", location: CLLocation(latitude: 40.7616, longitude: 111.9012), type: .Parks)
+        return [loc1, loc2, loc3]
     }
     
     static let name = "Doctor Who"

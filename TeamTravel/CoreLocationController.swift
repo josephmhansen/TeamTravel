@@ -17,11 +17,10 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     
     var currentTravelerLocation: CLLocation? {
         didSet{
-            
+            let notification = Notification(name: Notification.Name(rawValue: "currentLocationUpdated"))
+            NotificationCenter.default.post(notification)
         }
     }
-    
-    
     
     var hasAccess: Bool {
 //        locationManager?.requestAlwaysAuthorization()
@@ -41,7 +40,6 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         case .restricted:
             return false
         }
-        
     }
     
 /// sets up locationManager to be delegate, sets accuracy to be within 10 Meters
@@ -53,6 +51,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         self.locationManager = locMan
         getCurrentLocation()
     }
+    
 /// checks Authorization status each time
     func getCurrentLocation() {
         
@@ -62,6 +61,29 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
             locationManager?.requestAlwaysAuthorization()
         }
     }
+    
+    func registerGeoFence(for location: Location) {
+        let region = location.createRegion()
+        if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
+            locationManager?.startMonitoring(for: region)
+        } else {
+            NSLog("no monitoring available")
+        }
+    }
+    
+    func unregisterGeoFence(for location: Location) {
+        let region = location.createRegion()
+        
+        locationManager?.stopMonitoring(for: region)
+    }
+    
+    func unregisterAllGeoFences() {
+        guard let locationManager = locationManager else { return }
+        for region in locationManager.monitoredRegions {
+            locationManager.stopMonitoring(for: region)
+        }
+    }
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         DispatchQueue.main.async {
@@ -77,9 +99,5 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         NSLog(error.localizedDescription)
     }
-    
-    
-    
-    
-    
+
 }

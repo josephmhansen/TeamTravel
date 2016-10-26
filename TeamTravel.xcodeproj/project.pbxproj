@@ -15,6 +15,7 @@
 		72602F6E1DBFC02A00FC53EC /* TeamTravelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72602F6D1DBFC02A00FC53EC /* TeamTravelTests.swift */; };
 		72602F791DBFC02A00FC53EC /* TeamTravelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72602F781DBFC02A00FC53EC /* TeamTravelUITests.swift */; };
 		72E8A5961DC01B9000729613 /* CoreLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E8A5951DC01B9000729613 /* CoreLocationController.swift */; };
+		9CA177991DC10636001D655B /* TravelerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA177981DC10636001D655B /* TravelerController.swift */; };
 		9CB491231DC1004B003DBC17 /* Traveler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB491221DC1004B003DBC17 /* Traveler.swift */; };
 		D0272A931DC014AB00565EDB /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0272A921DC014AB00565EDB /* Location.swift */; };
 		D0D8024E1DC0096100F02629 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8024D1DC0096100F02629 /* Badge.swift */; };
@@ -53,6 +54,7 @@
 		72602F781DBFC02A00FC53EC /* TeamTravelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTravelUITests.swift; sourceTree = "<group>"; };
 		72602F7A1DBFC02A00FC53EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72E8A5951DC01B9000729613 /* CoreLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocationController.swift; sourceTree = "<group>"; };
+		9CA177981DC10636001D655B /* TravelerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelerController.swift; sourceTree = "<group>"; };
 		9CB491221DC1004B003DBC17 /* Traveler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Traveler.swift; path = ../Traveler.swift; sourceTree = "<group>"; };
 		D0272A921DC014AB00565EDB /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		D0D8024D1DC0096100F02629 /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		D0D802501DC0098700F02629 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9CA177981DC10636001D655B /* TravelerController.swift */,
 				D0D802521DC00E1900F02629 /* AwardController.swift */,
 			);
 			name = "Model Controllers";
@@ -316,6 +319,7 @@
 				7200D9FA1DC1059400C2CF22 /* SearchLocationController.swift in Sources */,
 				9CB491231DC1004B003DBC17 /* Traveler.swift in Sources */,
 				D0D8024E1DC0096100F02629 /* Badge.swift in Sources */,
+				9CA177991DC10636001D655B /* TravelerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

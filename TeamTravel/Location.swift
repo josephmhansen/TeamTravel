@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 import CloudKit
 
-enum LocationType {
+enum LocationType: String {
     case Landmarks
     case Museums
     case Parks

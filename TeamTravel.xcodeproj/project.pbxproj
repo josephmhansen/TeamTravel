@@ -14,6 +14,8 @@
 		72602F631DBFC02A00FC53EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72602F611DBFC02A00FC53EC /* LaunchScreen.storyboard */; };
 		72602F6E1DBFC02A00FC53EC /* TeamTravelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72602F6D1DBFC02A00FC53EC /* TeamTravelTests.swift */; };
 		72602F791DBFC02A00FC53EC /* TeamTravelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72602F781DBFC02A00FC53EC /* TeamTravelUITests.swift */; };
+		72CBB0D61DC2A98E00B53689 /* UserDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72CBB0D41DC2A98E00B53689 /* UserDetailView.storyboard */; };
+		72CBB0D91DC2A9B200B53689 /* MainMapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72CBB0D71DC2A9B200B53689 /* MainMapView.storyboard */; };
 		72E8A5961DC01B9000729613 /* CoreLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E8A5951DC01B9000729613 /* CoreLocationController.swift */; };
 		9CA177991DC10636001D655B /* TravelerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA177981DC10636001D655B /* TravelerController.swift */; };
 		9CB491231DC1004B003DBC17 /* Traveler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB491221DC1004B003DBC17 /* Traveler.swift */; };
@@ -55,6 +57,8 @@
 		72602F741DBFC02A00FC53EC /* TeamTravelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamTravelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72602F781DBFC02A00FC53EC /* TeamTravelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTravelUITests.swift; sourceTree = "<group>"; };
 		72602F7A1DBFC02A00FC53EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72CBB0D51DC2A98E00B53689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/UserDetailView.storyboard; sourceTree = "<group>"; };
+		72CBB0D81DC2A9B200B53689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainMapView.storyboard; sourceTree = "<group>"; };
 		72E8A5951DC01B9000729613 /* CoreLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocationController.swift; sourceTree = "<group>"; };
 		9CA177981DC10636001D655B /* TravelerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelerController.swift; sourceTree = "<group>"; };
 		9CB491221DC1004B003DBC17 /* Traveler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Traveler.swift; path = ../Traveler.swift; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 				72602F581DBFC02A00FC53EC /* AppDelegate.swift */,
 				72E8A5971DC01B9500729613 /* SupportFiles */,
 				72602F5C1DBFC02A00FC53EC /* Main.storyboard */,
+				72CBB0D71DC2A9B200B53689 /* MainMapView.storyboard */,
+				72CBB0D41DC2A98E00B53689 /* UserDetailView.storyboard */,
 				72602F5F1DBFC02A00FC53EC /* Assets.xcassets */,
 				72602F611DBFC02A00FC53EC /* LaunchScreen.storyboard */,
 				72602F641DBFC02A00FC53EC /* Info.plist */,
@@ -291,6 +297,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72CBB0D91DC2A9B200B53689 /* MainMapView.storyboard in Resources */,
+				72CBB0D61DC2A98E00B53689 /* UserDetailView.storyboard in Resources */,
 				72602F631DBFC02A00FC53EC /* LaunchScreen.storyboard in Resources */,
 				72602F601DBFC02A00FC53EC /* Assets.xcassets in Resources */,
 				72602F5E1DBFC02A00FC53EC /* Main.storyboard in Resources */,
@@ -377,6 +385,22 @@
 				72602F621DBFC02A00FC53EC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		72CBB0D41DC2A98E00B53689 /* UserDetailView.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72CBB0D51DC2A98E00B53689 /* Base */,
+			);
+			name = UserDetailView.storyboard;
+			sourceTree = "<group>";
+		};
+		72CBB0D71DC2A9B200B53689 /* MainMapView.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72CBB0D81DC2A9B200B53689 /* Base */,
+			);
+			name = MainMapView.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

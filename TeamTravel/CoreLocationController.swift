@@ -69,6 +69,8 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         } else {
             NSLog("no monitoring available")
         }
+        print(region.identifier)
+        print(locationManager?.monitoredRegions.count)
     }
     
     func unregisterGeoFence(for location: Location) {
@@ -80,7 +82,9 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     func unregisterAllGeoFences() {
         guard let locationManager = locationManager else { return }
         for region in locationManager.monitoredRegions {
+            print("Region: \(region.identifier)")
             locationManager.stopMonitoring(for: region)
+            print(locationManager.monitoredRegions.count)
         }
     }
     

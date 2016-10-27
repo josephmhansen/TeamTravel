@@ -41,7 +41,7 @@ class SearchLocationController  {
     func queryForLocations(location: CLLocation) {
        
         SearchLocationController.shared.allReturnedLocations = []
-        let locationsTypes: [LocationType] = [LocationType.Landmarks, LocationType.Museums, LocationType.Parks]
+        let locationsTypes: [LocationType] = [LocationType.Landmarks]//, LocationType.Museums, LocationType.Parks]
         for type in locationsTypes {
             
             queryForLocation(ofType: type, location: location)
@@ -70,6 +70,8 @@ class SearchLocationController  {
                             let location = item.placemark.location else { return }
                         
                         let newLocation = Location(locationName: name, location: location, type: ofType)
+                        // Register location as a geofence
+                        CoreLocationController.shared.registerGeoFence(for: newLocation)
                         SearchLocationController.shared.allReturnedLocations.append(newLocation)
                     }
                 }

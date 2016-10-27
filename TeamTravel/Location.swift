@@ -38,7 +38,16 @@ class Location: NSObject, MKAnnotation {
     
     var isVisible: Bool = true
 // geo fence radius to change for different locationtypes
-    var geoRadiusSize: CLLocationDistance = 100
+    var geoRadiusSize: CLLocationDistance {
+        switch type {
+        case .Landmarks:
+            return 50
+        case .Parks:
+            return 150
+        case .Museums:
+            return 100
+        }
+    } // in meters
     
     
     

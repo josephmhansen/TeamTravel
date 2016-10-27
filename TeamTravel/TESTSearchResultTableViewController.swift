@@ -7,8 +7,16 @@
 //
 
 import UIKit
+protocol ShowFenceAlertDelegate: class {
+    func presentAlert(alert: UIAlertController)
+}
 
-class TESTSearchResultTableViewController: UITableViewController {
+class TESTSearchResultTableViewController: UITableViewController, ShowFenceAlertDelegate {
+    
+    // MARK: - Show Fence Alert Delegate
+    func presentAlert(alert: UIAlertController) {
+        self.present(alert, animated: true, completion: nil)
+    }
 
     @IBAction func refreshButtonTapped(_ sender: AnyObject) {
         
@@ -26,13 +34,18 @@ class TESTSearchResultTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        CoreLocationController.shared.alertDelegate = self
+        
         NotificationCenter.default.addObserver(self, selector: #selector(startSearch), name: Notification.Name(rawValue: "currentLocationUpdated"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateSearchResults), name: Notification.Name(rawValue: "allLocationsReturned"), object: nil)
      
     }
 
     func startSearch(){
+        if TravelerController.shared.masterTraveler == nil {
          MockData.shared.setUpTraveler()
+        }
+        
         if let location = CoreLocationController.shared.currentTravelerLocation {
             SearchLocationController.shared.queryForLocations(location: location)
         }

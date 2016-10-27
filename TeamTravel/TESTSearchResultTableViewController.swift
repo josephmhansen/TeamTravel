@@ -16,6 +16,13 @@ class TESTSearchResultTableViewController: UITableViewController {
         //allLocationsReturned
         
     }
+    
+    
+    @IBAction func removeFencesTapped(_ sender: AnyObject) {
+        
+        CoreLocationController.shared.unregisterAllGeoFences()
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

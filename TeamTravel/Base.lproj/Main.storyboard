@@ -75,13 +75,5 @@
             </objects>
             <point key="canvasLocation" x="-119.2" y="136.28185907046478"/>
         </scene>
-        <!--test-->
-        <scene sceneID="Ntc-Ob-bvz">
-            <objects>
-                <viewControllerPlaceholder storyboardName="test" id="C8a-FS-0Kx" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4PS-PT-mUE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3214" y="-732"/>
-        </scene>
     </scenes>
 </document>

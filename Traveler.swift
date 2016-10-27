@@ -11,7 +11,7 @@ import CloudKit
 
 struct Traveler {
   
-  var badges: [Badge]
+  var badges: [Badge] = AwardController.staticBadges
   
   var points: Int {
     return AwardController.updateTravelerPoints()

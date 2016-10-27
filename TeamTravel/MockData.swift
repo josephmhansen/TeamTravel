@@ -12,7 +12,7 @@ import CoreLocation
 class MockData {
     
     static var badges: [Badge]{
-        return []
+        return AwardController.staticBadges
     }
     
     static var locationsVisited:[Location]{

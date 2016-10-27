@@ -16,7 +16,7 @@ enum BadgeType {
     case Time
 }
 
-struct Badge {
+class Badge {
     
     static let recordType = "Badge"
     static let kImageEndPointUrl = "imageUrl"
@@ -24,11 +24,20 @@ struct Badge {
     static let kHasEarned = "hasEarned"
     static let kCategory = "category"
     
-    var hasEarned: Bool
-    let image: UIImage
+    var image: UIImage?
     let name: String
-    let type: BadgeType
+    let description: String
+    var hasEarned: Bool
     
     let travelerReference: CKReference?
     let cloudKitRecordID: String?
+    
+    init(image: UIImage? = nil, name: String, description: String, hasEarned: Bool, travelerReference: CKReference? = nil, cloudKitRecordID: String? = nil) {
+        self.image = image
+        self.name = name
+        self.description = description
+        self.hasEarned = hasEarned
+        self.cloudKitRecordID = cloudKitRecordID
+        self.travelerReference = travelerReference
+    }
 }

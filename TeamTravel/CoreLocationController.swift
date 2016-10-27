@@ -92,6 +92,8 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
             region.notifyOnExit = true
             region.notifyOnEntry = false
             locationManager?.startMonitoring(for: region)
+            print(region.identifier)
+            print(locationManager?.monitoredRegions.count ?? "")
         } else {
             print("problem setting up last fence")
         }
@@ -141,8 +143,6 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         
         let outerRegion = CLCircularRegion.init(center: currentLocation.coordinate, radius: distanceToLastLocation!, identifier: "outerRegion")
         
-        registerOuterMostGeoFence(for: outerRegion)
-        
         // Remove old geofences
         CoreLocationController.shared.unregisterAllGeoFences()
         
@@ -150,6 +150,8 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         for location in locationsToGeofence {
             CoreLocationController.shared.registerGeoFence(for: location)
         }
+        
+        registerOuterMostGeoFence(for: outerRegion)
     }
 
     // MARK: - Region monitoring

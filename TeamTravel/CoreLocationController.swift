@@ -27,6 +27,10 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         return checkForAuthorizationStatus()
     }
     
+    func addObserverToGeofence(){
+        NotificationCenter.default.addObserver(self, selector: #selector(configureGeofencesForCurrentLocation), name: Notification.Name(rawValue: "searchCategoryCompleted"), object: nil)
+    }
+    
     func checkForAuthorizationStatus() -> Bool {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways:
@@ -46,10 +50,11 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     func setupLocationManager() {
         let locMan = CLLocationManager()
         locMan.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locMan.distanceFilter = 10
+        locMan.distanceFilter = 100
         locMan.delegate = self
         self.locationManager = locMan
         getCurrentLocation()
+        addObserverToGeofence()
     }
     
 /// checks Authorization status each time
@@ -61,6 +66,23 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
             locationManager?.requestAlwaysAuthorization()
         }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        DispatchQueue.main.async {
+            NSLog("Got User Location")
+            
+            if let location = locations.first {
+                self.currentTravelerLocation = location
+            }
+        }
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        NSLog(error.localizedDescription)
+    }
+    
+    // MARK: - Functions to create geofences
     
     func registerGeoFence(for location: Location) {
         let region = location.createRegion()
@@ -88,20 +110,31 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        DispatchQueue.main.async {
-            NSLog("Got User Location")
-            
-            if let location = locations.first {
-                self.currentTravelerLocation = location
+    /// calculates 20 closest locations and creates geofences for those
+    func configureGeofencesForCurrentLocation(){
+        guard let currentLocation = currentTravelerLocation else { return }
+        let distanceFilteredLocations = SearchLocationController.shared.allVisibleLocations.sorted { $0.0.location.distance(from: currentLocation) < $0.1.location.distance(from: currentLocation) }
+        var locationsToGeofence: [Location] = []
+        
+        if distanceFilteredLocations.count <= 20{
+            locationsToGeofence = distanceFilteredLocations
+        } else {
+            for i in 0...19 {
+                locationsToGeofence.append(distanceFilteredLocations[i])
             }
         }
-    }
-    
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        NSLog(error.localizedDescription)
+        
+        // Remove old geofences
+        CoreLocationController.shared.unregisterAllGeoFences()
+        
+        // Add new geofences
+        for location in locationsToGeofence {
+            CoreLocationController.shared.registerGeoFence(for: location)
+        }
     }
 
+    // MARK: - Region monitoring
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        <#code#>
+    }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import CoreLocation
 
 class CoreLocationController: NSObject, CLLocationManagerDelegate {
@@ -66,6 +67,8 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
             locationManager?.requestAlwaysAuthorization()
         }
     }
+    
+    // MARK: - CLLocationManagerDelegate methods
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         DispatchQueue.main.async {
@@ -134,7 +137,17 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     }
 
     // MARK: - Region monitoring
+    // delegate:
+    weak var alertDelegate: ShowFenceAlertDelegate?
+    
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        <#code#>
+        
+        let regionAlert = UIAlertController(title: "Entered: \(region.identifier)", message: nil, preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "Dismiss", style: .cancel) { (_) in
+            
+        }
+        regionAlert.addAction(dismiss)
+        
+        self.alertDelegate?.presentAlert(alert: regionAlert)
     }
 }

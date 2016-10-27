@@ -84,6 +84,16 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     
     // MARK: - Functions to create geofences
     
+    func registerOuterMostGeoFence(for region: CLRegion) {
+        if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
+            region.notifyOnExit = true
+            region.notifyOnEntry = false
+            locationManager?.startMonitoring(for: region)
+        } else {
+            print("problem setting up last fence")
+        }
+    }
+    
     func registerGeoFence(for location: Location) {
         let region = location.createRegion()
         if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
@@ -92,7 +102,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
             NSLog("no monitoring available")
         }
         print(region.identifier)
-        print(locationManager?.monitoredRegions.count)
+        print(locationManager?.monitoredRegions.count ?? 0)
     }
     
     func unregisterGeoFence(for location: Location) {
@@ -116,13 +126,19 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         let distanceFilteredLocations = SearchLocationController.shared.allVisibleLocations.sorted { $0.0.location.distance(from: currentLocation) < $0.1.location.distance(from: currentLocation) }
         var locationsToGeofence: [Location] = []
         
-        if distanceFilteredLocations.count <= 20{
+        if distanceFilteredLocations.count <= 19 {
             locationsToGeofence = distanceFilteredLocations
         } else {
-            for i in 0...19 {
+            for i in 0...18 {
                 locationsToGeofence.append(distanceFilteredLocations[i])
             }
         }
+        
+        let distanceToLastLocation = locationsToGeofence.last?.location.distance(from: currentLocation)
+        
+        let outerRegion = CLCircularRegion.init(center: currentLocation.coordinate, radius: distanceToLastLocation!, identifier: "outerRegion")
+        
+        registerOuterMostGeoFence(for: outerRegion)
         
         // Remove old geofences
         CoreLocationController.shared.unregisterAllGeoFences()

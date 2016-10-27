@@ -20,7 +20,9 @@ class SearchLocationController  {
     }
     
     var allVisibleLocations: [Location] {
-      return allReturnedLocations.filter{$0.isVisible}
+        guard let location = CoreLocationController.shared.currentTravelerLocation else { return [] }
+      let array = allReturnedLocations.filter{$0.isVisible}
+        return array.sorted { $0.0.location.distance(from: location) < $0.1.location.distance(from: location)}
     }
     
     
@@ -73,7 +75,9 @@ class SearchLocationController  {
                         SearchLocationController.shared.allReturnedLocations.append(newLocation)
                     }
                 }
-            }
+                let notification = Notification(name: Notification.Name(rawValue:"searchCategoryCompleted"))
+                NotificationCenter.default.post(notification)
+            } // end dispatch
         }
     }
     

@@ -46,6 +46,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Search Results" id="CXZ-Zp-gw9">
+                        <barButtonItem key="leftBarButtonItem" title="Remove Fences" id="zmm-FS-I0C">
+                            <connections>
+                                <action selector="removeFencesTapped:" destination="h9t-Ol-j8J" id="kia-jH-Awd"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="abm-XU-sRh">
                             <connections>
                                 <action selector="refreshButtonTapped:" destination="h9t-Ol-j8J" id="Skp-xp-MYP"/>

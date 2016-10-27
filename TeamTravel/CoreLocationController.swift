@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import CoreLocation
 
 class CoreLocationController: NSObject, CLLocationManagerDelegate {
@@ -25,6 +26,10 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     var hasAccess: Bool {
 //        locationManager?.requestAlwaysAuthorization()
         return checkForAuthorizationStatus()
+    }
+    
+    func addObserverToGeofence(){
+        NotificationCenter.default.addObserver(self, selector: #selector(configureGeofencesForCurrentLocation), name: Notification.Name(rawValue: "searchCategoryCompleted"), object: nil)
     }
     
     func checkForAuthorizationStatus() -> Bool {
@@ -46,10 +51,11 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     func setupLocationManager() {
         let locMan = CLLocationManager()
         locMan.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locMan.distanceFilter = 10
+        locMan.distanceFilter = 100
         locMan.delegate = self
         self.locationManager = locMan
         getCurrentLocation()
+        addObserverToGeofence()
     }
     
 /// checks Authorization status each time
@@ -62,28 +68,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func registerGeoFence(for location: Location) {
-        let region = location.createRegion()
-        if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
-            locationManager?.startMonitoring(for: region)
-        } else {
-            NSLog("no monitoring available")
-        }
-    }
-    
-    func unregisterGeoFence(for location: Location) {
-        let region = location.createRegion()
-        
-        locationManager?.stopMonitoring(for: region)
-    }
-    
-    func unregisterAllGeoFences() {
-        guard let locationManager = locationManager else { return }
-        for region in locationManager.monitoredRegions {
-            locationManager.stopMonitoring(for: region)
-        }
-    }
-    
+    // MARK: - CLLocationManagerDelegate methods
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         DispatchQueue.main.async {
@@ -99,5 +84,88 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         NSLog(error.localizedDescription)
     }
+    
+    // MARK: - Functions to create geofences
+    
+    func registerOuterMostGeoFence(for region: CLRegion) {
+        if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
+            region.notifyOnExit = true
+            region.notifyOnEntry = false
+            locationManager?.startMonitoring(for: region)
+            print(region.identifier)
+            print(locationManager?.monitoredRegions.count ?? "")
+        } else {
+            print("problem setting up last fence")
+        }
+    }
+    
+    func registerGeoFence(for location: Location) {
+        let region = location.createRegion()
+        if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
+            locationManager?.startMonitoring(for: region)
+        } else {
+            NSLog("no monitoring available")
+        }
+        print(region.identifier)
+        print(locationManager?.monitoredRegions.count ?? 0)
+    }
+    
+    func unregisterGeoFence(for location: Location) {
+        let region = location.createRegion()
+        
+        locationManager?.stopMonitoring(for: region)
+    }
+    
+    func unregisterAllGeoFences() {
+        guard let locationManager = locationManager else { return }
+        for region in locationManager.monitoredRegions {
+            print("Region: \(region.identifier)")
+            locationManager.stopMonitoring(for: region)
+            print(locationManager.monitoredRegions.count)
+        }
+    }
+    
+    /// calculates 20 closest locations and creates geofences for those
+    func configureGeofencesForCurrentLocation(){
+        guard let currentLocation = currentTravelerLocation else { return }
+        let distanceFilteredLocations = SearchLocationController.shared.allVisibleLocations.sorted { $0.0.location.distance(from: currentLocation) < $0.1.location.distance(from: currentLocation) }
+        var locationsToGeofence: [Location] = []
+        
+        if distanceFilteredLocations.count <= 19 {
+            locationsToGeofence = distanceFilteredLocations
+        } else {
+            for i in 0...18 {
+                locationsToGeofence.append(distanceFilteredLocations[i])
+            }
+        }
+        
+        let distanceToLastLocation = locationsToGeofence.last?.location.distance(from: currentLocation)
+        
+        let outerRegion = CLCircularRegion.init(center: currentLocation.coordinate, radius: distanceToLastLocation!, identifier: "outerRegion")
+        
+        // Remove old geofences
+        CoreLocationController.shared.unregisterAllGeoFences()
+        
+        // Add new geofences
+        for location in locationsToGeofence {
+            CoreLocationController.shared.registerGeoFence(for: location)
+        }
+        
+        registerOuterMostGeoFence(for: outerRegion)
+    }
 
+    // MARK: - Region monitoring
+    // delegate:
+    weak var alertDelegate: ShowFenceAlertDelegate?
+    
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        
+        let regionAlert = UIAlertController(title: "Entered: \(region.identifier)", message: nil, preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "Dismiss", style: .cancel) { (_) in
+            
+        }
+        regionAlert.addAction(dismiss)
+        
+        self.alertDelegate?.presentAlert(alert: regionAlert)
+    }
 }

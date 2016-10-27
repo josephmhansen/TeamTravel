@@ -11,10 +11,6 @@ import CoreLocation
 
 class MockData {
     
-    static var badges: [Badge]{
-        return AwardController.staticBadges
-    }
-    
     static var locationsVisited:[Location]{
         let loc1 = Location(locationName: "Grand Canyon", location: CLLocation(latitude: 36.1128, longitude: 113.9961) , type: .Parks)
         let loc2 = Location(locationName: "Gallavan Plaza", location: CLLocation(latitude: 40.7639, longitude: 111.8911), type: .Landmarks)
@@ -42,7 +38,7 @@ class MockData {
     @objc func setUpTraveler(){
         print("SetUP traveler")
         guard let location = CoreLocationController.shared.currentTravelerLocation else { return }
-            let traveler = Traveler(badges: MockData.badges, locationsVisited: MockData.locationsVisited, locationsWishList: MockData.locationsWishList, homeLocation: location, name: MockData.name, cloudKitRecordID: nil)
+            let traveler = Traveler(homeLocation: location, name: MockData.name, locationsVisited: MockData.locationsVisited, locationWishList: MockData.locationsWishList)
         TravelerController.shared.masterTraveler = traveler
     }
     

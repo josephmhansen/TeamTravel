@@ -9,23 +9,31 @@
 import UIKit
 import CloudKit
 
-struct Traveler {
+class Traveler {
   
-  var badges: [Badge]
+    var badges: [Badge] = AwardController.staticBadges
   
-  var points: Int {
-    return AwardController.updateTravelerPoints()
-  }
+    var points: Int {
+        return AwardController.updateTravelerPoints()
+    }
   
-  var locationsVisited: [Location]
-  var locationsWishList: [Location]
-  var homeLocation: CLLocation
-  var name: String
+    var locationsVisited: [Location] = []
+    var locationsWishList: [Location] = []
+    var homeLocation: CLLocation
+    var name: String
   
-  // CloudKit related
-  var cloudKitRecordID: String?
-  static let recordType = "Traveler"
-  static let kName = "name"
+    // CloudKit related
+    var cloudKitRecordID: String?
+    static let recordType = "Traveler"
+    static let kName = "name"
+    
+    init(homeLocation: CLLocation, name: String, locationsVisited: [Location] = [], locationWishList: [Location] = [], cloudKitRecordID: String? = nil) {
+        self.homeLocation = homeLocation
+        self.name = name
+        self.locationsVisited = locationsVisited
+        self.locationsWishList = locationWishList
+        self.cloudKitRecordID = cloudKitRecordID
+    }
   
 }
 

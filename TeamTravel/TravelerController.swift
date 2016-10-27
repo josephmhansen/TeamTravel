@@ -18,6 +18,7 @@ class TravelerController {
     func addVisited(location: Location, toTraveler: Traveler) {
     // We might be able to flesh these out to.
     self.masterTraveler?.locationsVisited.append(location)
+    AwardController.shared.awardBadges()
   }
   
   func addToMasterTravelerList(location: Location) {

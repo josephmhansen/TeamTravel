@@ -7,9 +7,25 @@
 //
 
 import Foundation
+import CoreLocation
+
+let downloadDate: Date = Date()
 
 struct AwardController {
-    var staticBadges: [Badge]
+    
+    static let shared = AwardController()
+    
+    let babyStepsBadge = Badge(image: nil, name: "Baby Steps", description: "Visit your first location", hasEarned: false)
+    let seriousExplorerBadge = Badge(image: nil, name: "Serious Explorer", description: "Earn 100 points", hasEarned: false)
+    let notJustAnUrbanBadge = Badge(image: nil, name: "Not Just an Urban Explorer", description: "Visit 5 parks", hasEarned: false)
+    let historicalSignificanceBadge = Badge(image: nil, name: "Historical Significance", description: "Visit 5 landmarks", hasEarned: false)
+    let oldBonesBadge = Badge(image: nil, name: "Old Bones", description: "Visit 5 museums", hasEarned: false)
+    let homewardBoundBadge = Badge(image: nil, name: "Homeward Bound", description: "Visit the place where it all started", hasEarned: false)
+    let oneSmallStepBadge = Badge(image: nil, name: "One Small Step…", description: "Visit a nonlocal location", hasEarned: false)
+    let repeatOffenderBadge = Badge(image: nil, name: "Repeat Offender", description: "Visit a location twice", hasEarned: false)
+    let loyalTravelerBadge = Badge(image: nil, name: "Loyal Traveler", description: "Use this awesome app for 3 months", hasEarned: false)
+    
+    
     
     static func updateTravelerPoints() -> Int {
         var points = 0
@@ -29,4 +45,85 @@ struct AwardController {
         }
         return points
     }
+    
+    func awardBadges() {
+        awardBabySteps()
+        awardSeriousExplorer()
+        awardNotJustAnUrbanExplorer()
+        awardHistoricalSignificance()
+        awardOldBones()
+        awardHomewardBound()
+        awardOneSmallStep()
+        awardRepeatOffender()
+        awardLoyalTraveler()
+    }
+    
+    func awardBabySteps() {
+        guard let traveler = TravelerController.shared.masterTraveler, babyStepsBadge.hasEarned == false else { return }
+        if traveler.locationsVisited.count >= 1 {
+            babyStepsBadge.hasEarned = true
+        }
+    }
+    
+     func awardSeriousExplorer() {
+        guard seriousExplorerBadge.hasEarned == false, let traveler = TravelerController.shared.masterTraveler else { return }
+        if traveler.points >= 100 {
+            seriousExplorerBadge.hasEarned = true
+        }
+    }
+    
+    func awardNotJustAnUrbanExplorer() {
+        guard let traveler = TravelerController.shared.masterTraveler, notJustAnUrbanBadge.hasEarned == false else { return }
+        let parksVisited = traveler.locationsVisited.filter { $0.type == LocationType.Parks }
+        if parksVisited.count >= 5 {
+            notJustAnUrbanBadge.hasEarned = true
+        }
+    }
+    
+    func awardHistoricalSignificance() {
+        guard let traveler = TravelerController.shared.masterTraveler, historicalSignificanceBadge.hasEarned == false else { return }
+        let landmarksVisited = traveler.locationsVisited.filter { $0.type == LocationType.Landmarks }
+        if landmarksVisited.count >= 5 {
+            historicalSignificanceBadge.hasEarned = true
+        }
+    }
+    
+    func awardOldBones() {
+        guard let traveler = TravelerController.shared.masterTraveler, oldBonesBadge.hasEarned == false else { return }
+        let museumsVisited = traveler.locationsVisited.filter { $0.type == LocationType.Museums }
+        if museumsVisited.count >= 5 {
+            oldBonesBadge.hasEarned = true
+        }
+    }
+    
+    func awardHomewardBound() {
+        guard let traveler = TravelerController.shared.masterTraveler, homewardBoundBadge.hasEarned == false else { return }
+        if traveler.locationsVisited.last?.locationName == "Dev Mountain" {
+            homewardBoundBadge.hasEarned = true
+        }
+    }
+    
+    func awardOneSmallStep() {
+        guard let traveler = TravelerController.shared.masterTraveler, oneSmallStepBadge.hasEarned == false else { return }
+        let LocationDistance = CLLocationDistance(1000)
+        if let distance = traveler.locationsVisited.last?.location.distance(from: traveler.homeLocation), distance >= LocationDistance {
+            oneSmallStepBadge.hasEarned = true
+        }
+    }
+    
+    func awardRepeatOffender() {
+        guard let traveler = TravelerController.shared.masterTraveler, repeatOffenderBadge.hasEarned == false, let datesVisited = traveler.locationsVisited.last?.datesVisited else { return }
+        if datesVisited.count >= 2 {
+            repeatOffenderBadge.hasEarned = true
+        }
+    }
+    
+    func awardLoyalTraveler() {
+        
+    }
+}
+
+extension AwardController {
+    
+    static let staticBadges: [Badge] = [AwardController.shared.babyStepsBadge, AwardController.shared.seriousExplorerBadge, AwardController.shared.notJustAnUrbanBadge, AwardController.shared.historicalSignificanceBadge, AwardController.shared.oldBonesBadge, AwardController.shared.homewardBoundBadge, AwardController.shared.oneSmallStepBadge, AwardController.shared.repeatOffenderBadge, AwardController.shared.loyalTravelerBadge]
 }

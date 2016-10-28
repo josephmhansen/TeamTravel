@@ -50,8 +50,8 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
 /// sets up locationManager to be delegate, sets accuracy to be within 10 Meters
     func setupLocationManager() {
         let locMan = CLLocationManager()
-        locMan.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locMan.distanceFilter = 100
+        locMan.desiredAccuracy = kCLLocationAccuracyBest
+        locMan.distanceFilter = 5
         locMan.delegate = self
         self.locationManager = locMan
         getCurrentLocation()
@@ -126,7 +126,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     }
     
     /// calculates 20 closest locations and creates geofences for those
-    func configureGeofencesForCurrentLocation(){
+    func configureGeofencesForCurrentLocation() {
         guard let currentLocation = currentTravelerLocation else { return }
         let distanceFilteredLocations = SearchLocationController.shared.allVisibleLocations.sorted { $0.0.location.distance(from: currentLocation) < $0.1.location.distance(from: currentLocation) }
         var locationsToGeofence: [Location] = []
@@ -155,8 +155,24 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     }
 
     // MARK: - Region monitoring
+    
     // delegate:
+    
     weak var alertDelegate: ShowFenceAlertDelegate?
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        if region.identifier == "outerRegion" {
+            
+            guard let currentLocation = currentTravelerLocation else { return }
+            SearchLocationController.shared.queryForLocations(location: currentLocation)
+            
+            let alertController = UIAlertController(title: "Reloading Geofences", message: nil, preferredStyle: .alert)
+            let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+            
+            alertController.addAction(dismissAction)
+            self.alertDelegate?.presentAlert(alert: alertController)
+        }
+    }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         

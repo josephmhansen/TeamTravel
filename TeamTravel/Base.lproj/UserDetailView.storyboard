@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MVi-GD-gPo">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Stats View Controller-->
         <scene sceneID="Upi-BP-VEY">
             <objects>
-                <viewController id="MVi-GD-gPo" sceneMemberID="viewController">
+                <viewController id="MVi-GD-gPo" customClass="StatsViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DfJ-LC-tmP"/>
                         <viewControllerLayoutGuide type="bottom" id="B5C-kZ-cIO"/>
@@ -17,12 +20,72 @@
                     <view key="view" contentMode="scaleToFill" id="Cy5-hS-vvB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8mn-My-qoD">
+                                <rect key="frame" x="0.0" y="130" width="375" height="300"/>
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5B-WJ-3cy">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                        <connections>
+                                            <segue destination="WKi-DS-seF" kind="embed" identifier="toPoints" id="uXy-yV-msO"/>
+                                        </connections>
+                                    </containerView>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qeq-Kk-AaS">
+                                        <rect key="frame" x="0.0" y="100" width="375" height="100"/>
+                                        <connections>
+                                            <segue destination="gTo-3i-1wH" kind="embed" identifier="toBadges" id="7ia-6b-KhU"/>
+                                        </connections>
+                                    </containerView>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3l-eL-bfp">
+                                        <rect key="frame" x="0.0" y="200" width="375" height="100"/>
+                                        <connections>
+                                            <segue destination="YCh-Es-RcB" kind="embed" identifier="toLocationsVisited" id="nYU-tP-2dr"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="Zz9-XK-dew"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8mn-My-qoD" firstAttribute="leading" secondItem="Cy5-hS-vvB" secondAttribute="leading" id="PMa-t8-98B"/>
+                            <constraint firstAttribute="trailing" secondItem="8mn-My-qoD" secondAttribute="trailing" id="VOk-ob-2gP"/>
+                            <constraint firstItem="8mn-My-qoD" firstAttribute="top" secondItem="DfJ-LC-tmP" secondAttribute="bottom" constant="110" id="aRQ-nJ-rcJ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="stackView" destination="8mn-My-qoD" id="t9f-ze-1Ee"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mBk-EL-cJj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="99" y="99"/>
+            <point key="canvasLocation" x="-327.19999999999999" y="98.50074962518741"/>
+        </scene>
+        <!--PointsGraph-->
+        <scene sceneID="8UT-Aj-hoa">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PointsGraph" id="WKi-DS-seF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lBW-9I-aVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="534" y="53"/>
+        </scene>
+        <!--BadgesCollectionView-->
+        <scene sceneID="CQm-bo-RXF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BadgesCollectionView" id="gTo-3i-1wH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kU2-2w-VEK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="582" y="98"/>
+        </scene>
+        <!--LocationsVisitedTableView-->
+        <scene sceneID="lQd-BW-YQi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LocationsVisitedTableView" id="YCh-Es-RcB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KVz-Jd-4aG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="603" y="143"/>
         </scene>
     </scenes>
 </document>

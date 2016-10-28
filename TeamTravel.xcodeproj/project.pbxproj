@@ -22,6 +22,13 @@
 		D0272A931DC014AB00565EDB /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0272A921DC014AB00565EDB /* Location.swift */; };
 		D0D8024E1DC0096100F02629 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8024D1DC0096100F02629 /* Badge.swift */; };
 		D0D802531DC00E1900F02629 /* AwardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D802521DC00E1900F02629 /* AwardController.swift */; };
+		D0ED86941DC40D2B002BFB3F /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ED86931DC40D2B002BFB3F /* StatsViewController.swift */; };
+		D0ED86971DC40F87002BFB3F /* PointsGraph.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0ED86951DC40F87002BFB3F /* PointsGraph.storyboard */; };
+		D0ED86991DC40F9B002BFB3F /* BadgesCollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0ED86981DC40F9B002BFB3F /* BadgesCollectionView.storyboard */; };
+		D0ED869C1DC40FB3002BFB3F /* LocationsVisitedTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0ED869A1DC40FB3002BFB3F /* LocationsVisitedTableView.storyboard */; };
+		D0ED869E1DC41020002BFB3F /* LocationsVisitedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ED869D1DC41020002BFB3F /* LocationsVisitedTableViewController.swift */; };
+		D0ED86A01DC41035002BFB3F /* BadgesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ED869F1DC41035002BFB3F /* BadgesCollectionViewController.swift */; };
+		D0ED86A21DC4104A002BFB3F /* PointsGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ED86A11DC4104A002BFB3F /* PointsGraphViewController.swift */; };
 		FA6384ED1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6384EC1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift */; };
 		FA6384EF1DC11E6D0026C6F6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6384EE1DC11E6D0026C6F6 /* MockData.swift */; };
 /* End PBXBuildFile section */
@@ -65,6 +72,13 @@
 		D0272A921DC014AB00565EDB /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		D0D8024D1DC0096100F02629 /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		D0D802521DC00E1900F02629 /* AwardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardController.swift; sourceTree = "<group>"; };
+		D0ED86931DC40D2B002BFB3F /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		D0ED86961DC40F87002BFB3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PointsGraph.storyboard; sourceTree = "<group>"; };
+		D0ED86981DC40F9B002BFB3F /* BadgesCollectionView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BadgesCollectionView.storyboard; sourceTree = "<group>"; };
+		D0ED869B1DC40FB3002BFB3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LocationsVisitedTableView.storyboard; sourceTree = "<group>"; };
+		D0ED869D1DC41020002BFB3F /* LocationsVisitedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsVisitedTableViewController.swift; sourceTree = "<group>"; };
+		D0ED869F1DC41035002BFB3F /* BadgesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesCollectionViewController.swift; sourceTree = "<group>"; };
+		D0ED86A11DC4104A002BFB3F /* PointsGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointsGraphViewController.swift; sourceTree = "<group>"; };
 		FA6384EC1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TESTSearchResultTableViewController.swift; sourceTree = "<group>"; };
 		FA6384EE1DC11E6D0026C6F6 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +139,9 @@
 				72602F5C1DBFC02A00FC53EC /* Main.storyboard */,
 				72CBB0D71DC2A9B200B53689 /* MainMapView.storyboard */,
 				72CBB0D41DC2A98E00B53689 /* UserDetailView.storyboard */,
+				D0ED869A1DC40FB3002BFB3F /* LocationsVisitedTableView.storyboard */,
+				D0ED86981DC40F9B002BFB3F /* BadgesCollectionView.storyboard */,
+				D0ED86951DC40F87002BFB3F /* PointsGraph.storyboard */,
 				72602F5F1DBFC02A00FC53EC /* Assets.xcassets */,
 				72602F611DBFC02A00FC53EC /* LaunchScreen.storyboard */,
 				72602F641DBFC02A00FC53EC /* Info.plist */,
@@ -183,6 +200,10 @@
 			isa = PBXGroup;
 			children = (
 				FA6384EC1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift */,
+				D0ED86931DC40D2B002BFB3F /* StatsViewController.swift */,
+				D0ED869D1DC41020002BFB3F /* LocationsVisitedTableViewController.swift */,
+				D0ED869F1DC41035002BFB3F /* BadgesCollectionViewController.swift */,
+				D0ED86A11DC4104A002BFB3F /* PointsGraphViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -299,6 +320,9 @@
 			files = (
 				72CBB0D91DC2A9B200B53689 /* MainMapView.storyboard in Resources */,
 				72CBB0D61DC2A98E00B53689 /* UserDetailView.storyboard in Resources */,
+				D0ED869C1DC40FB3002BFB3F /* LocationsVisitedTableView.storyboard in Resources */,
+				D0ED86991DC40F9B002BFB3F /* BadgesCollectionView.storyboard in Resources */,
+				D0ED86971DC40F87002BFB3F /* PointsGraph.storyboard in Resources */,
 				72602F631DBFC02A00FC53EC /* LaunchScreen.storyboard in Resources */,
 				72602F601DBFC02A00FC53EC /* Assets.xcassets in Resources */,
 				72602F5E1DBFC02A00FC53EC /* Main.storyboard in Resources */,
@@ -327,7 +351,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA6384ED1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift in Sources */,
+				D0ED86941DC40D2B002BFB3F /* StatsViewController.swift in Sources */,
 				72E8A5961DC01B9000729613 /* CoreLocationController.swift in Sources */,
+				D0ED869E1DC41020002BFB3F /* LocationsVisitedTableViewController.swift in Sources */,
+				D0ED86A21DC4104A002BFB3F /* PointsGraphViewController.swift in Sources */,
+				D0ED86A01DC41035002BFB3F /* BadgesCollectionViewController.swift in Sources */,
 				D0D802531DC00E1900F02629 /* AwardController.swift in Sources */,
 				72602F591DBFC02A00FC53EC /* AppDelegate.swift in Sources */,
 				D0272A931DC014AB00565EDB /* Location.swift in Sources */,
@@ -401,6 +429,22 @@
 				72CBB0D81DC2A9B200B53689 /* Base */,
 			);
 			name = MainMapView.storyboard;
+			sourceTree = "<group>";
+		};
+		D0ED86951DC40F87002BFB3F /* PointsGraph.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0ED86961DC40F87002BFB3F /* Base */,
+			);
+			name = PointsGraph.storyboard;
+			sourceTree = "<group>";
+		};
+		D0ED869A1DC40FB3002BFB3F /* LocationsVisitedTableView.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0ED869B1DC40FB3002BFB3F /* Base */,
+			);
+			name = LocationsVisitedTableView.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

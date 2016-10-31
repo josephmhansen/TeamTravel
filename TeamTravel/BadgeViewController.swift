@@ -11,6 +11,8 @@ import UIKit
 class BadgeViewController: UIViewController {
     
     var image = #imageLiteral(resourceName: "silverbadge")
+    var badgeTitle = ""
+    var badgeDescription = ""
     
     // MARK: - Outlets
     
@@ -27,7 +29,10 @@ class BadgeViewController: UIViewController {
     
     // MARK: - View
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        badgeImage.image = image
+        titleLabel.text = badgeTitle
+        descriptionLabel.text = badgeDescription
     }
 }

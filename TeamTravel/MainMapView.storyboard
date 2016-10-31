@@ -132,10 +132,10 @@
             </objects>
             <point key="canvasLocation" x="1945" y="-224"/>
         </scene>
-        <!--Drawer Content View Controller-->
+        <!--Location List Drawer Content View Controller-->
         <scene sceneID="1cR-cD-Gai">
             <objects>
-                <viewController storyboardIdentifier="DrawerContentViewController" id="ivy-3E-KkU" customClass="DrawerContentViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DrawerContentViewController" id="ivy-3E-KkU" customClass="LocationListDrawerContentViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QuC-2H-das"/>
                         <viewControllerLayoutGuide type="bottom" id="q3Q-Ja-Ruy"/>
@@ -191,7 +191,7 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rk0-RI-Rt1">
                                                 <rect key="frame" x="0.0" y="68" width="375" height="55"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55" id="4d6-GJ-2ow"/>
                                                 </constraints>
@@ -254,6 +254,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="customSegmentedControlView" destination="rk0-RI-Rt1" id="TK0-5p-i9W"/>
                         <outlet property="gripperView" destination="2S4-TW-Cpq" id="qvm-vW-kwY"/>
                         <outlet property="searchBar" destination="SdI-67-HKI" id="BAe-g2-quD"/>
                         <outlet property="seperatorHeightConstraint" destination="4Qx-Tn-PkO" id="o2j-7p-e9G"/>

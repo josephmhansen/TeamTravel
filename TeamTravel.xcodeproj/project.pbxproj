@@ -18,7 +18,7 @@
 		7295FA991DC2AF0200BD28B5 /* PulleyPassthroughScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295FA931DC2AF0200BD28B5 /* PulleyPassthroughScrollView.swift */; };
 		7295FA9A1DC2AF0200BD28B5 /* LocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295FA941DC2AF0200BD28B5 /* LocationMapViewController.swift */; };
 		7295FA9B1DC2AF0200BD28B5 /* PrimaryContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295FA951DC2AF0200BD28B5 /* PrimaryContentViewController.swift */; };
-		7295FA9C1DC2AF0200BD28B5 /* DrawerContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295FA961DC2AF0200BD28B5 /* DrawerContentViewController.swift */; };
+		7295FA9C1DC2AF0200BD28B5 /* LocationListDrawerContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295FA961DC2AF0200BD28B5 /* LocationListDrawerContentViewController.swift */; };
 		7295FA9D1DC2AF0200BD28B5 /* PrimaryTransitionTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295FA971DC2AF0200BD28B5 /* PrimaryTransitionTargetViewController.swift */; };
 		72CBB0D61DC2A98E00B53689 /* UserDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72CBB0D41DC2A98E00B53689 /* UserDetailView.storyboard */; };
 		72E8A5961DC01B9000729613 /* CoreLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E8A5951DC01B9000729613 /* CoreLocationController.swift */; };
@@ -66,7 +66,7 @@
 		7295FA931DC2AF0200BD28B5 /* PulleyPassthroughScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PulleyPassthroughScrollView.swift; path = ../PulleyLib/PulleyPassthroughScrollView.swift; sourceTree = "<group>"; };
 		7295FA941DC2AF0200BD28B5 /* LocationMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationMapViewController.swift; path = ../PulleyLib/LocationMapViewController.swift; sourceTree = "<group>"; };
 		7295FA951DC2AF0200BD28B5 /* PrimaryContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryContentViewController.swift; sourceTree = "<group>"; };
-		7295FA961DC2AF0200BD28B5 /* DrawerContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerContentViewController.swift; sourceTree = "<group>"; };
+		7295FA961DC2AF0200BD28B5 /* LocationListDrawerContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListDrawerContentViewController.swift; sourceTree = "<group>"; };
 		7295FA971DC2AF0200BD28B5 /* PrimaryTransitionTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryTransitionTargetViewController.swift; sourceTree = "<group>"; };
 		72CBB0D51DC2A98E00B53689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/UserDetailView.storyboard; sourceTree = "<group>"; };
 		72E8A5951DC01B9000729613 /* CoreLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocationController.swift; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 				7295FA931DC2AF0200BD28B5 /* PulleyPassthroughScrollView.swift */,
 				7295FA941DC2AF0200BD28B5 /* LocationMapViewController.swift */,
 				7295FA951DC2AF0200BD28B5 /* PrimaryContentViewController.swift */,
-				7295FA961DC2AF0200BD28B5 /* DrawerContentViewController.swift */,
+				7295FA961DC2AF0200BD28B5 /* LocationListDrawerContentViewController.swift */,
 				7295FA971DC2AF0200BD28B5 /* PrimaryTransitionTargetViewController.swift */,
 			);
 			name = MainMapViewControllers;
@@ -351,7 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA6384ED1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift in Sources */,
-				7295FA9C1DC2AF0200BD28B5 /* DrawerContentViewController.swift in Sources */,
+				7295FA9C1DC2AF0200BD28B5 /* LocationListDrawerContentViewController.swift in Sources */,
 				72E8A5961DC01B9000729613 /* CoreLocationController.swift in Sources */,
 				D0D802531DC00E1900F02629 /* AwardController.swift in Sources */,
 				7295FA9D1DC2AF0200BD28B5 /* PrimaryTransitionTargetViewController.swift in Sources */,

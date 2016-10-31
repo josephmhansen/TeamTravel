@@ -14,7 +14,7 @@ class Traveler {
     var badges: [Badge] = AwardController.staticBadges
   
     var points: Int {
-        return AwardController.updateTravelerPoints()
+        return AwardController.updateTravelerPoints().points
     }
   
     var locationsVisited: [Location] = []

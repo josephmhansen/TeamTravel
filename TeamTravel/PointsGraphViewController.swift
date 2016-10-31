@@ -13,6 +13,8 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
     let graphViewBox = UIView()
     let pointGraph = ORKLineGraphChartView()
     
+    var cumulativePoints: [Int] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(setupUser), name: Notification.Name(rawValue: "currentLocationUpdated"), object: nil)
@@ -29,7 +31,10 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
         if TravelerController.shared.masterTraveler == nil {
         MockData.shared.setUpTraveler()
         }
+        setUpPointsToPresent()
+        setUpDateLabels()
         pointGraph.reloadData()
+        pointGraph.animate(withDuration: 2)
     }
     
     func configureGraphViewBox(){
@@ -57,17 +62,51 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
         pointGraph.noDataText = "No points earned yet."
     }
     
+    func setUpPointsToPresent(){
+        cumulativePoints = []
+        let points = AwardController.updateTravelerPoints().pointsArray
+        var sum = 0;
+        for point in points {
+            sum += point
+            cumulativePoints.append(sum)
+            print(point)
+        }
+        
+    }
+    
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        return formatter
+    }
+    
+    func setUpDateLabels(){
+        guard let traveler = TravelerController.shared.masterTraveler else { return }
+        let locations = traveler.locationsVisited
+        var yearsInUse: [String] = []
+        for location in locations {
+            if let dates = location.datesVisited {
+                for visit in dates {
+                    print(dateFormatter.string(from: visit))
+                }
+            }
+
+        }
+    }
+    
     // MARK: - Plot data source
     
     func numberOfDivisionsInXAxis(for graphChartView: ORKGraphChartView) -> Int {
-        return 10
+        guard let traveler = TravelerController.shared.masterTraveler else { return 1}
+        return traveler.locationsVisited.count
     }
     func graphChartView(_ graphChartView: ORKGraphChartView, numberOfDataPointsForPlotIndex plotIndex: Int) -> Int {
-        return 0
+        guard let traveler = TravelerController.shared.masterTraveler else { return 0 }
+        return traveler.locationsVisited.count
     }
     
     func graphChartView(_ graphChartView: ORKGraphChartView, dataPointForPointIndex pointIndex: Int, plotIndex: Int) -> ORKValueRange {
-        let point = ORKValueRange(value: 43.0 + Double(pointIndex)*Double(pointIndex))
+        let point = ORKValueRange(value: Double(self.cumulativePoints[pointIndex]))
         
         return point
         
@@ -78,7 +117,7 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
     
     func maximumValue(for graphChartView: ORKGraphChartView) -> Double {
         guard let traveler = TravelerController.shared.masterTraveler else { return 10 }
-        return Double(traveler.points)
+        return Double(traveler.points + 2)
     }
     
     func minimumValue(for graphChartView: ORKGraphChartView) -> Double {
@@ -86,11 +125,15 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
     }
     
     func graphChartView(_ graphChartView: ORKGraphChartView, titleForXAxisAtPointIndex pointIndex: Int) -> String? {
-        return nil//"Date"
+        if pointIndex == 0 {
+            return "2016"
+        } else {
+            return nil
+        }
     }
     
     func graphChartView(_ graphChartView: ORKGraphChartView, drawsPointIndicatorsForPlotIndex plotIndex: Int) -> Bool {
-        return false
+        return true
     }
     
     

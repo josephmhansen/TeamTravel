@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import ResearchKit
 
 class PointsGraphViewController: UIViewController {
     let graphViewBox = UIView()
+    let pointGraph = ORKLineGraphChartView()
     
     override func viewDidLoad() {
         super.viewDidLoad()

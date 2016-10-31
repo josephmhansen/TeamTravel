@@ -29,6 +29,7 @@
 		D0ED869E1DC41020002BFB3F /* LocationsVisitedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ED869D1DC41020002BFB3F /* LocationsVisitedTableViewController.swift */; };
 		D0ED86A21DC4104A002BFB3F /* PointsGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ED86A11DC4104A002BFB3F /* PointsGraphViewController.swift */; };
 		D0ED86A41DC7ADBC002BFB3F /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ED86A31DC7ADBC002BFB3F /* BadgesViewController.swift */; };
+		FA1D6FE51DC7C5D000D5790B /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1D6FE01DC7C5B400D5790B /* ResearchKit.framework */; };
 		FA6384ED1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6384EC1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift */; };
 		FA6384EF1DC11E6D0026C6F6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6384EE1DC11E6D0026C6F6 /* MockData.swift */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 72602F541DBFC02A00FC53EC;
 			remoteInfo = TeamTravel;
+		};
+		FA1D6FDF1DC7C5B400D5790B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA1D6FD91DC7C5B300D5790B /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B183A5951A8535D100C76870;
+			remoteInfo = ResearchKit;
+		};
+		FA1D6FE11DC7C5B400D5790B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA1D6FD91DC7C5B300D5790B /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
+			remoteInfo = ResearchKitTests;
+		};
+		FA1D6FE31DC7C5C600D5790B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA1D6FD91DC7C5B300D5790B /* ResearchKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B183A4731A8535D100C76870;
+			remoteInfo = ResearchKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -79,6 +101,7 @@
 		D0ED869D1DC41020002BFB3F /* LocationsVisitedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsVisitedTableViewController.swift; sourceTree = "<group>"; };
 		D0ED86A11DC4104A002BFB3F /* PointsGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointsGraphViewController.swift; sourceTree = "<group>"; };
 		D0ED86A31DC7ADBC002BFB3F /* BadgesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BadgesViewController.swift; path = ../BadgesViewController.swift; sourceTree = "<group>"; };
+		FA1D6FD91DC7C5B300D5790B /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ResearchKit/ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
 		FA6384EC1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TESTSearchResultTableViewController.swift; sourceTree = "<group>"; };
 		FA6384EE1DC11E6D0026C6F6 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1D6FE51DC7C5D000D5790B /* ResearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +135,7 @@
 		72602F4C1DBFC02A00FC53EC = {
 			isa = PBXGroup;
 			children = (
+				FA1D6FD91DC7C5B300D5790B /* ResearchKit.xcodeproj */,
 				72602F571DBFC02A00FC53EC /* TeamTravel */,
 				72602F6C1DBFC02A00FC53EC /* TeamTravelTests */,
 				72602F771DBFC02A00FC53EC /* TeamTravelUITests */,
@@ -216,6 +241,15 @@
 			name = "Story Boards";
 			sourceTree = "<group>";
 		};
+		FA1D6FDA1DC7C5B300D5790B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA1D6FE01DC7C5B400D5790B /* ResearchKit.framework */,
+				FA1D6FE21DC7C5B400D5790B /* ResearchKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -230,6 +264,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FA1D6FE41DC7C5C600D5790B /* PBXTargetDependency */,
 			);
 			name = TeamTravel;
 			productName = TeamTravel;
@@ -312,6 +347,12 @@
 			mainGroup = 72602F4C1DBFC02A00FC53EC;
 			productRefGroup = 72602F561DBFC02A00FC53EC /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FA1D6FDA1DC7C5B300D5790B /* Products */;
+					ProjectRef = FA1D6FD91DC7C5B300D5790B /* ResearchKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				72602F541DBFC02A00FC53EC /* TeamTravel */,
@@ -320,6 +361,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FA1D6FE01DC7C5B400D5790B /* ResearchKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ResearchKit.framework;
+			remoteRef = FA1D6FDF1DC7C5B400D5790B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FA1D6FE21DC7C5B400D5790B /* ResearchKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ResearchKitTests.xctest;
+			remoteRef = FA1D6FE11DC7C5B400D5790B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		72602F531DBFC02A00FC53EC /* Resources */ = {
@@ -403,6 +461,11 @@
 			isa = PBXTargetDependency;
 			target = 72602F541DBFC02A00FC53EC /* TeamTravel */;
 			targetProxy = 72602F751DBFC02A00FC53EC /* PBXContainerItemProxy */;
+		};
+		FA1D6FE41DC7C5C600D5790B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ResearchKit;
+			targetProxy = FA1D6FE31DC7C5C600D5790B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -16,7 +16,7 @@
 		72602F791DBFC02A00FC53EC /* TeamTravelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72602F781DBFC02A00FC53EC /* TeamTravelUITests.swift */; };
 		7295FA921DC2ACFB00BD28B5 /* MainMapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7295FA911DC2ACFB00BD28B5 /* MainMapView.storyboard */; };
 		7295FA991DC2AF0200BD28B5 /* PulleyPassthroughScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295FA931DC2AF0200BD28B5 /* PulleyPassthroughScrollView.swift */; };
-		7295FA9A1DC2AF0200BD28B5 /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295FA941DC2AF0200BD28B5 /* LocationListViewController.swift */; };
+		7295FA9A1DC2AF0200BD28B5 /* LocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295FA941DC2AF0200BD28B5 /* LocationMapViewController.swift */; };
 		7295FA9B1DC2AF0200BD28B5 /* PrimaryContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295FA951DC2AF0200BD28B5 /* PrimaryContentViewController.swift */; };
 		7295FA9C1DC2AF0200BD28B5 /* DrawerContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295FA961DC2AF0200BD28B5 /* DrawerContentViewController.swift */; };
 		7295FA9D1DC2AF0200BD28B5 /* PrimaryTransitionTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295FA971DC2AF0200BD28B5 /* PrimaryTransitionTargetViewController.swift */; };
@@ -64,7 +64,7 @@
 		72602F7A1DBFC02A00FC53EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7295FA911DC2ACFB00BD28B5 /* MainMapView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMapView.storyboard; sourceTree = "<group>"; };
 		7295FA931DC2AF0200BD28B5 /* PulleyPassthroughScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PulleyPassthroughScrollView.swift; path = ../PulleyLib/PulleyPassthroughScrollView.swift; sourceTree = "<group>"; };
-		7295FA941DC2AF0200BD28B5 /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationListViewController.swift; path = ../PulleyLib/LocationListViewController.swift; sourceTree = "<group>"; };
+		7295FA941DC2AF0200BD28B5 /* LocationMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationMapViewController.swift; path = ../PulleyLib/LocationMapViewController.swift; sourceTree = "<group>"; };
 		7295FA951DC2AF0200BD28B5 /* PrimaryContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryContentViewController.swift; sourceTree = "<group>"; };
 		7295FA961DC2AF0200BD28B5 /* DrawerContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerContentViewController.swift; sourceTree = "<group>"; };
 		7295FA971DC2AF0200BD28B5 /* PrimaryTransitionTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryTransitionTargetViewController.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				7295FA931DC2AF0200BD28B5 /* PulleyPassthroughScrollView.swift */,
-				7295FA941DC2AF0200BD28B5 /* LocationListViewController.swift */,
+				7295FA941DC2AF0200BD28B5 /* LocationMapViewController.swift */,
 				7295FA951DC2AF0200BD28B5 /* PrimaryContentViewController.swift */,
 				7295FA961DC2AF0200BD28B5 /* DrawerContentViewController.swift */,
 				7295FA971DC2AF0200BD28B5 /* PrimaryTransitionTargetViewController.swift */,
@@ -364,7 +364,7 @@
 				D0D8024E1DC0096100F02629 /* Badge.swift in Sources */,
 				9CA177991DC10636001D655B /* TravelerController.swift in Sources */,
 				FA6384EF1DC11E6D0026C6F6 /* MockData.swift in Sources */,
-				7295FA9A1DC2AF0200BD28B5 /* LocationListViewController.swift in Sources */,
+				7295FA9A1DC2AF0200BD28B5 /* LocationMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

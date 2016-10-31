@@ -16,9 +16,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //Do not delete
     var strongReferenceToLocationManager: CLLocationManager?
 
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        // Override point for customization after application launch.
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        // To create from a Storyboard
+        window?.rootViewController = UIStoryboard(name: "MainMapView", bundle: nil).instantiateInitialViewController()!
+        
+        // To create in code (uncomment this block)
+        /*
+         let mainContentVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PrimaryContentViewController")
+         let drawerContentVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DrawerContentViewController")
+         let pulleyDrawerVC = PulleyViewController(contentViewController: mainContentVC, drawerViewController: drawerContentVC)
+         
+         // Uncomment this next line to give the drawer a starting position, in this case: closed.
+         // pulleyDrawerVC.initialDrawerPosition = .closed
+         
+         window?.rootViewController = pulleyDrawerVC
+         */
+        
+        window?.makeKeyAndVisible()
+        
+        return true
+    }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         CoreLocationController.shared.setupLocationManager()
         self.strongReferenceToLocationManager = CoreLocationController.shared.locationManager
+        
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+        UINavigationBar.appearance().isTranslucent = true
         
         return true
     }

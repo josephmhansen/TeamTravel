@@ -57,6 +57,10 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mq-fE-EvM">
                                                 <rect key="frame" x="0.0" y="0.0" width="114.5" height="30"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="pointsButtonTapped" destination="MVi-GD-gPo" eventType="touchUpInside" id="YiP-5f-bWu"/>
+                                                    <action selector="pointsButtonTapped:" destination="MVi-GD-gPo" eventType="touchUpInside" id="0C1-9p-tNW"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wO2-hY-jyX">
                                                 <rect key="frame" x="0.0" y="30" width="114.5" height="20.5"/>
@@ -72,6 +76,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJ9-Tq-zUu">
                                                 <rect key="frame" x="0.0" y="0.0" width="114" height="30"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="badgesButtonTapped" destination="MVi-GD-gPo" eventType="touchUpInside" id="7jX-a1-Rzi"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Badges" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFV-5z-NkQ">
                                                 <rect key="frame" x="0.0" y="30" width="114" height="20.5"/>
@@ -87,6 +94,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="buX-uJ-qdY">
                                                 <rect key="frame" x="34.5" y="0.0" width="46" height="30"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="locationsButtonTapped" destination="MVi-GD-gPo" eventType="touchUpInside" id="lp5-KP-Dvz"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXG-Yt-5HC">
                                                 <rect key="frame" x="20.5" y="30" width="74" height="20.5"/>
@@ -126,6 +136,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="badgesView" destination="qeq-Kk-AaS" id="hEf-Ye-zG6"/>
+                        <outlet property="locationsView" destination="W3l-eL-bfp" id="N7d-hZ-BYy"/>
+                        <outlet property="pointsView" destination="T5B-WJ-3cy" id="l63-V7-0DC"/>
                         <outlet property="stackView" destination="8mn-My-qoD" id="t9f-ze-1Ee"/>
                     </connections>
                 </viewController>

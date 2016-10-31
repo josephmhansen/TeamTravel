@@ -21,11 +21,10 @@ class BadgeViewController: UIViewController {
     @IBOutlet var descriptionLabel: UILabel!
     
     // MARK: - Actions
-    
-    @IBAction func swipeToDismissView(_ sender: Any) {
+
+    @IBAction func backButtonTapped() {
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
-    
     
     // MARK: - View
 

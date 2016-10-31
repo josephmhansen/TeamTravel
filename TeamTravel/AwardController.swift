@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 
 let downloadDate: Date = Date()
 
@@ -15,15 +16,15 @@ struct AwardController {
     
     static let shared = AwardController()
     
-    let babyStepsBadge = Badge(image: nil, name: "Baby Steps", description: "Visit your first location", hasEarned: false)
-    let seriousExplorerBadge = Badge(image: nil, name: "Serious Explorer", description: "Earn 100 points", hasEarned: false)
-    let notJustAnUrbanBadge = Badge(image: nil, name: "Not Just an Urban Explorer", description: "Visit 5 parks", hasEarned: false)
-    let historicalSignificanceBadge = Badge(image: nil, name: "Historical Significance", description: "Visit 5 landmarks", hasEarned: false)
-    let oldBonesBadge = Badge(image: nil, name: "Old Bones", description: "Visit 5 museums", hasEarned: false)
-    let homewardBoundBadge = Badge(image: nil, name: "Homeward Bound", description: "Visit the place where it all started", hasEarned: false)
-    let oneSmallStepBadge = Badge(image: nil, name: "One Small Step…", description: "Visit a nonlocal location", hasEarned: false)
-    let repeatOffenderBadge = Badge(image: nil, name: "Repeat Offender", description: "Visit a location twice", hasEarned: false)
-    let loyalTravelerBadge = Badge(image: nil, name: "Loyal Traveler", description: "Use this awesome app for 3 months", hasEarned: false)
+    let babyStepsBadge = Badge(image: #imageLiteral(resourceName: "silverbadge"), name: "Baby Steps", description: "Visit your first location", hasEarned: false)
+    let seriousExplorerBadge = Badge(image: #imageLiteral(resourceName: "silverbadge"), name: "Serious Explorer", description: "Earn 100 points", hasEarned: false)
+    let notJustAnUrbanBadge = Badge(image: #imageLiteral(resourceName: "silverbadge"), name: "Not Just an Urban Explorer", description: "Visit 5 parks", hasEarned: false)
+    let historicalSignificanceBadge = Badge(image: #imageLiteral(resourceName: "silverbadge"), name: "Historical Significance", description: "Visit 5 landmarks", hasEarned: false)
+    let oldBonesBadge = Badge(image: #imageLiteral(resourceName: "silverbadge"), name: "Old Bones", description: "Visit 5 museums", hasEarned: false)
+    let homewardBoundBadge = Badge(image: #imageLiteral(resourceName: "silverbadge"), name: "Homeward Bound", description: "Visit the place where it all started", hasEarned: false)
+    let oneSmallStepBadge = Badge(image: #imageLiteral(resourceName: "silverbadge"), name: "One Small Step…", description: "Visit a nonlocal location", hasEarned: false)
+    let repeatOffenderBadge = Badge(image: #imageLiteral(resourceName: "silverbadge"), name: "Repeat Offender", description: "Visit a location twice", hasEarned: false)
+    let loyalTravelerBadge = Badge(image: #imageLiteral(resourceName: "silverbadge"), name: "Loyal Traveler", description: "Use this awesome app for 3 months", hasEarned: false)
     
     
     

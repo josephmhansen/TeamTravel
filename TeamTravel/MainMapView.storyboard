@@ -189,7 +189,7 @@
                                                     <constraint firstItem="2S4-TW-Cpq" firstAttribute="centerX" secondItem="OMs-NQ-cJu" secondAttribute="centerX" id="wFU-wk-7rK"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rk0-RI-Rt1">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rk0-RI-Rt1" customClass="SegmentedControl" customModule="TeamTravel" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="68" width="375" height="55"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -204,7 +204,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="375" height="81"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QrR-SM-B6h" id="YWA-gj-j6e">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Location Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lAS-Ae-0Vm">
@@ -215,7 +215,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ehl-PZ-QRy">
-                                                                    <rect key="frame" x="15" y="42" width="67" height="21"/>
+                                                                    <rect key="frame" x="15" y="42" width="67" height="20.5"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -254,9 +254,9 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="customSegmentedControlView" destination="rk0-RI-Rt1" id="TK0-5p-i9W"/>
                         <outlet property="gripperView" destination="2S4-TW-Cpq" id="qvm-vW-kwY"/>
                         <outlet property="searchBar" destination="SdI-67-HKI" id="BAe-g2-quD"/>
+                        <outlet property="segmentedControl" destination="rk0-RI-Rt1" id="Nac-fy-RKV"/>
                         <outlet property="seperatorHeightConstraint" destination="4Qx-Tn-PkO" id="o2j-7p-e9G"/>
                         <outlet property="tableView" destination="njO-tj-uAV" id="ISn-w2-Baa"/>
                     </connections>

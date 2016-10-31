@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -47,12 +48,81 @@
                                     <constraint firstAttribute="height" constant="300" id="Zz9-XK-dew"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="22r-RL-ffc">
+                                <rect key="frame" x="16" y="59" width="343" height="72"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Xzj-wr-hNt">
+                                        <rect key="frame" x="0.0" y="11" width="114.5" height="50.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mq-fE-EvM">
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wO2-hY-jyX">
+                                                <rect key="frame" x="0.0" y="30" width="114.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XKu-Np-rqk">
+                                        <rect key="frame" x="114.5" y="11" width="114" height="50.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJ9-Tq-zUu">
+                                                <rect key="frame" x="0.0" y="0.0" width="114" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Badges" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFV-5z-NkQ">
+                                                <rect key="frame" x="0.0" y="30" width="114" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Leb-1L-3Tg">
+                                        <rect key="frame" x="228.5" y="11" width="114.5" height="50.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="buX-uJ-qdY">
+                                                <rect key="frame" x="34.5" y="0.0" width="46" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXG-Yt-5HC">
+                                                <rect key="frame" x="20.5" y="30" width="74" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Z2-CV-2Ec">
+                                <rect key="frame" x="16" y="28" width="343" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Achievements">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="24"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="22r-RL-ffc" firstAttribute="trailing" secondItem="Cy5-hS-vvB" secondAttribute="trailingMargin" id="BPf-NU-bwJ"/>
+                            <constraint firstItem="22r-RL-ffc" firstAttribute="leading" secondItem="Cy5-hS-vvB" secondAttribute="leadingMargin" id="BgT-Gq-ZVj"/>
+                            <constraint firstItem="22r-RL-ffc" firstAttribute="centerX" secondItem="Cy5-hS-vvB" secondAttribute="centerX" id="E3h-iI-C1N"/>
                             <constraint firstItem="8mn-My-qoD" firstAttribute="leading" secondItem="Cy5-hS-vvB" secondAttribute="leading" id="PMa-t8-98B"/>
                             <constraint firstAttribute="trailing" secondItem="8mn-My-qoD" secondAttribute="trailing" id="VOk-ob-2gP"/>
                             <constraint firstItem="8mn-My-qoD" firstAttribute="top" secondItem="DfJ-LC-tmP" secondAttribute="bottom" constant="110" id="aRQ-nJ-rcJ"/>
+                            <constraint firstItem="22r-RL-ffc" firstAttribute="top" secondItem="DfJ-LC-tmP" secondAttribute="bottom" constant="39" id="ays-Lj-meg"/>
+                            <constraint firstItem="8mn-My-qoD" firstAttribute="top" secondItem="22r-RL-ffc" secondAttribute="bottom" constant="-1" id="eew-tW-2Qp"/>
                         </constraints>
                     </view>
                     <connections>

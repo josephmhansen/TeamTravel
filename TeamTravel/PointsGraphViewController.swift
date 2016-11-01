@@ -17,6 +17,7 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        MockData.init()
         NotificationCenter.default.addObserver(self, selector: #selector(setupUser), name: Notification.Name(rawValue: "currentLocationUpdated"), object: nil)
         
         configureGraphViewBox()

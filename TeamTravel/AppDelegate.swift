@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.strongReferenceToLocationManager = CoreLocationController.shared.locationManager
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "PointsGraph", bundle: nil)
-        let exampleViewController: PointsGraphViewController = mainStoryboard.instantiateInitialViewController() as! PointsGraphViewController
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "UserDetailView", bundle: nil)
+        let exampleViewController: StatsViewController = mainStoryboard.instantiateInitialViewController() as! StatsViewController
         
         self.window?.rootViewController = exampleViewController
         

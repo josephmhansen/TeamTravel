@@ -35,9 +35,9 @@
 		D0437DC81DC94EC1005238BE /* LocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0437DC31DC94EC1005238BE /* LocationMapViewController.swift */; };
 		D0437DC91DC94EC1005238BE /* PrimaryContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0437DC41DC94EC1005238BE /* PrimaryContentViewController.swift */; };
 		D0437DCA1DC94EC1005238BE /* PrimaryTransitionTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0437DC51DC94EC1005238BE /* PrimaryTransitionTargetViewController.swift */; };
-		D0437DCB1DC94EC1005238BE /* PulleyPassthroughScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0437DC61DC94EC1005238BE /* PulleyPassthroughScrollView.swift */; };
 		D0D8024E1DC0096100F02629 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8024D1DC0096100F02629 /* Badge.swift */; };
 		D0D802531DC00E1900F02629 /* AwardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D802521DC00E1900F02629 /* AwardController.swift */; };
+		D0DAA6631DC950E40088C71F /* PulleyPassthroughScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAA6621DC950E40088C71F /* PulleyPassthroughScrollView.swift */; };
 		FA6384ED1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6384EC1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift */; };
 		FA6384EF1DC11E6D0026C6F6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6384EE1DC11E6D0026C6F6 /* MockData.swift */; };
 /* End PBXBuildFile section */
@@ -94,9 +94,9 @@
 		D0437DC31DC94EC1005238BE /* LocationMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationMapViewController.swift; path = "../../../Documents/Dev Mountain work/TeamTravel/TeamTravel/LocationMapViewController.swift"; sourceTree = "<group>"; };
 		D0437DC41DC94EC1005238BE /* PrimaryContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrimaryContentViewController.swift; path = "../../../Documents/Dev Mountain work/TeamTravel/TeamTravel/PrimaryContentViewController.swift"; sourceTree = "<group>"; };
 		D0437DC51DC94EC1005238BE /* PrimaryTransitionTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrimaryTransitionTargetViewController.swift; path = "../../../Documents/Dev Mountain work/TeamTravel/TeamTravel/PrimaryTransitionTargetViewController.swift"; sourceTree = "<group>"; };
-		D0437DC61DC94EC1005238BE /* PulleyPassthroughScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PulleyPassthroughScrollView.swift; path = "../../../Documents/Dev Mountain work/TeamTravel/TeamTravel/PulleyPassthroughScrollView.swift"; sourceTree = "<group>"; };
 		D0D8024D1DC0096100F02629 /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		D0D802521DC00E1900F02629 /* AwardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardController.swift; sourceTree = "<group>"; };
+		D0DAA6621DC950E40088C71F /* PulleyPassthroughScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PulleyPassthroughScrollView.swift; path = TeamTravel/PulleyPassthroughScrollView.swift; sourceTree = SOURCE_ROOT; };
 		FA6384EC1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TESTSearchResultTableViewController.swift; sourceTree = "<group>"; };
 		FA6384EE1DC11E6D0026C6F6 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,11 +196,11 @@
 		7295FA981DC2AF0200BD28B5 /* MainMapViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D0DAA6621DC950E40088C71F /* PulleyPassthroughScrollView.swift */,
 				D0437DC21DC94EC1005238BE /* LocationListDrawerContentViewController.swift */,
 				D0437DC31DC94EC1005238BE /* LocationMapViewController.swift */,
 				D0437DC41DC94EC1005238BE /* PrimaryContentViewController.swift */,
 				D0437DC51DC94EC1005238BE /* PrimaryTransitionTargetViewController.swift */,
-				D0437DC61DC94EC1005238BE /* PulleyPassthroughScrollView.swift */,
 			);
 			name = MainMapViewControllers;
 			path = "../../../../Downloads/Pulley-master/Pulley";
@@ -414,7 +414,7 @@
 				D0272A931DC014AB00565EDB /* Location.swift in Sources */,
 				7200D9FA1DC1059400C2CF22 /* SearchLocationController.swift in Sources */,
 				72FFA5221DC92E5B00388C52 /* LocationsVisitedTableViewCell.swift in Sources */,
-				D0437DCB1DC94EC1005238BE /* PulleyPassthroughScrollView.swift in Sources */,
+				D0DAA6631DC950E40088C71F /* PulleyPassthroughScrollView.swift in Sources */,
 				9CB491231DC1004B003DBC17 /* Traveler.swift in Sources */,
 				D0D8024E1DC0096100F02629 /* Badge.swift in Sources */,
 				72FFA5201DC92D6300388C52 /* BadgesCollectionViewCell.swift in Sources */,

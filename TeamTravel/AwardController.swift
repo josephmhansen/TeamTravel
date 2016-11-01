@@ -22,7 +22,7 @@ struct AwardController {
     let homewardBoundBadge = Badge(image: #imageLiteral(resourceName: "silverbadge"), name: "Homeward Bound", description: "Visit the place where it all started", hasEarned: false)
     let oneSmallStepBadge = Badge(image: #imageLiteral(resourceName: "silverbadge"), name: "One Small Step…", description: "Visit a nonlocal location", hasEarned: false)
     let repeatOffenderBadge = Badge(image: #imageLiteral(resourceName: "silverbadge"), name: "Repeat Offender", description: "Visit a location twice", hasEarned: false)
-    let loyalTravelerBadge = Badge(image: #imageLiteral(resourceName: "silverbadge"), name: "Loyal Traveler", description: "Use this awesome app for 3 months", hasEarned: false)
+    let loyalTravelerBadge = Badge(image: #imageLiteral(resourceName: "silverbadge"), name: "Loyal Traveler", description: "Be a traveler for 3 months", hasEarned: false)
     
     
     

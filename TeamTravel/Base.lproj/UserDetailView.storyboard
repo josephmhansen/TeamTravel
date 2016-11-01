@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -83,9 +84,21 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="169" height="198"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xyd-sM-HIw">
+                                            <rect key="frame" x="0.0" y="11" width="169" height="179"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="Xyd-sM-HIw" firstAttribute="top" secondItem="xK4-p0-t5E" secondAttribute="top" constant="11" id="0Iy-Gc-9d0"/>
+                                    <constraint firstItem="Xyd-sM-HIw" firstAttribute="leading" secondItem="xK4-p0-t5E" secondAttribute="leading" id="5E6-Ga-eO0"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xyd-sM-HIw" secondAttribute="bottom" constant="8" id="8VY-zN-eSH"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xyd-sM-HIw" secondAttribute="trailing" id="g2e-Ls-jUx"/>
+                                </constraints>
                                 <connections>
-                                    <segue destination="1pK-x6-fvS" kind="show" id="AAl-L7-VNb"/>
+                                    <outlet property="badgeImageView" destination="Xyd-sM-HIw" id="Gk9-gw-cgt"/>
+                                    <segue destination="1pK-x6-fvS" kind="show" identifier="toBadgeDesctiption" id="AAl-L7-VNb"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -110,8 +123,44 @@
                     <view key="view" contentMode="scaleToFill" id="dRE-tU-aRk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PeB-9Z-Dvp">
+                                <rect key="frame" x="0.0" y="20" width="375" height="315"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IP-b2-R5m">
+                                <rect key="frame" x="157" y="360" width="61" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="EaN-Pb-kYu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4B-UY-yhR">
+                                <rect key="frame" x="143" y="412" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="w4B-UY-yhR" firstAttribute="top" secondItem="1IP-b2-R5m" secondAttribute="bottom" constant="25" id="1Gx-R4-J2F"/>
+                            <constraint firstItem="1IP-b2-R5m" firstAttribute="centerX" secondItem="PeB-9Z-Dvp" secondAttribute="centerX" id="7r2-ms-9gO"/>
+                            <constraint firstItem="1IP-b2-R5m" firstAttribute="leading" secondItem="dRE-tU-aRk" secondAttribute="leadingMargin" constant="141" id="BPj-F5-yg2"/>
+                            <constraint firstItem="PeB-9Z-Dvp" firstAttribute="leading" secondItem="dRE-tU-aRk" secondAttribute="leading" id="BSG-cW-KXh"/>
+                            <constraint firstItem="1IP-b2-R5m" firstAttribute="centerX" secondItem="dRE-tU-aRk" secondAttribute="centerX" id="HcO-GP-3zV"/>
+                            <constraint firstItem="1IP-b2-R5m" firstAttribute="centerX" secondItem="w4B-UY-yhR" secondAttribute="centerX" id="X75-O9-B3o"/>
+                            <constraint firstItem="1IP-b2-R5m" firstAttribute="top" secondItem="PeB-9Z-Dvp" secondAttribute="bottom" constant="25" id="e8r-8Z-6t3"/>
+                            <constraint firstItem="PeB-9Z-Dvp" firstAttribute="top" secondItem="SI9-sw-PCa" secondAttribute="bottom" id="opg-G4-T91"/>
+                            <constraint firstAttribute="bottom" secondItem="1IP-b2-R5m" secondAttribute="bottom" constant="280" id="wbg-XO-acM"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="badgeImage" destination="PeB-9Z-Dvp" id="fha-Oj-5xt"/>
+                        <outlet property="descriptionLabel" destination="w4B-UY-yhR" id="RM0-05-jHK"/>
+                        <outlet property="titleLabel" destination="1IP-b2-R5m" id="HcE-XW-PU3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dcN-Pm-P9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

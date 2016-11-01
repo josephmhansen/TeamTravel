@@ -9,23 +9,196 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Badges View Controller-->
         <scene sceneID="LNC-fX-5Kv">
             <objects>
-                <viewController id="Spx-Z9-vXM" sceneMemberID="viewController">
+                <viewController id="Spx-Z9-vXM" customClass="BadgesViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5o9-zo-y5w"/>
                         <viewControllerLayoutGuide type="bottom" id="Ehl-0M-RPU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="J3i-mg-aw9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-25" translatesAutoresizingMaskIntoConstraints="NO" id="xyu-bV-EqH">
+                                <rect key="frame" x="0.0" y="5" width="375" height="290"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="d4F-bJ-feu">
+                                        <rect key="frame" x="0.0" y="0.0" width="141.5" height="290"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TpW-9k-hwg" userLabel="Baby Steps Badge">
+                                                <rect key="frame" x="0.0" y="0.0" width="141.5" height="92"/>
+                                                <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
+                                                <state key="normal" title="Button" image="silverbadge"/>
+                                                <connections>
+                                                    <action selector="babyStepsTapped" destination="Spx-Z9-vXM" eventType="touchUpInside" id="4g2-ok-iTn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xM8-Ea-SzP">
+                                                <rect key="frame" x="0.0" y="99" width="141.5" height="92"/>
+                                                <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
+                                                <state key="normal" title="Button" image="silverbadge"/>
+                                                <connections>
+                                                    <action selector="historicalSignificanceBadgeTapped" destination="Spx-Z9-vXM" eventType="touchUpInside" id="rVO-9u-a0e"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cui-2b-1Jc">
+                                                <rect key="frame" x="0.0" y="198" width="141.5" height="92"/>
+                                                <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
+                                                <state key="normal" title="Button" image="silverbadge"/>
+                                                <connections>
+                                                    <action selector="oneSmallStepTapped" destination="Spx-Z9-vXM" eventType="touchUpInside" id="nYi-tl-2Zz"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MHa-ko-9QN">
+                                        <rect key="frame" x="116.5" y="0.0" width="142" height="290"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9O-O3-Qv8">
+                                                <rect key="frame" x="0.0" y="0.0" width="142" height="93.5"/>
+                                                <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
+                                                <state key="normal" title="Button" image="silverbadge"/>
+                                                <connections>
+                                                    <action selector="seriousAdventurerTapped" destination="Spx-Z9-vXM" eventType="touchUpInside" id="q2v-Li-qut"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TX3-fs-xRw">
+                                                <rect key="frame" x="0.0" y="98.5" width="142" height="93"/>
+                                                <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
+                                                <state key="normal" title="Button" image="silverbadge"/>
+                                                <connections>
+                                                    <action selector="oldBonesTapped" destination="Spx-Z9-vXM" eventType="touchUpInside" id="w3Q-x7-eD4"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VzH-UJ-kfH">
+                                                <rect key="frame" x="0.0" y="196.5" width="142" height="93.5"/>
+                                                <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
+                                                <state key="normal" title="Button" image="silverbadge"/>
+                                                <connections>
+                                                    <action selector="repeatOffenderTapped" destination="Spx-Z9-vXM" eventType="touchUpInside" id="Pg1-Q9-REC"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Xbr-sb-BM1">
+                                        <rect key="frame" x="233.5" y="0.0" width="141.5" height="290"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7c-VH-5sm">
+                                                <rect key="frame" x="0.0" y="0.0" width="141.5" height="93.5"/>
+                                                <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
+                                                <state key="normal" title="Button" image="silverbadge"/>
+                                                <connections>
+                                                    <action selector="notJustAnUrbanBadgeTapped" destination="Spx-Z9-vXM" eventType="touchUpInside" id="rjc-hx-DeR"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lo3-NO-L4L">
+                                                <rect key="frame" x="0.0" y="98.5" width="141.5" height="93"/>
+                                                <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
+                                                <state key="normal" title="Button" image="silverbadge"/>
+                                                <connections>
+                                                    <action selector="homewardBoundTapped" destination="Spx-Z9-vXM" eventType="touchUpInside" id="ckY-jS-MhK"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMz-Dy-PgT">
+                                                <rect key="frame" x="0.0" y="196.5" width="141.5" height="93.5"/>
+                                                <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
+                                                <state key="normal" title="Button" image="silverbadge"/>
+                                                <connections>
+                                                    <action selector="loyalTravelerTapped" destination="Spx-Z9-vXM" eventType="touchUpInside" id="6j9-wF-2JY"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="xyu-bV-EqH" secondAttribute="trailing" id="1zX-5X-CEb"/>
+                            <constraint firstItem="Ehl-0M-RPU" firstAttribute="top" secondItem="xyu-bV-EqH" secondAttribute="bottom" constant="5" id="8wK-Uc-gor"/>
+                            <constraint firstItem="xyu-bV-EqH" firstAttribute="leading" secondItem="J3i-mg-aw9" secondAttribute="leading" id="Ku8-Xm-K2z"/>
+                            <constraint firstItem="xyu-bV-EqH" firstAttribute="top" secondItem="J3i-mg-aw9" secondAttribute="top" constant="5" id="mUW-j0-MAy"/>
+                        </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="300"/>
+                    <connections>
+                        <outlet property="babyStepsBadge" destination="TpW-9k-hwg" id="bUL-2S-ZgU"/>
+                        <outlet property="historicalSignificanceBadge" destination="xM8-Ea-SzP" id="2au-Zp-L53"/>
+                        <outlet property="homewardBoundBadge" destination="lo3-NO-L4L" id="1kU-Pi-A5q"/>
+                        <outlet property="loyalTravelerBadge" destination="qMz-Dy-PgT" id="vze-KC-u3W"/>
+                        <outlet property="notJustAnUrbanBadge" destination="m7c-VH-5sm" id="H7U-fr-yDC"/>
+                        <outlet property="oldBonesBadge" destination="TX3-fs-xRw" id="94k-cW-r4d"/>
+                        <outlet property="oneSmallStepBadge" destination="cui-2b-1Jc" id="oQ8-1R-pJE"/>
+                        <outlet property="repeatOffenderBadge" destination="VzH-UJ-kfH" id="18I-6W-IpF"/>
+                        <outlet property="seriousAdventurerBadge" destination="I9O-O3-Qv8" id="EtU-fi-iAy"/>
+                        <segue destination="tOc-bV-GdH" kind="presentation" identifier="toBadgeView" modalTransitionStyle="flipHorizontal" id="gt0-5x-m32"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovu-h0-ZR7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="204" y="-155"/>
+            <point key="canvasLocation" x="204" y="-155.17241379310346"/>
+        </scene>
+        <!--Badge View Controller-->
+        <scene sceneID="BMd-9j-bDf">
+            <objects>
+                <viewController id="tOc-bV-GdH" customClass="BadgeViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZqY-9R-Ro3"/>
+                        <viewControllerLayoutGuide type="bottom" id="6sX-jf-psa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X8A-Zg-Jem">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="silverbadge" translatesAutoresizingMaskIntoConstraints="NO" id="t16-JY-yN8">
+                                <rect key="frame" x="16" y="0.0" width="190" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nap-rS-0Gp">
+                                <rect key="frame" x="214" y="20" width="145" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZ6-IZ-Bxb">
+                                <rect key="frame" x="214" y="102" width="145" height="178"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODy-lT-JmJ">
+                                <rect key="frame" x="164" y="270" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonTapped" destination="tOc-bV-GdH" eventType="touchUpInside" id="nF8-uB-NVd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="300"/>
+                    <connections>
+                        <outlet property="badgeImage" destination="t16-JY-yN8" id="eJp-s3-kCs"/>
+                        <outlet property="descriptionLabel" destination="tZ6-IZ-Bxb" id="BUD-yN-2zZ"/>
+                        <outlet property="titleLabel" destination="Nap-rS-0Gp" id="rBU-du-1cf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F8j-NX-o0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="997.60000000000002" y="-156.52173913043478"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="silverbadge" width="199" height="256"/>
+    </resources>
 </document>

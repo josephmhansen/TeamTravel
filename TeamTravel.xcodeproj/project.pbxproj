@@ -14,16 +14,16 @@
 		72602F631DBFC02A00FC53EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72602F611DBFC02A00FC53EC /* LaunchScreen.storyboard */; };
 		72602F6E1DBFC02A00FC53EC /* TeamTravelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72602F6D1DBFC02A00FC53EC /* TeamTravelTests.swift */; };
 		72602F791DBFC02A00FC53EC /* TeamTravelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72602F781DBFC02A00FC53EC /* TeamTravelUITests.swift */; };
+		726A5D2A1DC94D6300C9909D /* LocationListDrawerContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726A5D251DC94D6300C9909D /* LocationListDrawerContentViewController.swift */; };
+		726A5D2B1DC94D6300C9909D /* LocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726A5D261DC94D6300C9909D /* LocationMapViewController.swift */; };
+		726A5D2C1DC94D6300C9909D /* PrimaryContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726A5D271DC94D6300C9909D /* PrimaryContentViewController.swift */; };
+		726A5D2D1DC94D6300C9909D /* PrimaryTransitionTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726A5D281DC94D6300C9909D /* PrimaryTransitionTargetViewController.swift */; };
+		726A5D2E1DC94D6300C9909D /* PulleyPassthroughScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726A5D291DC94D6300C9909D /* PulleyPassthroughScrollView.swift */; };
 		729234BE1DC7BA090043CB98 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729234BA1DC7BA090043CB98 /* Style.swift */; };
 		729234BF1DC7BA090043CB98 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729234BB1DC7BA090043CB98 /* Constants.swift */; };
 		729234C01DC7BA090043CB98 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729234BC1DC7BA090043CB98 /* SegmentedControl.swift */; };
 		729234C11DC7BA090043CB98 /* SCScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729234BD1DC7BA090043CB98 /* SCScrollView.swift */; };
 		7295FA921DC2ACFB00BD28B5 /* MainMapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7295FA911DC2ACFB00BD28B5 /* MainMapView.storyboard */; };
-		7295FA991DC2AF0200BD28B5 /* PulleyPassthroughScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295FA931DC2AF0200BD28B5 /* PulleyPassthroughScrollView.swift */; };
-		7295FA9A1DC2AF0200BD28B5 /* LocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295FA941DC2AF0200BD28B5 /* LocationMapViewController.swift */; };
-		7295FA9B1DC2AF0200BD28B5 /* PrimaryContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295FA951DC2AF0200BD28B5 /* PrimaryContentViewController.swift */; };
-		7295FA9C1DC2AF0200BD28B5 /* LocationListDrawerContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295FA961DC2AF0200BD28B5 /* LocationListDrawerContentViewController.swift */; };
-		7295FA9D1DC2AF0200BD28B5 /* PrimaryTransitionTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295FA971DC2AF0200BD28B5 /* PrimaryTransitionTargetViewController.swift */; };
 		72CBB0D61DC2A98E00B53689 /* UserDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72CBB0D41DC2A98E00B53689 /* UserDetailView.storyboard */; };
 		72E8A5961DC01B9000729613 /* CoreLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E8A5951DC01B9000729613 /* CoreLocationController.swift */; };
 		72FFA5131DC90B6400388C52 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FFA5121DC90B6400388C52 /* StatsViewController.swift */; };
@@ -73,16 +73,16 @@
 		72602F741DBFC02A00FC53EC /* TeamTravelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamTravelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72602F781DBFC02A00FC53EC /* TeamTravelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTravelUITests.swift; sourceTree = "<group>"; };
 		72602F7A1DBFC02A00FC53EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		726A5D251DC94D6300C9909D /* LocationListDrawerContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationListDrawerContentViewController.swift; path = "../../../Documents/!capstone/TeamTravel/TeamTravel/LocationListDrawerContentViewController.swift"; sourceTree = "<group>"; };
+		726A5D261DC94D6300C9909D /* LocationMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationMapViewController.swift; path = "../../../Documents/!capstone/TeamTravel/TeamTravel/LocationMapViewController.swift"; sourceTree = "<group>"; };
+		726A5D271DC94D6300C9909D /* PrimaryContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrimaryContentViewController.swift; path = "../../../Documents/!capstone/TeamTravel/TeamTravel/PrimaryContentViewController.swift"; sourceTree = "<group>"; };
+		726A5D281DC94D6300C9909D /* PrimaryTransitionTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrimaryTransitionTargetViewController.swift; path = "../../../Documents/!capstone/TeamTravel/TeamTravel/PrimaryTransitionTargetViewController.swift"; sourceTree = "<group>"; };
+		726A5D291DC94D6300C9909D /* PulleyPassthroughScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PulleyPassthroughScrollView.swift; path = "../../../Documents/!capstone/TeamTravel/TeamTravel/PulleyPassthroughScrollView.swift"; sourceTree = "<group>"; };
 		729234BA1DC7BA090043CB98 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		729234BB1DC7BA090043CB98 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		729234BC1DC7BA090043CB98 /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		729234BD1DC7BA090043CB98 /* SCScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCScrollView.swift; sourceTree = "<group>"; };
 		7295FA911DC2ACFB00BD28B5 /* MainMapView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMapView.storyboard; sourceTree = "<group>"; };
-		7295FA931DC2AF0200BD28B5 /* PulleyPassthroughScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PulleyPassthroughScrollView.swift; path = ../PulleyLib/PulleyPassthroughScrollView.swift; sourceTree = "<group>"; };
-		7295FA941DC2AF0200BD28B5 /* LocationMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationMapViewController.swift; path = ../PulleyLib/LocationMapViewController.swift; sourceTree = "<group>"; };
-		7295FA951DC2AF0200BD28B5 /* PrimaryContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryContentViewController.swift; sourceTree = "<group>"; };
-		7295FA961DC2AF0200BD28B5 /* LocationListDrawerContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListDrawerContentViewController.swift; sourceTree = "<group>"; };
-		7295FA971DC2AF0200BD28B5 /* PrimaryTransitionTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryTransitionTargetViewController.swift; sourceTree = "<group>"; };
 		72CBB0D51DC2A98E00B53689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/UserDetailView.storyboard; sourceTree = "<group>"; };
 		72E8A5951DC01B9000729613 /* CoreLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocationController.swift; sourceTree = "<group>"; };
 		72FFA5121DC90B6400388C52 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
@@ -196,11 +196,11 @@
 		7295FA981DC2AF0200BD28B5 /* MainMapViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				7295FA931DC2AF0200BD28B5 /* PulleyPassthroughScrollView.swift */,
-				7295FA941DC2AF0200BD28B5 /* LocationMapViewController.swift */,
-				7295FA951DC2AF0200BD28B5 /* PrimaryContentViewController.swift */,
-				7295FA961DC2AF0200BD28B5 /* LocationListDrawerContentViewController.swift */,
-				7295FA971DC2AF0200BD28B5 /* PrimaryTransitionTargetViewController.swift */,
+				726A5D251DC94D6300C9909D /* LocationListDrawerContentViewController.swift */,
+				726A5D261DC94D6300C9909D /* LocationMapViewController.swift */,
+				726A5D271DC94D6300C9909D /* PrimaryContentViewController.swift */,
+				726A5D281DC94D6300C9909D /* PrimaryTransitionTargetViewController.swift */,
+				726A5D291DC94D6300C9909D /* PulleyPassthroughScrollView.swift */,
 			);
 			name = MainMapViewControllers;
 			path = "../../../../Downloads/Pulley-master/Pulley";
@@ -402,29 +402,29 @@
 				729234C11DC7BA090043CB98 /* SCScrollView.swift in Sources */,
 				FA6384ED1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift in Sources */,
 				729234BF1DC7BA090043CB98 /* Constants.swift in Sources */,
-				7295FA9C1DC2AF0200BD28B5 /* LocationListDrawerContentViewController.swift in Sources */,
 				72E8A5961DC01B9000729613 /* CoreLocationController.swift in Sources */,
+				726A5D2D1DC94D6300C9909D /* PrimaryTransitionTargetViewController.swift in Sources */,
 				D0D802531DC00E1900F02629 /* AwardController.swift in Sources */,
 				72FFA5151DC90C4700388C52 /* LocationsVisitedTableViewController.swift in Sources */,
 				72FFA51B1DC90E4500388C52 /* BadgeDetailViewController.swift in Sources */,
-				7295FA9D1DC2AF0200BD28B5 /* PrimaryTransitionTargetViewController.swift in Sources */,
 				72FFA5171DC90C9000388C52 /* PointsGraphViewController.swift in Sources */,
-				7295FA9B1DC2AF0200BD28B5 /* PrimaryContentViewController.swift in Sources */,
-				7295FA991DC2AF0200BD28B5 /* PulleyPassthroughScrollView.swift in Sources */,
 				729234BE1DC7BA090043CB98 /* Style.swift in Sources */,
 				72602F591DBFC02A00FC53EC /* AppDelegate.swift in Sources */,
 				729234C01DC7BA090043CB98 /* SegmentedControl.swift in Sources */,
 				D0272A931DC014AB00565EDB /* Location.swift in Sources */,
 				7200D9FA1DC1059400C2CF22 /* SearchLocationController.swift in Sources */,
 				72FFA5221DC92E5B00388C52 /* LocationsVisitedTableViewCell.swift in Sources */,
+				726A5D2E1DC94D6300C9909D /* PulleyPassthroughScrollView.swift in Sources */,
 				9CB491231DC1004B003DBC17 /* Traveler.swift in Sources */,
 				D0D8024E1DC0096100F02629 /* Badge.swift in Sources */,
 				72FFA5201DC92D6300388C52 /* BadgesCollectionViewCell.swift in Sources */,
 				9CA177991DC10636001D655B /* TravelerController.swift in Sources */,
 				72FFA51D1DC92B6700388C52 /* BadgesCollectionViewController.swift in Sources */,
 				FA6384EF1DC11E6D0026C6F6 /* MockData.swift in Sources */,
+				726A5D2A1DC94D6300C9909D /* LocationListDrawerContentViewController.swift in Sources */,
+				726A5D2B1DC94D6300C9909D /* LocationMapViewController.swift in Sources */,
 				72FFA5131DC90B6400388C52 /* StatsViewController.swift in Sources */,
-				7295FA9A1DC2AF0200BD28B5 /* LocationMapViewController.swift in Sources */,
+				726A5D2C1DC94D6300C9909D /* PrimaryContentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

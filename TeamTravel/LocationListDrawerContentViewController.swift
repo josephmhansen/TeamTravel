@@ -1,0 +1,202 @@
+//
+//  LocationListDrawerContentViewController.swift
+//  TeamTravelMapViewTest
+//
+//  Created by Joseph Hansen on 10/29/16.
+//  Copyright © 2016 Joseph Hansen. All rights reserved.
+//
+
+import UIKit
+
+private let kLivelyGreenColor = UIColor(red: 8 / 255, green: 132 / 255, blue: 67 / 255, alpha: 1)
+
+class LocationListDrawerContentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PulleyDrawerViewControllerDelegate, ShowFenceAlertDelegate, UISearchBarDelegate {
+//use this outlet to alter custom segmented controller
+    @IBOutlet weak var segmentedControl: SegmentedControl!
+    
+//
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var gripperView: UIView!
+    
+    @IBOutlet var seperatorHeightConstraint: NSLayoutConstraint!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        //self.tableView.backgroundColor = .clear
+        //self.tableView.alpha = 0.9
+        
+        CoreLocationController.shared.alertDelegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(startSearch), name: Notification.Name(rawValue: "currentLocationUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateSearchResults), name: Notification.Name(rawValue: "allLocationsReturned"), object: nil)
+
+        gripperView.layer.cornerRadius = 2.5
+        seperatorHeightConstraint.constant = 1.0 / UIScreen.main.scale
+        setupUI()
+    }
+    
+    fileprivate func setupUI() {
+        configureSegmentedControl2()
+    }
+    
+    fileprivate func configureSegmentedControl2() {
+        let images = [#imageLiteral(resourceName: "pin"), #imageLiteral(resourceName: "pin"), #imageLiteral(resourceName: "pin") ]
+        let selectedImages = [#imageLiteral(resourceName: "pin"), #imageLiteral(resourceName: "pin"), #imageLiteral(resourceName: "pin") ]
+        segmentedControl.setImages(images, selectedImages: selectedImages)
+        segmentedControl.delegate = self
+        segmentedControl.selectionIndicatorStyle = .bottom
+        segmentedControl.selectionIndicatorColor = kLivelyGreenColor
+        segmentedControl.selectionIndicatorHeight = 3
+        segmentedControl.selectionIndicatorEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+    }
+    
+    // MARK: - Show Fence Alert Delegate
+    func presentAlert(alert: UIAlertController) {
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    //extra functions, hooked up to mock data
+    func startSearch(){
+        if TravelerController.shared.masterTraveler == nil {
+            MockData.shared.setUpTraveler()
+        }
+        
+        if let location = CoreLocationController.shared.currentTravelerLocation {
+            SearchLocationController.shared.queryForLocations(location: location)
+        }
+    }
+    
+    func updateSearchResults(){
+        self.tableView.reloadData()
+    }
+
+
+
+    // MARK: Tableview data source & delegate
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return SearchLocationController.shared.allVisibleLocations.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath)
+        let location = SearchLocationController.shared.allVisibleLocations[indexPath.row]
+        
+        cell.textLabel?.text = location.locationName
+        cell.detailTextLabel?.text = "\(location.type.rawValue) + \(location.coordinate)"
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if let drawer = self.parent as? LocationMapViewController
+        {
+            let primaryContent = UIStoryboard(name: "MainMapView", bundle: nil).instantiateViewController(withIdentifier: "PrimaryTransitionTargetViewController")
+            
+            drawer.setDrawerPosition(position: .collapsed, animated: true)
+
+            drawer.setPrimaryContentViewController(controller: primaryContent, animated: false)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //cell.backgroundColor = tableView.backgroundColor
+        //cell.contentView.backgroundColor = tableView.backgroundColor
+    }
+    
+
+    // MARK: Drawer Content View Controller Delegate
+    
+    func collapsedDrawerHeight() -> CGFloat
+    {
+        return 68.0
+    }
+    
+    func partialRevealDrawerHeight() -> CGFloat
+    {
+        return 360.0
+    }
+    
+    func supportedDrawerPositions() -> [PulleyPosition] {
+        return PulleyPosition.all // You can specify the drawer positions you support. This is the same as: [.open, .partiallyRevealed, .collapsed, .closed]
+    }
+
+    func drawerPositionDidChange(drawer: LocationMapViewController)
+    {
+        tableView.isScrollEnabled = drawer.drawerPosition == .open
+        
+        if drawer.drawerPosition != .open
+        {
+            searchBar.resignFirstResponder()
+        }
+    }
+    
+    // MARK: Search Bar delegate
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        if let locationSearchTVC = self.parent as? LocationMapViewController
+        {
+            locationSearchTVC.setDrawerPosition(position: .open, animated: true)
+        }
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "\n" {
+            searchBar.resignFirstResponder()
+        } else if searchText == "" {
+            //MARK: -Needs work!
+            searchBar.resignFirstResponder()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+}
+
+extension LocationListDrawerContentViewController: SegmentedControlDelegate {
+    func segmentedControl(_ segmentedControl: SegmentedControl, didSelectIndex selectedIndex: Int) {
+        print("Did select index \(selectedIndex)")
+        switch segmentedControl.style {
+        case .text:
+            print("The title is “\(segmentedControl.titles[selectedIndex].string)”\n")
+        case .image:
+            print("The image is “\(segmentedControl.images[selectedIndex])”\n")
+        }
+    }
+    
+    func segmentedControl(_ segmentedControl: SegmentedControl, didLongPressIndex longPressIndex: Int) {
+        print("Did long press index \(longPressIndex)")
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            let viewController = UIViewController()
+            viewController.modalPresentationStyle = .popover
+            viewController.preferredContentSize = CGSize(width: 200, height: 300)
+            if let popoverController = viewController.popoverPresentationController {
+                popoverController.sourceView = view
+                let yOffset: CGFloat = 10
+                popoverController.sourceRect = view.convert(CGRect(origin: CGPoint(x: 70 * CGFloat(longPressIndex), y: yOffset), size: CGSize(width: 70, height: 30)), from: navigationItem.titleView)
+                popoverController.permittedArrowDirections = .any
+                present(viewController, animated: true, completion: nil)
+            }
+        } else {
+            let message = segmentedControl.style == .text ? "Long press title “\(segmentedControl.titles[longPressIndex].string)”" : "Long press image “\(segmentedControl.images[longPressIndex])”"
+            let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+            let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(cancelAction)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+}
+
+

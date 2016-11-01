@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BadgeViewController: UIViewController {
+class BadgeDetailViewController: UIViewController {
     
     var image = #imageLiteral(resourceName: "silverbadge")
     var badgeTitle = ""

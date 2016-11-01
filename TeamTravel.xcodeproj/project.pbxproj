@@ -31,6 +31,8 @@
 		72FFA5171DC90C9000388C52 /* PointsGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FFA5161DC90C9000388C52 /* PointsGraphViewController.swift */; };
 		72FFA51B1DC90E4500388C52 /* BadgeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FFA51A1DC90E4500388C52 /* BadgeDetailViewController.swift */; };
 		72FFA51D1DC92B6700388C52 /* BadgesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FFA51C1DC92B6700388C52 /* BadgesCollectionViewController.swift */; };
+		72FFA5201DC92D6300388C52 /* BadgesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FFA51F1DC92D6300388C52 /* BadgesCollectionViewCell.swift */; };
+		72FFA5221DC92E5B00388C52 /* LocationsVisitedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FFA5211DC92E5B00388C52 /* LocationsVisitedTableViewCell.swift */; };
 		9CA177991DC10636001D655B /* TravelerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA177981DC10636001D655B /* TravelerController.swift */; };
 		9CB491231DC1004B003DBC17 /* Traveler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB491221DC1004B003DBC17 /* Traveler.swift */; };
 		D0272A931DC014AB00565EDB /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0272A921DC014AB00565EDB /* Location.swift */; };
@@ -88,6 +90,8 @@
 		72FFA5161DC90C9000388C52 /* PointsGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointsGraphViewController.swift; sourceTree = "<group>"; };
 		72FFA51A1DC90E4500388C52 /* BadgeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeDetailViewController.swift; sourceTree = "<group>"; };
 		72FFA51C1DC92B6700388C52 /* BadgesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesCollectionViewController.swift; sourceTree = "<group>"; };
+		72FFA51F1DC92D6300388C52 /* BadgesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesCollectionViewCell.swift; sourceTree = "<group>"; };
+		72FFA5211DC92E5B00388C52 /* LocationsVisitedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsVisitedTableViewCell.swift; sourceTree = "<group>"; };
 		9CA177981DC10636001D655B /* TravelerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelerController.swift; sourceTree = "<group>"; };
 		9CB491221DC1004B003DBC17 /* Traveler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Traveler.swift; path = ../Traveler.swift; sourceTree = "<group>"; };
 		D0272A921DC014AB00565EDB /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -145,11 +149,11 @@
 		72602F571DBFC02A00FC53EC /* TeamTravel */ = {
 			isa = PBXGroup;
 			children = (
-				D0D8024F1DC0096A00F02629 /* Models */,
-				D0D802501DC0098700F02629 /* Model Controllers */,
-				D0D802511DC0099F00F02629 /* View Controllers */,
 				72602F581DBFC02A00FC53EC /* AppDelegate.swift */,
 				72E8A5971DC01B9500729613 /* SupportFiles */,
+				D0D802511DC0099F00F02629 /* View Controllers */,
+				D0D8024F1DC0096A00F02629 /* Models */,
+				D0D802501DC0098700F02629 /* Model Controllers */,
 				72602F5C1DBFC02A00FC53EC /* Main.storyboard */,
 				7295FA911DC2ACFB00BD28B5 /* MainMapView.storyboard */,
 				72CBB0D41DC2A98E00B53689 /* UserDetailView.storyboard */,
@@ -212,6 +216,20 @@
 			name = SupportFiles;
 			sourceTree = "<group>";
 		};
+		72FFA51E1DC92C2200388C52 /* UserStatsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				72FFA5121DC90B6400388C52 /* StatsViewController.swift */,
+				72FFA5141DC90C4700388C52 /* LocationsVisitedTableViewController.swift */,
+				72FFA5211DC92E5B00388C52 /* LocationsVisitedTableViewCell.swift */,
+				72FFA5161DC90C9000388C52 /* PointsGraphViewController.swift */,
+				72FFA51C1DC92B6700388C52 /* BadgesCollectionViewController.swift */,
+				72FFA51A1DC90E4500388C52 /* BadgeDetailViewController.swift */,
+				72FFA51F1DC92D6300388C52 /* BadgesCollectionViewCell.swift */,
+			);
+			name = UserStatsViewControllers;
+			sourceTree = "<group>";
+		};
 		D0D8024F1DC0096A00F02629 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,14 +252,10 @@
 		D0D802511DC0099F00F02629 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA6384EC1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift */,
 				729234B91DC7B9E80043CB98 /* SegmentedController */,
 				7295FA981DC2AF0200BD28B5 /* MainMapViewControllers */,
-				FA6384EC1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift */,
-				72FFA5121DC90B6400388C52 /* StatsViewController.swift */,
-				72FFA5141DC90C4700388C52 /* LocationsVisitedTableViewController.swift */,
-				72FFA5161DC90C9000388C52 /* PointsGraphViewController.swift */,
-				72FFA51C1DC92B6700388C52 /* BadgesCollectionViewController.swift */,
-				72FFA51A1DC90E4500388C52 /* BadgeDetailViewController.swift */,
+				72FFA51E1DC92C2200388C52 /* UserStatsViewControllers */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -402,8 +416,10 @@
 				729234C01DC7BA090043CB98 /* SegmentedControl.swift in Sources */,
 				D0272A931DC014AB00565EDB /* Location.swift in Sources */,
 				7200D9FA1DC1059400C2CF22 /* SearchLocationController.swift in Sources */,
+				72FFA5221DC92E5B00388C52 /* LocationsVisitedTableViewCell.swift in Sources */,
 				9CB491231DC1004B003DBC17 /* Traveler.swift in Sources */,
 				D0D8024E1DC0096100F02629 /* Badge.swift in Sources */,
+				72FFA5201DC92D6300388C52 /* BadgesCollectionViewCell.swift in Sources */,
 				9CA177991DC10636001D655B /* TravelerController.swift in Sources */,
 				72FFA51D1DC92B6700388C52 /* BadgesCollectionViewController.swift in Sources */,
 				FA6384EF1DC11E6D0026C6F6 /* MockData.swift in Sources */,

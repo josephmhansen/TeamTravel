@@ -12,6 +12,8 @@ private let kLivelyGreenColor = UIColor(red: 8 / 255, green: 132 / 255, blue: 67
 
 class StatsViewController: UIViewController {
     
+    @IBOutlet weak var innerView: UIView!
+    
     @IBOutlet weak var segmentedControl: SegmentedControl!
     
     
@@ -20,44 +22,73 @@ class StatsViewController: UIViewController {
     @IBOutlet var badgesView: UIView!
     @IBOutlet var locationsView: UIView!
     
-    @IBAction func pointsButtonTapped() {
-        if pointsView.isHidden == true {
-            pointsView.isHidden = false
-            badgesView.isHidden = true
-            locationsView.isHidden = true
-        } else {
-            return
-        }
+    
+    //Programatic segues to UserStatsViewControllers
+    
+    //PointsView
+    lazy var pointsViewController: PointsGraphViewController =  {
+        let storyboard = UIStoryboard(name: "UserDetailView", bundle: Bundle.main)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "pointsViewController") as! PointsGraphViewController
+        return viewController
+    }()
+    
+    //BadgesView
+    lazy var badgesViewController: BadgesCollectionViewController = {
+        let storyboard = UIStoryboard(name: "UserDetailView", bundle: Bundle.main)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "badgesViewController") as! BadgesCollectionViewController
+        return viewController
+    }()
+    
+    //LocationsView
+    lazy var locationsVisitedTableViewController: LocationsVisitedTableViewController = {
+        let storyboard = UIStoryboard(name: "UserDetailView", bundle: Bundle.main)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "locationsVisitedViewController") as! LocationsVisitedTableViewController
+        return viewController
+    }()
+    
+    lazy var userDetailViewControllers: [UIViewController] = {
+        return [self.pointsViewController, self.badgesViewController, self.locationsVisitedTableViewController]
     }
     
-    @IBAction func badgesButtonTapped() {
-        if badgesView.isHidden == true {
-            pointsView.isHidden = true
-            badgesView.isHidden = false
-            locationsView.isHidden = true
-        } else {
-            return
-        }
-    }
     
-    @IBAction func locationsButtonTapped() {
-        if locationsView.isHidden == true {
-            pointsView.isHidden = true
-            badgesView.isHidden = true
-            locationsView.isHidden = false
-        } else {
-            return
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pointsView.isHidden = true
-        badgesView.isHidden = false
-        locationsView.isHidden = true
+        
         setupUI()
         
     }
+    
+    func setupViews() {
+        for viewController in self.userDetailViewControllers {
+            addViewControllerAsChild(viewController: viewController)
+        }
+    }
+    
+    func addViewControllerAsChild(viewController: UIViewController) {
+        //add child view controller
+        self.addChildViewController(viewController)
+        // add child as subview
+        self.innerView.addSubview(viewController.view)
+        
+        //configure child view
+        
+        viewController.view.frame = innerView.bounds
+        //Notify Child ViewController
+        viewController.didMove(toParentViewController: self)
+    }
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    //SegmentedController Functions
     
     fileprivate func setupUI() {
         configureSegmentedControl2()
@@ -66,6 +97,7 @@ class StatsViewController: UIViewController {
     fileprivate func configureSegmentedControl2() {
         let images = [#imageLiteral(resourceName: "pin"), #imageLiteral(resourceName: "pin"), #imageLiteral(resourceName: "pin") ]
         let selectedImages = [#imageLiteral(resourceName: "pin"), #imageLiteral(resourceName: "pin"), #imageLiteral(resourceName: "pin") ]
+        
         segmentedControl.setImages(images, selectedImages: selectedImages)
         segmentedControl.delegate = self
         segmentedControl.selectionIndicatorStyle = .bottom
@@ -73,12 +105,26 @@ class StatsViewController: UIViewController {
         segmentedControl.selectionIndicatorHeight = 3
         segmentedControl.selectionIndicatorEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
+    
+    func updateInnerView() {
+        let index = segmentedControl.selectedIndex
+        
+        for viewController in self.userDetailViewControllers {
+            viewController.view.isHidden = true
+        }
+        
+        let selectedView = self.userDetailViewControllers[index]
+        selectedView.view.isHidden = false
+    }
 
 }
+
+//SegmentedControllerDelegate Functions
 
 extension StatsViewController: SegmentedControlDelegate {
     func segmentedControl(_ segmentedControl: SegmentedControl, didSelectIndex selectedIndex: Int) {
         print("Did select index \(selectedIndex)")
+        updateInnerView()
         switch segmentedControl.style {
         case .text:
             print("The title is “\(segmentedControl.titles[selectedIndex].string)”\n")

@@ -52,6 +52,9 @@
                             <constraint firstItem="7uG-Th-D8g" firstAttribute="top" secondItem="Cy5-hS-vvB" secondAttribute="top" id="m1m-HJ-dst"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="innerView" destination="fMK-SC-Os4" id="W2u-Ts-8l9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mBk-EL-cJj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,25 +63,28 @@
         <!--Badges Collection View Controller-->
         <scene sceneID="E6P-ls-PPP">
             <objects>
-                <collectionViewController id="kuM-a9-W6D" customClass="BadgesCollectionViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pJX-S2-TpS">
+                <collectionViewController storyboardIdentifier="badgesViewController" id="kuM-a9-W6D" customClass="BadgesCollectionViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="pJX-S2-TpS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="e8Q-iN-7sO">
-                            <size key="itemSize" width="164" height="196"/>
+                            <size key="itemSize" width="169" height="198"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="xK4-p0-t5E">
-                                <rect key="frame" x="0.0" y="0.0" width="164" height="196"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="badgeCell" id="xK4-p0-t5E" customClass="BadgesCollectionViewCell" customModule="TeamTravel" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="169" height="198"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="164" height="196"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="169" height="198"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
+                                <connections>
+                                    <segue destination="1pK-x6-fvS" kind="show" id="AAl-L7-VNb"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -91,10 +97,28 @@
             </objects>
             <point key="canvasLocation" x="389.60000000000002" y="40.929535232383813"/>
         </scene>
+        <!--Badge Detail View Controller-->
+        <scene sceneID="jHU-jp-o58">
+            <objects>
+                <viewController id="1pK-x6-fvS" customClass="BadgeDetailViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SI9-sw-PCa"/>
+                        <viewControllerLayoutGuide type="bottom" id="b9C-hW-ZL3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dRE-tU-aRk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dcN-Pm-P9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1139" y="43"/>
+        </scene>
         <!--Locations Visited Table View Controller-->
         <scene sceneID="sK0-W7-nsW">
             <objects>
-                <tableViewController id="aHV-nC-M0y" customClass="LocationsVisitedTableViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="locationsVisitedViewController" id="aHV-nC-M0y" customClass="LocationsVisitedTableViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="WqT-cW-D5Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -122,7 +146,7 @@
         <!--Points Graph View Controller-->
         <scene sceneID="wNR-ij-k7Z">
             <objects>
-                <viewController id="AYn-FB-od5" customClass="PointsGraphViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pointsViewController" id="AYn-FB-od5" customClass="PointsGraphViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="13I-Og-uCK"/>
                         <viewControllerLayoutGuide type="bottom" id="Aht-IF-hhC"/>

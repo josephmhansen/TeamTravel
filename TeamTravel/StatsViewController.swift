@@ -17,6 +17,9 @@ class StatsViewController: UIViewController {
     
     @IBAction func pointsButtonTapped() {
         if pointsView.isHidden == true {
+            
+            
+            
             pointsView.isHidden = false
             badgesView.isHidden = true
             locationsView.isHidden = true

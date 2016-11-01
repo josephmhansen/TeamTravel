@@ -17,6 +17,8 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+       
         MockData.init()
         NotificationCenter.default.addObserver(self, selector: #selector(setupUser), name: Notification.Name(rawValue: "currentLocationUpdated"), object: nil)
         
@@ -24,6 +26,8 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
     }
     
     override func viewDidAppear(_ animated: Bool) {
+         let oldFrame = self.view.frame
+         self.view.frame = CGRect(x: 0, y: 0, width: oldFrame.width, height: 300)
         configurePointsGraph()
         pointGraph.animate(withDuration: 2)
     }

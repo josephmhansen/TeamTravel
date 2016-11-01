@@ -21,13 +21,13 @@ class SearchLocationController  {
     
     var allVisibleLocations: [Location] {
         guard let location = CoreLocationController.shared.currentTravelerLocation else { return [] }
-      let array = allReturnedLocations.filter{$0.isVisible}
+        let array = allReturnedLocations.filter{$0.isVisible}
         return array.sorted { $0.0.location.distance(from: location) < $0.1.location.distance(from: location)}
     }
     
     
     func boxChecked(ofType: LocationType) {
-      let newVisibleLocations =  allReturnedLocations.filter{$0.type == ofType}
+        let newVisibleLocations =  allReturnedLocations.filter{$0.type == ofType}
         for location in newVisibleLocations {
             location.isVisible = true
         }
@@ -41,7 +41,7 @@ class SearchLocationController  {
     }
     
     func queryForLocations(location: CLLocation) {
-       
+        
         SearchLocationController.shared.allReturnedLocations = []
         let locationsTypes: [LocationType] = [LocationType.Landmarks, LocationType.Museums, LocationType.Parks]
         for type in locationsTypes {

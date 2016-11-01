@@ -20,6 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CoreLocationController.shared.setupLocationManager()
         self.strongReferenceToLocationManager = CoreLocationController.shared.locationManager
         
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "PointsGraph", bundle: nil)
+        let exampleViewController: PointsGraphViewController = mainStoryboard.instantiateInitialViewController() as! PointsGraphViewController
+        
+        self.window?.rootViewController = exampleViewController
+        
+        self.window?.makeKeyAndVisible()
+        
+      
+        
         return true
     }
 

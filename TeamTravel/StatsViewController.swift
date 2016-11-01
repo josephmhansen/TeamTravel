@@ -17,20 +17,19 @@ class StatsViewController: UIViewController {
     @IBOutlet weak var segmentedControl: SegmentedControl!
     
     
-    @IBOutlet var stackView: UIStackView!
-    @IBOutlet var pointsView: UIView!
-    @IBOutlet var badgesView: UIView!
-    @IBOutlet var locationsView: UIView!
+
     
     
     //Programatic segues to UserStatsViewControllers
     
     //PointsView
+    /*
     lazy var pointsViewController: PointsGraphViewController =  {
         let storyboard = UIStoryboard(name: "UserDetailView", bundle: Bundle.main)
         let viewController = storyboard.instantiateViewController(withIdentifier: "pointsViewController") as! PointsGraphViewController
         return viewController
     }()
+ */
     
     //BadgesView
     lazy var badgesViewController: BadgesCollectionViewController = {
@@ -47,8 +46,8 @@ class StatsViewController: UIViewController {
     }()
     
     lazy var userDetailViewControllers: [UIViewController] = {
-        return [self.pointsViewController, self.badgesViewController, self.locationsVisitedTableViewController]
-    }
+        return [self.badgesViewController, self.locationsVisitedTableViewController]
+    }()
     
     
     

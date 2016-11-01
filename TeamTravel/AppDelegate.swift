@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         // Override point for customization after application launch.
         
+        CoreLocationController.shared.setupLocationManager()
+        self.strongReferenceToLocationManager = CoreLocationController.shared.locationManager
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         
         // To create from a Storyboard

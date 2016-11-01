@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MVi-GD-gPo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ozx-2S-0QY">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Stats View Controller-->
         <scene sceneID="Upi-BP-VEY">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mBk-EL-cJj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="MVi-GD-gPo" sceneMemberID="viewController">
+                <viewController id="MVi-GD-gPo" customClass="StatsViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DfJ-LC-tmP"/>
                         <viewControllerLayoutGuide type="bottom" id="B5C-kZ-cIO"/>
@@ -18,11 +20,166 @@
                     <view key="view" contentMode="scaleToFill" id="Cy5-hS-vvB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7uG-Th-D8g">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEA-KX-A99">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8PS-Qc-gKE" customClass="SegmentedControl" customModule="TeamTravel" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="20.5" width="375" height="55"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="oYQ-js-epY"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMK-SC-Os4">
+                                        <rect key="frame" x="0.0" y="75.5" width="375" height="527.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="7uG-Th-D8g" secondAttribute="trailing" id="7Hc-WF-Rb0"/>
+                            <constraint firstAttribute="bottom" secondItem="7uG-Th-D8g" secondAttribute="bottom" id="Fpj-yS-V02"/>
+                            <constraint firstItem="7uG-Th-D8g" firstAttribute="leading" secondItem="Cy5-hS-vvB" secondAttribute="leading" id="Fvx-rK-tK1"/>
+                            <constraint firstItem="7uG-Th-D8g" firstAttribute="top" secondItem="DfJ-LC-tmP" secondAttribute="bottom" id="w9h-8d-8Jq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="9VQ-7J-gAc"/>
+                    <connections>
+                        <outlet property="innerView" destination="fMK-SC-Os4" id="W2u-Ts-8l9"/>
+                        <outlet property="segmentedControl" destination="8PS-Qc-gKE" id="gZl-5o-Ngj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mBk-EL-cJj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="390" y="41"/>
+        </scene>
+        <!--Badges Collection View Controller-->
+        <scene sceneID="E6P-ls-PPP">
+            <objects>
+                <collectionViewController storyboardIdentifier="badgesViewController" id="kuM-a9-W6D" customClass="BadgesCollectionViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pJX-S2-TpS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="e8Q-iN-7sO">
+                            <size key="itemSize" width="169" height="198"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="badgeCell" id="xK4-p0-t5E" customClass="BadgesCollectionViewCell" customModule="TeamTravel" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="169" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="169" height="198"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                                <connections>
+                                    <segue destination="1pK-x6-fvS" kind="show" id="AAl-L7-VNb"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="kuM-a9-W6D" id="HXj-Nj-Szr"/>
+                            <outlet property="delegate" destination="kuM-a9-W6D" id="JVJ-k5-XaR"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xf5-sk-K24" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1328.8" y="40.929535232383813"/>
+        </scene>
+        <!--Badge Detail View Controller-->
+        <scene sceneID="jHU-jp-o58">
+            <objects>
+                <viewController id="1pK-x6-fvS" customClass="BadgeDetailViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SI9-sw-PCa"/>
+                        <viewControllerLayoutGuide type="bottom" id="b9C-hW-ZL3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dRE-tU-aRk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dcN-Pm-P9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="99" y="99"/>
+            <point key="canvasLocation" x="2077.5999999999999" y="42.728635682158924"/>
+        </scene>
+        <!--Locations Visited Table View Controller-->
+        <scene sceneID="sK0-W7-nsW">
+            <objects>
+                <tableViewController storyboardIdentifier="locationsVisitedViewController" id="aHV-nC-M0y" customClass="LocationsVisitedTableViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="WqT-cW-D5Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="sRV-hn-zMh">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sRV-hn-zMh" id="L3Z-ef-qwn">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="aHV-nC-M0y" id="cvz-94-VZF"/>
+                            <outlet property="delegate" destination="aHV-nC-M0y" id="3S6-tu-z6M"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pJs-Nn-Uvt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="390" y="698"/>
+        </scene>
+        <!--Points Graph View Controller-->
+        <scene sceneID="wNR-ij-k7Z">
+            <objects>
+                <viewController storyboardIdentifier="pointsViewController" id="AYn-FB-od5" customClass="PointsGraphViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="13I-Og-uCK"/>
+                        <viewControllerLayoutGuide type="bottom" id="Aht-IF-hhC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NmY-sy-OLX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vy5-zy-qRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="390" y="-612"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xhb-Id-1Io">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ozx-2S-0QY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="04R-oV-CR2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MVi-GD-gPo" kind="relationship" relationship="rootViewController" id="PC6-Zf-Po7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RQk-Q5-SAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-761" y="43"/>
         </scene>
     </scenes>
 </document>

@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import CoreLocation
-
 class CoreLocationController: NSObject, CLLocationManagerDelegate {
     
     static let shared = CoreLocationController()
@@ -24,7 +23,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     }
     
     var hasAccess: Bool {
-//        locationManager?.requestAlwaysAuthorization()
+        //        locationManager?.requestAlwaysAuthorization()
         return checkForAuthorizationStatus()
     }
     
@@ -47,7 +46,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         }
     }
     
-/// sets up locationManager to be delegate, sets accuracy to be within 10 Meters
+    /// sets up locationManager to be delegate, sets accuracy to be within 10 Meters
     func setupLocationManager() {
         let locMan = CLLocationManager()
         locMan.desiredAccuracy = kCLLocationAccuracyBest
@@ -58,7 +57,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         addObserverToGeofence()
     }
     
-/// checks Authorization status each time
+    /// checks Authorization status each time
     func getCurrentLocation() {
         
         if hasAccess == true {
@@ -153,7 +152,6 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         
         registerOuterMostGeoFence(for: outerRegion)
     }
-
     // MARK: - Region monitoring
     
     // delegate:
@@ -185,3 +183,4 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         self.alertDelegate?.presentAlert(alert: regionAlert)
     }
 }
+

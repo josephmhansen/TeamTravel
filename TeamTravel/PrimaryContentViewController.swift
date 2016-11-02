@@ -27,6 +27,8 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
         mapView.showsUserLocation = true
         
         temperatureLabel.layer.cornerRadius = 7.0
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(drawMapAnnotations), name: Notification.Name(rawValue: "allLocationsReturned"), object: nil)
     }
     
     
@@ -89,6 +91,11 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
             
             drawer.setPrimaryContentViewController(controller: primaryContent, animated: true)
         }
+    }
+    
+    // MARK: - Draw Map Annotations
+    func drawMapAnnotations(){
+        
     }
 }
 

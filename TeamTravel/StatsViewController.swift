@@ -18,12 +18,13 @@ class StatsViewController: UIViewController {
     @IBOutlet weak var innerView: UIView!
     
     @IBOutlet weak var segmentedControl: SegmentedControl!
+    @IBOutlet weak var label: UILabel!
     
     
 
     
     
-    //Programatic segues to UserStatsViewControllers
+    // MARK: - Programmatic segues to UserStatsViewControllers
     
     //PointsView
     
@@ -52,12 +53,16 @@ class StatsViewController: UIViewController {
         return [self.pointsViewController, self.badgesViewController, self.locationsVisitedTableViewController]
     }()
     
-    
+    // MARK: - View functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        label.text = "Achievements"
+        
         setupUI()
+        setupViews()
+        updateInnerView(index: segmentedControl.selectedIndex)
        let _ = self.userDetailViewControllers.count
         
     }
@@ -81,17 +86,7 @@ class StatsViewController: UIViewController {
         viewController.didMove(toParentViewController: self)
     }
     
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    //SegmentedController Functions
+    // MARK: - SegmentedController Functions
     
     fileprivate func setupUI() {
         configureSegmentedControl2()
@@ -120,7 +115,7 @@ class StatsViewController: UIViewController {
 
 }
 
-//SegmentedControllerDelegate Functions
+// MARK: - SegmentedControllerDelegate Functions
 
 extension StatsViewController: SegmentedControlDelegate {
     func segmentedControl(_ segmentedControl: SegmentedControl, didSelectIndex selectedIndex: Int) {

@@ -106,7 +106,7 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
     }
     func graphChartView(_ graphChartView: ORKGraphChartView, numberOfDataPointsForPlotIndex plotIndex: Int) -> Int {
         guard let traveler = TravelerController.shared.masterTraveler else { return 0 }
-        return traveler.locationsVisited.count
+        return 0//traveler.locationsVisited.count
     }
     
     func graphChartView(_ graphChartView: ORKGraphChartView, dataPointForPointIndex pointIndex: Int, plotIndex: Int) -> ORKValueRange {

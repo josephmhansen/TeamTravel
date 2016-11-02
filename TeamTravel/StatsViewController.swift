@@ -59,6 +59,7 @@ class StatsViewController: UIViewController {
         
         setupUI()
         setupViews()
+        updateInnerView(index: segmentedControl.selectedIndex)
        let _ = self.userDetailViewControllers.count
         
     }

@@ -95,7 +95,9 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     
     // MARK: - Draw Map Annotations
     func drawMapAnnotations(){
-        
+        for location in SearchLocationController.shared.allVisibleLocations {
+            self.mapView.addAnnotation(location)
+        }
     }
 }
 

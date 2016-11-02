@@ -24,7 +24,7 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
         CoreLocationController.shared.getCurrentLocation()
         
         NotificationCenter.default.addObserver(self, selector: #selector(zoomToUserLocation), name: Notification.Name(rawValue: "currentLocationUpdated"), object: nil)
-        
+        mapView.showsUserLocation = true
         
         temperatureLabel.layer.cornerRadius = 7.0
     }

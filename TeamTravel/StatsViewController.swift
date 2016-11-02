@@ -58,7 +58,7 @@ class StatsViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-
+        setupViews()
        let _ = self.userDetailViewControllers.count
         
     }

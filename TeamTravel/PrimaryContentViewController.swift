@@ -27,6 +27,8 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
         mapView.showsUserLocation = true
         
         temperatureLabel.layer.cornerRadius = 7.0
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(drawMapAnnotations), name: Notification.Name(rawValue: "allLocationsReturned"), object: nil)
     }
     
     
@@ -88,6 +90,19 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
             let primaryContent = UIStoryboard(name: "MainMapView", bundle: nil).instantiateViewController(withIdentifier: "PrimaryTransitionTargetViewController")
             
             drawer.setPrimaryContentViewController(controller: primaryContent, animated: true)
+        }
+    }
+    
+    // MARK: - Draw Map Annotations
+    /// Removes old annotations and draws new ones returned from the search.
+    func drawMapAnnotations(){
+        // remove old annotations
+        let oldAnnotations = self.mapView.annotations
+            self.mapView.removeAnnotations(oldAnnotations)
+        
+        // add new ones
+        for location in SearchLocationController.shared.allVisibleLocations {
+            self.mapView.addAnnotation(location)
         }
     }
 }

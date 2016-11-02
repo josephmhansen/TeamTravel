@@ -24,6 +24,7 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
         NotificationCenter.default.addObserver(self, selector: #selector(setupUser), name: Notification.Name(rawValue: "currentLocationUpdated"), object: nil)
         
         configureGraphViewBox()
+        setupUser()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -106,7 +107,7 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
     }
     func graphChartView(_ graphChartView: ORKGraphChartView, numberOfDataPointsForPlotIndex plotIndex: Int) -> Int {
         guard let traveler = TravelerController.shared.masterTraveler else { return 0 }
-        return 0//traveler.locationsVisited.count
+        return traveler.locationsVisited.count
     }
     
     func graphChartView(_ graphChartView: ORKGraphChartView, dataPointForPointIndex pointIndex: Int, plotIndex: Int) -> ORKValueRange {

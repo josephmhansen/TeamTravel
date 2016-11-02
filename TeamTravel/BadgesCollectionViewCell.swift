@@ -10,10 +10,17 @@ import UIKit
 
 class BadgesCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var badgeImageView: UIImageView!
+    let badgeImageView = UIImageView()
     
     func updateCellWith(_ badge: Badge) {
-        badgeImageView.image = badge.image
+        self.contentView.addSubview(badgeImageView)
+        badgeImageView.translatesAutoresizingMaskIntoConstraints = false
+        badgeImageView.contentMode = .scaleAspectFit
+        let leftConstraint = NSLayoutConstraint(item: badgeImageView, attribute: .left, relatedBy: .equal, toItem: self.contentView, attribute: .left, multiplier: 1, constant: 10)
+        let rightConstraint = NSLayoutConstraint(item: badgeImageView, attribute: .right, relatedBy: .equal, toItem: self.contentView, attribute: .right, multiplier: 1, constant: -10)
+        let topConstraint = NSLayoutConstraint(item: badgeImageView, attribute: .top, relatedBy: .equal, toItem: self.contentView, attribute: .top, multiplier: 1, constant: 5)
+        let bottomConstraint = NSLayoutConstraint(item: badgeImageView, attribute: .bottom, relatedBy: .equal, toItem: self.contentView, attribute: .bottom, multiplier: 1, constant: 5)
+        self.contentView.addConstraints([leftConstraint, rightConstraint, topConstraint, bottomConstraint])
+        self.badgeImageView.image = badge.image
     }
-    
 }

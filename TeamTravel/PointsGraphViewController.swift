@@ -6,7 +6,7 @@
 //  Copyright © 2016 Joseph Hansen. All rights reserved.
 //
 
-/*
+
 import UIKit
 import ResearchKit
 
@@ -142,4 +142,4 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
     
     
 }
- */
+ 

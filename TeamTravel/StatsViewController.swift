@@ -23,13 +23,13 @@ class StatsViewController: UIViewController {
     //Programatic segues to UserStatsViewControllers
     
     //PointsView
-    /*
+    
     lazy var pointsViewController: PointsGraphViewController =  {
         let storyboard = UIStoryboard(name: "UserDetailView", bundle: Bundle.main)
         let viewController = storyboard.instantiateViewController(withIdentifier: "pointsViewController") as! PointsGraphViewController
         return viewController
     }()
- */
+ 
     
     //BadgesView
     lazy var badgesViewController: BadgesCollectionViewController = {
@@ -46,7 +46,7 @@ class StatsViewController: UIViewController {
     }()
     
     lazy var userDetailViewControllers: [UIViewController] = {
-        return [self.badgesViewController, self.locationsVisitedTableViewController]
+        return [self.pointsViewController, self.badgesViewController, self.locationsVisitedTableViewController]
     }()
     
     
@@ -55,6 +55,7 @@ class StatsViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+       let _ = self.userDetailViewControllers.count
         
     }
     
@@ -105,9 +106,7 @@ class StatsViewController: UIViewController {
         segmentedControl.selectionIndicatorEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
     
-    func updateInnerView() {
-        let index = segmentedControl.selectedIndex
-        
+    func updateInnerView(index: Int) {
         for viewController in self.userDetailViewControllers {
             viewController.view.isHidden = true
         }
@@ -123,7 +122,7 @@ class StatsViewController: UIViewController {
 extension StatsViewController: SegmentedControlDelegate {
     func segmentedControl(_ segmentedControl: SegmentedControl, didSelectIndex selectedIndex: Int) {
         print("Did select index \(selectedIndex)")
-        updateInnerView()
+        updateInnerView(index: selectedIndex)
         switch segmentedControl.style {
         case .text:
             print("The title is “\(segmentedControl.titles[selectedIndex].string)”\n")

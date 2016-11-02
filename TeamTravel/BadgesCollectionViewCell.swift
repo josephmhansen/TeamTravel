@@ -10,4 +10,10 @@ import UIKit
 
 class BadgesCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet var badgeImageView: UIImageView!
+    
+    func updateCellWith(_ badge: Badge) {
+        badgeImageView.image = badge.image
+    }
+    
 }

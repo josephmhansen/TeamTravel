@@ -43,6 +43,33 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     }
     
     fileprivate func configureSegmentedControl2() {
+        //Set Titles
+        /*
+        let titleStrings = ["Nearby", "QuestList"]
+        let titles: [NSAttributedString] = {
+            let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17), NSForegroundColorAttributeName: UIColor.white]
+            var titles = [NSAttributedString]()
+            for titleString in titleStrings {
+                let title = NSAttributedString(string: titleString, attributes: attributes)
+                titles.append(title)
+            }
+            return titles
+
+        }()
+        let selectedTitles: [NSAttributedString] = {
+            let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17), NSForegroundColorAttributeName: UIColor(white: 0.1, alpha: 1)]
+            var selectedTitles = [NSAttributedString]()
+            for titleString in titleStrings {
+                let selectedTitle = NSAttributedString(string: titleString, attributes: attributes)
+                selectedTitles.append(selectedTitle)
+            }
+            return selectedTitles
+        }()
+        
+        segmentedControl.setTitles(titles, selectedTitles: selectedTitles)
+        */
+        
+        //Set Images
         let images = [#imageLiteral(resourceName: "pin"), #imageLiteral(resourceName: "pin")]
         let selectedImages = [#imageLiteral(resourceName: "pin"), #imageLiteral(resourceName: "pin")]
         segmentedControl.setImages(images, selectedImages: selectedImages)

@@ -12,7 +12,7 @@ import CoreLocation
 class CoreLocationController: NSObject, CLLocationManagerDelegate {
     
     static let shared = CoreLocationController()
-    
+        
     var locationManager: CLLocationManager?
     
     var currentTravelerLocation: CLLocation? {
@@ -162,7 +162,9 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         if region.identifier == "outerRegion" {
             
             guard let currentLocation = currentTravelerLocation else { return }
-            SearchLocationController.shared.queryForLocations(location: currentLocation)
+            SearchLocationController.shared.queryForLocations(location: currentLocation, completion: { (_) in
+                SearchLocationController.shared.isSearching = false
+            })
             
             let alertController = UIAlertController(title: "Reloading Geofences", message: nil, preferredStyle: .alert)
             let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)

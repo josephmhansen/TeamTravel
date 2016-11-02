@@ -12,6 +12,9 @@ import MapKit
 class SearchLocationController  {
     
     static let shared = SearchLocationController()
+    
+    var isSearching: Bool?
+    
     var allReturnedLocations: [Location] = [] {
         didSet {
             let notification = Notification(name: Notification.Name(rawValue: "allLocationsReturned"))
@@ -40,17 +43,21 @@ class SearchLocationController  {
         }
     }
     
-    func queryForLocations(location: CLLocation) {
-        
+    func queryForLocations(location: CLLocation, completion: ((_ completion: Bool) -> Void)?) {
+        if isSearching == true { print("Already Searching"); return }
+        isSearching = true
         SearchLocationController.shared.allReturnedLocations = []
         let locationsTypes: [LocationType] = [LocationType.Landmarks, LocationType.Museums, LocationType.Parks]
-        for type in locationsTypes {
-            
-            queryForLocation(ofType: type, location: location)
-        }
+        self.queryForLocation(ofType: locationsTypes[0], location: location, completion: { (_) in
+            self.queryForLocation(ofType: locationsTypes[1], location: location, completion: { (_) in
+                self.queryForLocation(ofType: locationsTypes[2], location: location, completion: { (_) in
+                    self.isSearching = false
+                })
+            })
+        })
     }
     
-    func queryForLocation(ofType: LocationType, location: CLLocation) {
+    func queryForLocation(ofType: LocationType, location: CLLocation, completion: (_ completion: Bool) -> Void) {
         
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let region = MKCoordinateRegionMake(location.coordinate, span)
@@ -77,7 +84,8 @@ class SearchLocationController  {
                 }
                 let notification = Notification(name: Notification.Name(rawValue:"searchCategoryCompleted"))
                 NotificationCenter.default.post(notification)
-            } // end dispatch
+            }
+            // end dispatch
         }
     }
     

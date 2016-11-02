@@ -47,7 +47,9 @@ class TESTSearchResultTableViewController: UITableViewController, ShowFenceAlert
         }
         
         if let location = CoreLocationController.shared.currentTravelerLocation {
-            SearchLocationController.shared.queryForLocations(location: location)
+            SearchLocationController.shared.queryForLocations(location: location, completion: { (_) in
+                SearchLocationController.shared.isSearching = false
+            })
         }
     }
     

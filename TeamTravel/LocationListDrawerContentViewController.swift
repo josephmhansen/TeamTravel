@@ -43,8 +43,8 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     }
     
     fileprivate func configureSegmentedControl2() {
-        let images = [#imageLiteral(resourceName: "pin"), #imageLiteral(resourceName: "pin"), #imageLiteral(resourceName: "pin") ]
-        let selectedImages = [#imageLiteral(resourceName: "pin"), #imageLiteral(resourceName: "pin"), #imageLiteral(resourceName: "pin") ]
+        let images = [#imageLiteral(resourceName: "pin"), #imageLiteral(resourceName: "pin")]
+        let selectedImages = [#imageLiteral(resourceName: "pin"), #imageLiteral(resourceName: "pin")]
         segmentedControl.setImages(images, selectedImages: selectedImages)
         segmentedControl.delegate = self
         segmentedControl.selectionIndicatorStyle = .bottom

@@ -23,9 +23,13 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
         super.viewDidLoad()
         CoreLocationController.shared.getCurrentLocation()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(zoomToUserLocation), name: Notification.Name(rawValue: "currentLocationUpdated"), object: nil)
+        
         
         temperatureLabel.layer.cornerRadius = 7.0
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -40,6 +44,14 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func zoomToUserLocation() {
+        if let location = CoreLocationController.shared.currentTravelerLocation {
+            let span = MKCoordinateSpanMake(0.05, 0.05)
+            let region = MKCoordinateRegion(center: location.coordinate, span: span)
+            self.mapView.setRegion(region, animated: true)
+        }
     }
     
     func makeUIAdjustmentsForFullscreen(progress: CGFloat)

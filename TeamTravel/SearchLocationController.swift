@@ -57,7 +57,7 @@ class SearchLocationController  {
         })
     }
     
-    func queryForLocation(ofType: LocationType, location: CLLocation, completion: (_ completion: Bool) -> Void) {
+    func queryForLocation(ofType: LocationType, location: CLLocation, completion: @escaping (_ completion: Bool) -> Void) {
         
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let region = MKCoordinateRegionMake(location.coordinate, span)
@@ -84,6 +84,7 @@ class SearchLocationController  {
                 }
                 let notification = Notification(name: Notification.Name(rawValue:"searchCategoryCompleted"))
                 NotificationCenter.default.post(notification)
+                completion(true)
             }
             // end dispatch
         }

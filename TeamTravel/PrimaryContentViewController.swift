@@ -94,7 +94,13 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     }
     
     // MARK: - Draw Map Annotations
+    /// Removes old annotations and draws new ones returned from the search.
     func drawMapAnnotations(){
+        // remove old annotations
+        let oldAnnotations = self.mapView.annotations
+            self.mapView.removeAnnotations(oldAnnotations)
+        
+        // add new ones
         for location in SearchLocationController.shared.allVisibleLocations {
             self.mapView.addAnnotation(location)
         }

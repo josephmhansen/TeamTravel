@@ -58,6 +58,7 @@ class BadgesCollectionViewController: UICollectionViewController {
         guard let badges = badges else { return }
         let badge = badges[indexPath.item]
         self.badgeDescription = badge.description
+        self.badgeTitle = badge.name
         self.image = badge.image
         
         performSegue(withIdentifier: "toBadgeDesctiption", sender: nil)
@@ -68,7 +69,7 @@ class BadgesCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toBadgeDesctiption" {
             let viewController = segue.destination as? BadgeDetailViewController
-            viewController?.badgeImage.image = self.image
+            viewController?.image = self.image
             viewController?.badgeTitle = self.badgeTitle
             viewController?.badgeDescription = self.badgeDescription
         }

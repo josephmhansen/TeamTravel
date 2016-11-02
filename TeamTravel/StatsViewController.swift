@@ -59,7 +59,7 @@ class StatsViewController: UIViewController {
         super.viewDidLoad()
         
         label.text = "Achievements"
-        //CoreLocationController.shared.setupLocationManager()
+        CoreLocationController.shared.setupLocationManager()
         setupUI()
         setupViews()
         updateInnerView(index: segmentedControl.selectedIndex)

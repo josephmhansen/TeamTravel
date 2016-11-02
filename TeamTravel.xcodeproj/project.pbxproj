@@ -38,6 +38,7 @@
 		D0DAA66B1DC951B30088C71F /* LocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAA6671DC951B30088C71F /* LocationMapViewController.swift */; };
 		D0DAA66C1DC951B30088C71F /* PrimaryContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAA6681DC951B30088C71F /* PrimaryContentViewController.swift */; };
 		D0DAA66D1DC951B30088C71F /* PrimaryTransitionTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAA6691DC951B30088C71F /* PrimaryTransitionTargetViewController.swift */; };
+		FA2B29771DCA3FC1008D3B17 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA53240B1DCA3EF9005F6DC4 /* ResearchKit.framework */; };
 		FA6384ED1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6384EC1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift */; };
 		FA6384EF1DC11E6D0026C6F6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6384EE1DC11E6D0026C6F6 /* MockData.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 72602F541DBFC02A00FC53EC;
 			remoteInfo = TeamTravel;
+		};
+		FA2B29721DCA3FB8008D3B17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA5324041DCA3EF9005F6DC4 /* ResearchKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B183A4731A8535D100C76870;
+			remoteInfo = ResearchKit;
+		};
+		FA53240A1DCA3EF9005F6DC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA5324041DCA3EF9005F6DC4 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B183A5951A8535D100C76870;
+			remoteInfo = ResearchKit;
+		};
+		FA53240C1DCA3EF9005F6DC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA5324041DCA3EF9005F6DC4 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
+			remoteInfo = ResearchKitTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -97,6 +119,7 @@
 		D0DAA6671DC951B30088C71F /* LocationMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationMapViewController.swift; path = TeamTravel/LocationMapViewController.swift; sourceTree = SOURCE_ROOT; };
 		D0DAA6681DC951B30088C71F /* PrimaryContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrimaryContentViewController.swift; path = TeamTravel/PrimaryContentViewController.swift; sourceTree = SOURCE_ROOT; };
 		D0DAA6691DC951B30088C71F /* PrimaryTransitionTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrimaryTransitionTargetViewController.swift; path = TeamTravel/PrimaryTransitionTargetViewController.swift; sourceTree = SOURCE_ROOT; };
+		FA5324041DCA3EF9005F6DC4 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = TeamTravel/ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
 		FA6384EC1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TESTSearchResultTableViewController.swift; sourceTree = "<group>"; };
 		FA6384EE1DC11E6D0026C6F6 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2B29771DCA3FC1008D3B17 /* ResearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +153,7 @@
 		72602F4C1DBFC02A00FC53EC = {
 			isa = PBXGroup;
 			children = (
+				FA5324041DCA3EF9005F6DC4 /* ResearchKit.xcodeproj */,
 				72602F571DBFC02A00FC53EC /* TeamTravel */,
 				72602F6C1DBFC02A00FC53EC /* TeamTravelTests */,
 				72602F771DBFC02A00FC53EC /* TeamTravelUITests */,
@@ -260,6 +285,15 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
+		FA5324051DCA3EF9005F6DC4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA53240B1DCA3EF9005F6DC4 /* ResearchKit.framework */,
+				FA53240D1DCA3EF9005F6DC4 /* ResearchKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -274,6 +308,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FA2B29731DCA3FB8008D3B17 /* PBXTargetDependency */,
 			);
 			name = TeamTravel;
 			productName = TeamTravel;
@@ -356,6 +391,12 @@
 			mainGroup = 72602F4C1DBFC02A00FC53EC;
 			productRefGroup = 72602F561DBFC02A00FC53EC /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FA5324051DCA3EF9005F6DC4 /* Products */;
+					ProjectRef = FA5324041DCA3EF9005F6DC4 /* ResearchKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				72602F541DBFC02A00FC53EC /* TeamTravel */,
@@ -364,6 +405,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FA53240B1DCA3EF9005F6DC4 /* ResearchKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ResearchKit.framework;
+			remoteRef = FA53240A1DCA3EF9005F6DC4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FA53240D1DCA3EF9005F6DC4 /* ResearchKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ResearchKitTests.xctest;
+			remoteRef = FA53240C1DCA3EF9005F6DC4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		72602F531DBFC02A00FC53EC /* Resources */ = {
@@ -456,6 +514,11 @@
 			isa = PBXTargetDependency;
 			target = 72602F541DBFC02A00FC53EC /* TeamTravel */;
 			targetProxy = 72602F751DBFC02A00FC53EC /* PBXContainerItemProxy */;
+		};
+		FA2B29731DCA3FB8008D3B17 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ResearchKit;
+			targetProxy = FA2B29721DCA3FB8008D3B17 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

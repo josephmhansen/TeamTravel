@@ -28,8 +28,6 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let oldFrame = self.view.frame
-        self.view.frame = CGRect(x: 0, y: 0, width: oldFrame.width, height: 300)
         configurePointsGraph()
         pointGraph.animate(withDuration: 2)
     }

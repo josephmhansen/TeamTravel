@@ -18,6 +18,7 @@ class StatsViewController: UIViewController {
     @IBOutlet weak var innerView: UIView!
     
     @IBOutlet weak var segmentedControl: SegmentedControl!
+    @IBOutlet weak var label: UILabel!
     
     
 
@@ -56,6 +57,8 @@ class StatsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        label.text = "Achievements"
         
         setupUI()
         setupViews()

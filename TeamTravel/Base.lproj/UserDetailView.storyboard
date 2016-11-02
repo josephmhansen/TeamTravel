@@ -53,7 +53,13 @@
                             <constraint firstItem="7uG-Th-D8g" firstAttribute="top" secondItem="DfJ-LC-tmP" secondAttribute="bottom" id="w9h-8d-8Jq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="9VQ-7J-gAc"/>
+                    <navigationItem key="navigationItem" id="9VQ-7J-gAc">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="Utd-DX-c3f">
+                            <connections>
+                                <action selector="backButtonTapped:" destination="MVi-GD-gPo" id="OHE-xQ-P2Z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="innerView" destination="fMK-SC-Os4" id="W2u-Ts-8l9"/>
                         <outlet property="segmentedControl" destination="8PS-Qc-gKE" id="gZl-5o-Ngj"/>

@@ -21,7 +21,7 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        CoreLocationController.shared.getCurrentLocation()
         
         
         temperatureLabel.layer.cornerRadius = 7.0

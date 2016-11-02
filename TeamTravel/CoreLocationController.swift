@@ -12,7 +12,7 @@ import CoreLocation
 class CoreLocationController: NSObject, CLLocationManagerDelegate {
     
     static let shared = CoreLocationController()
-    
+        
     var locationManager: CLLocationManager?
     
     var currentTravelerLocation: CLLocation? {

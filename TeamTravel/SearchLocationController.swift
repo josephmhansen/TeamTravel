@@ -12,6 +12,9 @@ import MapKit
 class SearchLocationController  {
     
     static let shared = SearchLocationController()
+    
+    var isSearching: Bool?
+    
     var allReturnedLocations: [Location] = [] {
         didSet {
             let notification = Notification(name: Notification.Name(rawValue: "allLocationsReturned"))
@@ -41,7 +44,7 @@ class SearchLocationController  {
     }
     
     func queryForLocations(location: CLLocation) {
-        
+        if isSearching == true { print(""); return }
         SearchLocationController.shared.allReturnedLocations = []
         let locationsTypes: [LocationType] = [LocationType.Landmarks, LocationType.Museums, LocationType.Parks]
         for type in locationsTypes {

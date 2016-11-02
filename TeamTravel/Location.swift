@@ -27,6 +27,9 @@ class Location: NSObject, MKAnnotation {
     
     var locationName: String
     var coordinate: CLLocationCoordinate2D
+    var title: String? {
+        return locationName
+    }
     var location: CLLocation
     var type: LocationType
     var hasBeenVisited: Bool = false

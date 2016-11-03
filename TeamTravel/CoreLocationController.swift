@@ -62,6 +62,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         
         if hasAccess == true {
             locationManager?.requestLocation()
+            
         } else {
             locationManager?.requestAlwaysAuthorization()
         }
@@ -82,6 +83,12 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         NSLog(error.localizedDescription)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways {
+            getCurrentLocation()
+        }
     }
     
     // MARK: - Functions to create geofences

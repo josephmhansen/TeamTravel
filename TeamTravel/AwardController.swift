@@ -24,8 +24,6 @@ struct AwardController {
     let repeatOffenderBadge = Badge(image: #imageLiteral(resourceName: "silverbadge"), name: "Repeat Offender", description: "Visit a location twice", hasEarned: false)
     let loyalTravelerBadge = Badge(image: #imageLiteral(resourceName: "silverbadge"), name: "Loyal Traveler", description: "Be a traveler for 3 months", hasEarned: false)
     
-    
-    
     static func updateTravelerPoints() -> (points: Int, pointsArray: [Int]) {
         var points = 0
         var pointsArray: [Int] = []
@@ -52,7 +50,7 @@ struct AwardController {
     
     func awardBadges() {
         awardBabySteps()
-        awardSeriousExplorer()
+        awardSeriousAdventurer()
         awardNotJustAnUrbanExplorer()
         awardHistoricalSignificance()
         awardOldBones()
@@ -66,13 +64,15 @@ struct AwardController {
         guard let traveler = TravelerController.shared.masterTraveler, babyStepsBadge.hasEarned == false else { return }
         if traveler.locationsVisited.count >= 1 {
             babyStepsBadge.hasEarned = true
+            babyStepsBadge.image = #imageLiteral(resourceName: "Baby Step")
         }
     }
     
-    func awardSeriousExplorer() {
+    func awardSeriousAdventurer() {
         guard seriousExplorerBadge.hasEarned == false, let traveler = TravelerController.shared.masterTraveler else { return }
         if traveler.points >= 100 {
             seriousExplorerBadge.hasEarned = true
+            seriousExplorerBadge.image = #imageLiteral(resourceName: "Serious Adventurer")
         }
     }
     
@@ -81,6 +81,7 @@ struct AwardController {
         let parksVisited = traveler.locationsVisited.filter { $0.type == LocationType.Parks }
         if parksVisited.count >= 5 {
             notJustAnUrbanBadge.hasEarned = true
+            notJustAnUrbanBadge.image = #imageLiteral(resourceName: "Not just an urban explorer")
         }
     }
     
@@ -89,6 +90,7 @@ struct AwardController {
         let landmarksVisited = traveler.locationsVisited.filter { $0.type == LocationType.Landmarks }
         if landmarksVisited.count >= 5 {
             historicalSignificanceBadge.hasEarned = true
+            historicalSignificanceBadge.image = #imageLiteral(resourceName: "Historical Significance")
         }
     }
     
@@ -97,6 +99,7 @@ struct AwardController {
         let museumsVisited = traveler.locationsVisited.filter { $0.type == LocationType.Museums }
         if museumsVisited.count >= 5 {
             oldBonesBadge.hasEarned = true
+            oldBonesBadge.image = #imageLiteral(resourceName: "Old Bones")
         }
     }
     
@@ -104,6 +107,7 @@ struct AwardController {
         guard let traveler = TravelerController.shared.masterTraveler, homewardBoundBadge.hasEarned == false else { return }
         if traveler.locationsVisited.last?.locationName == "Dev Mountain" {
             homewardBoundBadge.hasEarned = true
+            homewardBoundBadge.image = #imageLiteral(resourceName: "Homeward Bound")
         }
     }
     
@@ -112,6 +116,7 @@ struct AwardController {
         let LocationDistance = CLLocationDistance(1000)
         if let distance = traveler.locationsVisited.last?.location.distance(from: traveler.homeLocation), distance >= LocationDistance {
             oneSmallStepBadge.hasEarned = true
+            homewardBoundBadge.image = #imageLiteral(resourceName: "Homeward Bound")
         }
     }
     
@@ -119,6 +124,7 @@ struct AwardController {
         guard let traveler = TravelerController.shared.masterTraveler, repeatOffenderBadge.hasEarned == false, let datesVisited = traveler.locationsVisited.last?.datesVisited else { return }
         if datesVisited.count >= 2 {
             repeatOffenderBadge.hasEarned = true
+            repeatOffenderBadge.image = #imageLiteral(resourceName: "Repeat Offender")
         }
     }
     

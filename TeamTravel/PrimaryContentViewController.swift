@@ -48,7 +48,7 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     
     func zoomToUserLocation() {
         if let location = CoreLocationController.shared.currentTravelerLocation {
-            let span = MKCoordinateSpanMake(0.05, 0.05)
+            let span = MKCoordinateSpanMake(0.025, 0.025)
             let region = MKCoordinateRegion(center: location.coordinate, span: span)
             //fixed issue with zooming too slow, do more research about async after to delay zoom a little bit
             /*

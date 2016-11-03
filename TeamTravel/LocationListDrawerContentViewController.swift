@@ -117,20 +117,19 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as? LocalLocationTableViewCell else { return UITableViewCell() }
         let currentLocation = CoreLocationController.shared.currentTravelerLocation
         
         let location = locationsToShow[indexPath.row]
         let distance = Int((currentLocation?.distance(from: location.location))!)
         
-        cell.textLabel?.text = location.locationName
-        cell.detailTextLabel?.text = "Type: \(location.type) \nDistance: \(distance) meters"
+        cell.updateCellWithLocation(location: location, and: distance)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80.0
+        return 85.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

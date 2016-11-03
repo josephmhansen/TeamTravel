@@ -52,12 +52,16 @@ class SearchLocationController  {
             self.queryForLocation(ofType: locationsTypes[1], location: location, completion: { (_) in
                 self.queryForLocation(ofType: locationsTypes[2], location: location, completion: { (_) in
                     self.isSearching = false
+                    
+                    // Make call to listening functions: Geofencing, tableview updates, etc.
+                        let notification = Notification(name: Notification.Name(rawValue:"searchCategoryCompleted"))
+                        NotificationCenter.default.post(notification)
                 })
             })
         })
     }
     
-    func queryForLocation(ofType: LocationType, location: CLLocation, completion: (_ completion: Bool) -> Void) {
+    func queryForLocation(ofType: LocationType, location: CLLocation, completion: @escaping (_ completion: Bool) -> Void) {
         
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let region = MKCoordinateRegionMake(location.coordinate, span)
@@ -82,8 +86,9 @@ class SearchLocationController  {
                         SearchLocationController.shared.allReturnedLocations.append(newLocation)
                     }
                 }
-                let notification = Notification(name: Notification.Name(rawValue:"searchCategoryCompleted"))
-                NotificationCenter.default.post(notification)
+//                let notification = Notification(name: Notification.Name(rawValue:"searchCategoryCompleted"))
+//                NotificationCenter.default.post(notification)
+                completion(true)
             }
             // end dispatch
         }

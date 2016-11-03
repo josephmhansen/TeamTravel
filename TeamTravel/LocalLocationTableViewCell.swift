@@ -20,11 +20,11 @@ class LocalLocationTableViewCell: UITableViewCell {
         locationDistance.text = "Type: \(location.type) \nDistance: \(distance) meters"
         switch location.type {
         case LocationType.Landmarks:
-            break
+            typeImageView.image = #imageLiteral(resourceName: "Landmarks")
         case LocationType.Museums:
-            break
+            typeImageView.image = #imageLiteral(resourceName: "Museums")
         case LocationType.Parks:
-            break
+            typeImageView.image = #imageLiteral(resourceName: "Parks")
         }
     }
 }

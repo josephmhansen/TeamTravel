@@ -52,6 +52,10 @@ class SearchLocationController  {
             self.queryForLocation(ofType: locationsTypes[1], location: location, completion: { (_) in
                 self.queryForLocation(ofType: locationsTypes[2], location: location, completion: { (_) in
                     self.isSearching = false
+                    
+                    // Make call to listening functions: Geofencing, tableview updates, etc.
+                        let notification = Notification(name: Notification.Name(rawValue:"searchCategoryCompleted"))
+                        NotificationCenter.default.post(notification)
                 })
             })
         })
@@ -82,8 +86,8 @@ class SearchLocationController  {
                         SearchLocationController.shared.allReturnedLocations.append(newLocation)
                     }
                 }
-                let notification = Notification(name: Notification.Name(rawValue:"searchCategoryCompleted"))
-                NotificationCenter.default.post(notification)
+//                let notification = Notification(name: Notification.Name(rawValue:"searchCategoryCompleted"))
+//                NotificationCenter.default.post(notification)
                 completion(true)
             }
             // end dispatch

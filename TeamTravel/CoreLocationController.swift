@@ -91,7 +91,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
             region.notifyOnExit = true
             region.notifyOnEntry = false
             locationManager?.startMonitoring(for: region)
-            print(region.identifier)
+            print("Outermost fence: \(region.identifier)")
             print(locationManager?.monitoredRegions.count ?? "")
         } else {
             print("problem setting up last fence")

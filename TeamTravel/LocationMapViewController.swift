@@ -486,11 +486,6 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
         setDrawerPosition(position: drawerPosition, animated: false)
     }
     
-    override open func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // MARK: Configuration Updates
     
     /**
@@ -499,6 +494,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
      - parameter position: The position to set the drawer to.
      - parameter animated: Whether or not to animate the change. (Default: true)
      */
+    
     public func setDrawerPosition(position: PulleyPosition, animated: Bool = true)
     {
         guard supportedDrawerPositions.contains(position) else {

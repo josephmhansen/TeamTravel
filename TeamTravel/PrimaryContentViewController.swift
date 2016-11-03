@@ -44,11 +44,6 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
 //            drawer.drawerBackgroundVisualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
 //        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func zoomToUserLocation() {
         if let location = CoreLocationController.shared.currentTravelerLocation {
@@ -68,11 +63,6 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
             }
             
         }
-    }
-    
-    func makeUIAdjustmentsForFullscreen(progress: CGFloat)
-    {
-        //
     }
     
     func drawerChangedDistanceFromBottom(drawer: LocationMapViewController, distance: CGFloat)

@@ -60,7 +60,6 @@ class StatsViewController: UIViewController {
         
 
         self.title = "Achievements"
-        CoreLocationController.shared.setupLocationManager()
         setupUI()
         setupViews()
         updateInnerView(index: segmentedControl.selectedIndex)

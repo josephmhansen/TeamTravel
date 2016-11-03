@@ -183,6 +183,9 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         regionAlert.addAction(dismiss)
         
         self.alertDelegate?.presentAlert(alert: regionAlert)
+    
+        // Add location to Master traveler
+        TravelerController.shared.addVisited(region: region)
     }
 }
 

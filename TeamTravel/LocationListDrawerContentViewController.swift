@@ -135,14 +135,14 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let drawer = self.parent as? LocationMapViewController
-        {
-            let primaryContent = UIStoryboard(name: "MainMapView", bundle: nil).instantiateViewController(withIdentifier: "PrimaryTransitionTargetViewController")
+        //if let drawer = self.parent as? LocationMapViewController
+       // {
+        //    let primaryContent = UIStoryboard(name: "MainMapView", bundle: nil).instantiateViewController(withIdentifier: "PrimaryTransitionTargetViewController")
             
-            drawer.setDrawerPosition(position: .collapsed, animated: true)
+        //   drawer.setDrawerPosition(position: .collapsed, animated: true)
 
-            drawer.setPrimaryContentViewController(controller: primaryContent, animated: false)
-        }
+        //    drawer.setPrimaryContentViewController(controller: primaryContent, animated: false)
+        //}
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

@@ -17,7 +17,10 @@ class MockData {
         let loc3 = Location(locationName: "Temple Square", location: CLLocation(latitude: 40.7707, longitude: 111.8911), type: .Landmarks)
         let loc4 = Location(locationName: "Houston Museum of Fine Arts", location: CLLocation(latitude: 29.7256, longitude: 95.3905), type: .Museums)
         let loc5 = Location(locationName: "Potato Museum", location: CLLocation(latitude: 43.1896, longitude: 112.3437), type: .Museums)
-      return [loc1, loc2, loc3, loc4, loc5]
+        let loc6 = Location(locationName: "Gallavan", location: CLLocation(latitude: 40.7639, longitude: 111.8911), type: .Landmarks)
+        let loc7 = Location(locationName: "Temple", location: CLLocation(latitude: 40.7707, longitude: 111.8911), type: .Landmarks)
+        let loc8 = Location(locationName: "Plaza", location: CLLocation(latitude: 40.7639, longitude: 111.8911), type: .Landmarks)
+      return [loc1, loc2, loc3, loc4, loc5, loc6, loc7, loc8]
     }
     
     static var locationsWishList: [Location]{

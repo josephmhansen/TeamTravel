@@ -17,7 +17,16 @@ class Traveler {
         return AwardController.updateTravelerPoints().points
     }
   
-    var locationsVisited: [Location] = []
+    var locationsVisited: [Location] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                let notification = Notification(name: Notification.Name(rawValue: "locationsVisitedUpdated"))
+                NotificationCenter.default.post(notification)
+                
+            }
+        }
+    }
+    
     var locationsWishList: [Location] = []
     var homeLocation: CLLocation
     var name: String

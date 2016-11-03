@@ -14,6 +14,12 @@ class LocationsVisitedTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: Notification.Name(rawValue: "locationsVisitedUpdated"), object: nil)
+    }
+    
+    // MARK: - Notification selectors
+    func updateTableView(){
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source

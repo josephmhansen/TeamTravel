@@ -11,6 +11,8 @@ import MapKit
 
 class SearchLocationController  {
     
+    // MARK: - Properties
+    
     static let shared = SearchLocationController()
     
     var isSearching: Bool?
@@ -28,7 +30,7 @@ class SearchLocationController  {
         return array.sorted { $0.0.location.distance(from: location) < $0.1.location.distance(from: location)}
     }
     
-    
+    // MARK: - Manipulate Visible locations
     func boxChecked(ofType: LocationType) {
         let newVisibleLocations =  allReturnedLocations.filter{$0.type == ofType}
         for location in newVisibleLocations {
@@ -43,6 +45,7 @@ class SearchLocationController  {
         }
     }
     
+    // MARK: - Search functions
     func queryForLocations(location: CLLocation, completion: ((_ completion: Bool) -> Void)?) {
         if isSearching == true { print("Already Searching"); return }
         isSearching = true
@@ -95,5 +98,12 @@ class SearchLocationController  {
         }
     }
     
+    // MARK: - Helper functions for TravelerController
+    func locationFromRegion(identifier: String) -> Location? {
+        let results = SearchLocationController.shared.allReturnedLocations.filter {
+            $0.locationName.lowercased() == identifier.lowercased() }
+        guard let location = results.first else { return nil }
+        return location
+    }
     
 }

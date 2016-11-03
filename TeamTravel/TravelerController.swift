@@ -8,6 +8,7 @@
 
 import UIKit
 import CloudKit
+import CoreLocation
 
 class TravelerController {
   
@@ -15,10 +16,28 @@ class TravelerController {
   
   static let shared = TravelerController()
   
-    func addVisited(location: Location, toTraveler: Traveler) {
-    // We might be able to flesh these out to.
-    self.masterTraveler?.locationsVisited.append(location)
-    AwardController.shared.awardBadges()
+    func addVisited(region: CLRegion) {
+        guard let circularRegion = region as? CLCircularRegion else { return }
+        // Convert region to a location:
+        let location = SearchLocationController.shared.locationFromRegion(identifier: circularRegion.identifier)
+        guard let locationToAppend = location else {    // here we would search for the location, or cache the region info to then create a CKRecord when the app launches again
+            // let coordinate = circularRegion.center
+            return
+        }
+        guard let traveler = self.masterTraveler else { return }
+        var append = false
+        for visitedLocation in traveler.locationsVisited {
+            if locationToAppend == visitedLocation {
+                visitedLocation.datesVisited?.append(Date())
+                append = true
+            }
+        }
+        if !append {
+            locationToAppend.datesVisited?.append(Date())
+            traveler.locationsVisited.append(locationToAppend)
+        }
+
+        AwardController.shared.awardBadges()
   }
   
   func addToMasterTravelerList(location: Location) {

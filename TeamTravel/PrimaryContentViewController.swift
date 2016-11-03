@@ -52,7 +52,19 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
         if let location = CoreLocationController.shared.currentTravelerLocation {
             let span = MKCoordinateSpanMake(0.05, 0.05)
             let region = MKCoordinateRegion(center: location.coordinate, span: span)
-            self.mapView.setRegion(region, animated: true)
+            //fixed issue with zooming too slow, do more research about async after to delay zoom a little bit
+            /*
+            let deadline = DispatchTime.now() + .seconds(1)
+            
+            DispatchQueue.main.asyncAfter(deadline: deadline, execute: {
+                self.mapView.setRegion(region, animated: true)
+            })
+            */
+            
+            DispatchQueue.main.async {
+                self.mapView.setRegion(region, animated: true)
+            }
+            
         }
     }
     

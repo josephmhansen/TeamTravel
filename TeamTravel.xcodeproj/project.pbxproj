@@ -29,10 +29,10 @@
 		72FFA51B1DC90E4500388C52 /* BadgeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FFA51A1DC90E4500388C52 /* BadgeDetailViewController.swift */; };
 		72FFA51D1DC92B6700388C52 /* BadgesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FFA51C1DC92B6700388C52 /* BadgesCollectionViewController.swift */; };
 		72FFA5201DC92D6300388C52 /* BadgesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FFA51F1DC92D6300388C52 /* BadgesCollectionViewCell.swift */; };
-		72FFA5221DC92E5B00388C52 /* LocationsVisitedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FFA5211DC92E5B00388C52 /* LocationsVisitedTableViewCell.swift */; };
 		9CA177991DC10636001D655B /* TravelerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA177981DC10636001D655B /* TravelerController.swift */; };
 		9CB491231DC1004B003DBC17 /* Traveler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB491221DC1004B003DBC17 /* Traveler.swift */; };
 		D0272A931DC014AB00565EDB /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0272A921DC014AB00565EDB /* Location.swift */; };
+		D08523B31DCBD59C00D54F65 /* LocalLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08523B21DCBD59C00D54F65 /* LocalLocationTableViewCell.swift */; };
 		D0D8024E1DC0096100F02629 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8024D1DC0096100F02629 /* Badge.swift */; };
 		D0D802531DC00E1900F02629 /* AwardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D802521DC00E1900F02629 /* AwardController.swift */; };
 		D0DAA6631DC950E40088C71F /* PulleyPassthroughScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAA6621DC950E40088C71F /* PulleyPassthroughScrollView.swift */; };
@@ -131,10 +131,10 @@
 		72FFA51A1DC90E4500388C52 /* BadgeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeDetailViewController.swift; sourceTree = "<group>"; };
 		72FFA51C1DC92B6700388C52 /* BadgesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesCollectionViewController.swift; sourceTree = "<group>"; };
 		72FFA51F1DC92D6300388C52 /* BadgesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesCollectionViewCell.swift; sourceTree = "<group>"; };
-		72FFA5211DC92E5B00388C52 /* LocationsVisitedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsVisitedTableViewCell.swift; sourceTree = "<group>"; };
 		9CA177981DC10636001D655B /* TravelerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelerController.swift; sourceTree = "<group>"; };
 		9CB491221DC1004B003DBC17 /* Traveler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Traveler.swift; path = ../Traveler.swift; sourceTree = "<group>"; };
 		D0272A921DC014AB00565EDB /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		D08523B21DCBD59C00D54F65 /* LocalLocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalLocationTableViewCell.swift; path = TeamTravel/LocalLocationTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		D0D8024D1DC0096100F02629 /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		D0D802521DC00E1900F02629 /* AwardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardController.swift; sourceTree = "<group>"; };
 		D0DAA6621DC950E40088C71F /* PulleyPassthroughScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PulleyPassthroughScrollView.swift; path = TeamTravel/PulleyPassthroughScrollView.swift; sourceTree = SOURCE_ROOT; };
@@ -250,6 +250,7 @@
 				D0DAA6671DC951B30088C71F /* LocationMapViewController.swift */,
 				D0DAA6681DC951B30088C71F /* PrimaryContentViewController.swift */,
 				D0DAA6691DC951B30088C71F /* PrimaryTransitionTargetViewController.swift */,
+				D08523B21DCBD59C00D54F65 /* LocalLocationTableViewCell.swift */,
 			);
 			name = MainMapViewControllers;
 			path = "../../../../Downloads/Pulley-master/Pulley";
@@ -270,7 +271,6 @@
 			children = (
 				72FFA5121DC90B6400388C52 /* StatsViewController.swift */,
 				72FFA5141DC90C4700388C52 /* LocationsVisitedTableViewController.swift */,
-				72FFA5211DC92E5B00388C52 /* LocationsVisitedTableViewCell.swift */,
 				72FFA5161DC90C9000388C52 /* PointsGraphViewController.swift */,
 				72FFA51C1DC92B6700388C52 /* BadgesCollectionViewController.swift */,
 				72FFA51A1DC90E4500388C52 /* BadgeDetailViewController.swift */,
@@ -389,7 +389,7 @@
 				TargetAttributes = {
 					72602F541DBFC02A00FC53EC = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 793L5ZBT7T;
+						DevelopmentTeam = CWLLFTCWHP;
 						ProvisioningStyle = Automatic;
 					};
 					72602F681DBFC02A00FC53EC = {
@@ -491,6 +491,7 @@
 				72FFA5151DC90C4700388C52 /* LocationsVisitedTableViewController.swift in Sources */,
 				72FFA51B1DC90E4500388C52 /* BadgeDetailViewController.swift in Sources */,
 				D0DAA66D1DC951B30088C71F /* PrimaryTransitionTargetViewController.swift in Sources */,
+				D08523B31DCBD59C00D54F65 /* LocalLocationTableViewCell.swift in Sources */,
 				72FFA5171DC90C9000388C52 /* PointsGraphViewController.swift in Sources */,
 				D0DAA66B1DC951B30088C71F /* LocationMapViewController.swift in Sources */,
 				729234BE1DC7BA090043CB98 /* Style.swift in Sources */,
@@ -498,7 +499,6 @@
 				729234C01DC7BA090043CB98 /* SegmentedControl.swift in Sources */,
 				D0272A931DC014AB00565EDB /* Location.swift in Sources */,
 				7200D9FA1DC1059400C2CF22 /* SearchLocationController.swift in Sources */,
-				72FFA5221DC92E5B00388C52 /* LocationsVisitedTableViewCell.swift in Sources */,
 				D0DAA66A1DC951B30088C71F /* LocationListDrawerContentViewController.swift in Sources */,
 				D0DAA6631DC950E40088C71F /* PulleyPassthroughScrollView.swift in Sources */,
 				9CB491231DC1004B003DBC17 /* Traveler.swift in Sources */,
@@ -677,7 +677,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 793L5ZBT7T;
+				DEVELOPMENT_TEAM = CWLLFTCWHP;
 				INFOPLIST_FILE = TeamTravel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Devmountain.TeamTravel;
@@ -691,7 +691,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 793L5ZBT7T;
+				DEVELOPMENT_TEAM = CWLLFTCWHP;
 				INFOPLIST_FILE = TeamTravel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Devmountain.TeamTravel;

@@ -23,7 +23,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
         // Do any additional setup after loading the view.
         //self.tableView.backgroundColor = .clear
         //self.tableView.alpha = 0.9
@@ -86,7 +86,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     }
     
     //extra functions, hooked up to mock data
-    func startSearch(){
+    func startSearch() {
         if TravelerController.shared.masterTraveler == nil {
             MockData.shared.setUpTraveler()
         }
@@ -94,6 +94,8 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         if let location = CoreLocationController.shared.currentTravelerLocation {
             SearchLocationController.shared.queryForLocations(location: location, completion: { (_) in
                 SearchLocationController.shared.isSearching = false
+                self.locationsToShow = SearchLocationController.shared.allVisibleLocations
+                self.tableView.reloadData()
             })
         }
     }
@@ -102,21 +104,23 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         self.tableView.reloadData()
     }
 
-
-
     // MARK: Tableview data source & delegate
+    
+    var locationsToShow: [Location] = []
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SearchLocationController.shared.allVisibleLocations.count
+        return locationsToShow.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath)
         let currentLocation = CoreLocationController.shared.currentTravelerLocation
-        let location = SearchLocationController.shared.allVisibleLocations[indexPath.row]
+        
+        let location = locationsToShow[indexPath.row]
         let distance = Int((currentLocation?.distance(from: location.location))!)
         
         cell.textLabel?.text = location.locationName
@@ -148,7 +152,11 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     }
     
 
-    // MARK: Drawer Content View Controller Delegate
+    // MARK: Drawer Content View Controller Delegate 
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        segmentedControl.setSelected(at: 0, animated: false)
+    }
     
     func collapsedDrawerHeight() -> CGFloat
     {
@@ -157,7 +165,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     
     func partialRevealDrawerHeight() -> CGFloat
     {
-        return 360.0
+        return 380.0
     }
     
     func supportedDrawerPositions() -> [PulleyPosition] {
@@ -199,6 +207,18 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
 extension LocationListDrawerContentViewController: SegmentedControlDelegate {
     func segmentedControl(_ segmentedControl: SegmentedControl, didSelectIndex selectedIndex: Int) {
         print("Did select index \(selectedIndex)")
+        
+        if selectedIndex == 0 {
+            locationsToShow = SearchLocationController.shared.allVisibleLocations
+            tableView.reloadData()
+        } else if selectedIndex == 1 {
+            guard let traveler = TravelerController.shared.masterTraveler else { print("No Traveler"); return }
+            locationsToShow = traveler.locationsWishList
+            tableView.reloadData()
+        } else {
+            print("Error: Out of index")
+        }
+        
         switch segmentedControl.style {
         case .text:
             print("The title is “\(segmentedControl.titles[selectedIndex].string)”\n")

@@ -120,7 +120,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         let distance = Int((currentLocation?.distance(from: location.location))!)
         
         cell.textLabel?.text = location.locationName
-        cell.detailTextLabel?.text = "Type: \(location.type) \nDistance: \(distance) feet"
+        cell.detailTextLabel?.text = "Type: \(location.type) \nDistance: \(distance) meters"
         
         return cell
     }

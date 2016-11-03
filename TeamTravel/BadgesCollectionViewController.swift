@@ -20,6 +20,7 @@ class BadgesCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         
         collectionView?.reloadData()
         guard collectionView != nil else { return }
@@ -36,12 +37,78 @@ class BadgesCollectionViewController: UICollectionViewController {
         collectionView?.collectionViewLayout = layout
         
         self.collectionView?.register(BadgesCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        checkForNoBadges()
+    }
+    
+    // MARK: - Splash screen for no badges
+    func checkForNoBadges() -> Bool {
+        guard let badgesToCheck = self.badges else { return false }
+        var hasEarnedBadges = false
+        for badge in badgesToCheck {
+            if badge.hasEarned == true {
+                hasEarnedBadges = true
+            }
+        }
+        
+        return hasEarnedBadges
+
+    }
+    
+    func updateBackgroundView(){
+        
+        let noBadgeView = UIView()
+        
+        // Text Label
+        let label = UILabel()
+        label.text = "You haven't earned any badges yet. Visit some places, start earning tokens, and we'll let you know when you earn your first badge!"
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.textColor = UIColor.black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        noBadgeView.addSubview(label)
+        
+        let labelLeading = NSLayoutConstraint(item: label, attribute: .leading, relatedBy: .equal, toItem: noBadgeView, attribute: .leadingMargin, multiplier: 1.0, constant: 0)
+        let labelTrailing = NSLayoutConstraint(item: label, attribute: .trailing, relatedBy: .equal, toItem: noBadgeView, attribute: .trailingMargin, multiplier: 1.0, constant: 0)
+        let labelCenterY = NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: noBadgeView, attribute: .centerY, multiplier: 0.75, constant: 0)
+        noBadgeView.addConstraints([labelLeading, labelTrailing, labelCenterY])
+        
+        // Image in the background
+        
+        
+        
+        
+        
+        if let collectionView = self.collectionView {
+            noBadgeView.frame = collectionView.bounds
+            noBadgeView.backgroundColor = UIColor.white
+            collectionView.backgroundView = noBadgeView
+            
+        }
+        
+    }
+    
+    func removeNoBadgeView(){
+        
+        if let collectionView = self.collectionView {
+            collectionView.backgroundView = nil
+        }
     }
 
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return badges?.count ?? 0
+        if !checkForNoBadges(){
+            updateBackgroundView()
+            return 0
+        } else {
+            removeNoBadgeView()
+            return badges?.count ?? 0
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

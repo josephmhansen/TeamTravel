@@ -117,6 +117,12 @@ open class SegmentedControl: UIControl {
 
     open func setImages(_ images: [UIImage], selectedImages: [UIImage]?) {
         style = .image
+        for image in images {
+            
+        }
+        
+        
+        
         self.images = images
         self.selectedImages = selectedImages
     }
@@ -409,11 +415,15 @@ public extension SegmentedControl {
 
     fileprivate func drawImages() {
         for (index, image) in images.enumerated() {
+            let newSize = CGSize(width: 30, height: 35)
+            let width = newSize.width
+            let height = newSize.height
+            
             let xPosition: CGFloat = {
-                return singleSegmentWidth() * CGFloat(index) + (singleSegmentWidth() - image.size.width) / 2
+                return singleSegmentWidth() * CGFloat(index) + (singleSegmentWidth() - width) / 2
             }()
             let yPosition: CGFloat = {
-                let yPosition = (frame.height - image.size.height) / 2
+                let yPosition = (frame.height - height) / 2
                 var yPositionOffset: CGFloat = 0
                 switch selectionIndicatorStyle {
                 case .top:
@@ -426,7 +436,9 @@ public extension SegmentedControl {
                 return round(yPosition + yPositionOffset)
             }()
             let imageRect: CGRect = {
-                let imageRect = CGRect(origin: CGPoint(x: xPosition, y: yPosition), size: image.size)
+                
+                let imageRect = CGRect(origin: CGPoint(x: xPosition, y: yPosition), size: newSize)
+                
                 return CGRect(x: round(imageRect.origin.x), y: round(imageRect.origin.y), width: round(imageRect.width), height: round(imageRect.height))
             }()
 
@@ -442,6 +454,7 @@ public extension SegmentedControl {
                 let imageLayer = CALayer()
                 imageLayer.frame = imageRect
                 imageLayer.contents = contents
+                
                 return imageLayer
             }()
             scrollView.layer.addSublayer(imageLayer)

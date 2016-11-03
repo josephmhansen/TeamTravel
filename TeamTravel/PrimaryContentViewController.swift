@@ -21,7 +21,6 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        CoreLocationController.shared.getCurrentLocation()
         
         NotificationCenter.default.addObserver(self, selector: #selector(zoomToUserLocation), name: Notification.Name(rawValue: "currentLocationUpdated"), object: nil)
         mapView.showsUserLocation = true
@@ -31,7 +30,10 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
         NotificationCenter.default.addObserver(self, selector: #selector(drawMapAnnotations), name: Notification.Name(rawValue: "allLocationsReturned"), object: nil)
     }
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        CoreLocationController.shared.setupLocationManager()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

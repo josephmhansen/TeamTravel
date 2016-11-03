@@ -396,7 +396,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         // IB Support
         if primaryContentViewController == nil || drawerContentViewController == nil
         {

@@ -10,6 +10,8 @@
 import UIKit
 import ResearchKit
 
+private let kLivelyGreenColor = UIColor(red: 8 / 255, green: 132 / 255, blue: 67 / 255, alpha: 1)
+
 class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDataSource {
     let graphViewBox = UIView()
     let pointGraph = ORKLineGraphChartView()
@@ -59,7 +61,7 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
         self.graphViewBox.addSubview(pointGraph)
         
         pointGraph.dataSource = self
-        pointGraph.tintColor = UIColor(red: 157/255.0, green: 173/255.0, blue: 111/255.0, alpha: 1)
+        pointGraph.tintColor = kLivelyGreenColor
         pointGraph.verticalAxisTitleColor = UIColor.black
         //pointGraph.showsVerticalReferenceLines = true
         pointGraph.axisColor = UIColor.black

@@ -389,7 +389,7 @@
 				TargetAttributes = {
 					72602F541DBFC02A00FC53EC = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = CWLLFTCWHP;
+						DevelopmentTeam = QYV5ZZB7LD;
 						ProvisioningStyle = Automatic;
 					};
 					72602F681DBFC02A00FC53EC = {
@@ -677,7 +677,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = CWLLFTCWHP;
+				DEVELOPMENT_TEAM = QYV5ZZB7LD;
 				INFOPLIST_FILE = TeamTravel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Devmountain.TeamTravel;
@@ -691,7 +691,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = CWLLFTCWHP;
+				DEVELOPMENT_TEAM = QYV5ZZB7LD;
 				INFOPLIST_FILE = TeamTravel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Devmountain.TeamTravel;

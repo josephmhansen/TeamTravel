@@ -61,13 +61,13 @@ class BadgesCollectionViewController: UICollectionViewController {
         self.badgeTitle = badge.name
         self.image = badge.image
         
-        performSegue(withIdentifier: "toBadgeDesctiption", sender: nil)
+        performSegue(withIdentifier: "toBadgeDescription", sender: nil)
     }
     
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toBadgeDesctiption" {
+        if segue.identifier == "toBadgeDescription" {
             let viewController = segue.destination as? BadgeDetailViewController
             viewController?.image = self.image
             viewController?.badgeTitle = self.badgeTitle

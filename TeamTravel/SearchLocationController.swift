@@ -57,6 +57,7 @@ class SearchLocationController  {
                     self.isSearching = false
                     
                     // Make call to listening functions: Geofencing, tableview updates, etc.
+                        completion!(true)
                         let notification = Notification(name: Notification.Name(rawValue:"searchCategoryCompleted"))
                         NotificationCenter.default.post(notification)
                 })

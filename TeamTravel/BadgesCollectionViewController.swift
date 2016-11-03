@@ -21,6 +21,8 @@ class BadgesCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        AwardController.shared.awardBadges()
+        
         collectionView?.reloadData()
         guard collectionView != nil else { return }
         

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7200D9FA1DC1059400C2CF22 /* SearchLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7200D9F91DC1059400C2CF22 /* SearchLocationController.swift */; };
+		721E6CCD1DCD3CD300B7C2AA /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721E6CCC1DCD3CD300B7C2AA /* CloudKitManager.swift */; };
 		7224DB411DCA752600E64515 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA53240B1DCA3EF9005F6DC4 /* ResearchKit.framework */; };
 		7224DB421DCA752600E64515 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA53240B1DCA3EF9005F6DC4 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		72602F591DBFC02A00FC53EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72602F581DBFC02A00FC53EC /* AppDelegate.swift */; };
@@ -106,6 +107,7 @@
 
 /* Begin PBXFileReference section */
 		7200D9F91DC1059400C2CF22 /* SearchLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchLocationController.swift; sourceTree = "<group>"; };
+		721E6CCC1DCD3CD300B7C2AA /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		72602F551DBFC02A00FC53EC /* TeamTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72602F581DBFC02A00FC53EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72602F5D1DBFC02A00FC53EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -174,6 +176,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		721E6CCE1DCD3CDA00B7C2AA /* CloudKit */ = {
+			isa = PBXGroup;
+			children = (
+				721E6CCC1DCD3CD300B7C2AA /* CloudKitManager.swift */,
+			);
+			name = CloudKit;
+			sourceTree = "<group>";
+		};
 		72602F4C1DBFC02A00FC53EC = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				72602F581DBFC02A00FC53EC /* AppDelegate.swift */,
+				721E6CCE1DCD3CDA00B7C2AA /* CloudKit */,
 				72E8A5971DC01B9500729613 /* SupportFiles */,
 				D0D802511DC0099F00F02629 /* View Controllers */,
 				D0D8024F1DC0096A00F02629 /* Models */,
@@ -509,6 +520,7 @@
 				FA6384EF1DC11E6D0026C6F6 /* MockData.swift in Sources */,
 				D0DAA66C1DC951B30088C71F /* PrimaryContentViewController.swift in Sources */,
 				72FFA5131DC90B6400388C52 /* StatsViewController.swift in Sources */,
+				721E6CCD1DCD3CD300B7C2AA /* CloudKitManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

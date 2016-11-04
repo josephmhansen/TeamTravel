@@ -22,7 +22,7 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
         super.viewDidLoad()
         
         
-        MockData.init()
+        let _ = MockData.init()
         NotificationCenter.default.addObserver(self, selector: #selector(setupUser), name: Notification.Name(rawValue: "currentLocationUpdated"), object: nil)
         
         configureGraphViewBox()
@@ -89,7 +89,6 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
     func setUpDateLabels(){
         guard let traveler = TravelerController.shared.masterTraveler else { return }
         let locations = traveler.locationsVisited
-        var yearsInUse: [String] = []
         for location in locations {
             if let dates = location.datesVisited {
                 for visit in dates {

@@ -40,7 +40,6 @@
 		D0DAA66B1DC951B30088C71F /* LocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAA6671DC951B30088C71F /* LocationMapViewController.swift */; };
 		D0DAA66C1DC951B30088C71F /* PrimaryContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAA6681DC951B30088C71F /* PrimaryContentViewController.swift */; };
 		D0DAA66D1DC951B30088C71F /* PrimaryTransitionTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAA6691DC951B30088C71F /* PrimaryTransitionTargetViewController.swift */; };
-		FA2B29771DCA3FC1008D3B17 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA53240B1DCA3EF9005F6DC4 /* ResearchKit.framework */; };
 		FA6384ED1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6384EC1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift */; };
 		FA6384EF1DC11E6D0026C6F6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6384EE1DC11E6D0026C6F6 /* MockData.swift */; };
 /* End PBXBuildFile section */
@@ -153,7 +152,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7224DB411DCA752600E64515 /* ResearchKit.framework in Frameworks */,
-				FA2B29771DCA3FC1008D3B17 /* ResearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,12 +382,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Joseph Hansen";
 				TargetAttributes = {
 					72602F541DBFC02A00FC53EC = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 793L5ZBT7T;
+						DevelopmentTeam = CWLLFTCWHP;
 						ProvisioningStyle = Automatic;
 					};
 					72602F681DBFC02A00FC53EC = {
@@ -599,6 +597,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -648,6 +647,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -677,7 +677,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 793L5ZBT7T;
+				DEVELOPMENT_TEAM = CWLLFTCWHP;
 				INFOPLIST_FILE = TeamTravel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Devmountain.TeamTravel;
@@ -691,7 +691,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 793L5ZBT7T;
+				DEVELOPMENT_TEAM = CWLLFTCWHP;
 				INFOPLIST_FILE = TeamTravel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Devmountain.TeamTravel;

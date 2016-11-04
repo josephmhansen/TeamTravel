@@ -44,7 +44,7 @@ class BadgesCollectionViewController: UICollectionViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        checkForNoBadges()
+        let _ = checkForNoBadges()
     }
     
     // MARK: - Splash screen for no badges

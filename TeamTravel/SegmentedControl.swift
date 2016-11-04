@@ -117,7 +117,7 @@ open class SegmentedControl: UIControl {
 
     open func setImages(_ images: [UIImage], selectedImages: [UIImage]?) {
         style = .image
-        for image in images {
+        for _ in images {
             
         }
         

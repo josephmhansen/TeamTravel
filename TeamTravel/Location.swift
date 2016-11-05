@@ -18,9 +18,14 @@ enum LocationType: String {
 
 class Location: NSObject, MKAnnotation {
     
-    static let recordType = "Location"
-    static let kCoordinate = "coordinate"
+    
+    static let kLocationVisitedRecordType = "locationVisited"
+    static let kLocationQuestRecordType = "locationQuestItem"
+    
+    static let kCLLocation = "location"
     static let KCategoryType = "category"
+    static let kLocationName = "locationName"
+    
     static let kHasBeenVisited = "hasBeenVisited"
     static let kDatesVisited = "datesVisited"
     static let kHasVisitedToday = "hasVisitedToday"
@@ -30,10 +35,11 @@ class Location: NSObject, MKAnnotation {
     var title: String? {
         return locationName
     }
+    var cloudKitRecordID: String?
     var location: CLLocation
     var type: LocationType
     var hasBeenVisited: Bool = false
-    var datesVisited: [Date]?
+    var datesVisited: [Date] = []
     var numberOfVisits: Int {
         return self.datesVisited?.count ?? 0
     }
@@ -75,5 +81,37 @@ class Location: NSObject, MKAnnotation {
     }
     
 }
+
+extension CKRecord {
+    convenience init(locationVisited: Location) {
+        self.init(recordType: Location.kLocationVisitedRecordType)
+        self[Location.kLocationName] = locationVisited.locationName as CKRecordValue?
+        self[Location.kCLLocation] = locationVisited.location as CKRecordValue?
+        self[Location.KCategoryType] = locationVisited.type.rawValue as CKRecordValue?
+        self[Location.kDatesVisited] = locationVisited.datesVisited as CKRecordValue?
+    }
+    
+    convenience init(updateVisitedLocationWithRecordID: Location) {
+        let recordID = CKRecordID(recordName: updateVisitedLocationWithRecordID.cloudKitRecordID!)
+        self.init(recordType: Location.kLocationVisitedRecordType, recordID: recordID)
+        self[Location.kLocationName] = updateVisitedLocationWithRecordID.locationName as CKRecordValue?
+        self[Location.kCLLocation] = updateVisitedLocationWithRecordID.location as CKRecordValue?
+        self[Location.KCategoryType] = updateVisitedLocationWithRecordID.type.rawValue as CKRecordValue?
+        self[Location.kDatesVisited] = updateVisitedLocationWithRecordID.datesVisited as CKRecordValue?
+    }
+    
+}
+
+extension CKRecord {
+    convenience init(locationQuestItem: Location) {
+        self.init(recordType: Location.kLocationQuestRecordType)
+        self[Location.kLocationName] = locationQuestItem.locationName as CKRecordValue?
+        self[Location.kCLLocation] = locationQuestItem.location as CKRecordValue?
+        self[Location.KCategoryType] = locationQuestItem.location as CKRecordValue?
+        
+    }
+}
+
+
 
 

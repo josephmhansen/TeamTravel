@@ -112,6 +112,29 @@ extension CKRecord {
     }
 }
 
+extension Location {
+    convenience init?(locationVisitedCKRecord: CKRecord) {
+        if locationVisitedCKRecord.recordType != Location.kLocationVisitedRecordType {
+            return nil
+        } else {
+            guard let visitedLocationName = locationVisitedCKRecord[Location.kLocationName] as? String,
+                let visitedLocation = locationVisitedCKRecord[Location.kCLLocation] as? CLLocation,
+                let visitedLocationTypeString = locationVisitedCKRecord[Location.KCategoryType] as? String,
+                let visitedLocationType = LocationType(rawValue: visitedLocationTypeString),
+                let visitedLocationDatesVisited = locationVisitedCKRecord[Location.kDatesVisited] as? [Date] else {
+                    return
+            }
+            self.init(locationName: visitedLocationName, location: visitedLocation, type: visitedLocationType)
+            self.datesVisited = visitedLocationDatesVisited
+            self.cloudKitRecordID = locationVisitedCKRecord.recordID.recordName
+        }
+    }
+    
+    convenience init?(locationQuestItemCKRecord: CKRecord) {
+        
+    }
+}
+
 
 
 

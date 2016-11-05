@@ -131,10 +131,17 @@ extension Location {
     }
     
     convenience init?(locationQuestItemCKRecord: CKRecord) {
-        
+        if locationQuestItemCKRecord.recordType != Location.kLocationQuestRecordType {
+            return nil
+        } else {
+            guard let questItemName = locationQuestItemCKRecord[Location.kLocationName] as? String,
+            let questItemLocation = locationQuestItemCKRecord[Location.kCLLocation] as? CLLocation,
+            let questItemTypeString = locationQuestItemCKRecord[Location.KCategoryType] as? String,
+                let questItemType = LocationType(rawValue: questItemTypeString) else {
+                    return
+            }
+            self.init(locationName: questItemName, location: questItemLocation, type: questItemType)
+            self.cloudKitRecordID = locationQuestItemCKRecord.recordID.recordName
+        }
     }
 }
-
-
-
-

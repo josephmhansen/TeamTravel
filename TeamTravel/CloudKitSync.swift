@@ -12,7 +12,6 @@ import CloudKit
 class CloudKitSync {
     static let shared = CloudKitSync()
     
-    
     func createTraveler(traveler: Traveler) {
         let newRecord = CKRecord(traveler: traveler)
         CloudKitManager.shared.saveRecord(newRecord) {
@@ -90,7 +89,6 @@ class CloudKitSync {
                 }
             }
         }
-        
     }
     
     

@@ -41,7 +41,7 @@ class Location: NSObject, MKAnnotation {
     var hasBeenVisited: Bool = false
     var datesVisited: [Date] = []
     var numberOfVisits: Int {
-        return self.datesVisited?.count ?? 0
+        return self.datesVisited.count
     }
     var hasVisitedToday: Bool = false
     
@@ -79,6 +79,8 @@ class Location: NSObject, MKAnnotation {
         //region.notifyOnExit = true
         return region
     }
+    
+    
     
 }
 
@@ -122,7 +124,7 @@ extension Location {
                 let visitedLocationTypeString = locationVisitedCKRecord[Location.KCategoryType] as? String,
                 let visitedLocationType = LocationType(rawValue: visitedLocationTypeString),
                 let visitedLocationDatesVisited = locationVisitedCKRecord[Location.kDatesVisited] as? [Date] else {
-                    return
+                    return nil
             }
             self.init(locationName: visitedLocationName, location: visitedLocation, type: visitedLocationType)
             self.datesVisited = visitedLocationDatesVisited
@@ -138,7 +140,7 @@ extension Location {
             let questItemLocation = locationQuestItemCKRecord[Location.kCLLocation] as? CLLocation,
             let questItemTypeString = locationQuestItemCKRecord[Location.KCategoryType] as? String,
                 let questItemType = LocationType(rawValue: questItemTypeString) else {
-                    return
+                    return nil
             }
             self.init(locationName: questItemName, location: questItemLocation, type: questItemType)
             self.cloudKitRecordID = locationQuestItemCKRecord.recordID.recordName

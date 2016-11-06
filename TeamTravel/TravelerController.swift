@@ -28,12 +28,12 @@ class TravelerController {
         var append = false
         for visitedLocation in traveler.locationsVisited {
             if locationToAppend == visitedLocation {
-                visitedLocation.datesVisited?.append(Date())
+                visitedLocation.datesVisited.append(Date())
                 append = true
             }
         }
         if !append {
-            locationToAppend.datesVisited?.append(Date())
+            locationToAppend.datesVisited.append(Date())
             traveler.locationsVisited.append(locationToAppend)
         }
 

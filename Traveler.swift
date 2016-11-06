@@ -28,15 +28,17 @@ class Traveler {
     }
     
     var locationsWishList: [Location] = []
-    var homeLocation: CLLocation
+    var homeLocation: CLLocation?
     var name: String
   
     // CloudKit related
     var cloudKitRecordID: String?
     static let recordType = "Traveler"
     static let kName = "name"
+    static let kHomeLocation = "homeLocation"
     
-    init(homeLocation: CLLocation, name: String, locationsVisited: [Location] = [], locationWishList: [Location] = [], cloudKitRecordID: String? = nil) {
+    
+    init(homeLocation: CLLocation? = nil, name: String = "", locationsVisited: [Location] = [], locationWishList: [Location] = [], cloudKitRecordID: String? = nil) {
         self.homeLocation = homeLocation
         self.name = name
         self.locationsVisited = locationsVisited
@@ -44,5 +46,34 @@ class Traveler {
         self.cloudKitRecordID = cloudKitRecordID
     }
   
+}
+
+extension CKRecord {
+    convenience init(_ traveler: Traveler) {
+        self.init(recordType: Traveler.recordType)
+        
+        
+        
+    }
+    
+    convenience init(updatedTravelerWithRecordID: Traveler) {
+        let recordID = CKRecordID(recordName: updatedTravelerWithRecordID.cloudKitRecordID!)
+        self.init(recordType: Traveler.recordType, recordID: recordID)
+        
+        
+        
+    }
+}
+
+extension Traveler {
+    convenience init?(record: CKRecord) {
+        if record.recordType != Traveler.recordType {
+            return nil
+        } else {
+            self.init(cloudKitRecordID: record.recordID.recordName)
+            
+        }
+    }
+    
 }
 

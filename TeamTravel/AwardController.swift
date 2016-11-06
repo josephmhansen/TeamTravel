@@ -114,7 +114,8 @@ struct AwardController {
     func awardOneSmallStep() {
         guard let traveler = TravelerController.shared.masterTraveler, oneSmallStepBadge.hasEarned == false else { return }
         let LocationDistance = CLLocationDistance(1000)
-        if let distance = traveler.locationsVisited.last?.location.distance(from: traveler.homeLocation), distance >= LocationDistance {
+        guard let homeLocation = traveler.homeLocation else { return }
+        if let distance = traveler.locationsVisited.last?.location.distance(from: homeLocation), distance >= LocationDistance {
             oneSmallStepBadge.hasEarned = true
             homewardBoundBadge.image = #imageLiteral(resourceName: "Homeward Bound")
         }

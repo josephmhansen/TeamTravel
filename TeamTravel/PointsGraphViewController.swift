@@ -90,11 +90,11 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
         guard let traveler = TravelerController.shared.masterTraveler else { return }
         let locations = traveler.locationsVisited
         for location in locations {
-            if let dates = location.datesVisited {
-                for visit in dates {
+            
+                for visit in location.datesVisited {
                     print(dateFormatter.string(from: visit))
                 }
-            }
+            
         }
     }
     

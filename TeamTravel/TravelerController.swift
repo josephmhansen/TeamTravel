@@ -15,6 +15,8 @@ class TravelerController {
   var masterTraveler: Traveler?
   
   static let shared = TravelerController()
+    
+
   
     func addVisited(region: CLRegion) {
         guard let circularRegion = region as? CLCircularRegion else { return }

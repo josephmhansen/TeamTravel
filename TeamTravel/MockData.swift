@@ -20,6 +20,8 @@ class MockData {
         let loc6 = Location(locationName: "Gallavan", location: CLLocation(latitude: 40.7639, longitude: 111.8911), type: .Landmarks)
         let loc7 = Location(locationName: "Temple", location: CLLocation(latitude: 40.7707, longitude: 111.8911), type: .Landmarks)
         let loc8 = Location(locationName: "Plaza", location: CLLocation(latitude: 40.7639, longitude: 111.8911), type: .Landmarks)
+        
+        
       return [loc1, loc2, loc3, loc4, loc5, loc6, loc7, loc8]
     }
     
@@ -42,6 +44,13 @@ class MockData {
         print("SetUP traveler")
         guard let location = CoreLocationController.shared.currentTravelerLocation else { return }
             let traveler = Traveler(homeLocation: location, name: MockData.name, locationsVisited: MockData.locationsVisited, locationWishList: MockData.locationsWishList)
+        TravelerController.shared.masterTraveler = traveler
+    }
+    
+    static func setUpCloudKitTraveler(){
+        print("setup CLoudKit Traveler")
+        
+        let traveler = Traveler(homeLocation: nil, name: MockData.name, locationsVisited: MockData.locationsVisited, locationWishList: MockData.locationsWishList)
         TravelerController.shared.masterTraveler = traveler
     }
     

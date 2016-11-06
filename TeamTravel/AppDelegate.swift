@@ -19,6 +19,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         // Override point for customization after application launch.
         
+        MockData.setUpCloudKitTraveler()
+        
+        guard let traveler = TravelerController.shared.masterTraveler else { return true }
+        
+        for location in traveler.locationsVisited {
+                location.datesVisited.append(Date())
+            
+            CloudKitSync.shared.createLocationVisited(location: location)
+        }
+        
+        for quest in traveler.locationsWishList {
+            CloudKitSync.shared.createQuestItem(location: quest)
+        }
+        
         CoreLocationController.shared.setupLocationManager()
         self.strongReferenceToLocationManager = CoreLocationController.shared.locationManager
         

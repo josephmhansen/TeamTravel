@@ -11,6 +11,7 @@
 		721E6CCD1DCD3CD300B7C2AA /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721E6CCC1DCD3CD300B7C2AA /* CloudKitManager.swift */; };
 		7224DB411DCA752600E64515 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA53240B1DCA3EF9005F6DC4 /* ResearchKit.framework */; };
 		7224DB421DCA752600E64515 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA53240B1DCA3EF9005F6DC4 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		723445B21DCFEF76003C7390 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723445B11DCFEF76003C7390 /* CloudKit.framework */; };
 		72602F591DBFC02A00FC53EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72602F581DBFC02A00FC53EC /* AppDelegate.swift */; };
 		72602F5E1DBFC02A00FC53EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72602F5C1DBFC02A00FC53EC /* Main.storyboard */; };
 		72602F601DBFC02A00FC53EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72602F5F1DBFC02A00FC53EC /* Assets.xcassets */; };
@@ -108,6 +109,8 @@
 /* Begin PBXFileReference section */
 		7200D9F91DC1059400C2CF22 /* SearchLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchLocationController.swift; sourceTree = "<group>"; };
 		721E6CCC1DCD3CD300B7C2AA /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		723445AF1DCFEF73003C7390 /* TeamTravel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TeamTravel.entitlements; sourceTree = "<group>"; };
+		723445B11DCFEF76003C7390 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		72602F551DBFC02A00FC53EC /* TeamTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72602F581DBFC02A00FC53EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72602F5D1DBFC02A00FC53EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -156,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7224DB411DCA752600E64515 /* ResearchKit.framework in Frameworks */,
+				723445B21DCFEF76003C7390 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +188,14 @@
 			name = CloudKit;
 			sourceTree = "<group>";
 		};
+		723445B01DCFEF76003C7390 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				723445B11DCFEF76003C7390 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		72602F4C1DBFC02A00FC53EC = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +204,7 @@
 				72602F6C1DBFC02A00FC53EC /* TeamTravelTests */,
 				72602F771DBFC02A00FC53EC /* TeamTravelUITests */,
 				72602F561DBFC02A00FC53EC /* Products */,
+				723445B01DCFEF76003C7390 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -208,6 +221,7 @@
 		72602F571DBFC02A00FC53EC /* TeamTravel */ = {
 			isa = PBXGroup;
 			children = (
+				723445AF1DCFEF73003C7390 /* TeamTravel.entitlements */,
 				72602F581DBFC02A00FC53EC /* AppDelegate.swift */,
 				721E6CCE1DCD3CDA00B7C2AA /* CloudKit */,
 				72E8A5971DC01B9500729613 /* SupportFiles */,
@@ -403,6 +417,14 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 793L5ZBT7T;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					72602F681DBFC02A00FC53EC = {
 						CreatedOnToolsVersion = 8.0;
@@ -693,6 +715,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TeamTravel/TeamTravel.entitlements;
 				DEVELOPMENT_TEAM = 793L5ZBT7T;
 				INFOPLIST_FILE = TeamTravel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -707,6 +730,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TeamTravel/TeamTravel.entitlements;
 				DEVELOPMENT_TEAM = 793L5ZBT7T;
 				INFOPLIST_FILE = TeamTravel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

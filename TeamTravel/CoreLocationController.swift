@@ -15,9 +15,16 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         
     var locationManager: CLLocationManager?
     
-    var currentTravelerLocation: CLLocation? {
+    var currentTravelerLocationForDistance: CLLocation? {
+        didSet {
+            let notification = Notification(name: Notification.Name(rawValue: "currentDistanceLocationUpdated"))
+            NotificationCenter.default.post(notification)
+        }
+    }
+    
+    var currentTravelerLocationForSearch: CLLocation? {
         didSet{
-            let notification = Notification(name: Notification.Name(rawValue: "currentLocationUpdated"))
+            let notification = Notification(name: Notification.Name(rawValue: "currentSearchLocationUpdated"))
             NotificationCenter.default.post(notification)
         }
     }
@@ -75,7 +82,12 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
             NSLog("Got User Location")
             
             if let location = locations.first {
-                self.currentTravelerLocation = location
+                guard self.currentTravelerLocationForSearch != nil && self.currentTravelerLocationForDistance != nil else { self.currentTravelerLocationForSearch = location; self.currentTravelerLocationForDistance = location ; return }
+                if location.distance(from: self.currentTravelerLocationForDistance!) >= 5 {
+                    self.currentTravelerLocationForDistance = location
+                } else if location.distance(from: self.currentTravelerLocationForSearch!) >= 1000 {
+                    self.currentTravelerLocationForSearch = location
+                }
             }
         }
     }
@@ -133,7 +145,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     
     /// calculates 20 closest locations and creates geofences for those
     func configureGeofencesForCurrentLocation() {
-        guard let currentLocation = currentTravelerLocation else { return }
+        guard let currentLocation = currentTravelerLocationForSearch else { return }
         let distanceFilteredLocations = SearchLocationController.shared.allVisibleLocations.sorted { $0.0.location.distance(from: currentLocation) < $0.1.location.distance(from: currentLocation) }
         var locationsToGeofence: [Location] = []
         
@@ -168,7 +180,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         if region.identifier == "outerRegion" {
             
-            guard let currentLocation = currentTravelerLocation else { return }
+            guard let currentLocation = currentTravelerLocationForSearch else { return }
             SearchLocationController.shared.queryForLocations(location: currentLocation, completion: { (_) in
                 SearchLocationController.shared.isSearching = false
             })

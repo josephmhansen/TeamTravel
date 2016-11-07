@@ -43,7 +43,16 @@ class TravelerController {
   }
   
   func addToMasterTravelerList(location: Location) {
-    self.masterTraveler?.locationsWishList.append(location)
+    guard let traveler = self.masterTraveler else { return }
+    var append = true
+    for questListItem in traveler.locationsWishList {
+        if questListItem.locationName.lowercased() == location.locationName.lowercased() {
+            append = false
+        }
+    }
+    if append {
+        self.masterTraveler?.locationsWishList.append(location)
+    }
   }
   
     func deleteFromMasterTravelerList(location: Location) {

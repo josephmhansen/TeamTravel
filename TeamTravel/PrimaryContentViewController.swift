@@ -21,6 +21,7 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.mapView.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(zoomToUserLocation), name: Notification.Name(rawValue: "currentLocationUpdated"), object: nil)
         mapView.showsUserLocation = true
@@ -104,11 +105,40 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
         // remove old annotations
         let oldAnnotations = self.mapView.annotations
             self.mapView.removeAnnotations(oldAnnotations)
-        
+    
         // add new ones
         for location in SearchLocationController.shared.allVisibleLocations {
             self.mapView.addAnnotation(location)
         }
     }
+
+    
 }
+
+extension PrimaryContentViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        let cast = annotation as? Location
+//        print(cast?.type.rawValue)
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        annotationView.canShowCallout = true
+        annotationView.rightCalloutAccessoryView = UIButton(type: .contactAdd)
+        let imgView = UIImageView(image: #imageLiteral(resourceName: "Parks"))
+        imgView.contentMode = .scaleAspectFit
+        annotationView.leftCalloutAccessoryView = imgView
+        return annotationView
+    }
+
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let pinItemActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let add = UIAlertAction(title: "Add to QuestList", style: .default, handler: { (_) in
+            
+        })
+        pinItemActionSheet.addAction(add)
+        pinItemActionSheet.addAction(cancel)
+        self.present(pinItemActionSheet, animated: true, completion: nil)
+    }
+}
+
+
 

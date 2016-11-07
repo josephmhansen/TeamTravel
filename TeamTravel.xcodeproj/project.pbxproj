@@ -32,6 +32,9 @@
 		72FFA51B1DC90E4500388C52 /* BadgeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FFA51A1DC90E4500388C52 /* BadgeDetailViewController.swift */; };
 		72FFA51D1DC92B6700388C52 /* BadgesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FFA51C1DC92B6700388C52 /* BadgesCollectionViewController.swift */; };
 		72FFA5201DC92D6300388C52 /* BadgesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FFA51F1DC92D6300388C52 /* BadgesCollectionViewCell.swift */; };
+		9C6C5BC61DD121530011849D /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C6C5BC51DD121530011849D /* Onboarding.storyboard */; };
+		9C6C5BC81DD121B20011849D /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6C5BC71DD121B20011849D /* TutorialPageViewController.swift */; };
+		9C6C5BCA1DD122D60011849D /* StepViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6C5BC91DD122D60011849D /* StepViews.swift */; };
 		9CA177991DC10636001D655B /* TravelerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA177981DC10636001D655B /* TravelerController.swift */; };
 		9CB491231DC1004B003DBC17 /* Traveler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB491221DC1004B003DBC17 /* Traveler.swift */; };
 		D0272A931DC014AB00565EDB /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0272A921DC014AB00565EDB /* Location.swift */; };
@@ -137,6 +140,9 @@
 		72FFA51A1DC90E4500388C52 /* BadgeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeDetailViewController.swift; sourceTree = "<group>"; };
 		72FFA51C1DC92B6700388C52 /* BadgesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesCollectionViewController.swift; sourceTree = "<group>"; };
 		72FFA51F1DC92D6300388C52 /* BadgesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesCollectionViewCell.swift; sourceTree = "<group>"; };
+		9C6C5BC51DD121530011849D /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		9C6C5BC71DD121B20011849D /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
+		9C6C5BC91DD122D60011849D /* StepViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepViews.swift; sourceTree = "<group>"; };
 		9CA177981DC10636001D655B /* TravelerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelerController.swift; sourceTree = "<group>"; };
 		9CB491221DC1004B003DBC17 /* Traveler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Traveler.swift; path = ../Traveler.swift; sourceTree = "<group>"; };
 		D0272A921DC014AB00565EDB /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -199,6 +205,7 @@
 		72602F4C1DBFC02A00FC53EC = {
 			isa = PBXGroup;
 			children = (
+				9C6C5BC21DD1213B0011849D /* Onboarding */,
 				FA5324041DCA3EF9005F6DC4 /* ResearchKit.xcodeproj */,
 				72602F571DBFC02A00FC53EC /* TeamTravel */,
 				72602F6C1DBFC02A00FC53EC /* TeamTravelTests */,
@@ -303,6 +310,24 @@
 				72FFA51F1DC92D6300388C52 /* BadgesCollectionViewCell.swift */,
 			);
 			name = UserStatsViewControllers;
+			sourceTree = "<group>";
+		};
+		9C6C5BC21DD1213B0011849D /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				9C6C5BC51DD121530011849D /* Onboarding.storyboard */,
+				9C6C5BC71DD121B20011849D /* TutorialPageViewController.swift */,
+				9C6C5BCB1DD1238F0011849D /* Pages */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		9C6C5BCB1DD1238F0011849D /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				9C6C5BC91DD122D60011849D /* StepViews.swift */,
+			);
+			name = Pages;
 			sourceTree = "<group>";
 		};
 		D0D8024F1DC0096A00F02629 /* Models */ = {
@@ -491,6 +516,7 @@
 				72CBB0D61DC2A98E00B53689 /* UserDetailView.storyboard in Resources */,
 				72602F631DBFC02A00FC53EC /* LaunchScreen.storyboard in Resources */,
 				7295FA921DC2ACFB00BD28B5 /* MainMapView.storyboard in Resources */,
+				9C6C5BC61DD121530011849D /* Onboarding.storyboard in Resources */,
 				72602F601DBFC02A00FC53EC /* Assets.xcassets in Resources */,
 				72602F5E1DBFC02A00FC53EC /* Main.storyboard in Resources */,
 			);
@@ -522,8 +548,10 @@
 				FA6384ED1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift in Sources */,
 				729234BF1DC7BA090043CB98 /* Constants.swift in Sources */,
 				72E8A5961DC01B9000729613 /* CoreLocationController.swift in Sources */,
+				9C6C5BC81DD121B20011849D /* TutorialPageViewController.swift in Sources */,
 				D0D802531DC00E1900F02629 /* AwardController.swift in Sources */,
 				72FFA5151DC90C4700388C52 /* LocationsVisitedTableViewController.swift in Sources */,
+				9C6C5BCA1DD122D60011849D /* StepViews.swift in Sources */,
 				72FFA51B1DC90E4500388C52 /* BadgeDetailViewController.swift in Sources */,
 				D0DAA66D1DC951B30088C71F /* PrimaryTransitionTargetViewController.swift in Sources */,
 				D08523B31DCBD59C00D54F65 /* LocalLocationTableViewCell.swift in Sources */,

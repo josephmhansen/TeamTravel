@@ -61,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+  
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         CoreLocationController.shared.setupLocationManager()
         self.strongReferenceToLocationManager = CoreLocationController.shared.locationManager
@@ -69,31 +70,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
         UINavigationBar.appearance().isTranslucent = true
-        
-        return true
+      
+      // MARK: UserDefaults
+      
+      let userDefaults = UserDefaults.standard
+      let launchedBefore = userDefaults.bool(forKey: "firstLaunch")
+      
+      if launchedBefore {
+        showHomeScreen()
+      } else {
+        print("AppDelegate says First Launch!")
+        showTutorial()
+      }
+      
+      userDefaults.synchronize()
+      
+      return true
+      
     }
+  
+  func showHomeScreen() {
+    window = UIWindow(frame: UIScreen.main.bounds)
+    let mainStoryboard: UIStoryboard = UIStoryboard(name: "MainMapView", bundle: nil)
+    let homeVC = mainStoryboard.instantiateViewController(withIdentifier: "LocationMap") as! LocationMapViewController
+    window?.rootViewController = homeVC
+    window?.makeKeyAndVisible()
+  }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
+  func showTutorial() {
+    window = UIWindow(frame: UIScreen.main.bounds)
+    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+    let tutVC = mainStoryboard.instantiateViewController(withIdentifier: "TutorialViewController") as! TutorialPageViewController
+    window?.rootViewController = tutVC
+    window?.makeKeyAndVisible()
+  }
 
 
 }

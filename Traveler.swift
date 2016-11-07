@@ -49,7 +49,7 @@ class Traveler {
 }
 
 extension CKRecord {
-    convenience init(_ traveler: Traveler) {
+    convenience init(traveler: Traveler) {
         self.init(recordType: Traveler.recordType)
         
         

@@ -25,7 +25,7 @@ class SearchLocationController  {
     }
     
     var allVisibleLocations: [Location] {
-        guard let location = CoreLocationController.shared.currentTravelerLocation else { return [] }
+        guard let location = CoreLocationController.shared.currentTravelerLocationForDistance else { return [] }
         let array = allReturnedLocations.filter{$0.isVisible}
         return array.sorted { $0.0.location.distance(from: location) < $0.1.location.distance(from: location)}
     }

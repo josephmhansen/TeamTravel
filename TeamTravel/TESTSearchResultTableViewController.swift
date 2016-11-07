@@ -46,7 +46,7 @@ class TESTSearchResultTableViewController: UITableViewController, ShowFenceAlert
          MockData.shared.setUpTraveler()
         }
         
-        if let location = CoreLocationController.shared.currentTravelerLocation {
+        if let location = CoreLocationController.shared.currentTravelerLocationForSearch {
             SearchLocationController.shared.queryForLocations(location: location, completion: { (_) in
                 SearchLocationController.shared.isSearching = false
             })

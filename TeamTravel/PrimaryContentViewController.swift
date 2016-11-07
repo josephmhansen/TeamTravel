@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 
+private let kLivelyGreenColor = UIColor(red: 8 / 255, green: 132 / 255, blue: 67 / 255, alpha: 1)
+
 class PrimaryContentViewController: UIViewController, PulleyPrimaryContentControllerDelegate {
     
     @IBOutlet var mapView: MKMapView!
@@ -21,6 +23,7 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.mapView.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(zoomToUserLocation), name: Notification.Name(rawValue: "currentSearchLocationUpdated"), object: nil)
         mapView.showsUserLocation = true
@@ -104,11 +107,80 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
         // remove old annotations
         let oldAnnotations = self.mapView.annotations
             self.mapView.removeAnnotations(oldAnnotations)
-        
+    
         // add new ones
         for location in SearchLocationController.shared.allVisibleLocations {
             self.mapView.addAnnotation(location)
         }
     }
+
+    
 }
+
+extension PrimaryContentViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if annotation is MKUserLocation { // Return a blue dot for the user's location
+            return nil
+        }
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        annotationView.canShowCallout = true
+        
+        let button = UIButton(type: .contactAdd)
+        button.tintColor = kLivelyGreenColor
+        annotationView.rightCalloutAccessoryView = button
+        
+        //
+        guard let castAnnotation = annotation as? Location else { return nil }
+        var toSizeImage: UIImage?
+        
+        switch castAnnotation.type {
+        case .Parks: toSizeImage = #imageLiteral(resourceName: "Parks")
+        case .Landmarks: toSizeImage = #imageLiteral(resourceName: "Landmarks")
+        case .Museums: toSizeImage = #imageLiteral(resourceName: "Museums")
+        }
+        
+       
+        
+        let typeSize = CGSize(width: 30, height: 30)
+        UIGraphicsBeginImageContext(typeSize)
+        toSizeImage?.draw(in: CGRect(x: 0, y: 0, width: typeSize.width, height: typeSize.height))
+        let resizedTypeImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        let imgView = UIImageView(image: resizedTypeImage)
+        imgView.contentMode = .scaleAspectFit
+        
+        annotationView.leftCalloutAccessoryView = imgView
+        
+        //Custom Pin
+        let factor = 3.0
+        let size = CGSize(width: 7.45*factor, height: 10*factor)
+        UIGraphicsBeginImageContext(size)
+        #imageLiteral(resourceName: "Pin_green").draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+     
+        // Move pin up
+        annotationView.centerOffset = CGPoint(x: 0, y: -20)
+        
+        annotationView.image = resizedImage
+        return annotationView
+    }
+
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        guard let annotation = view.annotation, let castAnnotation = annotation as? Location else { return }
+        
+        let pinItemActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let add = UIAlertAction(title: "Add to QuestList", style: .default, handler: { (_) in
+            TravelerController.shared.addToMasterTravelerList(location: castAnnotation)
+        })
+        pinItemActionSheet.addAction(add)
+        pinItemActionSheet.addAction(cancel)
+        self.present(pinItemActionSheet, animated: true, completion: nil)
+    }
+}
+
+
 

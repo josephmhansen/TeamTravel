@@ -37,7 +37,7 @@ class MockData {
     static let shared = MockData()
     
     init(){
-        NotificationCenter.default.addObserver(self, selector: #selector(setUpTraveler), name: Notification.Name(rawValue:"currentLocationUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setUpTraveler), name: Notification.Name(rawValue:"currentSearchLocationUpdated"), object: nil)
     }
     
     @objc func setUpTraveler(){

@@ -36,7 +36,7 @@ class TESTSearchResultTableViewController: UITableViewController, ShowFenceAlert
 
         CoreLocationController.shared.alertDelegate = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(startSearch), name: Notification.Name(rawValue: "currentLocationUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(startSearch), name: Notification.Name(rawValue: "currentSearchLocationUpdated"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateSearchResults), name: Notification.Name(rawValue: "allLocationsReturned"), object: nil)
      
     }
@@ -46,7 +46,7 @@ class TESTSearchResultTableViewController: UITableViewController, ShowFenceAlert
          MockData.shared.setUpTraveler()
         }
         
-        if let location = CoreLocationController.shared.currentTravelerLocation {
+        if let location = CoreLocationController.shared.currentTravelerLocationForSearch {
             SearchLocationController.shared.queryForLocations(location: location, completion: { (_) in
                 SearchLocationController.shared.isSearching = false
             })

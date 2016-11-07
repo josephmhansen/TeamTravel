@@ -30,7 +30,8 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         
         CoreLocationController.shared.alertDelegate = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(startSearch), name: Notification.Name(rawValue: "currentLocationUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(startSearch), name: Notification.Name(rawValue: "currentSearchLocationUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateSearchResults), name: Notification.Name(rawValue: "currentDistanceLocationUpdated"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateSearchResults), name: Notification.Name(rawValue: "allLocationsReturned"), object: nil)
 
         gripperView.layer.cornerRadius = 2.5
@@ -91,7 +92,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
             MockData.shared.setUpTraveler()
         }
         
-        if let location = CoreLocationController.shared.currentTravelerLocation {
+        if let location = CoreLocationController.shared.currentTravelerLocationForSearch {
             SearchLocationController.shared.queryForLocations(location: location, completion: { (_) in
                 SearchLocationController.shared.isSearching = false
                 self.locationsToShow = SearchLocationController.shared.allVisibleLocations
@@ -118,7 +119,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as? LocalLocationTableViewCell else { return UITableViewCell() }
-        let currentLocation = CoreLocationController.shared.currentTravelerLocation
+        let currentLocation = CoreLocationController.shared.currentTravelerLocationForDistance
         
         let location = locationsToShow[indexPath.row]
         let distance = Int((currentLocation?.distance(from: location.location))!)

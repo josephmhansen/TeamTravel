@@ -28,7 +28,7 @@
 	<string>ResearchKit</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>ResearchKit</string>
-	<key>NSLocationAlwaysUsageDescription</key>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>This app will not work properly without knowing your location</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This app would like to acces the microphone</string>

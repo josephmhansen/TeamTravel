@@ -41,10 +41,12 @@ class MockData {
     }
     
     @objc func setUpTraveler(){
+        /*
         print("SetUP traveler")
         guard let location = CoreLocationController.shared.currentTravelerLocation else { return }
             let traveler = Traveler(homeLocation: location, name: MockData.name, locationsVisited: MockData.locationsVisited, locationWishList: MockData.locationsWishList)
         TravelerController.shared.masterTraveler = traveler
+        */
     }
     
     static func setUpCloudKitTraveler(){

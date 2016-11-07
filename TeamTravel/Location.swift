@@ -109,7 +109,7 @@ extension CKRecord {
         self.init(recordType: Location.kLocationQuestRecordType)
         self[Location.kLocationName] = locationQuestItem.locationName as CKRecordValue?
         self[Location.kCLLocation] = locationQuestItem.location as CKRecordValue?
-        self[Location.KCategoryType] = locationQuestItem.location as CKRecordValue?
+        self[Location.KCategoryType] = locationQuestItem.type.rawValue as CKRecordValue?
         
     }
 }

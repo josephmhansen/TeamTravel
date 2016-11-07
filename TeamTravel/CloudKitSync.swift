@@ -91,5 +91,42 @@ class CloudKitSync {
         }
     }
     
+    func fetchAllCKRecordsOnStartup(){
+        //get traveler record
+        //fetch locationsVisited
+        TravelerController.shared.masterTraveler = Traveler()
+        guard let masterTraveler = TravelerController.shared.masterTraveler else {return}
+        let recordFetchedBlockVisited = {
+            (record: CKRecord) in
+            guard let locationVisited = Location(locationVisitedCKRecord: record) else {return}
+            masterTraveler.locationsVisited.append(locationVisited)
+            
+        }
+        CloudKitManager.shared.fetchRecordsWithType(Location.kLocationVisitedRecordType, recordFetchedBlock: recordFetchedBlockVisited){
+            (records, error) in
+            if error != nil {
+                print("error fetching all records for locationsVisited from cloudKit \(error?.localizedDescription)")
+            } else {
+                print("success fetching locationsVisited")
+            }
+        }
+        //fetch questList
+        let recordFetchedBlockQuest = {
+            (record: CKRecord) in
+            guard let questItem = Location(locationQuestItemCKRecord: record) else {return}
+            masterTraveler.locationsWishList.append(questItem)
+        }
+        CloudKitManager.shared.fetchRecordsWithType(Location.kLocationQuestRecordType, recordFetchedBlock: recordFetchedBlockQuest) {
+            (records, error) in
+            if error != nil {
+                print("error fetching all records for QuestList from CloudKit \(error?.localizedDescription)")
+            } else {
+                print("success fetching questList Items")
+            }
+        }
+        
+        
+    }
+    
     
 }

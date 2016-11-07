@@ -23,7 +23,7 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
         
         
         let _ = MockData.init()
-        NotificationCenter.default.addObserver(self, selector: #selector(setupUser), name: Notification.Name(rawValue: "currentLocationUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setupUser), name: Notification.Name(rawValue: "currentSearchLocationUpdated"), object: nil)
         
         configureGraphViewBox()
         setupUser()

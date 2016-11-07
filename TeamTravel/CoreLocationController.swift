@@ -43,7 +43,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         case .authorizedAlways:
             return true
         case .authorizedWhenInUse:
-            return false
+            return true
         case .denied:
             return false
         case .notDetermined:
@@ -69,9 +69,8 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         
         if hasAccess == true {
             locationManager?.requestLocation()
-            
         } else {
-            locationManager?.requestAlwaysAuthorization()
+            locationManager?.requestWhenInUseAuthorization()
         }
     }
     
@@ -100,7 +99,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways {
+        if status == .authorizedWhenInUse {
             getCurrentLocation()
         }
     }

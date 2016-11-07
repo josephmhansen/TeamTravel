@@ -126,6 +126,7 @@ extension PrimaryContentViewController: MKMapViewDelegate {
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
         annotationView.canShowCallout = true
         
+        
         let button = UIButton(type: .contactAdd)
         button.tintColor = kLivelyGreenColor
         annotationView.rightCalloutAccessoryView = button
@@ -148,12 +149,13 @@ extension PrimaryContentViewController: MKMapViewDelegate {
         let resizedTypeImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         let imgView = UIImageView(image: resizedTypeImage)
-        imgView.contentMode = .scaleAspectFit
-        
+        imgView.layer.contentsScale = UIScreen.main.scale
+        //let imgView = UIImageView(image: toSizeImage)
+        imgView.contentMode = .scaleAspectFill
         annotationView.leftCalloutAccessoryView = imgView
         
         //Custom Pin
-        let factor = 3.0
+        let factor = 3.5
         let size = CGSize(width: 7.45*factor, height: 10*factor)
         UIGraphicsBeginImageContext(size)
         #imageLiteral(resourceName: "Pin_green").draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
@@ -162,8 +164,10 @@ extension PrimaryContentViewController: MKMapViewDelegate {
      
         // Move pin up
         annotationView.centerOffset = CGPoint(x: 0, y: -20)
+        annotationView.layer.contentsScale = UIScreen.main.scale
         
         annotationView.image = resizedImage
+        annotationView.contentMode = .scaleAspectFill
         return annotationView
     }
 

@@ -136,6 +136,18 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        if segmentedControl.selectedIndex == 0 {
+        let selectedLocation = self.locationsToShow[indexPath.row]
+        let pinItemActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let add = UIAlertAction(title: "Add to QuestList", style: .default, handler: { (_) in
+            TravelerController.shared.addToMasterTravelerList(location: selectedLocation)
+        })
+        pinItemActionSheet.addAction(add)
+        pinItemActionSheet.addAction(cancel)
+        self.present(pinItemActionSheet, animated: true, completion: nil)
+        }
+    
         //if let drawer = self.parent as? LocationMapViewController
        // {
         //    let primaryContent = UIStoryboard(name: "MainMapView", bundle: nil).instantiateViewController(withIdentifier: "PrimaryTransitionTargetViewController")

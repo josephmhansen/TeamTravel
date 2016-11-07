@@ -35,6 +35,9 @@ class Location: NSObject, MKAnnotation {
     var title: String? {
         return locationName
     }
+    var subtitle: String? {
+        return "Visit here"
+    }
     var cloudKitRecordID: String?
     var location: CLLocation
     var type: LocationType

@@ -22,7 +22,7 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(zoomToUserLocation), name: Notification.Name(rawValue: "currentDistanceLocationUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(zoomToUserLocation), name: Notification.Name(rawValue: "currentSearchLocationUpdated"), object: nil)
         mapView.showsUserLocation = true
         
         temperatureLabel.layer.cornerRadius = 7.0

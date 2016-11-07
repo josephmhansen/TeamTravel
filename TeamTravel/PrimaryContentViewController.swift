@@ -25,7 +25,7 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
         super.viewDidLoad()
         self.mapView.delegate = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(zoomToUserLocation), name: Notification.Name(rawValue: "currentLocationUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(zoomToUserLocation), name: Notification.Name(rawValue: "currentSearchLocationUpdated"), object: nil)
         mapView.showsUserLocation = true
         
         temperatureLabel.layer.cornerRadius = 7.0
@@ -50,7 +50,7 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     }
     
     func zoomToUserLocation() {
-        if let location = CoreLocationController.shared.currentTravelerLocation {
+        if let location = CoreLocationController.shared.currentTravelerLocationForSearch {
             let span = MKCoordinateSpanMake(0.025, 0.025)
             let region = MKCoordinateRegion(center: location.coordinate, span: span)
             //fixed issue with zooming too slow, do more research about async after to delay zoom a little bit

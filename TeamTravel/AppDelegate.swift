@@ -37,7 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          */
          
         
-        CoreLocationController.shared.setupLocationManager()
         self.strongReferenceToLocationManager = CoreLocationController.shared.locationManager
         
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -63,7 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
   
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        CoreLocationController.shared.setupLocationManager()
         self.strongReferenceToLocationManager = CoreLocationController.shared.locationManager
         
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)

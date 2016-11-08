@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import UserNotifications
 
 class TutorialPageViewController: UIPageViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // Setup Notifications
+    
+    let center = UNUserNotificationCenter.current()
+    center.requestAuthorization(options: [.alert, .sound]) { (granted, _) in
+        if granted == true {
+            CoreLocationController.shared.setupLocationManager()
+        }
+    }
+
     setViewControllers([getStepZero()], direction: .forward, animated: false, completion: nil)
     dataSource = self
     

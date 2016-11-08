@@ -18,11 +18,13 @@ struct Notifications {
         content.subtitle = message ?? ""
         content.sound = UNNotificationSound.default()
         
-        let request = UNNotificationRequest(identifier: "notification", content: content, trigger: andTrigger ?? UNTimeIntervalNotificationTrigger(timeInterval: 0, repeats: false))
+        let request = UNNotificationRequest(identifier: "notification", content: content, trigger: andTrigger ?? UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false))
         
         let center = UNUserNotificationCenter.current()
         center.add(request) { (error) in
-            print("error scheduling notification")
+            if error != nil {
+                print(error!.localizedDescription)
+            }
         }
     }
 }

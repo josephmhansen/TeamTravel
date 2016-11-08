@@ -50,7 +50,7 @@
                     <navigationItem key="navigationItem" id="KOD-Qm-orx">
                         <barButtonItem key="rightBarButtonItem" title="User Stats" id="Jy1-bX-3A7">
                             <connections>
-                                <segue destination="hcR-WV-5EQ" kind="show" id="W69-S3-Lwl"/>
+                                <segue destination="hcR-WV-5EQ" kind="presentation" modalTransitionStyle="flipHorizontal" id="W69-S3-Lwl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -237,7 +237,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="414" height="85"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QrR-SM-B6h" id="YWA-gj-j6e">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="4k0-eu-jP2">
@@ -342,6 +342,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pin" width="50" height="50"/>
+        <image name="pin" width="447" height="600"/>
     </resources>
 </document>

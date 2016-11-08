@@ -104,6 +104,8 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     
     func updateSearchResults(){
         locationsToShow = SearchLocationController.shared.allVisibleLocations
+        guard let currentLocation = CoreLocationController.shared.currentTravelerLocationForDistance else { return }
+        TravelerController.shared.masterTraveler?.locationsWishList = (TravelerController.shared.masterTraveler?.locationsWishList.sorted { $0.0.location.distance(from: currentLocation) < $0.1.location.distance(from: currentLocation) })!
         self.tableView.reloadData()
     }
 
@@ -187,10 +189,6 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     
 
     // MARK: Drawer Content View Controller Delegate 
-    
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        segmentedControl.setSelected(at: 0, animated: false)
-    }
     
     func collapsedDrawerHeight() -> CGFloat
     {

@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "PolyQuest.png",
+      "filename" : "pinTest.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "PolyQuest@2x.png",
+      "filename" : "pinTest@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "PolyQuest@3x.png",
+      "filename" : "pinTest@3x.png",
       "scale" : "3x"
     }
   ],

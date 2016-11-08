@@ -141,8 +141,6 @@ extension PrimaryContentViewController: MKMapViewDelegate {
         case .Museums: toSizeImage = #imageLiteral(resourceName: "Museums") // #imageLiteral(resourceName: "doubleMuseum")
         }
         
-       
-        
 //        let typeSize = CGSize(width: 30, height: 30)
 //        UIGraphicsBeginImageContext(typeSize)
 //        toSizeImage?.draw(in: CGRect(x: 0, y: 0, width: typeSize.width, height: typeSize.height))
@@ -157,23 +155,14 @@ extension PrimaryContentViewController: MKMapViewDelegate {
         
         let imgView = UIImageView(image: toSizeImage)
         imgView.layer.contentsScale = UIScreen.main.scale
-        //let imgView = UIImageView(image: toSizeImage)
         imgView.contentMode = .scaleAspectFill
         annotationView.leftCalloutAccessoryView = imgView
         
-        //Custom Pin
-        let factor = 3.5
-        let size = CGSize(width: 8*factor, height: 10*factor)
-        UIGraphicsBeginImageContext(size)
-        #imageLiteral(resourceName: "pin").draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-        //UIGraphicsEndImageContext()
-     
         // Move pin up
         annotationView.centerOffset = CGPoint(x: 0, y: -20)
         annotationView.layer.contentsScale = UIScreen.main.scale
         
-        annotationView.image = resizedImage
+        annotationView.image = #imageLiteral(resourceName: "pinAnnotation")
         annotationView.contentMode = .scaleAspectFit
         return annotationView
     }

@@ -33,6 +33,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         NotificationCenter.default.addObserver(self, selector: #selector(startSearch), name: Notification.Name(rawValue: "currentSearchLocationUpdated"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateSearchResults), name: Notification.Name(rawValue: "currentDistanceLocationUpdated"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateSearchResults), name: Notification.Name(rawValue: "allLocationsReturned"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateSearchResults), name: Notification.Name(rawValue: "wishlistUpdated"), object: nil)
 
         gripperView.layer.cornerRadius = 2.5
         seperatorHeightConstraint.constant = 1.0 / UIScreen.main.scale
@@ -102,6 +103,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     }
     
     func updateSearchResults(){
+        locationsToShow = SearchLocationController.shared.allVisibleLocations
         self.tableView.reloadData()
     }
 

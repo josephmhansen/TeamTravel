@@ -54,6 +54,8 @@ class TravelerController {
     if append {
         self.masterTraveler?.locationsWishList.append(location)
         CloudKitSync.shared.createQuestItem(location: location)
+        let notification = Notification(name: Notification.Name(rawValue: "wishlistUpdated"))
+        NotificationCenter.default.post(notification)
     }
   }
   

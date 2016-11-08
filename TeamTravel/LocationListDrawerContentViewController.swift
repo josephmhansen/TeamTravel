@@ -166,9 +166,15 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            
+            let location = locationsToShow[indexPath.row]
+            TravelerController.shared.deleteFromMasterTravelerList(location: location)
+            locationsToShow.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
         }
     }
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         if segmentedControl.selectedIndex == 1 {
             return true

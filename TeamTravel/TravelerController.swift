@@ -57,7 +57,7 @@ class TravelerController {
   
     func deleteFromMasterTravelerList(location: Location) {
     guard let index = self.masterTraveler?.locationsWishList.index(of: location) else { return }
-    self.masterTraveler?.locationsVisited.remove(at: index)
+    self.masterTraveler?.locationsWishList.remove(at: index)
   }
   
 }

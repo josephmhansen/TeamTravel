@@ -11,14 +11,14 @@ import UserNotifications
 
 struct Notifications {
     
-    static func sendNotification(withTitle: String, message: String?, andTrigger: UNNotificationTrigger) {
+    static func sendNotification(withTitle: String, message: String?, andTrigger: UNNotificationTrigger?) {
         
         let content = UNMutableNotificationContent()
         content.title = withTitle
         content.subtitle = message ?? ""
         content.sound = UNNotificationSound.default()
         
-        let request = UNNotificationRequest(identifier: "notification", content: content, trigger: andTrigger)
+        let request = UNNotificationRequest(identifier: "notification", content: content, trigger: andTrigger ?? UNTimeIntervalNotificationTrigger(timeInterval: 0, repeats: false))
         
         let center = UNUserNotificationCenter.current()
         center.add(request) { (error) in

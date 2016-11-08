@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Location Map View Controller-->
+        <!--PolyQuest-->
         <scene sceneID="zwc-xo-Uhr">
             <objects>
                 <viewController storyboardIdentifier="LocationMap" id="eGL-tC-8gT" customClass="LocationMapViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,8 +47,8 @@
                             <constraint firstItem="4p9-KZ-WZu" firstAttribute="leading" secondItem="htC-XI-Len" secondAttribute="leading" id="mXP-yn-fbH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="KOD-Qm-orx">
-                        <barButtonItem key="rightBarButtonItem" title="User Stats" id="Jy1-bX-3A7">
+                    <navigationItem key="navigationItem" title="PolyQuest" id="KOD-Qm-orx">
+                        <barButtonItem key="rightBarButtonItem" image="User" id="Jy1-bX-3A7">
                             <connections>
                                 <segue destination="hcR-WV-5EQ" kind="presentation" modalTransitionStyle="flipHorizontal" id="W69-S3-Lwl"/>
                             </connections>
@@ -342,6 +342,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="User" width="35" height="35"/>
         <image name="pinAnnotation" width="27" height="35"/>
     </resources>
 </document>

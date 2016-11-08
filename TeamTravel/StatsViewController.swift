@@ -12,9 +12,10 @@ private let kLivelyGreenColor = UIColor(red: 8 / 255, green: 132 / 255, blue: 67
 
 class StatsViewController: UIViewController {
     
-    @IBAction func backButtonTapped(_ sender: Any) {
-       dismiss(animated: true, completion: nil)
+    @IBAction func mapViewButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
+    
     @IBOutlet weak var innerView: UIView!
     
     @IBOutlet weak var segmentedControl: SegmentedControl!

@@ -65,6 +65,7 @@ struct AwardController {
         if traveler.locationsVisited.count >= 1 {
             babyStepsBadge.hasEarned = true
             babyStepsBadge.image = #imageLiteral(resourceName: "Baby Step")
+            Notifications.sendNotification(withTitle: "You earned the Baby Steps Badge!", message: nil, andTrigger: nil)
         }
     }
     
@@ -73,6 +74,7 @@ struct AwardController {
         if traveler.points >= 100 {
             seriousExplorerBadge.hasEarned = true
             seriousExplorerBadge.image = #imageLiteral(resourceName: "Serious Adventurer")
+            Notifications.sendNotification(withTitle: "You earned the Serious Adventurer Badge!", message: nil, andTrigger: nil)
         }
     }
     
@@ -82,6 +84,7 @@ struct AwardController {
         if parksVisited.count >= 5 {
             notJustAnUrbanBadge.hasEarned = true
             notJustAnUrbanBadge.image = #imageLiteral(resourceName: "Not just an urban explorer")
+            Notifications.sendNotification(withTitle: "You earned the Not Just An Urban Explorer Badge!", message: nil, andTrigger: nil)
         }
     }
     
@@ -91,6 +94,7 @@ struct AwardController {
         if landmarksVisited.count >= 5 {
             historicalSignificanceBadge.hasEarned = true
             historicalSignificanceBadge.image = #imageLiteral(resourceName: "Historical Significance")
+            Notifications.sendNotification(withTitle: "You earned the Historical Significance Badge!", message: nil, andTrigger: nil)
         }
     }
     
@@ -100,6 +104,7 @@ struct AwardController {
         if museumsVisited.count >= 5 {
             oldBonesBadge.hasEarned = true
             oldBonesBadge.image = #imageLiteral(resourceName: "Old Bones")
+            Notifications.sendNotification(withTitle: "You earned the Old Bones Badge!", message: nil, andTrigger: nil)
         }
     }
     
@@ -108,6 +113,7 @@ struct AwardController {
         if traveler.locationsVisited.last?.locationName == "Dev Mountain" {
             homewardBoundBadge.hasEarned = true
             homewardBoundBadge.image = #imageLiteral(resourceName: "Homeward Bound")
+            Notifications.sendNotification(withTitle: "You earned the Homeward Bound Badge!", message: nil, andTrigger: nil)
         }
     }
     
@@ -118,6 +124,7 @@ struct AwardController {
         if let distance = traveler.locationsVisited.last?.location.distance(from: homeLocation), distance >= LocationDistance {
             oneSmallStepBadge.hasEarned = true
             homewardBoundBadge.image = #imageLiteral(resourceName: "Homeward Bound")
+            Notifications.sendNotification(withTitle: "You earned the One Small Step Badge!", message: nil, andTrigger: nil)
         }
     }
     
@@ -126,6 +133,7 @@ struct AwardController {
         if datesVisited.count >= 2 {
             repeatOffenderBadge.hasEarned = true
             repeatOffenderBadge.image = #imageLiteral(resourceName: "Repeat Offender")
+            Notifications.sendNotification(withTitle: "You earned the Repeat Offender Badge!", message: nil, andTrigger: nil)
         }
     }
     

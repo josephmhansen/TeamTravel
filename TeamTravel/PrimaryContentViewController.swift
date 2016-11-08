@@ -138,17 +138,24 @@ extension PrimaryContentViewController: MKMapViewDelegate {
         switch castAnnotation.type {
         case .Parks: toSizeImage = #imageLiteral(resourceName: "Parks")
         case .Landmarks: toSizeImage = #imageLiteral(resourceName: "Landmarks")
-        case .Museums: toSizeImage = #imageLiteral(resourceName: "Museums")
+        case .Museums: toSizeImage = #imageLiteral(resourceName: "Museums") // #imageLiteral(resourceName: "doubleMuseum")
         }
         
        
         
-        let typeSize = CGSize(width: 30, height: 30)
-        UIGraphicsBeginImageContext(typeSize)
-        toSizeImage?.draw(in: CGRect(x: 0, y: 0, width: typeSize.width, height: typeSize.height))
-        let resizedTypeImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        let imgView = UIImageView(image: resizedTypeImage)
+//        let typeSize = CGSize(width: 30, height: 30)
+//        UIGraphicsBeginImageContext(typeSize)
+//        toSizeImage?.draw(in: CGRect(x: 0, y: 0, width: typeSize.width, height: typeSize.height))
+//        let resizedTypeImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        
+//        
+//        
+//        let test = #imageLiteral(resourceName: "doubleMuseum")
+        
+        
+        
+        let imgView = UIImageView(image: toSizeImage)
         imgView.layer.contentsScale = UIScreen.main.scale
         //let imgView = UIImageView(image: toSizeImage)
         imgView.contentMode = .scaleAspectFill

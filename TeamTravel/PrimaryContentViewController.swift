@@ -163,18 +163,18 @@ extension PrimaryContentViewController: MKMapViewDelegate {
         
         //Custom Pin
         let factor = 3.5
-        let size = CGSize(width: 7.45*factor, height: 10*factor)
+        let size = CGSize(width: 8*factor, height: 10*factor)
         UIGraphicsBeginImageContext(size)
-        #imageLiteral(resourceName: "Pin_green").draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        #imageLiteral(resourceName: "pin").draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+        //UIGraphicsEndImageContext()
      
         // Move pin up
         annotationView.centerOffset = CGPoint(x: 0, y: -20)
         annotationView.layer.contentsScale = UIScreen.main.scale
         
         annotationView.image = resizedImage
-        annotationView.contentMode = .scaleAspectFill
+        annotationView.contentMode = .scaleAspectFit
         return annotationView
     }
 

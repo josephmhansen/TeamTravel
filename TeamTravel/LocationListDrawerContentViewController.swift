@@ -72,8 +72,8 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         */
         
         //Set Images
-        let images = [#imageLiteral(resourceName: "Nearby"), #imageLiteral(resourceName: "QuestList")]
-        let selectedImages = [#imageLiteral(resourceName: "Nearby"), #imageLiteral(resourceName: "QuestList")]
+        let images = [#imageLiteral(resourceName: "Nearby.png"), #imageLiteral(resourceName: "QuestList")]
+        let selectedImages = [#imageLiteral(resourceName: "Nearby.png"), #imageLiteral(resourceName: "QuestList")]
         segmentedControl.setImages(images, selectedImages: selectedImages)
         segmentedControl.delegate = self
         segmentedControl.selectionIndicatorStyle = .bottom

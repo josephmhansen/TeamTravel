@@ -136,9 +136,9 @@ extension PrimaryContentViewController: MKMapViewDelegate {
         var toSizeImage: UIImage?
         
         switch castAnnotation.type {
-        case .Parks: toSizeImage = #imageLiteral(resourceName: "Parks")
-        case .Landmarks: toSizeImage = #imageLiteral(resourceName: "Landmarks")
-        case .Museums: toSizeImage = #imageLiteral(resourceName: "Museums") // #imageLiteral(resourceName: "doubleMuseum")
+        case .Parks: toSizeImage = #imageLiteral(resourceName: "ParksSmall")
+        case .Landmarks: toSizeImage = #imageLiteral(resourceName: "LandmarksSmall")
+        case .Museums: toSizeImage = #imageLiteral(resourceName: "MuseumsSmall")
         }
         
 //        let typeSize = CGSize(width: 30, height: 30)

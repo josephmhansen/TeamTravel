@@ -93,8 +93,8 @@ class StatsViewController: UIViewController {
     }
     
     fileprivate func configureSegmentedControl2() {
-        let images = [#imageLiteral(resourceName: "Tokens"), #imageLiteral(resourceName: "Badges"), #imageLiteral(resourceName: "Quests")]
-        let selectedImages = [#imageLiteral(resourceName: "Tokens"), #imageLiteral(resourceName: "Badges"), #imageLiteral(resourceName: "Quests")]
+        let images = [#imageLiteral(resourceName: "TokensSmall"), #imageLiteral(resourceName: "BadgesSmall"), #imageLiteral(resourceName: "QuestsSmall")]
+        let selectedImages = [#imageLiteral(resourceName: "TokensSmall"), #imageLiteral(resourceName: "BadgesSmall"), #imageLiteral(resourceName: "QuestsSmall")]
         
         segmentedControl.setImages(images, selectedImages: selectedImages)
         segmentedControl.delegate = self

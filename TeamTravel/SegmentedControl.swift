@@ -415,7 +415,7 @@ public extension SegmentedControl {
 
     fileprivate func drawImages() {
         for (index, image) in images.enumerated() {
-            let newSize = CGSize(width: 30, height: 35)
+            let newSize = CGSize(width: 35, height: 35)
             let width = newSize.width
             let height = newSize.height
             

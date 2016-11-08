@@ -163,6 +163,20 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         //cell.contentView.backgroundColor = tableView.backgroundColor
     }
     
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if segmentedControl.selectedIndex == 1 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
 
     // MARK: Drawer Content View Controller Delegate 
     

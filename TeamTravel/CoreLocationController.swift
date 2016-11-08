@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import CoreLocation
+import UserNotifications
+
 class CoreLocationController: NSObject, CLLocationManagerDelegate {
     
     static let shared = CoreLocationController()
@@ -206,6 +208,10 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         regionAlert.addAction(dismiss)
         
         self.alertDelegate?.presentAlert(alert: regionAlert)
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0, repeats: false)
+        
+        Notifications.sendNotification(withTitle: "You entered \(region.identifier)", message: nil, andTrigger: trigger)
     
         // Add location to Master traveler
         TravelerController.shared.addVisited(region: region)

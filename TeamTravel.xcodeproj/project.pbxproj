@@ -38,6 +38,7 @@
 		9CA177991DC10636001D655B /* TravelerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA177981DC10636001D655B /* TravelerController.swift */; };
 		9CB491231DC1004B003DBC17 /* Traveler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB491221DC1004B003DBC17 /* Traveler.swift */; };
 		D0272A931DC014AB00565EDB /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0272A921DC014AB00565EDB /* Location.swift */; };
+		D03747F41DD23C3C006357D2 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03747F31DD23C3C006357D2 /* Notifications.swift */; };
 		D08523B31DCBD59C00D54F65 /* LocalLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08523B21DCBD59C00D54F65 /* LocalLocationTableViewCell.swift */; };
 		D0D8024E1DC0096100F02629 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8024D1DC0096100F02629 /* Badge.swift */; };
 		D0D802531DC00E1900F02629 /* AwardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D802521DC00E1900F02629 /* AwardController.swift */; };
@@ -146,6 +147,7 @@
 		9CA177981DC10636001D655B /* TravelerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelerController.swift; sourceTree = "<group>"; };
 		9CB491221DC1004B003DBC17 /* Traveler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Traveler.swift; path = ../Traveler.swift; sourceTree = "<group>"; };
 		D0272A921DC014AB00565EDB /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		D03747F31DD23C3C006357D2 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		D08523B21DCBD59C00D54F65 /* LocalLocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalLocationTableViewCell.swift; path = TeamTravel/LocalLocationTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		D0D8024D1DC0096100F02629 /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		D0D802521DC00E1900F02629 /* AwardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardController.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				72E8A5951DC01B9000729613 /* CoreLocationController.swift */,
 				7200D9F91DC1059400C2CF22 /* SearchLocationController.swift */,
 				727257AB1DCFE02F007B136F /* CloudKitSync.swift */,
+				D03747F31DD23C3C006357D2 /* Notifications.swift */,
 			);
 			name = SupportFiles;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				72FFA51D1DC92B6700388C52 /* BadgesCollectionViewController.swift in Sources */,
 				FA6384EF1DC11E6D0026C6F6 /* MockData.swift in Sources */,
 				D0DAA66C1DC951B30088C71F /* PrimaryContentViewController.swift in Sources */,
+				D03747F41DD23C3C006357D2 /* Notifications.swift in Sources */,
 				72FFA5131DC90B6400388C52 /* StatsViewController.swift in Sources */,
 				721E6CCD1DCD3CD300B7C2AA /* CloudKitManager.swift in Sources */,
 			);

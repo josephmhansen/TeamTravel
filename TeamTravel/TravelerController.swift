@@ -48,16 +48,19 @@ class TravelerController {
     for questListItem in traveler.locationsWishList {
         if questListItem.locationName.lowercased() == location.locationName.lowercased() {
             append = false
+            print("item already exists in list")
         }
     }
     if append {
         self.masterTraveler?.locationsWishList.append(location)
+        CloudKitSync.shared.createQuestItem(location: location)
     }
   }
   
     func deleteFromMasterTravelerList(location: Location) {
     guard let index = self.masterTraveler?.locationsWishList.index(of: location) else { return }
-    self.masterTraveler?.locationsVisited.remove(at: index)
+    self.masterTraveler?.locationsWishList.remove(at: index)
+        CloudKitSync.shared.deleteQuestItem(location: location)
   }
   
 }

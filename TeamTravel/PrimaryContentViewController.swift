@@ -30,7 +30,7 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
         
         temperatureLabel.layer.cornerRadius = 7.0
         
-        NotificationCenter.default.addObserver(self, selector: #selector(drawMapAnnotations), name: Notification.Name(rawValue: "allLocationsReturned"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(drawMapAnnotations), name: Notification.Name(rawValue: "searchCategoryCompleted"), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {

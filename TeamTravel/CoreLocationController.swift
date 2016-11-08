@@ -81,7 +81,10 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
             NSLog("Got User Location")
             
             if let location = locations.first {
-                guard self.currentTravelerLocationForSearch != nil && self.currentTravelerLocationForDistance != nil else { self.currentTravelerLocationForSearch = location; self.currentTravelerLocationForDistance = location; return }
+                guard self.currentTravelerLocationForSearch != nil && self.currentTravelerLocationForDistance != nil else {
+                    self.currentTravelerLocationForSearch = location
+                    self.currentTravelerLocationForDistance = location
+                    return }
                 
                 if location.distance(from: self.currentTravelerLocationForDistance!) >= 5 {
                     self.currentTravelerLocationForDistance = location

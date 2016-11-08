@@ -422,6 +422,12 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
         setDrawerPosition(position: initialDrawerPosition, animated: false)
         
         scrollViewDidScroll(drawerScrollView)
+        
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+        UINavigationBar.appearance().isTranslucent = true
+        
     }
     
     override open func viewDidAppear(_ animated: Bool) {

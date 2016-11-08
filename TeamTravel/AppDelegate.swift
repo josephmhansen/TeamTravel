@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         // Override point for customization after application launch.
         CloudKitSync.shared.fetchAllCKRecordsOnStartup()
+        
+        let center = UNUserNotificationCenter.current()
+        
+        let action = UNNotificationAction(identifier: "Awesome", title: "Awesome!", options: .foreground)
+        let category = UNNotificationCategory(identifier: "Category", actions: [action], intentIdentifiers: [], options: .customDismissAction)
+        center.setNotificationCategories([category])
+        
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { (_, _) in
+            
+        }
         
         /*
         MockData.setUpCloudKitTraveler()

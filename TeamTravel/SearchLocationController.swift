@@ -15,6 +15,8 @@ class SearchLocationController  {
     
     static let shared = SearchLocationController()
     
+    let locationsTypes: [LocationType] = [LocationType.Landmarks, LocationType.Museums, LocationType.Parks]
+    
     var isSearching: Bool?
     
     var allReturnedLocations: [Location] = [] {
@@ -50,16 +52,17 @@ class SearchLocationController  {
         if isSearching == true { print("Already Searching"); return }
         isSearching = true
         SearchLocationController.shared.allReturnedLocations = []
-        let locationsTypes: [LocationType] = [LocationType.Landmarks, LocationType.Museums, LocationType.Parks]
-        self.queryForLocation(ofType: locationsTypes[0], location: location, completion: { (_) in
-            self.queryForLocation(ofType: locationsTypes[1], location: location, completion: { (_) in
-                self.queryForLocation(ofType: locationsTypes[2], location: location, completion: { (_) in
-                    self.isSearching = false
-                    
-                    // Make call to listening functions: Geofencing, tableview updates, etc.
-                        completion!(true)
-                        let notification = Notification(name: Notification.Name(rawValue:"searchCategoryCompleted"))
-                        NotificationCenter.default.post(notification)
+        self.queryForLocation(ofType: self.locationsTypes[0], location: location, completion: { (_) in
+            self.queryForLocation(ofType: self.locationsTypes[1], location: location, completion: { (_) in
+                self.queryForLocation(ofType: self.locationsTypes[2], location: location, completion: { (_) in
+                    DispatchQueue.main.async{
+//                    self.isSearching = false
+//                    
+//                    // Make call to listening functions: Geofencing, tableview updates, etc.
+//                        completion!(true)
+//                        let notification = Notification(name: Notification.Name(rawValue:"searchCategoryCompleted"))
+//                        NotificationCenter.default.post(notification)
+                    }
                 })
             })
         })
@@ -90,11 +93,23 @@ class SearchLocationController  {
                         SearchLocationController.shared.allReturnedLocations.append(newLocation)
                     }
                 }
+                if ofType == self.locationsTypes.last {
+                    self.doneSearchingAllCategories()
+                }
 //                let notification = Notification(name: Notification.Name(rawValue:"searchCategoryCompleted"))
 //                NotificationCenter.default.post(notification)
                 completion(true)
             }
             // end dispatch
+        }
+    }
+    
+    /// Posts notification that draws map annotations and configures the geofences.
+    func doneSearchingAllCategories(){
+        DispatchQueue.main.async {
+            self.isSearching = false
+            let notification = Notification(name: Notification.Name(rawValue:"searchCategoryCompleted"))
+            NotificationCenter.default.post(notification)
         }
     }
     

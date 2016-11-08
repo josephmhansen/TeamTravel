@@ -92,7 +92,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func showHomeScreen() {
     window = UIWindow(frame: UIScreen.main.bounds)
     let mainStoryboard: UIStoryboard = UIStoryboard(name: "MainMapView", bundle: nil)
-    let homeVC = mainStoryboard.instantiateViewController(withIdentifier: "LocationMap") as! LocationMapViewController
+    
+    // navigation
+    let homeVC = mainStoryboard.instantiateViewController(withIdentifier: "navigation") as! UINavigationController
     window?.rootViewController = homeVC
     window?.makeKeyAndVisible()
   }

@@ -200,7 +200,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        
+        //fatalError()
         let regionAlert = UIAlertController(title: "Entered: \(region.identifier)", message: nil, preferredStyle: .alert)
         let dismiss = UIAlertAction(title: "Dismiss", style: .cancel) { (_) in
             

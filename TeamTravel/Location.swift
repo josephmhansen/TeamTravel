@@ -53,11 +53,11 @@ class Location: NSObject, MKAnnotation {
     var geoRadiusSize: CLLocationDistance {
         switch type {
         case .Landmarks:
-            return 50
+            return 18
         case .Parks:
-            return 150
+            return 33
         case .Museums:
-            return 100
+            return 18
         }
     } // in meters
     

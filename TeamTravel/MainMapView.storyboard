@@ -153,7 +153,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="368"/>
                                         <subviews>
                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OMs-NQ-cJu">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
                                                 <subviews>
                                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2S4-TW-Cpq">
                                                         <rect key="frame" x="181" y="8" width="53" height="5"/>
@@ -164,7 +164,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="tLf-Ig-62D">
-                                                        <rect key="frame" x="0.0" y="21" width="414" height="47"/>
+                                                        <rect key="frame" x="0.0" y="13" width="414" height="60"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ezp-Fl-Uow">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="19"/>
@@ -204,7 +204,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N6P-oX-Nra" customClass="SegmentedControl" customModule="TeamTravel" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="19" width="414" height="27"/>
+                                                                <rect key="frame" x="0.0" y="19" width="414" height="40"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
@@ -212,7 +212,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7G-Ip-9tD">
-                                                                <rect key="frame" x="0.0" y="46" width="50" height="1"/>
+                                                                <rect key="frame" x="0.0" y="59" width="50" height="1"/>
                                                                 <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="4Qx-Tn-PkO"/>
@@ -237,15 +237,13 @@
                                                     <constraint firstItem="tLf-Ig-62D" firstAttribute="top" secondItem="2S4-TW-Cpq" secondAttribute="bottom" id="E2Y-0Z-5kC"/>
                                                     <constraint firstItem="tLf-Ig-62D" firstAttribute="leading" secondItem="OMs-NQ-cJu" secondAttribute="leading" id="N6e-it-NEN"/>
                                                     <constraint firstItem="2S4-TW-Cpq" firstAttribute="top" secondItem="OMs-NQ-cJu" secondAttribute="top" constant="8" id="PCe-IQ-sT0"/>
-                                                    <constraint firstAttribute="height" constant="68" id="Tnq-90-xqY"/>
-                                                    <constraint firstItem="tLf-Ig-62D" firstAttribute="top" secondItem="2S4-TW-Cpq" secondAttribute="bottom" constant="8" id="USA-ij-gQ5"/>
                                                     <constraint firstAttribute="bottom" secondItem="tLf-Ig-62D" secondAttribute="bottom" id="WZb-aY-K3m"/>
                                                     <constraint firstAttribute="trailing" secondItem="tLf-Ig-62D" secondAttribute="trailing" id="X2i-u2-3HJ"/>
                                                     <constraint firstItem="2S4-TW-Cpq" firstAttribute="centerX" secondItem="OMs-NQ-cJu" secondAttribute="centerX" id="wFU-wk-7rK"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUt-8I-BAh">
-                                                <rect key="frame" x="0.0" y="68" width="414" height="19"/>
+                                                <rect key="frame" x="0.0" y="73" width="414" height="19"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hOl-ti-1Ls">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="19"/>
@@ -275,7 +273,7 @@
                                                 </constraints>
                                             </view>
                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rk0-RI-Rt1" customClass="SegmentedControl" customModule="TeamTravel" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="87" width="414" height="40"/>
+                                                <rect key="frame" x="0.0" y="92" width="414" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -283,7 +281,7 @@
                                                 </constraints>
                                             </view>
                                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="njO-tj-uAV">
-                                                <rect key="frame" x="0.0" y="127" width="414" height="241"/>
+                                                <rect key="frame" x="0.0" y="132" width="414" height="236"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <prototypes>
@@ -291,7 +289,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="414" height="85"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QrR-SM-B6h" id="YWA-gj-j6e">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84.666666666666671"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="4k0-eu-jP2">

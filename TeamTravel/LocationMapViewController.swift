@@ -529,7 +529,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
             stopToMoveTo = partialRevealHeight
             
         case .open:
-            stopToMoveTo = (self.view.bounds.size.height - topInset)
+            stopToMoveTo = (self.view.bounds.size.height - 100)
             
         case .closed:
             stopToMoveTo = 0

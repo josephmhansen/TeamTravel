@@ -12,9 +12,10 @@ private let kLivelyGreenColor = UIColor(red: 8 / 255, green: 132 / 255, blue: 67
 
 class StatsViewController: UIViewController {
     
-    @IBAction func backButtonTapped(_ sender: Any) {
-       dismiss(animated: true, completion: nil)
+    @IBAction func mapViewButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
+    
     @IBOutlet weak var innerView: UIView!
     
     @IBOutlet weak var segmentedControl: SegmentedControl!
@@ -57,6 +58,12 @@ class StatsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let navBar = self.navigationController?.navigationBar else { return }
+        navBar.setBackgroundImage(UIImage(), for: .default)
+        navBar.shadowImage = UIImage()
+        navBar.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+        navBar.isTranslucent = true
         
 
         self.title = "Achievements"

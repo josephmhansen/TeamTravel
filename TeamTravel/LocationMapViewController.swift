@@ -422,12 +422,16 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
         setDrawerPosition(position: initialDrawerPosition, animated: false)
         
         scrollViewDidScroll(drawerScrollView)
+        
+        
+        
     }
     
     override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         setNeedsSupportedDrawerPositionsUpdate()
+        
     }
     
     override open func viewDidLayoutSubviews() {

@@ -453,7 +453,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
         }
         
         let lowestStop = [(self.view.bounds.size.height - topInset), collapsedHeight, partialRevealHeight].min() ?? 0
-        let bounceOverflowMargin: CGFloat = 20.0
+        let bounceOverflowMargin: CGFloat = -50.0
         
         if supportedDrawerPositions.contains(.open)
         {

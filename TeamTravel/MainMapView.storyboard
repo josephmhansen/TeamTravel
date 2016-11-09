@@ -153,7 +153,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="368"/>
                                         <subviews>
                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OMs-NQ-cJu">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
                                                 <subviews>
                                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2S4-TW-Cpq">
                                                         <rect key="frame" x="181" y="8" width="53" height="5"/>
@@ -164,7 +164,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="tLf-Ig-62D">
-                                                        <rect key="frame" x="0.0" y="13" width="414" height="41"/>
+                                                        <rect key="frame" x="0.0" y="13" width="414" height="48"/>
                                                         <subviews>
                                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N6P-oX-Nra" customClass="SegmentedControl" customModule="TeamTravel" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -179,10 +179,10 @@
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7G-Ip-9tD">
-                                                                <rect key="frame" x="0.0" y="40" width="50" height="1"/>
-                                                                <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <rect key="frame" x="0.0" y="40" width="50" height="8"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="1" id="4Qx-Tn-PkO"/>
+                                                                    <constraint firstAttribute="height" constant="8" id="4Qx-Tn-PkO"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
@@ -204,8 +204,15 @@
                                                     <constraint firstItem="2S4-TW-Cpq" firstAttribute="centerX" secondItem="OMs-NQ-cJu" secondAttribute="centerX" id="wFU-wk-7rK"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bzh-HH-VS7">
+                                                <rect key="frame" x="0.0" y="61" width="414" height="8"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="8" id="Hxl-Z1-0eR"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUt-8I-BAh">
-                                                <rect key="frame" x="0.0" y="54" width="414" height="19"/>
+                                                <rect key="frame" x="0.0" y="69" width="414" height="19"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hOl-ti-1Ls">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="19"/>
@@ -235,7 +242,7 @@
                                                 </constraints>
                                             </view>
                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rk0-RI-Rt1" customClass="SegmentedControl" customModule="TeamTravel" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="73" width="414" height="40"/>
+                                                <rect key="frame" x="0.0" y="88" width="414" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -243,7 +250,7 @@
                                                 </constraints>
                                             </view>
                                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="njO-tj-uAV">
-                                                <rect key="frame" x="0.0" y="113" width="414" height="255"/>
+                                                <rect key="frame" x="0.0" y="128" width="414" height="240"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <prototypes>

@@ -14,6 +14,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
 //use this outlet to alter custom segmented controller
     @IBOutlet weak var segmentedControl: SegmentedControl!
     
+    @IBOutlet weak var topFilterSegmentedControl: SegmentedControl!
 //
     @IBOutlet var tableView: UITableView!
     //@IBOutlet var searchBar: UISearchBar!

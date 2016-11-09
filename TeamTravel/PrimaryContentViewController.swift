@@ -72,8 +72,8 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     }
     
     // MARK: - Handle Value
-    func valueChanged(_ sender: UISwitch) {
-        if userFound == false {
+    func valueChanged(_ sender: Bool) {
+        if sender == false {
             spinner.startAnimating()
         } else {
             spinner.stopAnimating()
@@ -96,11 +96,12 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
             
             DispatchQueue.main.async {
                 self.mapView.setRegion(region, animated: true)
+                self.valueChanged(true)
             }
             
             
         }
-        self.userFound == true
+        
     }
     
     func drawerChangedDistanceFromBottom(drawer: LocationMapViewController, distance: CGFloat)

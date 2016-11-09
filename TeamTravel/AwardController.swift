@@ -119,7 +119,7 @@ struct AwardController {
     
     func awardOneSmallStep() {
         guard let traveler = TravelerController.shared.masterTraveler, oneSmallStepBadge.hasEarned == false else { return }
-        let LocationDistance = CLLocationDistance(1000)
+        let LocationDistance = CLLocationDistance(10000)
         guard let homeLocation = traveler.homeLocation else { return }
         if let distance = traveler.locationsVisited.last?.location.distance(from: homeLocation), distance >= LocationDistance {
             oneSmallStepBadge.hasEarned = true

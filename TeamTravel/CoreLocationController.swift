@@ -88,10 +88,10 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
                     self.currentTravelerLocationForDistance = location
                     return }
                 
-                if location.distance(from: self.currentTravelerLocationForDistance!) >= 5 {
+                if location.distance(from: self.currentTravelerLocationForDistance!) >= 3 {
                     self.currentTravelerLocationForDistance = location
                 }
-                if location.distance(from: self.currentTravelerLocationForSearch!) >= 1000 {
+                if location.distance(from: self.currentTravelerLocationForSearch!) >= 500 {
                     self.currentTravelerLocationForSearch = location
                 }
             }

@@ -32,11 +32,15 @@ class TravelerController {
             if locationToAppend == visitedLocation {
                 visitedLocation.datesVisited.append(Date())
                 append = true
+                // CloudKit Save
+                CloudKitSync.shared.modifyLocationVisited(location: visitedLocation)
             }
         }
         if !append {
             locationToAppend.datesVisited.append(Date())
             traveler.locationsVisited.append(locationToAppend)
+            // CloudKit Save
+            CloudKitSync.shared.createLocationVisited(location: locationToAppend)
         }
 
         AwardController.shared.awardBadges()

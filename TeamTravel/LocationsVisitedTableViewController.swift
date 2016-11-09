@@ -49,7 +49,7 @@ class LocationsVisitedTableViewController: UITableViewController {
         }
         
         cell.textLabel?.text = location.locationName
-        cell.detailTextLabel?.text = "\(pointsEarned)"
+        cell.detailTextLabel?.text = "V: \(location.datesVisited.count)"//"\(pointsEarned)"
         
         return cell
     }

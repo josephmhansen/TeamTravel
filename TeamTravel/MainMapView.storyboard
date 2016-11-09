@@ -48,7 +48,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="PolyQuest" id="KOD-Qm-orx">
-                        <barButtonItem key="rightBarButtonItem" image="User" id="Jy1-bX-3A7">
+                        <barButtonItem key="rightBarButtonItem" image="user" id="Jy1-bX-3A7">
                             <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="hcR-WV-5EQ" kind="presentation" modalTransitionStyle="flipHorizontal" id="W69-S3-Lwl"/>
@@ -238,7 +238,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="414" height="85"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QrR-SM-B6h" id="YWA-gj-j6e">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="4k0-eu-jP2">
@@ -343,7 +343,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="User" width="35" height="35"/>
         <image name="pinAnnotation" width="27" height="35"/>
+        <image name="user" width="35" height="35"/>
     </resources>
 </document>

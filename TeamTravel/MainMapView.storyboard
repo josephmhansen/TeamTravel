@@ -85,7 +85,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="b7G-0X-JPQ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="702"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="701.66666666666663"/>
                             </mapView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D1V-M1-B9h">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
@@ -99,7 +99,7 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CdD-I4-t3B">
-                                <rect key="frame" x="364" y="669" width="42" height="25"/>
+                                <rect key="frame" x="364" y="668.66666666666663" width="42" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -158,9 +158,6 @@
                                                     <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="SdI-67-HKI">
                                                         <rect key="frame" x="0.0" y="12" width="414" height="44"/>
                                                         <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="ivy-3E-KkU" id="FgZ-OD-3Cf"/>
-                                                        </connections>
                                                     </searchBar>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7G-Ip-9tD">
                                                         <rect key="frame" x="0.0" y="67" width="39" height="1"/>
@@ -193,19 +190,19 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUt-8I-BAh">
-                                                <rect key="frame" x="0.0" y="68" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="68" width="414" height="19"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hOl-ti-1Ls">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="19"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nearby" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTG-ud-iq0">
-                                                                <rect key="frame" x="0.0" y="5" width="207" height="20.333333333333329"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="207" height="19"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QuestList" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58s-3u-ckS">
-                                                                <rect key="frame" x="207" y="5" width="207" height="20.333333333333329"/>
+                                                                <rect key="frame" x="207" y="0.0" width="207" height="19"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -217,21 +214,21 @@
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="hOl-ti-1Ls" secondAttribute="trailing" id="P5c-RT-Gck"/>
                                                     <constraint firstItem="hOl-ti-1Ls" firstAttribute="top" secondItem="zUt-8I-BAh" secondAttribute="top" id="mfa-RZ-ln5"/>
-                                                    <constraint firstAttribute="height" constant="30" id="rs4-0v-QOB"/>
+                                                    <constraint firstAttribute="height" constant="19" id="rs4-0v-QOB"/>
                                                     <constraint firstItem="hOl-ti-1Ls" firstAttribute="leading" secondItem="zUt-8I-BAh" secondAttribute="leading" id="t5X-gi-Dxq"/>
                                                     <constraint firstAttribute="bottom" secondItem="hOl-ti-1Ls" secondAttribute="bottom" id="wpn-Yx-N0f"/>
                                                 </constraints>
                                             </view>
                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rk0-RI-Rt1" customClass="SegmentedControl" customModule="TeamTravel" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="98" width="414" height="55"/>
+                                                <rect key="frame" x="0.0" y="87" width="414" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="55" id="4d6-GJ-2ow"/>
+                                                    <constraint firstAttribute="height" constant="40" id="4d6-GJ-2ow"/>
                                                 </constraints>
                                             </view>
                                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="njO-tj-uAV">
-                                                <rect key="frame" x="0.0" y="153" width="414" height="215"/>
+                                                <rect key="frame" x="0.0" y="127" width="414" height="241"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <prototypes>
@@ -314,7 +311,6 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="gripperView" destination="2S4-TW-Cpq" id="qvm-vW-kwY"/>
-                        <outlet property="searchBar" destination="SdI-67-HKI" id="BAe-g2-quD"/>
                         <outlet property="segmentedControl" destination="rk0-RI-Rt1" id="Nac-fy-RKV"/>
                         <outlet property="seperatorHeightConstraint" destination="4Qx-Tn-PkO" id="o2j-7p-e9G"/>
                         <outlet property="tableView" destination="njO-tj-uAV" id="ISn-w2-Baa"/>

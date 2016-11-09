@@ -85,8 +85,8 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     }
     
     fileprivate func configureTopFilterSegmentedControl() {
-        let images = [#imageLiteral(resourceName: "ALL"), #imageLiteral(resourceName: "MuseumsSmall"), #imageLiteral(resourceName: "ParksSmall"), #imageLiteral(resourceName: "LandmarksSmall")]
-        let selectedImages = [#imageLiteral(resourceName: "ALL"), #imageLiteral(resourceName: "MuseumsSmall"), #imageLiteral(resourceName: "ParksSmall"), #imageLiteral(resourceName: "LandmarksSmall")]
+        let images = [#imageLiteral(resourceName: "ALL"),#imageLiteral(resourceName: "ParksSmall"), #imageLiteral(resourceName: "MuseumsSmall"), #imageLiteral(resourceName: "LandmarksSmall")]
+        let selectedImages = [#imageLiteral(resourceName: "ALL"),#imageLiteral(resourceName: "ParksSmall"), #imageLiteral(resourceName: "MuseumsSmall"), #imageLiteral(resourceName: "LandmarksSmall")]
         topFilterSegmentedControl.setImages(images, selectedImages: selectedImages)
         topFilterSegmentedControl.delegate = self
         topFilterSegmentedControl.selectionIndicatorStyle = .bottom
@@ -137,10 +137,10 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as? LocalLocationTableViewCell else { return UITableViewCell() }
-        let currentLocation = CoreLocationController.shared.currentTravelerLocationForDistance
+        guard let currentLocation = CoreLocationController.shared.currentTravelerLocationForDistance else { return UITableViewCell() }
         
         let location = locationsToShow[indexPath.row]
-        let distance = Int((currentLocation?.distance(from: location.location))!)
+        let distance = Int((currentLocation.distance(from: location.location)))
         
         cell.updateCellWithLocation(location: location, and: distance)
         

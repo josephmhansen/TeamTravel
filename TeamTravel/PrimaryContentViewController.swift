@@ -13,6 +13,11 @@ private let kLivelyGreenColor = UIColor(red: 8 / 255, green: 132 / 255, blue: 67
 
 class PrimaryContentViewController: UIViewController, PulleyPrimaryContentControllerDelegate {
     
+    // MARK: - Properties
+    let spinner = loadingAnimation(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+    let toggle = UISwitch()
+    let userFound: Bool = false
+    
     @IBOutlet var mapView: MKMapView!
 
     @IBOutlet var temperatureLabel: UILabel!
@@ -31,6 +36,12 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
         temperatureLabel.layer.cornerRadius = 7.0
         
         NotificationCenter.default.addObserver(self, selector: #selector(drawMapAnnotations), name: Notification.Name(rawValue: "searchCategoryCompleted"), object: nil)
+        
+        view.addSubview(spinner)
+        spinner.tintColor = PolyColor(hexString: "#000", alpha: 0.2)
+        spinner.hidesWhenStopped = true
+        
+        view.backgroundColor = UIColor.groupTableViewBackground
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,6 +60,27 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
 //        }
     }
     
+    open override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        spinner.center = view.center
+        
+        toggle.sizeToFit()
+        let toggleSize = toggle.frame.size
+        
+        toggle.frame = CGRect(x: view.frame.size.width - 210, y: view.frame.size.height - 100, width: toggleSize.width, height: toggleSize.height)
+    }
+    
+    // MARK: - Handle Value
+    func valueChanged(_ sender: UISwitch) {
+        if userFound == false {
+            spinner.startAnimating()
+        } else {
+            spinner.stopAnimating()
+        }
+    }
+    
+    ///This HERE!!!!
     func zoomToUserLocation() {
         if let location = CoreLocationController.shared.currentTravelerLocationForSearch {
             let span = MKCoordinateSpanMake(0.025, 0.025)
@@ -66,7 +98,9 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
                 self.mapView.setRegion(region, animated: true)
             }
             
+            
         }
+        self.userFound == true
     }
     
     func drawerChangedDistanceFromBottom(drawer: LocationMapViewController, distance: CGFloat)

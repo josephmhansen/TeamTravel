@@ -91,10 +91,7 @@ private let kPulleyDefaultPartialRevealHeight: CGFloat = 264.0
 
 open class LocationMapViewController: UIViewController, UIScrollViewDelegate, LocationTVCPassthroughScrollViewDelegate {
     
-    // MARK: - Properties
-    let spinner = loadingAnimation(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
-    let toggle = UISwitch()
-
+    
     
     
     // Interface Builder
@@ -431,11 +428,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
         scrollViewDidScroll(drawerScrollView)
         
         
-        view.addSubview(spinner)
-        spinner.tintColor = PolyColor(hexString: "#000", alpha: 0.2)
-        spinner.hidesWhenStopped = true
         
-        view.backgroundColor = UIColor.groupTableViewBackground
         //view.addSubview(toggle)
         
         //toggle.setOn(true, animated: false)
@@ -451,16 +444,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
         
     }
     
-    open override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-        spinner.center = view.center
-        
-        toggle.sizeToFit()
-        let toggleSize = toggle.frame.size
-        
-        toggle.frame = CGRect(x: view.frame.size.width - 210, y: view.frame.size.height - 100, width: toggleSize.width, height: toggleSize.height)
-    }
+    
     
     override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -518,6 +502,8 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
         setDrawerPosition(position: drawerPosition, animated: false)
     }
     
+    
+    
     // MARK: Configuration Updates
     
     /**
@@ -527,8 +513,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
      - parameter animated: Whether or not to animate the change. (Default: true)
      */
     
-    public func setDrawerPosition(position: PulleyPosition, animated: Bool = true)
-    {
+    public func setDrawerPosition(position: PulleyPosition, animated: Bool = true) {
         guard supportedDrawerPositions.contains(position) else {
             
             print("PulleyViewController: You can't set the drawer position to something not supported by the current view controller contained in the drawer. If you haven't already, you may need to implement the PulleyDrawerViewControllerDelegate.")

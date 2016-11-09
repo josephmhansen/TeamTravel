@@ -204,7 +204,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N6P-oX-Nra" customClass="SegmentedControl" customModule="TeamTravel" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="19" width="50" height="27"/>
+                                                                <rect key="frame" x="0.0" y="19" width="414" height="27"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
@@ -220,8 +220,12 @@
                                                             </view>
                                                         </subviews>
                                                         <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="N6P-oX-Nra" secondAttribute="trailing" id="0gk-U8-rGt"/>
+                                                            <constraint firstItem="e7G-Ip-9tD" firstAttribute="top" secondItem="N6P-oX-Nra" secondAttribute="bottom" id="5hS-a7-ccx"/>
+                                                            <constraint firstItem="N6P-oX-Nra" firstAttribute="top" secondItem="ezp-Fl-Uow" secondAttribute="bottom" id="Ixf-gk-wgB"/>
                                                             <constraint firstItem="ezp-Fl-Uow" firstAttribute="leading" secondItem="tLf-Ig-62D" secondAttribute="leading" id="QWu-u5-1ag"/>
                                                             <constraint firstItem="ezp-Fl-Uow" firstAttribute="top" secondItem="tLf-Ig-62D" secondAttribute="top" id="ZEl-Wu-u26"/>
+                                                            <constraint firstItem="N6P-oX-Nra" firstAttribute="leading" secondItem="tLf-Ig-62D" secondAttribute="leading" id="c6c-tU-tns"/>
                                                             <constraint firstItem="N6P-oX-Nra" firstAttribute="top" secondItem="ezp-Fl-Uow" secondAttribute="bottom" id="lmC-jC-nXc"/>
                                                             <constraint firstAttribute="trailing" secondItem="ezp-Fl-Uow" secondAttribute="trailing" id="sQ7-cL-E5h"/>
                                                         </constraints>

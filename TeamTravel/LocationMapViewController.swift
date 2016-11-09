@@ -91,9 +91,16 @@ private let kPulleyDefaultPartialRevealHeight: CGFloat = 264.0
 
 open class LocationMapViewController: UIViewController, UIScrollViewDelegate, LocationTVCPassthroughScrollViewDelegate {
     
+    // MARK: - Properties
+    let spinner = loadingAnimation(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+    let toggle = UISwitch()
+
+    
+    
     // Interface Builder
     
     /// When using with Interface Builder only! Connect a containing view to this outlet.
+    
     @IBOutlet public var primaryContentContainerView: UIView!
     
     /// When using with Interface Builder only! Connect a containing view to this outlet.
@@ -424,6 +431,16 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
         scrollViewDidScroll(drawerScrollView)
         
         
+        view.addSubview(spinner)
+        spinner.tintColor = PolyColor(hexString: "#000", alpha: 0.2)
+        spinner.hidesWhenStopped = true
+        
+        view.backgroundColor = UIColor.groupTableViewBackground
+        //view.addSubview(toggle)
+        
+        //toggle.setOn(true, animated: false)
+        //toggle.addTarget(self, action: #selector(valueChanged(_:)), for: UIControlEvents.valueChanged)
+        
         
     }
     
@@ -432,6 +449,17 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
         
         setNeedsSupportedDrawerPositionsUpdate()
         
+    }
+    
+    open override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        spinner.center = view.center
+        
+        toggle.sizeToFit()
+        let toggleSize = toggle.frame.size
+        
+        toggle.frame = CGRect(x: view.frame.size.width - 210, y: view.frame.size.height - 100, width: toggleSize.width, height: toggleSize.height)
     }
     
     override open func viewDidLayoutSubviews() {

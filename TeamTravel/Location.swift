@@ -36,7 +36,14 @@ class Location: NSObject, MKAnnotation {
         return locationName
     }
     var subtitle: String? {
-        return "Visit here"
+        switch self.type {
+        case .Landmarks:
+            return "Landmark"
+        case .Museums:
+            return "Museum"
+        case .Parks:
+            return "Park"
+        }
     }
     var cloudKitRecordID: String?
     var location: CLLocation

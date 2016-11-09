@@ -84,7 +84,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="9VQ-7J-gAc">
                         <barButtonItem key="rightBarButtonItem" image="MapView" id="C2k-VP-7RV">
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="mapViewButtonTapped:" destination="MVi-GD-gPo" id="aG8-E1-J0N"/>
                             </connections>

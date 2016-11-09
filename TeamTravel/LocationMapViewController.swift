@@ -91,9 +91,13 @@ private let kPulleyDefaultPartialRevealHeight: CGFloat = 264.0
 
 open class LocationMapViewController: UIViewController, UIScrollViewDelegate, LocationTVCPassthroughScrollViewDelegate {
     
+    
+    
+    
     // Interface Builder
     
     /// When using with Interface Builder only! Connect a containing view to this outlet.
+    
     @IBOutlet public var primaryContentContainerView: UIView!
     
     /// When using with Interface Builder only! Connect a containing view to this outlet.
@@ -425,6 +429,12 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
         
         
         
+        //view.addSubview(toggle)
+        
+        //toggle.setOn(true, animated: false)
+        //toggle.addTarget(self, action: #selector(valueChanged(_:)), for: UIControlEvents.valueChanged)
+        
+        
     }
     
     override open func viewDidAppear(_ animated: Bool) {
@@ -433,6 +443,8 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
         setNeedsSupportedDrawerPositionsUpdate()
         
     }
+    
+    
     
     override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -490,6 +502,8 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
         setDrawerPosition(position: drawerPosition, animated: false)
     }
     
+    
+    
     // MARK: Configuration Updates
     
     /**
@@ -499,8 +513,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
      - parameter animated: Whether or not to animate the change. (Default: true)
      */
     
-    public func setDrawerPosition(position: PulleyPosition, animated: Bool = true)
-    {
+    public func setDrawerPosition(position: PulleyPosition, animated: Bool = true) {
         guard supportedDrawerPositions.contains(position) else {
             
             print("PulleyViewController: You can't set the drawer position to something not supported by the current view controller contained in the drawer. If you haven't already, you may need to implement the PulleyDrawerViewControllerDelegate.")

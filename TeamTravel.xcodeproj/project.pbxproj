@@ -24,6 +24,8 @@
 		729234C01DC7BA090043CB98 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729234BC1DC7BA090043CB98 /* SegmentedControl.swift */; };
 		729234C11DC7BA090043CB98 /* SCScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729234BD1DC7BA090043CB98 /* SCScrollView.swift */; };
 		7295FA921DC2ACFB00BD28B5 /* MainMapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7295FA911DC2ACFB00BD28B5 /* MainMapView.storyboard */; };
+		72B0E8551DD39DB600952AF2 /* loadingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B0E8531DD39DB600952AF2 /* loadingAnimation.swift */; };
+		72B0E8561DD39DB600952AF2 /* UIColor+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B0E8541DD39DB600952AF2 /* UIColor+Helper.swift */; };
 		72CBB0D61DC2A98E00B53689 /* UserDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72CBB0D41DC2A98E00B53689 /* UserDetailView.storyboard */; };
 		72E8A5961DC01B9000729613 /* CoreLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E8A5951DC01B9000729613 /* CoreLocationController.swift */; };
 		72FFA5131DC90B6400388C52 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FFA5121DC90B6400388C52 /* StatsViewController.swift */; };
@@ -133,6 +135,8 @@
 		729234BC1DC7BA090043CB98 /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		729234BD1DC7BA090043CB98 /* SCScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCScrollView.swift; sourceTree = "<group>"; };
 		7295FA911DC2ACFB00BD28B5 /* MainMapView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMapView.storyboard; sourceTree = "<group>"; };
+		72B0E8531DD39DB600952AF2 /* loadingAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loadingAnimation.swift; sourceTree = "<group>"; };
+		72B0E8541DD39DB600952AF2 /* UIColor+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Helper.swift"; sourceTree = "<group>"; };
 		72CBB0D51DC2A98E00B53689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/UserDetailView.storyboard; sourceTree = "<group>"; };
 		72E8A5951DC01B9000729613 /* CoreLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocationController.swift; sourceTree = "<group>"; };
 		72FFA5121DC90B6400388C52 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
@@ -290,6 +294,15 @@
 			path = "../../../../Downloads/Pulley-master/Pulley";
 			sourceTree = "<group>";
 		};
+		72B0E8591DD39DC900952AF2 /* LoadingAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				72B0E8531DD39DB600952AF2 /* loadingAnimation.swift */,
+				72B0E8541DD39DB600952AF2 /* UIColor+Helper.swift */,
+			);
+			name = LoadingAnimation;
+			sourceTree = "<group>";
+		};
 		72E8A5971DC01B9500729613 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +368,7 @@
 		D0D802511DC0099F00F02629 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				72B0E8591DD39DC900952AF2 /* LoadingAnimation */,
 				FA6384EC1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift */,
 				729234B91DC7B9E80043CB98 /* SegmentedController */,
 				7295FA981DC2AF0200BD28B5 /* MainMapViewControllers */,
@@ -554,6 +568,7 @@
 				9C6C5BC81DD121B20011849D /* TutorialPageViewController.swift in Sources */,
 				D0D802531DC00E1900F02629 /* AwardController.swift in Sources */,
 				72FFA5151DC90C4700388C52 /* LocationsVisitedTableViewController.swift in Sources */,
+				72B0E8561DD39DB600952AF2 /* UIColor+Helper.swift in Sources */,
 				9C6C5BCA1DD122D60011849D /* StepViews.swift in Sources */,
 				72FFA51B1DC90E4500388C52 /* BadgeDetailViewController.swift in Sources */,
 				D0DAA66D1DC951B30088C71F /* PrimaryTransitionTargetViewController.swift in Sources */,
@@ -561,6 +576,7 @@
 				72FFA5171DC90C9000388C52 /* PointsGraphViewController.swift in Sources */,
 				D0DAA66B1DC951B30088C71F /* LocationMapViewController.swift in Sources */,
 				729234BE1DC7BA090043CB98 /* Style.swift in Sources */,
+				72B0E8551DD39DB600952AF2 /* loadingAnimation.swift in Sources */,
 				72602F591DBFC02A00FC53EC /* AppDelegate.swift in Sources */,
 				729234C01DC7BA090043CB98 /* SegmentedControl.swift in Sources */,
 				D0272A931DC014AB00565EDB /* Location.swift in Sources */,

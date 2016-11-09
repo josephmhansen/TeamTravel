@@ -10,13 +10,14 @@ import UIKit
 
 private let kLivelyGreenColor = UIColor(red: 8 / 255, green: 132 / 255, blue: 67 / 255, alpha: 1)
 
-class LocationListDrawerContentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PulleyDrawerViewControllerDelegate, ShowFenceAlertDelegate, UISearchBarDelegate {
+class LocationListDrawerContentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PulleyDrawerViewControllerDelegate, ShowFenceAlertDelegate {
 //use this outlet to alter custom segmented controller
     @IBOutlet weak var segmentedControl: SegmentedControl!
     
+    @IBOutlet weak var topFilterSegmentedControl: SegmentedControl!
 //
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var searchBar: UISearchBar!
+    //@IBOutlet var searchBar: UISearchBar!
     @IBOutlet var gripperView: UIView!
     
     @IBOutlet var seperatorHeightConstraint: NSLayoutConstraint!
@@ -210,7 +211,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         
         if drawer.drawerPosition != .open
         {
-            searchBar.resignFirstResponder()
+            //Do something for the segmentedController
         }
     }
     

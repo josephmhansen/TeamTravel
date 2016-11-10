@@ -194,7 +194,9 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if segmentedControl.selectedIndex == 1 {
+        
+        
+        if self.segmentedControl.selectedIndex == 1 {
             return true
         } else {
             return false

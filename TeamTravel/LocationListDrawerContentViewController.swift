@@ -40,6 +40,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         seperatorHeightConstraint.constant = 1.0 / UIScreen.main.scale
         setupUI()
     }
+
     
     fileprivate func setupUI() {
         configureSegmentedControl2()
@@ -47,31 +48,6 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     }
     
     fileprivate func configureSegmentedControl2() {
-        //Set Titles
-        /*
-        let titleStrings = ["Nearby", "QuestList"]
-        let titles: [NSAttributedString] = {
-            let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17), NSForegroundColorAttributeName: UIColor.white]
-            var titles = [NSAttributedString]()
-            for titleString in titleStrings {
-                let title = NSAttributedString(string: titleString, attributes: attributes)
-                titles.append(title)
-            }
-            return titles
-
-        }()
-        let selectedTitles: [NSAttributedString] = {
-            let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17), NSForegroundColorAttributeName: UIColor(white: 0.1, alpha: 1)]
-            var selectedTitles = [NSAttributedString]()
-            for titleString in titleStrings {
-                let selectedTitle = NSAttributedString(string: titleString, attributes: attributes)
-                selectedTitles.append(selectedTitle)
-            }
-            return selectedTitles
-        }()
-        
-        segmentedControl.setTitles(titles, selectedTitles: selectedTitles)
-        */
         
         //Set Images
         let images = [#imageLiteral(resourceName: "Nearby.png"), #imageLiteral(resourceName: "QuestList")]
@@ -121,6 +97,30 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         guard let currentLocation = CoreLocationController.shared.currentTravelerLocationForDistance else { return }
         TravelerController.shared.masterTraveler?.locationsWishList = (TravelerController.shared.masterTraveler?.locationsWishList.sorted { $0.0.location.distance(from: currentLocation) < $0.1.location.distance(from: currentLocation) })!
         self.tableView.reloadData()
+    }
+    
+    //Add bounce physics to tableView Cells
+    func animateTable() {
+        tableView.reloadData()
+        
+        let cells = tableView.visibleCells
+        let tableHeight: CGFloat = tableView.bounds.size.height
+        
+        for i in cells {
+            let cell: UITableViewCell = i as UITableViewCell
+            cell.transform = CGAffineTransform(translationX: 0, y: tableHeight)
+        }
+        
+        var index = 0
+        
+        for a in cells {
+            let cell: UITableViewCell = a as UITableViewCell
+            UIView.animate(withDuration: 1.5, delay: 0.05 * Double(index), usingSpringWithDamping: 0.78, initialSpringVelocity: 0, options: .allowAnimatedContent, animations: {
+                cell.transform = CGAffineTransform(translationX: 0, y: 0);
+            }, completion: nil)
+            
+            index += 1
+        }
     }
 
     // MARK: Tableview data source & delegate
@@ -194,7 +194,9 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if segmentedControl.selectedIndex == 1 {
+        
+        
+        if self.segmentedControl.selectedIndex == 1 {
             return true
         } else {
             return false
@@ -218,14 +220,19 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         return PulleyPosition.all // You can specify the drawer positions you support. This is the same as: [.open, .partiallyRevealed, .collapsed, .closed]
     }
 
-    func drawerPositionDidChange(drawer: LocationMapViewController)
-    {
+    func drawerPositionDidChange(drawer: LocationMapViewController) {
         tableView.isScrollEnabled = drawer.drawerPosition == .open
         
         if drawer.drawerPosition != .open
         {
             //Do something for the segmentedController
-        }
+            
+        } else if drawer.drawerPosition == .open || drawer.drawerPosition == .partiallyRevealed{
+            //MARK: -Add logic for changing topFilterSegmentedControl.selectedIndex to ALL, do not allow index to be changed when drawer is open
+            //topFilterSegmentedControl.setSelected(at: <#T##Int#>, animated: <#T##Bool#>)
+        } /*else if drawer.drawerPosition == .partiallyRevealed {
+            
+        }*/
     }
     
     // MARK: Search Bar delegate
@@ -251,27 +258,67 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
 }
 
 extension LocationListDrawerContentViewController: SegmentedControlDelegate {
-    func segmentedControl(_ segmentedControl: SegmentedControl, didSelectIndex selectedIndex: Int) {
+    func segmentedControl(_ segmentedControlView: SegmentedControl, didSelectIndex selectedIndex: Int) {
         print("Did select index \(selectedIndex)")
         
-        if selectedIndex == 0 {
-            locationsToShow = SearchLocationController.shared.allVisibleLocations
-            tableView.reloadData()
-        } else if selectedIndex == 1 {
-            guard let traveler = TravelerController.shared.masterTraveler else { print("No Traveler"); return }
-            locationsToShow = traveler.locationsWishList
-            tableView.reloadData()
-        } else {
-            print("Error: Out of index")
+        if segmentedControlView == segmentedControl {
+            
+            if  segmentedControl.selectedIndex == 0 {
+                locationsToShow = SearchLocationController.shared.allVisibleLocations
+                //topFilterSegmentedControl.selectedIndex == 0
+                tableView.reloadData()
+                animateTable()
+            } else if segmentedControl.selectedIndex == 1 {
+                guard let traveler = TravelerController.shared.masterTraveler else { print("No Traveler"); return }
+                locationsToShow = traveler.locationsWishList
+                tableView.reloadData()
+                animateTable()
+            } else {
+                print("Error: Out of index")
+            }
+            
+            switch segmentedControl.style {
+            case .text:
+                print("The title is “\(segmentedControl.titles[selectedIndex].string)”\n")
+            case .image:
+                print("The image is “\(segmentedControl.images[selectedIndex])”\n")
+            }
         }
         
-        switch segmentedControl.style {
-        case .text:
-            print("The title is “\(segmentedControl.titles[selectedIndex].string)”\n")
-        case .image:
-            print("The image is “\(segmentedControl.images[selectedIndex])”\n")
+        
+        if segmentedControlView == topFilterSegmentedControl {
+            
+            if topFilterSegmentedControl.selectedIndex == 0 {
+                locationsToShow = SearchLocationController.shared.allVisibleLocations
+                tableView.reloadData()
+                animateTable()
+            } else if topFilterSegmentedControl.selectedIndex == 1 {
+                locationsToShow = SearchLocationController.shared.allVisibleLocations
+                tableView.reloadData()
+                animateTable()
+            } else if topFilterSegmentedControl.selectedIndex == 2 {
+                locationsToShow = SearchLocationController.shared.allVisibleLocations
+                tableView.reloadData()
+                animateTable()
+            } else if topFilterSegmentedControl.selectedIndex == 3 {
+                locationsToShow = SearchLocationController.shared.allVisibleLocations
+                
+                tableView.reloadData()
+                animateTable()
+            } else {
+                print("Error: Out of Index")
+            }
+            
+            switch segmentedControl.style {
+            case .text:
+                print("The title is “\(topFilterSegmentedControl.titles[selectedIndex].string)”\n")
+            case .image:
+                print("The image is “\(topFilterSegmentedControl.images[selectedIndex])”\n")
+            }
         }
+        
     }
+    
     
     func segmentedControl(_ segmentedControl: SegmentedControl, didLongPressIndex longPressIndex: Int) {
         print("Did long press index \(longPressIndex)")

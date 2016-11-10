@@ -285,13 +285,22 @@ extension LocationListDrawerContentViewController: SegmentedControlDelegate {
         if segmentedControlView == topFilterSegmentedControl {
             
             if topFilterSegmentedControl.selectedIndex == 0 {
-                
+                locationsToShow = SearchLocationController.shared.allVisibleLocations
+                tableView.reloadData()
+                animateTable()
             } else if topFilterSegmentedControl.selectedIndex == 1 {
-                
+                locationsToShow = SearchLocationController.shared.allVisibleLocations
+                tableView.reloadData()
+                animateTable()
             } else if topFilterSegmentedControl.selectedIndex == 2 {
-                
+                locationsToShow = SearchLocationController.shared.allVisibleLocations
+                tableView.reloadData()
+                animateTable()
             } else if topFilterSegmentedControl.selectedIndex == 3 {
+                locationsToShow = SearchLocationController.shared.allVisibleLocations
                 
+                tableView.reloadData()
+                animateTable()
             } else {
                 print("Error: Out of Index")
             }

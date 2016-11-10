@@ -40,6 +40,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         seperatorHeightConstraint.constant = 1.0 / UIScreen.main.scale
         setupUI()
     }
+
     
     fileprivate func setupUI() {
         configureSegmentedControl2()
@@ -121,6 +122,30 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         guard let currentLocation = CoreLocationController.shared.currentTravelerLocationForDistance else { return }
         TravelerController.shared.masterTraveler?.locationsWishList = (TravelerController.shared.masterTraveler?.locationsWishList.sorted { $0.0.location.distance(from: currentLocation) < $0.1.location.distance(from: currentLocation) })!
         self.tableView.reloadData()
+    }
+    
+    //Add bounce physics to tableView Cells
+    func animateTable() {
+        tableView.reloadData()
+        
+        let cells = tableView.visibleCells
+        let tableHeight: CGFloat = tableView.bounds.size.height
+        
+        for i in cells {
+            let cell: UITableViewCell = i as UITableViewCell
+            cell.transform = CGAffineTransform(translationX: 0, y: tableHeight)
+        }
+        
+        var index = 0
+        
+        for a in cells {
+            let cell: UITableViewCell = a as UITableViewCell
+            UIView.animate(withDuration: 1.5, delay: 0.05 * Double(index), usingSpringWithDamping: 0.78, initialSpringVelocity: 0, options: .allowAnimatedContent, animations: {
+                cell.transform = CGAffineTransform(translationX: 0, y: 0);
+            }, completion: nil)
+            
+            index += 1
+        }
     }
 
     // MARK: Tableview data source & delegate
@@ -218,13 +243,17 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         return PulleyPosition.all // You can specify the drawer positions you support. This is the same as: [.open, .partiallyRevealed, .collapsed, .closed]
     }
 
-    func drawerPositionDidChange(drawer: LocationMapViewController)
-    {
+    func drawerPositionDidChange(drawer: LocationMapViewController) {
         tableView.isScrollEnabled = drawer.drawerPosition == .open
         
         if drawer.drawerPosition != .open
         {
             //Do something for the segmentedController
+            
+        } else if drawer.drawerPosition == .open || drawer.drawerPosition == .partiallyRevealed{
+            animateTable()
+        } else if drawer.drawerPosition == .partiallyRevealed {
+            animateTable()
         }
     }
     
@@ -254,13 +283,15 @@ extension LocationListDrawerContentViewController: SegmentedControlDelegate {
     func segmentedControl(_ segmentedControl: SegmentedControl, didSelectIndex selectedIndex: Int) {
         print("Did select index \(selectedIndex)")
         
-        if selectedIndex == 0 {
+        if segmentedControl.selectedIndex == 0 {
             locationsToShow = SearchLocationController.shared.allVisibleLocations
             tableView.reloadData()
-        } else if selectedIndex == 1 {
+            animateTable()
+        } else if segmentedControl.selectedIndex == 1 {
             guard let traveler = TravelerController.shared.masterTraveler else { print("No Traveler"); return }
             locationsToShow = traveler.locationsWishList
             tableView.reloadData()
+            animateTable()
         } else {
             print("Error: Out of index")
         }

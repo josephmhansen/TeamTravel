@@ -228,10 +228,11 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
             //Do something for the segmentedController
             
         } else if drawer.drawerPosition == .open || drawer.drawerPosition == .partiallyRevealed{
-            animateTable()
-        } else if drawer.drawerPosition == .partiallyRevealed {
-            animateTable()
-        }
+            //MARK: -Add logic for changing topFilterSegmentedControl.selectedIndex to ALL, do not allow index to be changed when drawer is open
+            //topFilterSegmentedControl.setSelected(at: <#T##Int#>, animated: <#T##Bool#>)
+        } /*else if drawer.drawerPosition == .partiallyRevealed {
+            
+        }*/
     }
     
     // MARK: Search Bar delegate
@@ -264,6 +265,7 @@ extension LocationListDrawerContentViewController: SegmentedControlDelegate {
             
             if  segmentedControl.selectedIndex == 0 {
                 locationsToShow = SearchLocationController.shared.allVisibleLocations
+                //topFilterSegmentedControl.selectedIndex == 0
                 tableView.reloadData()
                 animateTable()
             } else if segmentedControl.selectedIndex == 1 {

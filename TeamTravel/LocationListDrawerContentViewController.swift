@@ -48,31 +48,6 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     }
     
     fileprivate func configureSegmentedControl2() {
-        //Set Titles
-        /*
-        let titleStrings = ["Nearby", "QuestList"]
-        let titles: [NSAttributedString] = {
-            let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17), NSForegroundColorAttributeName: UIColor.white]
-            var titles = [NSAttributedString]()
-            for titleString in titleStrings {
-                let title = NSAttributedString(string: titleString, attributes: attributes)
-                titles.append(title)
-            }
-            return titles
-
-        }()
-        let selectedTitles: [NSAttributedString] = {
-            let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17), NSForegroundColorAttributeName: UIColor(white: 0.1, alpha: 1)]
-            var selectedTitles = [NSAttributedString]()
-            for titleString in titleStrings {
-                let selectedTitle = NSAttributedString(string: titleString, attributes: attributes)
-                selectedTitles.append(selectedTitle)
-            }
-            return selectedTitles
-        }()
-        
-        segmentedControl.setTitles(titles, selectedTitles: selectedTitles)
-        */
         
         //Set Images
         let images = [#imageLiteral(resourceName: "Nearby.png"), #imageLiteral(resourceName: "QuestList")]
@@ -280,29 +255,57 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
 }
 
 extension LocationListDrawerContentViewController: SegmentedControlDelegate {
-    func segmentedControl(_ segmentedControl: SegmentedControl, didSelectIndex selectedIndex: Int) {
+    func segmentedControl(_ segmentedControlView: SegmentedControl, didSelectIndex selectedIndex: Int) {
         print("Did select index \(selectedIndex)")
         
-        if segmentedControl.selectedIndex == 0 {
-            locationsToShow = SearchLocationController.shared.allVisibleLocations
-            tableView.reloadData()
-            animateTable()
-        } else if segmentedControl.selectedIndex == 1 {
-            guard let traveler = TravelerController.shared.masterTraveler else { print("No Traveler"); return }
-            locationsToShow = traveler.locationsWishList
-            tableView.reloadData()
-            animateTable()
-        } else {
-            print("Error: Out of index")
+        if segmentedControlView == segmentedControl {
+            
+            if  segmentedControl.selectedIndex == 0 {
+                locationsToShow = SearchLocationController.shared.allVisibleLocations
+                tableView.reloadData()
+                animateTable()
+            } else if segmentedControl.selectedIndex == 1 {
+                guard let traveler = TravelerController.shared.masterTraveler else { print("No Traveler"); return }
+                locationsToShow = traveler.locationsWishList
+                tableView.reloadData()
+                animateTable()
+            } else {
+                print("Error: Out of index")
+            }
+            
+            switch segmentedControl.style {
+            case .text:
+                print("The title is “\(segmentedControl.titles[selectedIndex].string)”\n")
+            case .image:
+                print("The image is “\(segmentedControl.images[selectedIndex])”\n")
+            }
         }
         
-        switch segmentedControl.style {
-        case .text:
-            print("The title is “\(segmentedControl.titles[selectedIndex].string)”\n")
-        case .image:
-            print("The image is “\(segmentedControl.images[selectedIndex])”\n")
+        
+        if segmentedControlView == topFilterSegmentedControl {
+            
+            if topFilterSegmentedControl.selectedIndex == 0 {
+                
+            } else if topFilterSegmentedControl.selectedIndex == 1 {
+                
+            } else if topFilterSegmentedControl.selectedIndex == 2 {
+                
+            } else if topFilterSegmentedControl.selectedIndex == 3 {
+                
+            } else {
+                print("Error: Out of Index")
+            }
+            
+            switch segmentedControl.style {
+            case .text:
+                print("The title is “\(topFilterSegmentedControl.titles[selectedIndex].string)”\n")
+            case .image:
+                print("The image is “\(topFilterSegmentedControl.images[selectedIndex])”\n")
+            }
         }
+        
     }
+    
     
     func segmentedControl(_ segmentedControl: SegmentedControl, didLongPressIndex longPressIndex: Int) {
         print("Did long press index \(longPressIndex)")

@@ -275,23 +275,21 @@ extension LocationListDrawerContentViewController: SegmentedControlDelegate {
             if selectedIndex == 0 {
                 locationsToShow = SearchLocationController.shared.allVisibleLocations
                 tableView.reloadData()
+                topFilterSegmentedControl.setSelected(at: 0, animated: true)
                 animateTable()
                 
             } else if selectedIndex == 1 {
                 guard let traveler = TravelerController.shared.masterTraveler else { print("No Traveler"); return }
                 locationsToShow = traveler.locationsWishList
                 tableView.reloadData()
+                topFilterSegmentedControl.setSelected(at: 0, animated: true)
                 animateTable()
                 
             } else {
                 print("Error: Out of index")
             }
         } else if segmentedControlView == topFilterSegmentedControl {
-            
-            guard selectedIndex != segmentedControlView.selectedIndex else {
-                return
-            }
-            
+
             if segmentedControl.selectedIndex == 0 {
                 locationsToShow = SearchLocationController.shared.allVisibleLocations
             } else {
@@ -301,24 +299,23 @@ extension LocationListDrawerContentViewController: SegmentedControlDelegate {
             
             if selectedIndex == 0 {
                 tableView.reloadData()
-                animateTable()
             } else if selectedIndex == 1 {
                 let parks = locationsToShow.filter { $0.type == LocationType.Parks }
                 locationsToShow = parks
                 tableView.reloadData()
-                animateTable()
             } else if selectedIndex == 2 {
                 let museums = locationsToShow.filter { $0.type == LocationType.Museums }
                 locationsToShow = museums
                 tableView.reloadData()
-                animateTable()
             } else if selectedIndex == 3 {
                 let landmarks = locationsToShow.filter { $0.type == LocationType.Landmarks }
                 locationsToShow = landmarks
                 tableView.reloadData()
-                animateTable()
             } else {
                 print("Error: Out of Index")
+            }
+            if selectedIndex != topFilterSegmentedControl.selectedIndex {
+                animateTable()
             }
         }
     }

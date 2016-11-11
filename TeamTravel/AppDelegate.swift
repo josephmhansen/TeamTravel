@@ -46,9 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             CloudKitSync.shared.createQuestItem(location: quest)
         }
          */
-         
-        CoreLocationController.shared.setupLocationManager()
-        self.strongReferenceToLocationManager = CoreLocationController.shared.locationManager
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
@@ -97,10 +94,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
       return true
       
-    }
-    
-    func applicationWillTerminate(_ application: UIApplication) {
-        CoreLocationController.shared.unregisterAllGeoFences()
     }
   
     func showHomeScreen() {

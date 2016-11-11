@@ -23,6 +23,10 @@ class LocationsVisitedTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Quests Visited - Times Visited"
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return traveler?.locationsVisited.count ?? 0
@@ -34,22 +38,8 @@ class LocationsVisitedTableViewController: UITableViewController {
         guard let traveler = traveler else { return cell }
         let location = traveler.locationsVisited[indexPath.row]
         
-        var pointsEarned = 0
-        
-        switch location.type {
-            
-        case LocationType.Landmarks:
-            pointsEarned = 3
-            
-        case LocationType.Museums:
-            pointsEarned = 4
-            
-        case LocationType.Parks:
-            pointsEarned = 5
-        }
-        
         cell.textLabel?.text = location.locationName
-        cell.detailTextLabel?.text = "V: \(location.datesVisited.count)"//"\(pointsEarned)"
+        cell.detailTextLabel?.text = "\(location.datesVisited.count)"
         
         return cell
     }

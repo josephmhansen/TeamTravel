@@ -11,11 +11,11 @@ import UIKit
 private let kLivelyGreenColor = UIColor(red: 8 / 255, green: 132 / 255, blue: 67 / 255, alpha: 1)
 
 class LocationListDrawerContentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PulleyDrawerViewControllerDelegate, ShowFenceAlertDelegate {
-//use this outlet to alter custom segmented controller
+    //use this outlet to alter custom segmented controller
     @IBOutlet weak var segmentedControl: SegmentedControl!
     
     @IBOutlet weak var topFilterSegmentedControl: SegmentedControl!
-//
+    //
     @IBOutlet var tableView: UITableView!
     //@IBOutlet var searchBar: UISearchBar!
     @IBOutlet var gripperView: UIView!
@@ -24,23 +24,25 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         // Do any additional setup after loading the view.
         //self.tableView.backgroundColor = .clear
         //self.tableView.alpha = 0.9
         
+        segmentedControl.setSelected(at: 0, animated: false)
+        topFilterSegmentedControl.setSelected(at: 0, animated: false)
         CoreLocationController.shared.alertDelegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(startSearch), name: Notification.Name(rawValue: "currentSearchLocationUpdated"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateSearchResults), name: Notification.Name(rawValue: "currentDistanceLocationUpdated"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateSearchResults), name: Notification.Name(rawValue: "allLocationsReturned"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateSearchResults), name: Notification.Name(rawValue: "wishlistUpdated"), object: nil)
-
+        
         gripperView.layer.cornerRadius = 2.5
         seperatorHeightConstraint.constant = 1.0 / UIScreen.main.scale
         setupUI()
     }
-
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -74,7 +76,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         topFilterSegmentedControl.selectionIndicatorColor = kLivelyGreenColor
         topFilterSegmentedControl.selectionIndicatorHeight = 3
         topFilterSegmentedControl.selectionIndicatorEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-
+        
     }
     
     // MARK: - Show Fence Alert Delegate
@@ -127,7 +129,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
             index += 1
         }
     }
-
+    
     // MARK: Tableview data source & delegate
     
     var locationsToShow: [Location] = []
@@ -160,23 +162,23 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         tableView.deselectRow(at: indexPath, animated: true)
         
         if segmentedControl.selectedIndex == 0 {
-        let selectedLocation = self.locationsToShow[indexPath.row]
-        let pinItemActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let add = UIAlertAction(title: "Add to QuestList", style: .default, handler: { (_) in
-            TravelerController.shared.addToMasterTravelerList(location: selectedLocation)
-        })
-        pinItemActionSheet.addAction(add)
-        pinItemActionSheet.addAction(cancel)
-        self.present(pinItemActionSheet, animated: true, completion: nil)
+            let selectedLocation = self.locationsToShow[indexPath.row]
+            let pinItemActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let add = UIAlertAction(title: "Add to QuestList", style: .default, handler: { (_) in
+                TravelerController.shared.addToMasterTravelerList(location: selectedLocation)
+            })
+            pinItemActionSheet.addAction(add)
+            pinItemActionSheet.addAction(cancel)
+            self.present(pinItemActionSheet, animated: true, completion: nil)
         }
-    
+        
         //if let drawer = self.parent as? LocationMapViewController
-       // {
+        // {
         //    let primaryContent = UIStoryboard(name: "MainMapView", bundle: nil).instantiateViewController(withIdentifier: "PrimaryTransitionTargetViewController")
-            
+        
         //   drawer.setDrawerPosition(position: .collapsed, animated: true)
-
+        
         //    drawer.setPrimaryContentViewController(controller: primaryContent, animated: false)
         //}
     }
@@ -208,8 +210,8 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         }
     }
     
-
-    // MARK: Drawer Content View Controller Delegate 
+    
+    // MARK: Drawer Content View Controller Delegate
     
     func collapsedDrawerHeight() -> CGFloat
     {
@@ -224,7 +226,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     func supportedDrawerPositions() -> [PulleyPosition] {
         return PulleyPosition.all // You can specify the drawer positions you support. This is the same as: [.open, .partiallyRevealed, .collapsed, .closed]
     }
-
+    
     func drawerPositionDidChange(drawer: LocationMapViewController) {
         tableView.isScrollEnabled = drawer.drawerPosition == .open
         
@@ -236,8 +238,8 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
             //MARK: -Add logic for changing topFilterSegmentedControl.selectedIndex to ALL, do not allow index to be changed when drawer is open
             //topFilterSegmentedControl.setSelected(at: <#T##Int#>, animated: <#T##Bool#>)
         } /*else if drawer.drawerPosition == .partiallyRevealed {
-            
-        }*/
+         
+         }*/
     }
     
     // MARK: Search Bar delegate
@@ -263,65 +265,49 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
 }
 
 extension LocationListDrawerContentViewController: SegmentedControlDelegate {
-    func segmentedControl(_ segmentedControlView: SegmentedControl, didSelectIndex selectedIndex: Int) {
+    func segmentedControl(_ segmentedControl: SegmentedControl, didSelectIndex selectedIndex: Int) {
         print("Did select index \(selectedIndex)")
         
-        if segmentedControlView == segmentedControl {
+        if segmentedControl == segmentedControl {
             
-            if  segmentedControl.selectedIndex == 0 {
+            if selectedIndex == 0 {
                 locationsToShow = SearchLocationController.shared.allVisibleLocations
-                //topFilterSegmentedControl.selectedIndex == 0
                 tableView.reloadData()
                 animateTable()
-            } else if segmentedControl.selectedIndex == 1 {
+                segmentedControl.setSelected(at: 0, animated: false)
+                
+            } else if selectedIndex == 1 {
                 guard let traveler = TravelerController.shared.masterTraveler else { print("No Traveler"); return }
                 locationsToShow = traveler.locationsWishList
                 tableView.reloadData()
                 animateTable()
+                segmentedControl.setSelected(at: 1, animated: false)
+                
             } else {
                 print("Error: Out of index")
             }
+        } else if segmentedControl == topFilterSegmentedControl {
             
-            switch segmentedControl.style {
-            case .text:
-                print("The title is “\(segmentedControl.titles[selectedIndex].string)”\n")
-            case .image:
-                print("The image is “\(segmentedControl.images[selectedIndex])”\n")
-            }
-        }
-        
-        
-        if segmentedControlView == topFilterSegmentedControl {
-            
-            if topFilterSegmentedControl.selectedIndex == 0 {
+            if selectedIndex == 0 {
                 locationsToShow = SearchLocationController.shared.allVisibleLocations
                 tableView.reloadData()
                 animateTable()
-            } else if topFilterSegmentedControl.selectedIndex == 1 {
+            } else if selectedIndex == 1 {
                 locationsToShow = SearchLocationController.shared.allVisibleLocations
                 tableView.reloadData()
                 animateTable()
-            } else if topFilterSegmentedControl.selectedIndex == 2 {
+            } else if selectedIndex == 2 {
                 locationsToShow = SearchLocationController.shared.allVisibleLocations
                 tableView.reloadData()
                 animateTable()
-            } else if topFilterSegmentedControl.selectedIndex == 3 {
+            } else if selectedIndex == 3 {
                 locationsToShow = SearchLocationController.shared.allVisibleLocations
-                
                 tableView.reloadData()
                 animateTable()
             } else {
                 print("Error: Out of Index")
             }
-            
-            switch segmentedControl.style {
-            case .text:
-                print("The title is “\(topFilterSegmentedControl.titles[selectedIndex].string)”\n")
-            case .image:
-                print("The image is “\(topFilterSegmentedControl.images[selectedIndex])”\n")
-            }
         }
-        
     }
     
     

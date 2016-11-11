@@ -39,7 +39,6 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
             MockData.shared.setUpTraveler()
         }
         setUpPointsToPresent()
-        setUpDateLabels()
         pointGraph.reloadData()
         pointGraph.animate(withDuration: 2)
     }
@@ -75,7 +74,6 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
         for point in points {
             sum += point
             cumulativePoints.append(sum)
-            print(point)
         }
         
     }
@@ -84,18 +82,6 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         return formatter
-    }
-    
-    func setUpDateLabels(){
-        guard let traveler = TravelerController.shared.masterTraveler else { return }
-        let locations = traveler.locationsVisited
-        for location in locations {
-            
-                for visit in location.datesVisited {
-                    print(dateFormatter.string(from: visit))
-                }
-            
-        }
     }
     
     // MARK: - Plot data source

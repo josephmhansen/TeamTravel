@@ -117,7 +117,6 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
             region.notifyOnEntry = false
             locationManager?.startMonitoring(for: region)
             print("Outermost fence: \(region.identifier)")
-            print(locationManager?.monitoredRegions.count ?? "")
         } else {
             print("problem setting up last fence")
         }
@@ -130,8 +129,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         } else {
             NSLog("no monitoring available")
         }
-        print(region.identifier)
-        print(locationManager?.monitoredRegions.count ?? 0)
+        print("Registered: \(region.identifier)")
     }
     
     func unregisterGeoFence(for location: Location) {
@@ -143,9 +141,8 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     func unregisterAllGeoFences() {
         guard let locationManager = locationManager else { return }
         for region in locationManager.monitoredRegions {
-            print("Region: \(region.identifier)")
+            print("Unregistered Region: \(region.identifier)")
             locationManager.stopMonitoring(for: region)
-            print(locationManager.monitoredRegions.count)
         }
     }
     
@@ -195,7 +192,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
             let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
             
             alertController.addAction(dismissAction)
-            self.alertDelegate?.presentAlert(alert: alertController)
+            alertDelegate?.presentAlert(alert: alertController)
         }
     }
     
@@ -203,7 +200,6 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         //fatalError()
         let regionAlert = UIAlertController(title: "Entered: \(region.identifier)", message: nil, preferredStyle: .alert)
         let dismiss = UIAlertAction(title: "Dismiss", style: .cancel) { (_) in
-            
         }
         regionAlert.addAction(dismiss)
         

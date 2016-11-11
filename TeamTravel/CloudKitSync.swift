@@ -35,7 +35,7 @@ class CloudKitSync {
             DispatchQueue.main.async {
                 if error != nil {
                     print("Error creating location visited \(error?.localizedDescription)")
-                    newLocationsNotSaved.append(location)
+                    self.newLocationsNotSaved.append(location)
                 }
                 if let record = record {
                     print("record created successfully")
@@ -53,17 +53,17 @@ class CloudKitSync {
                 if error != nil {
                     print("Error modifying locationVisited Record \(error?.localizedDescription)")
                     var addNew = true
-                    for oldLocation in modifiedLocationsNotSaved {
+                    for oldLocation in self.modifiedLocationsNotSaved {
                         if oldLocation.locationName.lowercased() == location.locationName.lowercased(),
-                            let index = modifiedLocationsNotSaved.index(of: oldLocation) {
-                            modifiedLocationsNotSaved.remove(at: index)
-                            modifiedLocationsNotSaved.append(location)
+                            let index = self.modifiedLocationsNotSaved.index(of: oldLocation) {
+                            self.modifiedLocationsNotSaved.remove(at: index)
+                            self.modifiedLocationsNotSaved.append(location)
                             addNew = false
                         }
                     }
                     
                     if addNew{
-                    modifiedLocationsNotSaved.append(location)
+                        self.modifiedLocationsNotSaved.append(location)
                     }
                 } else {
                     print("Success modifying record\(records?.first?.recordID.recordName)")
@@ -79,7 +79,7 @@ class CloudKitSync {
             DispatchQueue.main.async {
                 if error != nil {
                     print("Error creating questItem \(error?.localizedDescription)")
-                    newQuestListLocationsNotSaved.append(location)
+                    self.newQuestListLocationsNotSaved.append(location)
                 }
                 if let record = record {
                     print("record created successfully")
@@ -97,7 +97,7 @@ class CloudKitSync {
                 DispatchQueue.main.async {
                     if error != nil {
                         print("Error, issue deleting questItem \(error?.localizedDescription)")
-                        deletedQuestListLocationsNotSaved.append(location)
+                        self.deletedQuestListLocationsNotSaved.append(location)
                     } else {
                         print("success deleting \(deletedRecordID.recordName)")
                     }
@@ -167,9 +167,9 @@ class CloudKitSync {
                         print("Error resaving record: \(error?.localizedDescription)")
                     }
                     if let record = record,
-                        let index = newLocationsNotSaved.index(of: location) {
+                        let index = self.newLocationsNotSaved.index(of: location) {
                         location.cloudKitRecordID = record.recordID.recordName
-                        newLocationsNotSaved.remove(at: index)
+                        self.newLocationsNotSaved.remove(at: index)
                     }
                 }
             }
@@ -185,9 +185,9 @@ class CloudKitSync {
                     if error != nil {
                         print("Error resaving record: \(error?.localizedDescription)")
                     }
-                    if let record = records?.first,
-                        let index = modifiedLocationsNotSaved.index(of: location) {
-                        modifiedLocationsNotSaved.remove(at: index)
+                    if let _ = records?.first,
+                        let index = self.modifiedLocationsNotSaved.index(of: location) {
+                        self.modifiedLocationsNotSaved.remove(at: index)
                     }
                 }
             }
@@ -203,9 +203,9 @@ class CloudKitSync {
                         print("Error resaving record: \(error?.localizedDescription)")
                     }
                     if let record = record,
-                        let index = newQuestListLocationsNotSaved.index(of: location) {
+                        let index = self.newQuestListLocationsNotSaved.index(of: location) {
                         location.cloudKitRecordID = record.recordID.recordName
-                        newQuestListLocationsNotSaved.remove(at: index)
+                        self.newQuestListLocationsNotSaved.remove(at: index)
                     }
                 }
             }
@@ -222,9 +222,9 @@ class CloudKitSync {
                     if error != nil {
                         print("Error resaving record: \(error?.localizedDescription)")
                     }
-                    if let recordID = recordID,
-                        let index = deletedQuestListLocationsNotSaved.index(of: location) {
-                        deletedQuestListLocationsNotSaved.remove(at: index)
+                    if let _ = recordID,
+                        let index = self.deletedQuestListLocationsNotSaved.index(of: location) {
+                        self.deletedQuestListLocationsNotSaved.remove(at: index)
                     }
                 }
             }

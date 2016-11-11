@@ -11,7 +11,7 @@ import MapKit
 
 private let kLivelyGreenColor = UIColor(red: 8 / 255, green: 132 / 255, blue: 67 / 255, alpha: 1)
 
-class PrimaryContentViewController: UIViewController, PulleyPrimaryContentControllerDelegate, ShowFenceAlertDelegate {
+class PrimaryContentViewController: UIViewController, PulleyPrimaryContentControllerDelegate {
     
     // MARK: - Properties
     let spinner = loadingAnimation(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
@@ -26,14 +26,9 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     
     private let temperatureLabelBottomDistance: CGFloat = 8.0
     
-    func presentAlert(alert: UIAlertController) {
-        self.present(alert, animated: true, completion: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
-        CoreLocationController.shared.alertDelegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(zoomToUserLocation), name: Notification.Name(rawValue: "currentSearchLocationUpdated"), object: nil)
         mapView.showsUserLocation = true

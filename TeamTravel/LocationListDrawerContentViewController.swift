@@ -31,7 +31,6 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         
         segmentedControl.setSelected(at: 0, animated: false)
         topFilterSegmentedControl.setSelected(at: 0, animated: false)
-        CoreLocationController.shared.alertDelegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(startSearch), name: Notification.Name(rawValue: "currentSearchLocationUpdated"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateSearchResults), name: Notification.Name(rawValue: "currentDistanceLocationUpdated"), object: nil)
@@ -100,6 +99,9 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     }
     
     func updateSearchResults(){
+        if TravelerController.shared.masterTraveler?.homeLocation == nil {
+            TravelerController.shared.masterTraveler?.homeLocation = CoreLocationController.shared.currentTravelerLocationForSearch
+        }
         locationsToShow = SearchLocationController.shared.allVisibleLocations
         guard let currentLocation = CoreLocationController.shared.currentTravelerLocationForDistance else { return }
         TravelerController.shared.masterTraveler?.locationsWishList = (TravelerController.shared.masterTraveler?.locationsWishList.sorted { $0.0.location.distance(from: currentLocation) < $0.1.location.distance(from: currentLocation) })!

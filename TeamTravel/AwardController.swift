@@ -40,10 +40,7 @@ struct AwardController {
             else if location.type == LocationType.Parks {
                 points += 5
                 pointsArray.append(5)
-            } //else {
-            //                points += 0
-            //                pointsArray.append(0)
-            //            }
+            }
         }
         return (points, pointsArray)
     }
@@ -110,10 +107,12 @@ struct AwardController {
     
     func awardHomewardBound() {
         guard let traveler = TravelerController.shared.masterTraveler, homewardBoundBadge.hasEarned == false else { return }
-        if traveler.locationsVisited.last?.locationName == "Dev Mountain" {
-            homewardBoundBadge.hasEarned = true
-            homewardBoundBadge.image = #imageLiteral(resourceName: "Homeward Bound")
-            Notifications.sendNotification(withTitle: "You earned the Homeward Bound Badge!", message: nil, andTrigger: nil)
+        for location in traveler.locationsVisited {
+            if location.locationName == "Gallivan Center" {
+                homewardBoundBadge.hasEarned = true
+                homewardBoundBadge.image = #imageLiteral(resourceName: "Homeward Bound")
+                Notifications.sendNotification(withTitle: "You earned the Homeward Bound Badge!", message: nil, andTrigger: nil)
+            }
         }
     }
     
@@ -121,24 +120,38 @@ struct AwardController {
         guard let traveler = TravelerController.shared.masterTraveler, oneSmallStepBadge.hasEarned == false else { return }
         let LocationDistance = CLLocationDistance(10000)
         guard let homeLocation = traveler.homeLocation else { return }
-        if let distance = traveler.locationsVisited.last?.location.distance(from: homeLocation), distance >= LocationDistance {
-            oneSmallStepBadge.hasEarned = true
-            homewardBoundBadge.image = #imageLiteral(resourceName: "Homeward Bound")
-            Notifications.sendNotification(withTitle: "You earned the One Small Step Badge!", message: nil, andTrigger: nil)
+        for location in traveler.locationsVisited {
+            let distance = location.location.distance(from: homeLocation)
+            if distance >= LocationDistance {
+                self.oneSmallStepBadge.hasEarned = true
+                self.oneSmallStepBadge.image = #imageLiteral(resourceName: "One Small Step")
+                Notifications.sendNotification(withTitle: "You earned the One Small Step Badge!", message: nil, andTrigger: nil)
+                return
+            }
         }
     }
     
     func awardRepeatOffender() {
-        guard let traveler = TravelerController.shared.masterTraveler, repeatOffenderBadge.hasEarned == false, let datesVisited = traveler.locationsVisited.last?.datesVisited else { return }
-        if datesVisited.count >= 2 {
-            repeatOffenderBadge.hasEarned = true
-            repeatOffenderBadge.image = #imageLiteral(resourceName: "Repeat Offender")
-            Notifications.sendNotification(withTitle: "You earned the Repeat Offender Badge!", message: nil, andTrigger: nil)
+        guard let traveler = TravelerController.shared.masterTraveler, repeatOffenderBadge.hasEarned == false else { return }
+        for location in traveler.locationsVisited {
+            if location.datesVisited.count >= 2 {
+                repeatOffenderBadge.hasEarned = true
+                repeatOffenderBadge.image = #imageLiteral(resourceName: "Repeat Offender")
+                Notifications.sendNotification(withTitle: "You earned the Repeat Offender Badge!", message: nil, andTrigger: nil)
+                return
+            }
         }
     }
     
     func awardLoyalTraveler() {
-        
+        guard let traveler = TravelerController.shared.masterTraveler else { return }
+        let date1 = traveler.startDate
+        let flags = NSCalendar.current.component(.day, from: date1)
+        if flags >= 90 {
+            loyalTravelerBadge.hasEarned = true
+            loyalTravelerBadge.image = #imageLiteral(resourceName: "Repeat Offender")
+            return
+        }
     }
 }
 extension AwardController {

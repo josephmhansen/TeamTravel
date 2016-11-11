@@ -72,7 +72,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         if hasAccess == true {
             locationManager?.requestLocation()
         } else {
-            locationManager?.requestWhenInUseAuthorization()
+            locationManager?.requestAlwaysAuthorization()
         }
     }
     
@@ -209,7 +209,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         
         self.alertDelegate?.presentAlert(alert: regionAlert)
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         
         Notifications.sendNotification(withTitle: "You entered \(region.identifier)", message: nil, andTrigger: trigger)
     

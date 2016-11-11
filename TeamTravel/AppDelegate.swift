@@ -16,8 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     //Do not delete
     var strongReferenceToLocationManager: CLLocationManager?
+    
+    var notification: UIAlertController?
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.presentNotification(notification:)), name: NSNotification.Name(rawValue: postAlertNotification), object: nil)
+        
         // Override point for customization after application launch.
         CloudKitSync.shared.fetchAllCKRecordsOnStartup()
         
@@ -94,6 +99,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
       return true
       
+    }
+    
+    func presentNotification(notification: Notification) {
+        let alertController = notification.object as? UIAlertController
+        self.window?.rootViewController?.present(alertController!, animated: true, completion: nil)
     }
   
     func showHomeScreen() {

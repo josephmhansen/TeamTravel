@@ -11,6 +11,8 @@ import UIKit
 import CoreLocation
 import UserNotifications
 
+let postAlertNotification = "postThisNotification"
+
 class CoreLocationController: NSObject, CLLocationManagerDelegate {
     
     static let shared = CoreLocationController()
@@ -178,8 +180,6 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     
     // delegate:
     
-    weak var alertDelegate: ShowFenceAlertDelegate?
-    
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         if region.identifier == "outerRegion" {
             
@@ -188,24 +188,28 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
                 SearchLocationController.shared.isSearching = false
             })
             
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: Notification.Name("currentSearchLocationUpdated"), object: nil)
+            }
+            
             let alertController = UIAlertController(title: "Reloading Geofences", message: nil, preferredStyle: .alert)
             let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
             
             alertController.addAction(dismissAction)
-            alertDelegate?.presentAlert(alert: alertController)
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        //fatalError()
         let regionAlert = UIAlertController(title: "Entered: \(region.identifier)", message: nil, preferredStyle: .alert)
         let dismiss = UIAlertAction(title: "Dismiss", style: .cancel) { (_) in
         }
         regionAlert.addAction(dismiss)
         
-        self.alertDelegate?.presentAlert(alert: regionAlert)
-        
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: postAlertNotification), object: regionAlert)
+        }
         
         Notifications.sendNotification(withTitle: "You entered \(region.identifier)", message: nil, andTrigger: trigger)
     

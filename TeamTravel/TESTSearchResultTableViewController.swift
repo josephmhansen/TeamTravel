@@ -11,7 +11,7 @@ protocol ShowFenceAlertDelegate: class {
     func presentAlert(alert: UIAlertController)
 }
 
-class TESTSearchResultTableViewController: UITableViewController, ShowFenceAlertDelegate {
+class TESTSearchResultTableViewController: UITableViewController {
     
     // MARK: - Show Fence Alert Delegate
     func presentAlert(alert: UIAlertController) {
@@ -33,8 +33,6 @@ class TESTSearchResultTableViewController: UITableViewController, ShowFenceAlert
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        CoreLocationController.shared.alertDelegate = self
         
         //NotificationCenter.default.addObserver(self, selector: #selector(startSearch), name: Notification.Name(rawValue: "currentSearchLocationUpdated"), object: nil)
         //NotificationCenter.default.addObserver(self, selector: #selector(updateSearchResults), name: Notification.Name(rawValue: "allLocationsReturned"), object: nil)

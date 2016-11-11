@@ -27,6 +27,13 @@ class Traveler {
         }
     }
     
+    var startDate: Date {
+        let userDefaults = UserDefaults.standard
+        let date = userDefaults.object(forKey: "startDate") as? Date
+        guard date != nil else { return Date() }
+        return date!
+    }
+    
     var locationsWishList: [Location] = []
     var homeLocation: CLLocation?
     var name: String

@@ -47,6 +47,8 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
         spinner.hidesWhenStopped = true
         
         view.backgroundColor = UIColor.groupTableViewBackground
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(redrawAnnotationsAfterFiltering), name: Notification.Name(rawValue: "mapFilterChanged"), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -218,6 +220,10 @@ extension PrimaryContentViewController: MKMapViewDelegate {
         pinItemActionSheet.addAction(add)
         pinItemActionSheet.addAction(cancel)
         self.present(pinItemActionSheet, animated: true, completion: nil)
+    }
+    
+    func redrawAnnotationsAfterFiltering() {
+        self.drawMapAnnotations()
     }
 }
 

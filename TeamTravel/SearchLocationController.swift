@@ -33,14 +33,26 @@ class SearchLocationController  {
     }
     
     // MARK: - Manipulate Visible locations
-    func boxChecked(ofType: LocationType) {
+    func resetAllToVisible(){
+        for type in locationsTypes {
+            setVisible(ofType: type)
+        }
+    }
+    
+    func resetAllToInvisible(){
+        for type in locationsTypes{
+            setInvisible(ofType: type)
+        }
+    }
+    
+    func setVisible(ofType: LocationType) {
         let newVisibleLocations =  allReturnedLocations.filter{$0.type == ofType}
         for location in newVisibleLocations {
             location.isVisible = true
         }
     }
     
-    func boxUnchecked(ofType: LocationType) {
+    func setInvisible(ofType: LocationType) {
         let newVisibleLocations =  allReturnedLocations.filter{$0.type == ofType}
         for location in newVisibleLocations {
             location.isVisible = false

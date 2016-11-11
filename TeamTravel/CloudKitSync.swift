@@ -128,5 +128,92 @@ class CloudKitSync {
         
     }
     
+    // MARK: - CloudKitError Handling
+    
+    var newLocationsNotSaved: [Location] = []
+    var modifiedLocationsNotSaved: [Location] = []
+    var newQuestListLocationsNotSaved:  [Location] = []
+    var deletedQuestListLocationsNotSaved: [Location] = []
+    
+    func attemptToSaveUnsavedRecords(){
+        // New locations not saved
+        saveNewLocationsNotSaved()
+        saveModifiedLocationsNotSaved()
+        saveNewQuestListLocationsNotSaved()
+        saveDeletedQuestListLocationsNotSaved()
+    }
+    
+    func saveNewLocationsNotSaved(){
+        for location in newLocationsNotSaved {
+            let toSaveCKRecord = CKRecord(locationVisited: location)
+            CloudKitManager.shared.saveRecord(toSaveCKRecord) { (record, error) in
+                DispatchQueue.main.async {
+                    if error != nil {
+                        print("Error resaving record: \(error?.localizedDescription)")
+                    }
+                    if let record = record,
+                        let index = newLocationsNotSaved.index(of: location) {
+                        location.cloudKitRecordID = record.recordID.recordName
+                        newLocationsNotSaved.remove(at: index)
+                    }
+                }
+            }
+        }
+    }
+
+    func saveModifiedLocationsNotSaved(){
+        for location in modifiedLocationsNotSaved {
+            let toSaveCKRecord = CKRecord(updateVisitedLocationWithRecordID: location)
+            CloudKitManager.shared.modifyRecords([toSaveCKRecord], perRecordCompletion: nil) {
+                 (records, error) in
+                DispatchQueue.main.async {
+                    if error != nil {
+                        print("Error resaving record: \(error?.localizedDescription)")
+                    }
+                    if let record = records?.first,
+                        let index = modifiedLocationsNotSaved.index(of: location) {
+                        modifiedLocationsNotSaved.remove(at: index)
+                    }
+                }
+            }
+        }
+    }
+    
+    func saveNewQuestListLocationsNotSaved(){
+        for location in newQuestListLocationsNotSaved {
+            let toSaveCKRecord = CKRecord(locationQuestItem: location)
+            CloudKitManager.shared.saveRecord(toSaveCKRecord) { (record, error) in
+                DispatchQueue.main.async {
+                    if error != nil {
+                        print("Error resaving record: \(error?.localizedDescription)")
+                    }
+                    if let record = record,
+                        let index = newQuestListLocationsNotSaved.index(of: location) {
+                        location.cloudKitRecordID = record.recordID.recordName
+                        newQuestListLocationsNotSaved.remove(at: index)
+                    }
+                }
+            }
+        }
+    }
+    
+    func saveDeletedQuestListLocationsNotSaved(){
+        for location in deletedQuestListLocationsNotSaved{
+            if location.cloudKitRecordID == nil { continue }
+            let toDeleteCKRecordID = CKRecordID(recordName: location.cloudKitRecordID!)
+            CloudKitManager.shared.deleteRecordWithID(toDeleteCKRecordID){
+            (recordID, error) in
+                DispatchQueue.main.async {
+                    if error != nil {
+                        print("Error resaving record: \(error?.localizedDescription)")
+                    }
+                    if let recordID = recordID,
+                        let index = deletedQuestListLocationsNotSaved.index(of: location) {
+                        deletedQuestListLocationsNotSaved.remove(at: index)
+                    }
+                }
+            }
+        }
+    }
     
 }

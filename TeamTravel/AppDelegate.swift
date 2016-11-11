@@ -105,6 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         CloudKitSync.shared.attemptToSaveUnsavedRecords()
+         print("terminating")
     }
     // MARK: - Other functions
     

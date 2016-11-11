@@ -269,7 +269,9 @@ extension LocationListDrawerContentViewController: SegmentedControlDelegate {
         print("Did select index \(selectedIndex)")
         
         if segmentedControlView == segmentedControl {
-            
+            guard selectedIndex != segmentedControlView.selectedIndex else {
+                return
+            }
             if selectedIndex == 0 {
                 locationsToShow = SearchLocationController.shared.allVisibleLocations
                 tableView.reloadData()
@@ -285,6 +287,10 @@ extension LocationListDrawerContentViewController: SegmentedControlDelegate {
                 print("Error: Out of index")
             }
         } else if segmentedControlView == topFilterSegmentedControl {
+            
+            guard selectedIndex != segmentedControlView.selectedIndex else {
+                return
+            }
             
             if segmentedControl.selectedIndex == 0 {
                 locationsToShow = SearchLocationController.shared.allVisibleLocations

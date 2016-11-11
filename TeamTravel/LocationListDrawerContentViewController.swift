@@ -279,6 +279,8 @@ extension LocationListDrawerContentViewController: SegmentedControlDelegate {
                 locationsToShow = SearchLocationController.shared.allVisibleLocations
                 tableView.reloadData()
                 topFilterSegmentedControl.setSelected(at: 0, animated: true)
+                SearchLocationController.shared.resetAllToVisible()
+                NotificationCenter.default.post(mapFilterNotification)
                 animateTable()
                 
             } else if selectedIndex == 1 {
@@ -286,6 +288,8 @@ extension LocationListDrawerContentViewController: SegmentedControlDelegate {
                 locationsToShow = traveler.locationsWishList
                 tableView.reloadData()
                 topFilterSegmentedControl.setSelected(at: 0, animated: true)
+                SearchLocationController.shared.resetAllToVisible()
+                NotificationCenter.default.post(mapFilterNotification)
                 animateTable()
                 
             } else {

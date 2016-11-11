@@ -9,6 +9,7 @@
 import UIKit
 
 private let kLivelyGreenColor = UIColor(red: 8 / 255, green: 132 / 255, blue: 67 / 255, alpha: 1)
+private let mapFilterNotification = Notification(name: Notification.Name(rawValue: "mapFilterChanged"))
 
 class LocationListDrawerContentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PulleyDrawerViewControllerDelegate, ShowFenceAlertDelegate {
     //use this outlet to alter custom segmented controller
@@ -293,7 +294,10 @@ extension LocationListDrawerContentViewController: SegmentedControlDelegate {
         } else if segmentedControlView == topFilterSegmentedControl {
 
             if segmentedControl.selectedIndex == 0 {
+                SearchLocationController.shared.resetAllToVisible()
                 locationsToShow = SearchLocationController.shared.allVisibleLocations
+                // Call map to redraw new
+                NotificationCenter.default.post(mapFilterNotification)
             } else {
                 guard let traveler = TravelerController.shared.masterTraveler else { print("No Traveler"); return }
                 locationsToShow = traveler.locationsWishList
@@ -302,17 +306,33 @@ extension LocationListDrawerContentViewController: SegmentedControlDelegate {
             if selectedIndex == 0 {
                 tableView.reloadData()
             } else if selectedIndex == 1 {
+                SearchLocationController.shared.resetAllToInvisible()
+                SearchLocationController.shared.setVisible(ofType: LocationType.Parks)
                 let parks = locationsToShow.filter { $0.type == LocationType.Parks }
                 locationsToShow = parks
                 tableView.reloadData()
+                
+                // Call map to redraw new
+                NotificationCenter.default.post(mapFilterNotification)
+                
             } else if selectedIndex == 2 {
+                SearchLocationController.shared.resetAllToInvisible()
+                SearchLocationController.shared.setVisible(ofType: LocationType.Museums)
                 let museums = locationsToShow.filter { $0.type == LocationType.Museums }
                 locationsToShow = museums
                 tableView.reloadData()
+                
+                // Call map to redraw new
+                NotificationCenter.default.post(mapFilterNotification)
             } else if selectedIndex == 3 {
+                SearchLocationController.shared.resetAllToInvisible()
+                SearchLocationController.shared.setVisible(ofType: LocationType.Landmarks)
                 let landmarks = locationsToShow.filter { $0.type == LocationType.Landmarks }
                 locationsToShow = landmarks
                 tableView.reloadData()
+                
+                // Call map to redraw new
+                NotificationCenter.default.post(mapFilterNotification)
             } else {
                 print("Error: Out of Index")
             }
@@ -345,5 +365,6 @@ extension LocationListDrawerContentViewController: SegmentedControlDelegate {
         }
     }
 }
+
 
 

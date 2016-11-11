@@ -42,6 +42,11 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     }
 
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        CoreLocationController.shared.getCurrentLocation()
+    }
+    
     fileprivate func setupUI() {
         configureSegmentedControl2()
         configureTopFilterSegmentedControl()

@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
          */
          
-        
+        CoreLocationController.shared.setupLocationManager()
         self.strongReferenceToLocationManager = CoreLocationController.shared.locationManager
         
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -73,6 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
   
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        CoreLocationController.shared.setupLocationManager()
         self.strongReferenceToLocationManager = CoreLocationController.shared.locationManager
         
        /* UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
@@ -97,25 +98,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       return true
       
     }
-  
-  func showHomeScreen() {
-    window = UIWindow(frame: UIScreen.main.bounds)
-    let mainStoryboard: UIStoryboard = UIStoryboard(name: "MainMapView", bundle: nil)
     
-    // navigation
-    let homeVC = mainStoryboard.instantiateViewController(withIdentifier: "navigation") as! UINavigationController
-    window?.rootViewController = homeVC
-    window?.makeKeyAndVisible()
+    func applicationWillTerminate(_ application: UIApplication) {
+        CoreLocationController.shared.unregisterAllGeoFences()
+    }
+  
+    func showHomeScreen() {
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "MainMapView", bundle: nil)
+    
+        // navigation
+        let homeVC = mainStoryboard.instantiateViewController(withIdentifier: "navigation") as! UINavigationController
+        window?.rootViewController = homeVC
+        window?.makeKeyAndVisible()
+    }
+
+    func showTutorial() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        let tutVC = mainStoryboard.instantiateViewController(withIdentifier: "TutorialViewController") as! TutorialPageViewController
+        window?.rootViewController = tutVC
+        window?.makeKeyAndVisible()
   }
-
-  func showTutorial() {
-    window = UIWindow(frame: UIScreen.main.bounds)
-    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
-    let tutVC = mainStoryboard.instantiateViewController(withIdentifier: "TutorialViewController") as! TutorialPageViewController
-    window?.rootViewController = tutVC
-    window?.makeKeyAndVisible()
-  }
-
-
 }
 

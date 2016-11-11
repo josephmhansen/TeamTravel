@@ -15,12 +15,10 @@ class TutorialPageViewController: UIPageViewController {
     super.viewDidLoad()
     
     // Setup Notifications
-    
+    CoreLocationController.shared.setupLocationManager()
+
     let center = UNUserNotificationCenter.current()
-    center.requestAuthorization(options: [.alert, .sound]) { (granted, _) in
-        if granted == true {
-            CoreLocationController.shared.setupLocationManager()
-        }
+    center.requestAuthorization(options: [.alert, .sound]) { (_, _) in
     }
 
     setViewControllers([getStepZero()], direction: .forward, animated: false, completion: nil)

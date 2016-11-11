@@ -46,8 +46,7 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        CoreLocationController.shared.setupLocationManager()
-        
+        CoreLocationController.shared.getCurrentLocation()
     }
     
     override func viewWillAppear(_ animated: Bool) {

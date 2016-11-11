@@ -35,6 +35,7 @@ class CloudKitSync {
             DispatchQueue.main.async {
                 if error != nil {
                     print("Error creating location visited \(error?.localizedDescription)")
+                    newLocationsNotSaved.append(location)
                 }
                 if let record = record {
                     print("record created successfully")
@@ -51,6 +52,19 @@ class CloudKitSync {
             DispatchQueue.main.async {
                 if error != nil {
                     print("Error modifying locationVisited Record \(error?.localizedDescription)")
+                    var addNew = true
+                    for oldLocation in modifiedLocationsNotSaved {
+                        if oldLocation.locationName.lowercased() == location.locationName.lowercased(),
+                            let index = modifiedLocationsNotSaved.index(of: oldLocation) {
+                            modifiedLocationsNotSaved.remove(at: index)
+                            modifiedLocationsNotSaved.append(location)
+                            addNew = false
+                        }
+                    }
+                    
+                    if addNew{
+                    modifiedLocationsNotSaved.append(location)
+                    }
                 } else {
                     print("Success modifying record\(records?.first?.recordID.recordName)")
                 }
@@ -65,6 +79,7 @@ class CloudKitSync {
             DispatchQueue.main.async {
                 if error != nil {
                     print("Error creating questItem \(error?.localizedDescription)")
+                    newQuestListLocationsNotSaved.append(location)
                 }
                 if let record = record {
                     print("record created successfully")
@@ -82,7 +97,7 @@ class CloudKitSync {
                 DispatchQueue.main.async {
                     if error != nil {
                         print("Error, issue deleting questItem \(error?.localizedDescription)")
-                        
+                        deletedQuestListLocationsNotSaved.append(location)
                     } else {
                         print("success deleting \(deletedRecordID.recordName)")
                     }

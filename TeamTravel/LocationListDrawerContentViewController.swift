@@ -265,43 +265,50 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
 }
 
 extension LocationListDrawerContentViewController: SegmentedControlDelegate {
-    func segmentedControl(_ segmentedControl: SegmentedControl, didSelectIndex selectedIndex: Int) {
+    func segmentedControl(_ segmentedControlView: SegmentedControl, didSelectIndex selectedIndex: Int) {
         print("Did select index \(selectedIndex)")
         
-        if segmentedControl == segmentedControl {
+        if segmentedControlView == segmentedControl {
             
             if selectedIndex == 0 {
                 locationsToShow = SearchLocationController.shared.allVisibleLocations
                 tableView.reloadData()
                 animateTable()
-                segmentedControl.setSelected(at: 0, animated: false)
                 
             } else if selectedIndex == 1 {
                 guard let traveler = TravelerController.shared.masterTraveler else { print("No Traveler"); return }
                 locationsToShow = traveler.locationsWishList
                 tableView.reloadData()
                 animateTable()
-                segmentedControl.setSelected(at: 1, animated: false)
                 
             } else {
                 print("Error: Out of index")
             }
-        } else if segmentedControl == topFilterSegmentedControl {
+        } else if segmentedControlView == topFilterSegmentedControl {
+            
+            if segmentedControl.selectedIndex == 0 {
+                locationsToShow = SearchLocationController.shared.allVisibleLocations
+            } else {
+                guard let traveler = TravelerController.shared.masterTraveler else { print("No Traveler"); return }
+                locationsToShow = traveler.locationsWishList
+            }
             
             if selectedIndex == 0 {
-                locationsToShow = SearchLocationController.shared.allVisibleLocations
                 tableView.reloadData()
                 animateTable()
             } else if selectedIndex == 1 {
-                locationsToShow = SearchLocationController.shared.allVisibleLocations
+                let parks = locationsToShow.filter { $0.type == LocationType.Parks }
+                locationsToShow = parks
                 tableView.reloadData()
                 animateTable()
             } else if selectedIndex == 2 {
-                locationsToShow = SearchLocationController.shared.allVisibleLocations
+                let museums = locationsToShow.filter { $0.type == LocationType.Museums }
+                locationsToShow = museums
                 tableView.reloadData()
                 animateTable()
             } else if selectedIndex == 3 {
-                locationsToShow = SearchLocationController.shared.allVisibleLocations
+                let landmarks = locationsToShow.filter { $0.type == LocationType.Landmarks }
+                locationsToShow = landmarks
                 tableView.reloadData()
                 animateTable()
             } else {

@@ -33,6 +33,13 @@ class LocationProximityManager {
         locationsWithinProximity = []
         // Populate locationsWithinProximity array
         print("Started evaluating proximity")
+        guard let currentLocation = CoreLocationController.shared.currentTravelerLocationForDistance else { return }
+        for locationToMonitor in monitoredLocations {
+            let distance = currentLocation.distance(from: locationToMonitor.location)
+            if distance <= locationToMonitor.geoRadiusSize {
+                locationsWithinProximity.append(locationToMonitor)
+            }
+        }
         
         // Handle entered regions
         didEnterLocations()

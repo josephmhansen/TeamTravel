@@ -22,13 +22,17 @@ class LocationProximityManager {
     
     var locationsWithinProximity: [Location] = []
     
+    // MARK: - Setup observer
+    init(){
+        NotificationCenter.default.addObserver(self, selector: #selector(evaluateProximityForMonitoredLocations), name: Notification.Name(rawValue: "currentDistanceLocationUpdated"), object: nil)
+    }
     // MARK: - Functions
     
-    func evaluateProximityForMonitoredLocations(){
+    @objc func evaluateProximityForMonitoredLocations(){
         // reset locations before evaluating
         locationsWithinProximity = []
         // Populate locationsWithinProximity array
-        
+        print("Started evaluating proximity")
         
         // Handle entered regions
         didEnterLocations()

@@ -11,7 +11,7 @@ import CoreLocation
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     //Do not delete
@@ -26,14 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         CloudKitSync.shared.fetchAllCKRecordsOnStartup()
         
-        let center = UNUserNotificationCenter.current()
-        
-        let action = UNNotificationAction(identifier: "Awesome", title: "Awesome!", options: .foreground)
-        let category = UNNotificationCategory(identifier: "Category", actions: [action], intentIdentifiers: [], options: .customDismissAction)
-        center.setNotificationCategories([category])
-        
-        center.requestAuthorization(options: [.alert, .sound, .badge]) { (_, _) in
-            
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (_, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "Error")
+            }
         }
         
         /*
@@ -72,6 +68,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("Notification received")
     }
   
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

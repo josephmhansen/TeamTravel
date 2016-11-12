@@ -201,17 +201,16 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         let regionAlert = UIAlertController(title: "Entered: \(region.identifier)", message: nil, preferredStyle: .alert)
-        let dismiss = UIAlertAction(title: "Dismiss", style: .cancel) { (_) in
-        }
+        let dismiss = UIAlertAction(title: "Dismiss", style: .cancel)
         regionAlert.addAction(dismiss)
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 4, repeats: false)
         
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: Notification.Name(rawValue: postAlertNotification), object: regionAlert)
         }
         
-        Notifications.sendNotification(withTitle: "You entered \(region.identifier)", message: nil, andTrigger: trigger)
+        Notifications.sendNotification(withTitle: "You entered \(region.identifier)", andTrigger: trigger)
     
         // Add location to Master traveler
         TravelerController.shared.addVisited(region: region)

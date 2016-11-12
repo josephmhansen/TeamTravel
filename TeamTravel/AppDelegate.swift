@@ -101,6 +101,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
       
     }
     
+    // MARK: - Cloudkit saving upon termination
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        CloudKitSync.shared.attemptToSaveUnsavedRecords()
+         print("terminating")
+    }
+    // MARK: - Other functions
+    
     func presentNotification(notification: Notification) {
         let alertController = notification.object as? UIAlertController
         self.window?.rootViewController?.present(alertController!, animated: true, completion: nil)

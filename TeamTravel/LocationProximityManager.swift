@@ -35,7 +35,7 @@ class LocationProximityManager {
         for location in locationsWithinProximity {
             
             // Add location to Master traveler
-            //TravelerController.shared.addVisited(region: region)
+            TravelerController.shared.addVisited(location: location)
 
             
             fireAlertForEnteredRegion(location: location)

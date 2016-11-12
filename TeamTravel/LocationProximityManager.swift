@@ -27,18 +27,20 @@ class LocationProximityManager {
     func evaluateProximityForMonitoredLocations(){
         // reset locations before evaluating
         locationsWithinProximity = []
+        // Populate locationsWithinProximity array
         
         
+        // Handle entered regions
+        didEnterLocations()
     }
     
     func didEnterLocations(){
         for location in locationsWithinProximity {
-            
             // Add location to Master traveler
-            TravelerController.shared.addVisited(location: location)
-
-            
-            fireAlertForEnteredRegion(location: location)
+            let fire = TravelerController.shared.addVisited(location: location)
+            if fire {
+                fireAlertForEnteredRegion(location: location)
+            }
         }
     }
     

@@ -48,8 +48,8 @@ class LocationProximityManager {
     func didEnterLocations(){
         for location in locationsWithinProximity {
             // Add location to Master traveler
-            let fire = TravelerController.shared.addVisited(location: location)
-            if fire {
+            let shouldFire = TravelerController.shared.addVisited(location: location)
+            if shouldFire {
                 fireAlertForEnteredRegion(location: location)
             }
         }

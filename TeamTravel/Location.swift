@@ -53,8 +53,20 @@ class Location: NSObject, MKAnnotation {
     var numberOfVisits: Int {
         return self.datesVisited.count
     }
-    var hasVisitedToday: Bool = false
-    
+    var calendar: Calendar = Calendar(identifier: .gregorian)
+    var hasVisitedToday: Bool {
+        if datesVisited.count != 0 {
+            let filteredDates = datesVisited.sorted { $0.0 > $0.1}
+            if calendar.isDateInToday(filteredDates[0]) {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+    }
+
     var isVisible: Bool = true
 // geo fence radius to change for different locationtypes
     var geoRadiusSize: CLLocationDistance {

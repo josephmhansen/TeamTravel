@@ -61,7 +61,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     func setupLocationManager() {
         let locMan = CLLocationManager()
         locMan.desiredAccuracy = kCLLocationAccuracyBest
-        locMan.distanceFilter = 5
+        locMan.distanceFilter = kCLDistanceFilterNone
         locMan.delegate = self
         self.locationManager = locMan
         getCurrentLocation()
@@ -90,9 +90,9 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
                     self.currentTravelerLocationForDistance = location
                     return }
                 
-                if location.distance(from: self.currentTravelerLocationForDistance!) >= 3 {
+                //if location.distance(from: self.currentTravelerLocationForDistance!) >= 1 {
                     self.currentTravelerLocationForDistance = location
-                }
+                //}
                 if location.distance(from: self.currentTravelerLocationForSearch!) >= 500 {
                     self.currentTravelerLocationForSearch = location
                 }

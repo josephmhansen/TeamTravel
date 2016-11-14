@@ -137,11 +137,13 @@ struct AwardController {
     
     func awardLoyalTraveler() {
         guard let traveler = TravelerController.shared.masterTraveler,
-        let date1 = traveler.startDate else { return }
+        let date1 = traveler.startDate,
+        loyalTravelerBadge.hasEarned == false else { return }
+        
         let flags = NSCalendar.current.component(.day, from: date1)
         if flags >= 90 {
             loyalTravelerBadge.hasEarned = true
-            loyalTravelerBadge.image = #imageLiteral(resourceName: "Repeat Offender")
+            loyalTravelerBadge.image = #imageLiteral(resourceName: "loyal")
             return
         }
     }

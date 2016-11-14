@@ -139,7 +139,7 @@ struct AwardController {
         guard let traveler = TravelerController.shared.masterTraveler,
         let startDate = traveler.startDate,
         loyalTravelerBadge.hasEarned == false else { return }
-        if startDate.addingTimeInterval(7257600) >= Date() {
+        if startDate.addingTimeInterval(7257600) <= Date() {
             loyalTravelerBadge.hasEarned = true
             loyalTravelerBadge.image = #imageLiteral(resourceName: "loyal")
             return

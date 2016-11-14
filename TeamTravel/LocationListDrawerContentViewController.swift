@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 private let kLivelyGreenColor = UIColor(red: 8 / 255, green: 132 / 255, blue: 67 / 255, alpha: 1)
 private let mapFilterNotification = Notification(name: Notification.Name(rawValue: "mapFilterChanged"))
@@ -168,11 +169,24 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
             let selectedLocation = self.locationsToShow[indexPath.row]
             let pinItemActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let getDiretions = UIAlertAction(title: "Get Directions", style: .default, handler: { (_) in
+                let regionSpan = MKCoordinateRegionMakeWithDistance(selectedLocation.coordinate, CLLocationDistance(2000) , CLLocationDistance(2000))
+                let placeMark = MKPlacemark(coordinate: selectedLocation.coordinate)
+                let mapItem = MKMapItem(placemark: placeMark)
+                mapItem.name = "\(selectedLocation.locationName)"
+                let options = [
+                    MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking,
+                    MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                    MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span),
+                    ] as [String : Any]
+                mapItem.openInMaps(launchOptions: options)
+            })
             let add = UIAlertAction(title: "Add to QuestList", style: .default, handler: { (_) in
                 TravelerController.shared.addToMasterTravelerList(location: selectedLocation)
             })
             pinItemActionSheet.addAction(add)
             pinItemActionSheet.addAction(cancel)
+            pinItemActionSheet.addAction(getDiretions)
             self.present(pinItemActionSheet, animated: true, completion: nil)
         }
         

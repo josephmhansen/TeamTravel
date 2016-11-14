@@ -212,7 +212,20 @@ extension PrimaryContentViewController: MKMapViewDelegate {
         let add = UIAlertAction(title: "Add to QuestList", style: .default, handler: { (_) in
             TravelerController.shared.addToMasterTravelerList(location: castAnnotation)
         })
+        let getDiretions = UIAlertAction(title: "Get Directions", style: .default, handler: { (_) in
+            let regionSpan = MKCoordinateRegionMakeWithDistance(castAnnotation.coordinate, CLLocationDistance(2000) , CLLocationDistance(2000))
+            let placeMark = MKPlacemark(coordinate: castAnnotation.coordinate)
+            let mapItem = MKMapItem(placemark: placeMark)
+            mapItem.name = "\(castAnnotation.locationName)"
+            let options = [
+                MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking,
+                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span),
+                ] as [String : Any]
+            mapItem.openInMaps(launchOptions: options)
+        })
         pinItemActionSheet.addAction(add)
+        pinItemActionSheet.addAction(getDiretions)
         pinItemActionSheet.addAction(cancel)
         self.present(pinItemActionSheet, animated: true, completion: nil)
     }

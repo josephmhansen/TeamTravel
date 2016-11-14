@@ -136,8 +136,8 @@ struct AwardController {
     }
     
     func awardLoyalTraveler() {
-        guard let traveler = TravelerController.shared.masterTraveler else { return }
-        let date1 = traveler.startDate
+        guard let traveler = TravelerController.shared.masterTraveler,
+        let date1 = traveler.startDate else { return }
         let flags = NSCalendar.current.component(.day, from: date1)
         if flags >= 90 {
             loyalTravelerBadge.hasEarned = true

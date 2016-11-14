@@ -231,4 +231,34 @@ class CloudKitSync {
         }
     }
     
+    // MARK: - Get Traveler Record
+    
+    func fetchTravelerRecord(){
+        CloudKitManager.shared.fetchLoggedInUserRecord { (record, error) in
+            DispatchQueue.main.async {
+                if error != nil {
+                    print("error fetching record")
+                }
+                if let record = record,
+                    let date = record.creationDate {
+                    
+                    TravelerController.shared.masterTraveler?.startDate = date
+                    
+                }
+                
+            }
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

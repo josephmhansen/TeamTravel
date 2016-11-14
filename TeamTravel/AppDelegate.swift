@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         // Override point for customization after application launch.
         CloudKitSync.shared.fetchAllCKRecordsOnStartup()
+        CloudKitSync.shared.fetchTravelerRecord()
         
         // Setup region monitoring
         let _ = LocationProximityManager.shared.locationsWithinProximity.count

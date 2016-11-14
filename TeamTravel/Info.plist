@@ -29,7 +29,7 @@
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>ResearchKit</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app will not work properly without knowing your location</string>
+	<string>This app will not work properly without knowing your location.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This app would like to access the microphone.</string>
 	<key>NSMotionUsageDescription</key>

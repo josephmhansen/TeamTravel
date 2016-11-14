@@ -49,6 +49,15 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         CoreLocationController.shared.getCurrentLocation()
+        
+        // Check for problem with onboarding
+        if let location = CoreLocationController.shared.currentTravelerLocationForSearch {
+            if SearchLocationController.shared.allReturnedLocations.count == 0 {
+                let notification = Notification(name: Notification.Name(rawValue: "currentSearchLocationUpdated"))
+                NotificationCenter.default.post(notification)
+            }
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

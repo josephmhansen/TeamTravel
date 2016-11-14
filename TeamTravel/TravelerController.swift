@@ -16,7 +16,41 @@ class TravelerController {
   
   static let shared = TravelerController()
     
-
+    // MARK: - Add visitied based on LocationProximityManager
+    
+    /// Adds a visited location and returns a bool whether a notification should be fired
+    func addVisited(location: Location) -> Bool {
+        guard let traveler = self.masterTraveler else { return false }
+        var append = false
+        var fireNotification = true
+        for visitedLocation in traveler.locationsVisited {
+            if location.locationName.lowercased() == visitedLocation.locationName.lowercased() {
+                if visitedLocation.hasVisitedToday == false {
+                    // go ahead and append the date
+                    visitedLocation.datesVisited.append(Date())
+                    // CloudKit Save
+                    CloudKitSync.shared.modifyLocationVisited(location: visitedLocation)
+                } else {
+                    // don't append the date
+                    fireNotification = false
+                }
+                
+                append = true
+            }
+        }
+        
+        if !append {
+            location.datesVisited.append(Date())
+            traveler.locationsVisited.append(location)
+            // CloudKit Save
+            CloudKitSync.shared.createLocationVisited(location: location)
+        }
+        
+        AwardController.shared.awardBadges()
+        return fireNotification
+    }
+    
+    // MARK: - Add visited based on region monitoring
   
     func addVisited(region: CLRegion) {
         guard let circularRegion = region as? CLCircularRegion else { return }

@@ -49,9 +49,9 @@ class LocationProximityManager {
         for location in locationsWithinProximity {
             // Add location to Master traveler
             let shouldFire = TravelerController.shared.addVisited(location: location)
-            //if shouldFire {
+            if shouldFire {
                 fireAlertForEnteredRegion(location: location)
-            //}
+            }
         }
     }
     

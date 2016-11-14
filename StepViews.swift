@@ -57,40 +57,50 @@ class StepFiveViewController: StepViewController {
 }
 
 class StepSixViewController: StepViewController {
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
-  
-
-  @IBAction func getStarted(_ sender: UIButton) {
     
-    let mainStoryboard = UIStoryboard(name: "MainMapView", bundle: nil)
-    let homeVC = mainStoryboard.instantiateInitialViewController() as! UINavigationController
-    
-    let launchedBefore = UserDefaults.standard.bool(forKey: "firstLaunch")
-    
-    if launchedBefore {
-      self.dismiss(animated: true, completion: nil)
-      
-    } else {
-      
-      UserDefaults.standard.set(true, forKey: "firstLaunch")
-      
-      let snapshot: UIView = self.view.window!.snapshotView(afterScreenUpdates: true)!
-      
-      homeVC.view.addSubview(snapshot)
-      self.view.window?.rootViewController = homeVC
-      
-      UIView.animate(withDuration: 0.5, animations: {() in
-        snapshot.layer.opacity = 0
-      }, completion: {(completion) in
-        snapshot.removeFromSuperview()
-      })
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if CoreLocationController.shared.currentTravelerLocationForDistance == nil {
+            getStartedButton.setTitle("Finding your location...", for: .disabled)
+            getStartedButton.isEnabled = false
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(updateButtonStatus), name: Notification.Name(rawValue: "currentDistanceLocationUpdated"), object: nil)
     }
     
-  }
-  
+    func updateButtonStatus(){
+        getStartedButton.isEnabled = true
+    }
+    
+    @IBOutlet weak var getStartedButton: UIButton!
+    
+    @IBAction func getStarted(_ sender: UIButton) {
+        
+        let mainStoryboard = UIStoryboard(name: "MainMapView", bundle: nil)
+        let homeVC = mainStoryboard.instantiateInitialViewController() as! UINavigationController
+        
+        let launchedBefore = UserDefaults.standard.bool(forKey: "firstLaunch")
+        
+        if launchedBefore {
+            self.dismiss(animated: true, completion: nil)
+            
+        } else {
+            
+            UserDefaults.standard.set(true, forKey: "firstLaunch")
+            
+            let snapshot: UIView = self.view.window!.snapshotView(afterScreenUpdates: true)!
+            
+            homeVC.view.addSubview(snapshot)
+            self.view.window?.rootViewController = homeVC
+            
+            UIView.animate(withDuration: 0.5, animations: {() in
+                snapshot.layer.opacity = 0
+            }, completion: {(completion) in
+                snapshot.removeFromSuperview()
+            })
+        }
+        
+    }
+    
 }
 
 

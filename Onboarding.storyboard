@@ -125,7 +125,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="getStarted:" destination="8pj-5p-NDF" eventType="touchUpInside" id="hjy-0X-4uy"/>
+                                    <action selector="getStarted:" destination="8pj-5p-NDF" eventType="touchUpInside" id="Ytu-eY-fHz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -135,6 +135,9 @@
                             <constraint firstItem="PAd-TW-l1P" firstAttribute="centerX" secondItem="kxx-uA-3da" secondAttribute="centerX" id="oIK-uB-b6T"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="getStartedButton" destination="PAd-TW-l1P" id="i6V-o3-3Ow"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ghd-kf-SMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

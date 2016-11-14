@@ -30,12 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Setup region monitoring
         let _ = LocationProximityManager.shared.locationsWithinProximity.count
         
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (_, error) in
-            if error != nil {
-                print(error?.localizedDescription ?? "Error")
-            }
-        }
-        
         /*
         MockData.setUpCloudKitTraveler()
         

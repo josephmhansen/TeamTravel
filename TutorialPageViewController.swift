@@ -17,10 +17,6 @@ class TutorialPageViewController: UIPageViewController {
     // Setup Notifications
     CoreLocationController.shared.setupLocationManager()
 
-    let center = UNUserNotificationCenter.current()
-    center.requestAuthorization(options: [.alert, .sound]) { (_, _) in
-    }
-
     setViewControllers([getStepZero()], direction: .forward, animated: false, completion: nil)
     dataSource = self
     

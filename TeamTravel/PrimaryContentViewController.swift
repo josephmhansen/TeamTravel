@@ -51,7 +51,7 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
         CoreLocationController.shared.getCurrentLocation()
         
         // Check for problem with onboarding
-        if let location = CoreLocationController.shared.currentTravelerLocationForSearch {
+        if CoreLocationController.shared.currentTravelerLocationForSearch != nil {
             if SearchLocationController.shared.allReturnedLocations.count == 0 {
                 let notification = Notification(name: Notification.Name(rawValue: "currentSearchLocationUpdated"))
                 NotificationCenter.default.post(notification)

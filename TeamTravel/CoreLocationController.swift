@@ -45,7 +45,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     func checkForAuthorizationStatus() -> Bool {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways:
-            return true
+            return false
         case .authorizedWhenInUse:
             return true
         case .denied:
@@ -74,7 +74,7 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
         if hasAccess == true {
             locationManager?.requestLocation()
         } else {
-            locationManager?.requestAlwaysAuthorization()
+            locationManager?.requestWhenInUseAuthorization()
         }
     }
     

@@ -98,36 +98,34 @@
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CdD-I4-t3B">
-                                <rect key="frame" x="364" y="669" width="42" height="25"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5s-RQ-mhw">
+                                <rect key="frame" x="364" y="652" width="42" height="42"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="415-8s-sja"/>
-                                    <constraint firstAttribute="height" constant="25" id="iBR-xC-fe1"/>
+                                    <constraint firstAttribute="height" constant="42" id="LGj-yd-nfD"/>
+                                    <constraint firstAttribute="width" constant="42" id="Sr1-Rx-cCk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" image="Aim"/>
+                                <connections>
+                                    <action selector="aimButtonTapped:" destination="jlc-SX-8Vl" eventType="touchUpInside" id="LB1-Ee-Ox5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="CdD-I4-t3B" secondAttribute="bottom" constant="8" id="73I-zu-uZx"/>
                             <constraint firstItem="D1V-M1-B9h" firstAttribute="leading" secondItem="wsZ-C5-y4c" secondAttribute="leading" id="8gK-mG-aI1"/>
                             <constraint firstAttribute="bottomMargin" secondItem="b7G-0X-JPQ" secondAttribute="bottom" id="C7e-Y2-5jG"/>
                             <constraint firstItem="b7G-0X-JPQ" firstAttribute="leading" secondItem="wsZ-C5-y4c" secondAttribute="leading" id="KA3-oe-Y0V"/>
                             <constraint firstAttribute="topMargin" secondItem="D1V-M1-B9h" secondAttribute="top" id="MaD-tO-6jk"/>
+                            <constraint firstItem="KAu-iW-lko" firstAttribute="top" secondItem="z5s-RQ-mhw" secondAttribute="bottom" constant="8" id="OLX-0T-NOG"/>
                             <constraint firstAttribute="trailing" secondItem="D1V-M1-B9h" secondAttribute="trailing" id="SHa-ls-4Fe"/>
                             <constraint firstAttribute="topMargin" secondItem="b7G-0X-JPQ" secondAttribute="top" id="U8h-6g-ecD"/>
-                            <constraint firstAttribute="trailing" secondItem="CdD-I4-t3B" secondAttribute="trailing" constant="8" id="oG7-uX-jCF"/>
+                            <constraint firstAttribute="trailing" secondItem="z5s-RQ-mhw" secondAttribute="trailing" constant="8" id="ioZ-lV-Wtl"/>
                             <constraint firstAttribute="trailing" secondItem="b7G-0X-JPQ" secondAttribute="trailing" id="rwJ-6X-bB2"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aimButtonBottomConstraint" destination="OLX-0T-NOG" id="3Uq-2D-agT"/>
                         <outlet property="mapView" destination="b7G-0X-JPQ" id="4t8-Om-8fj"/>
-                        <outlet property="temperatureLabel" destination="CdD-I4-t3B" id="wiH-6U-GXK"/>
-                        <outlet property="temperatureLabelBottomConstraint" destination="73I-zu-uZx" id="aUz-kZ-zGM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dVP-c3-ybp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -370,6 +368,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Aim" width="42" height="42"/>
         <image name="UserIcon" width="35" height="35"/>
     </resources>
 </document>

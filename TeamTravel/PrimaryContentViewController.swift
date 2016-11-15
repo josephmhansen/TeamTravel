@@ -20,9 +20,13 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     
     @IBOutlet var mapView: MKMapView!
 
-    @IBOutlet var temperatureLabel: UILabel!
+    //@IBOutlet var temperatureLabel: UILabel!
     
-    @IBOutlet var temperatureLabelBottomConstraint: NSLayoutConstraint!
+    @IBAction func aimButtonTapped(_ sender: Any) {
+    }
+    
+    @IBOutlet var aimButtonBottomConstraint: NSLayoutConstraint!
+    //@IBOutlet var temperatureLabelBottomConstraint: NSLayoutConstraint!
     
     private let temperatureLabelBottomDistance: CGFloat = 8.0
     
@@ -33,7 +37,7 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
         NotificationCenter.default.addObserver(self, selector: #selector(zoomToUserLocation), name: Notification.Name(rawValue: "currentSearchLocationUpdated"), object: nil)
         mapView.showsUserLocation = true
         
-        temperatureLabel.layer.cornerRadius = 7.0
+        //temperatureLabel.layer.cornerRadius = 7.0
         
         NotificationCenter.default.addObserver(self, selector: #selector(drawMapAnnotations), name: Notification.Name(rawValue: "searchCategoryCompleted"), object: nil)
         
@@ -118,11 +122,11 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     {
         if distance <= 360.0
         {
-            temperatureLabelBottomConstraint.constant = distance + temperatureLabelBottomDistance
+            aimButtonBottomConstraint.constant = distance + temperatureLabelBottomDistance
         }
         else
         {
-            temperatureLabelBottomConstraint.constant = 360.0 + temperatureLabelBottomDistance
+            aimButtonBottomConstraint.constant = 380.0 + temperatureLabelBottomDistance
         }
     }
     

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bEh-p6-tCw">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16C48b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bEh-p6-tCw">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -17,78 +17,6 @@
             </objects>
             <point key="canvasLocation" x="-676" y="-706"/>
         </scene>
-        <!--Step Zero View Controller-->
-        <scene sceneID="zok-oJ-HrK">
-            <objects>
-                <viewController storyboardIdentifier="StepZero" id="qam-tI-UJ8" customClass="StepZeroViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Wzr-PF-TeV"/>
-                        <viewControllerLayoutGuide type="bottom" id="kBw-uc-B8T"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pSe-Ph-EPW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.80784314869999996" green="0.027450980619999999" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BxM-Cx-hqs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="47" y="-706"/>
-        </scene>
-        <!--Step Two View Controller-->
-        <scene sceneID="MmR-yf-9Ji">
-            <objects>
-                <viewController storyboardIdentifier="StepTwo" id="wNo-tL-ISm" customClass="StepTwoViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3U3-4H-aAW"/>
-                        <viewControllerLayoutGuide type="bottom" id="7eb-q8-Ahz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZU9-id-1GT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.2470588235" green="0.21960784310000001" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Dv-ft-TyK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="802" y="-704"/>
-        </scene>
-        <!--Step Three View Controller-->
-        <scene sceneID="niX-FW-nhh">
-            <objects>
-                <viewController storyboardIdentifier="StepThree" id="KRg-3H-wH1" customClass="StepThreeViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pwo-Mq-mUi"/>
-                        <viewControllerLayoutGuide type="bottom" id="OLU-To-vR4"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bRJ-Nb-3To">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.33725490200000002" green="0.16078431369999999" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6yh-tc-gZs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1570" y="-705"/>
-        </scene>
-        <!--Step Four View Controller-->
-        <scene sceneID="gxL-8E-hgK">
-            <objects>
-                <viewController storyboardIdentifier="StepFour" id="Vds-xf-Hr5" customClass="StepFourViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1Dh-0W-eJq"/>
-                        <viewControllerLayoutGuide type="bottom" id="QEm-w5-Jqp"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Sbf-eW-d7j">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.2392156869" green="0.67450982329999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ckC-7P-MWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2328" y="-701"/>
-        </scene>
         <!--Step Five View Controller-->
         <scene sceneID="UqR-1S-QxF">
             <objects>
@@ -98,14 +26,52 @@
                         <viewControllerLayoutGuide type="bottom" id="Yfe-JT-c0H"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Bo0-X0-CYL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.44918138909999999" green="0.73376154900000001" blue="0.2946225375" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="34" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HI3-OQ-vBF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkthrough5" translatesAutoresizingMaskIntoConstraints="NO" id="9Dt-2l-b34">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="523"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Badges" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ez2-XV-pH8">
+                                        <rect key="frame" x="148" y="536" width="79.5" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="27" id="NKK-ih-Nc2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Badges mark special achievements. Try to get all them all!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6h-2K-GX3">
+                                        <rect key="frame" x="32" y="575" width="311" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="z2d-ID-ekg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="L6h-2K-GX3" firstAttribute="leading" secondItem="HI3-OQ-vBF" secondAttribute="leading" constant="32" id="SzN-ce-8Tl"/>
+                                    <constraint firstAttribute="trailing" secondItem="L6h-2K-GX3" secondAttribute="trailing" constant="32" id="dcd-Pf-jXp"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HI3-OQ-vBF" firstAttribute="top" secondItem="Bo0-X0-CYL" secondAttribute="top" id="1Zj-R8-n5s"/>
+                            <constraint firstItem="HI3-OQ-vBF" firstAttribute="leading" secondItem="Bo0-X0-CYL" secondAttribute="leading" id="8Kv-UK-fJv"/>
+                            <constraint firstAttribute="bottom" secondItem="HI3-OQ-vBF" secondAttribute="bottom" constant="50" id="fHH-VI-OcE"/>
+                            <constraint firstAttribute="trailing" secondItem="HI3-OQ-vBF" secondAttribute="trailing" id="skZ-9i-vHf"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gD6-Ug-hNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3079" y="-701"/>
+            <point key="canvasLocation" x="3060" y="-706"/>
         </scene>
         <!--Step Six View Controller-->
         <scene sceneID="zPO-Wr-cln">
@@ -116,32 +82,279 @@
                         <viewControllerLayoutGuide type="bottom" id="3bO-5O-LYm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kxx-uA-3da">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PAd-TW-l1P">
-                                <rect key="frame" x="89" y="467" width="142" height="30"/>
-                                <state key="normal" title="LET'S GET STARTED">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="getStarted:" destination="8pj-5p-NDF" eventType="touchUpInside" id="Ytu-eY-fHz"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gkZ-DQ-I3W">
+                                <rect key="frame" x="100" y="140" width="175" height="367"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PolyQuestLogo" translatesAutoresizingMaskIntoConstraints="NO" id="IWQ-TO-CvP">
+                                        <rect key="frame" x="0.0" y="0.0" width="175" height="317"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PAd-TW-l1P">
+                                        <rect key="frame" x="0.0" y="317" width="175" height="50"/>
+                                        <color key="backgroundColor" red="0.023529411760000001" green="0.70980392160000005" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="OFg-IJ-Sy6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="Start Questing!">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="getStarted:" destination="8pj-5p-NDF" eventType="touchUpInside" id="Ytu-eY-fHz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.80784314869999996" green="0.027450980619999999" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3bO-5O-LYm" firstAttribute="top" secondItem="PAd-TW-l1P" secondAttribute="bottom" constant="71" id="IDz-No-oKI"/>
-                            <constraint firstItem="PAd-TW-l1P" firstAttribute="centerX" secondItem="kxx-uA-3da" secondAttribute="centerX" id="oIK-uB-b6T"/>
+                            <constraint firstAttribute="trailing" secondItem="gkZ-DQ-I3W" secondAttribute="trailing" constant="100" id="BwC-mO-HiV"/>
+                            <constraint firstAttribute="bottom" secondItem="gkZ-DQ-I3W" secondAttribute="bottom" constant="160" id="eDk-uv-aoY"/>
+                            <constraint firstItem="gkZ-DQ-I3W" firstAttribute="top" secondItem="mpU-lK-I7Q" secondAttribute="bottom" constant="120" id="nPJ-t7-7KT"/>
+                            <constraint firstItem="gkZ-DQ-I3W" firstAttribute="leading" secondItem="kxx-uA-3da" secondAttribute="leading" constant="100" id="uCM-Yz-q7M"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="getStartedButton" destination="PAd-TW-l1P" id="i6V-o3-3Ow"/>
+                        <outlet property="getStartedButton" destination="PAd-TW-l1P" id="0je-ry-5Kc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ghd-kf-SMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3796" y="-707"/>
+            <point key="canvasLocation" x="3796" y="-707.49625187406298"/>
+        </scene>
+        <!--Step Four View Controller-->
+        <scene sceneID="yXA-Py-cQX">
+            <objects>
+                <viewController storyboardIdentifier="StepFour" id="6AJ-Gh-XiA" customClass="StepFourViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wmN-Vj-hPk"/>
+                        <viewControllerLayoutGuide type="bottom" id="cpy-ee-uvT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gd0-Og-Wwi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="34" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aW7-4K-VNF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkthrough4" translatesAutoresizingMaskIntoConstraints="NO" id="5GE-U6-aL8">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="523"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tokens" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWq-MU-W0d">
+                                        <rect key="frame" x="150" y="536" width="75" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="27" id="0dg-cH-JCB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earn tokens when you visit a point of interest, and easily track your progress." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ca4-Qy-8wQ">
+                                        <rect key="frame" x="32" y="575" width="311" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="VUY-HK-VOR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ca4-Qy-8wQ" firstAttribute="leading" secondItem="aW7-4K-VNF" secondAttribute="leading" constant="32" id="6dm-2b-xVb"/>
+                                    <constraint firstAttribute="trailing" secondItem="ca4-Qy-8wQ" secondAttribute="trailing" constant="32" id="fyh-TS-QCA"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="aW7-4K-VNF" secondAttribute="trailing" id="SGR-Cl-tH4"/>
+                            <constraint firstItem="aW7-4K-VNF" firstAttribute="top" secondItem="gd0-Og-Wwi" secondAttribute="top" id="hE0-OF-2Ag"/>
+                            <constraint firstItem="aW7-4K-VNF" firstAttribute="leading" secondItem="gd0-Og-Wwi" secondAttribute="leading" id="l32-o3-odR"/>
+                            <constraint firstAttribute="bottom" secondItem="aW7-4K-VNF" secondAttribute="bottom" constant="50" id="qPv-WD-BDJ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YRl-6N-ltj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2300" y="-707"/>
+        </scene>
+        <!--Step Three View Controller-->
+        <scene sceneID="W5b-To-30u">
+            <objects>
+                <viewController storyboardIdentifier="StepThree" id="A1j-ij-Zgx" customClass="StepThreeViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5ls-gI-ZL9"/>
+                        <viewControllerLayoutGuide type="bottom" id="9vx-Lh-9VM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K5D-Cx-Z0V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="34" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1AO-Iu-bSj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkthrough3" translatesAutoresizingMaskIntoConstraints="NO" id="IeM-QF-yNn">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="523"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find Quests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cay-Lt-O22">
+                                        <rect key="frame" x="125" y="536" width="125.5" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="27" id="LrZ-hR-zCY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter based on category, and keep a list of future quests'" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agU-dG-Sf4">
+                                        <rect key="frame" x="32" y="575" width="311" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="kHU-Lg-egA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="agU-dG-Sf4" firstAttribute="leading" secondItem="1AO-Iu-bSj" secondAttribute="leading" constant="32" id="6ey-gO-0df"/>
+                                    <constraint firstAttribute="trailing" secondItem="agU-dG-Sf4" secondAttribute="trailing" constant="32" id="kfd-3A-kx4"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1AO-Iu-bSj" firstAttribute="top" secondItem="K5D-Cx-Z0V" secondAttribute="top" id="9E0-PE-xk8"/>
+                            <constraint firstItem="1AO-Iu-bSj" firstAttribute="leading" secondItem="K5D-Cx-Z0V" secondAttribute="leading" id="QoL-Ve-S1B"/>
+                            <constraint firstAttribute="bottom" secondItem="1AO-Iu-bSj" secondAttribute="bottom" constant="50" id="o7P-yi-tDp"/>
+                            <constraint firstAttribute="trailing" secondItem="1AO-Iu-bSj" secondAttribute="trailing" id="vou-dY-JSv"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rhh-Le-h4L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1570" y="-705"/>
+        </scene>
+        <!--Step Two View Controller-->
+        <scene sceneID="ufh-he-Pe1">
+            <objects>
+                <viewController storyboardIdentifier="StepTwo" id="WUc-LU-lsk" customClass="StepTwoViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ELU-q4-m8e"/>
+                        <viewControllerLayoutGuide type="bottom" id="9tb-tc-5rz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5S6-98-ZqE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="34" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ofc-9n-08i">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkthrough2" translatesAutoresizingMaskIntoConstraints="NO" id="Cuq-vS-yHk">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="523"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capture Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSa-ao-oyY">
+                                        <rect key="frame" x="97" y="536" width="181.5" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="27" id="tFO-gd-IPR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once you get close to one, tap the capture button to add it to your quests!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Lh-A0-VTc">
+                                        <rect key="frame" x="32" y="575" width="311" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="cj7-zm-3xh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4Lh-A0-VTc" secondAttribute="trailing" constant="32" id="0J3-AF-YyB"/>
+                                    <constraint firstItem="4Lh-A0-VTc" firstAttribute="leading" secondItem="Ofc-9n-08i" secondAttribute="leading" constant="32" id="osp-dz-r8b"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Ofc-9n-08i" secondAttribute="trailing" id="J1v-4c-0B7"/>
+                            <constraint firstItem="Ofc-9n-08i" firstAttribute="top" secondItem="5S6-98-ZqE" secondAttribute="top" id="PCb-J1-3UF"/>
+                            <constraint firstItem="Ofc-9n-08i" firstAttribute="leading" secondItem="5S6-98-ZqE" secondAttribute="leading" id="cLr-AC-Iqo"/>
+                            <constraint firstAttribute="bottom" secondItem="Ofc-9n-08i" secondAttribute="bottom" constant="50" id="qd0-8N-kMX"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I7l-L8-vgv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="817" y="-706"/>
+        </scene>
+        <!--Step Zero View Controller-->
+        <scene sceneID="Neo-ak-r8b">
+            <objects>
+                <viewController storyboardIdentifier="StepZero" id="0aZ-2T-dBx" customClass="StepZeroViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DrZ-XI-eds"/>
+                        <viewControllerLayoutGuide type="bottom" id="lnz-oC-4BP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rXf-Ke-oQi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="34" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8sW-N4-cr8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkthrough1" translatesAutoresizingMaskIntoConstraints="NO" id="OrS-s9-g7I">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="523"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to PolyQuest!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOm-eF-teD">
+                                        <rect key="frame" x="65" y="536" width="245.5" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="27" id="Ztz-ok-2n3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PolyQuest shows you landmarks, museums and parks near you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Lu-8g-DoA">
+                                        <rect key="frame" x="32" y="575" width="311" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="5Os-Ne-U1b"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="2Lu-8g-DoA" firstAttribute="leading" secondItem="8sW-N4-cr8" secondAttribute="leading" constant="32" id="1Xb-1p-fT2"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Lu-8g-DoA" secondAttribute="trailing" constant="32" id="L8H-ID-yYK"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8sW-N4-cr8" firstAttribute="top" secondItem="rXf-Ke-oQi" secondAttribute="top" id="KWv-LK-rGJ"/>
+                            <constraint firstAttribute="bottom" secondItem="8sW-N4-cr8" secondAttribute="bottom" constant="50" id="MsA-7e-dMa"/>
+                            <constraint firstItem="8sW-N4-cr8" firstAttribute="leading" secondItem="rXf-Ke-oQi" secondAttribute="leading" id="YZu-xl-0Iq"/>
+                            <constraint firstAttribute="trailing" secondItem="8sW-N4-cr8" secondAttribute="trailing" id="nNR-X7-rGo"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zWi-TE-V7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="68" y="-706"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="PolyQuestLogo" width="447" height="600"/>
+        <image name="walkthrough1" width="1700" height="2300"/>
+        <image name="walkthrough2" width="1700" height="2300"/>
+        <image name="walkthrough3" width="1700" height="2300"/>
+        <image name="walkthrough4" width="1700" height="2300"/>
+        <image name="walkthrough5" width="1700" height="2300"/>
+    </resources>
 </document>

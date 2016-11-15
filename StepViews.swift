@@ -70,8 +70,14 @@ class StepSixViewController: StepViewController {
     func updateButtonStatus(){
         getStartedButton.isEnabled = true
     }
+
     
-    @IBOutlet weak var getStartedButton: UIButton!
+  @IBOutlet weak var getStartedButton: UIButton! {
+    didSet {
+      getStartedButton.layer.cornerRadius = 5
+      getStartedButton.layer.masksToBounds = true
+    }
+  }
     
     @IBAction func getStarted(_ sender: UIButton) {
         

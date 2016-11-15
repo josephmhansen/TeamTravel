@@ -23,8 +23,8 @@ class TutorialPageViewController: UIPageViewController {
     view.backgroundColor = UIColor.clear // set color behind page dots
     
     // set color of page indicator
-    UIPageControl.appearance().pageIndicatorTintColor = UIColor.lightGray
-    UIPageControl.appearance().currentPageIndicatorTintColor = UIColor.black
+    UIPageControl.appearance().pageIndicatorTintColor = PolyColor(hexString: "#06B559", alpha: 0.2)
+    UIPageControl.appearance().currentPageIndicatorTintColor = PolyColor(hexString: "#06B559")
     
   }
   

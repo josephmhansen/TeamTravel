@@ -43,7 +43,7 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
         NotificationCenter.default.addObserver(self, selector: #selector(drawMapAnnotations), name: Notification.Name(rawValue: "searchCategoryCompleted"), object: nil)
         
         view.addSubview(spinner)
-        spinner.tintColor = PolyColor(hexString: "#000", alpha: 0.2)
+        spinner.tintColor = PolyColor(hexString: "#06B559")
         spinner.hidesWhenStopped = true
         
         view.backgroundColor = UIColor.groupTableViewBackground

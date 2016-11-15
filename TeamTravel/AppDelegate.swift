@@ -18,10 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var strongReferenceToLocationManager: CLLocationManager?
     
     var notification: UIAlertController?
+    
+    func presentIcloudAlert() {
+        let alertController = UIAlertController(title: "Error Saving", message: "Confirm that you are signed into iCloud", preferredStyle: .alert)
+        let actionItem = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+        
+        alertController.addAction(actionItem)
+        self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+    }
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.presentNotification(notification:)), name: NSNotification.Name(rawValue: postAlertNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.presentIcloudAlert), name: NSNotification.Name(rawValue: "iCloudNotification"), object: nil)
+        
+        
         
         // Override point for customization after application launch.
         CloudKitSync.shared.fetchAllCKRecordsOnStartup()

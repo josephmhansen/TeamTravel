@@ -11,6 +11,7 @@ import CloudKit
 
 class CloudKitSync {
     static let shared = CloudKitSync()
+    static var iCloudNotification = Notification.init(name: Notification.Name(rawValue: "iCloudNotification"))
     
     func createTraveler(traveler: Traveler) {
         let newRecord = CKRecord(traveler: traveler)
@@ -145,10 +146,26 @@ class CloudKitSync {
     
     // MARK: - CloudKitError Handling
     
-    var newLocationsNotSaved: [Location] = []
-    var modifiedLocationsNotSaved: [Location] = []
-    var newQuestListLocationsNotSaved:  [Location] = []
-    var deletedQuestListLocationsNotSaved: [Location] = []
+    var newLocationsNotSaved: [Location] = [] {
+        didSet{
+            NotificationCenter.default.post(CloudKitSync.iCloudNotification)
+        }
+    }
+    var modifiedLocationsNotSaved: [Location] = []{
+        didSet{
+            NotificationCenter.default.post(CloudKitSync.iCloudNotification)
+        }
+    }
+    var newQuestListLocationsNotSaved:  [Location] = []{
+        didSet{
+            NotificationCenter.default.post(CloudKitSync.iCloudNotification)
+        }
+    }
+    var deletedQuestListLocationsNotSaved: [Location] = []{
+        didSet{
+            NotificationCenter.default.post(CloudKitSync.iCloudNotification)
+        }
+    }
     
     func attemptToSaveUnsavedRecords(){
         // New locations not saved

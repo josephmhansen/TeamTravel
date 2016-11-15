@@ -188,6 +188,27 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
             pinItemActionSheet.addAction(cancel)
             pinItemActionSheet.addAction(getDiretions)
             self.present(pinItemActionSheet, animated: true, completion: nil)
+        } else if segmentedControl.selectedIndex == 1 {
+            let selectedLocation = self.locationsToShow[indexPath.row]
+            let pinItemActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let getDiretions = UIAlertAction(title: "Get Directions", style: .default, handler: { (_) in
+                let regionSpan = MKCoordinateRegionMakeWithDistance(selectedLocation.coordinate, CLLocationDistance(2000) , CLLocationDistance(2000))
+                let placeMark = MKPlacemark(coordinate: selectedLocation.coordinate)
+                let mapItem = MKMapItem(placemark: placeMark)
+                mapItem.name = "\(selectedLocation.locationName)"
+                let options = [
+                    MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking,
+                    MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                    MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span),
+                    ] as [String : Any]
+                mapItem.openInMaps(launchOptions: options)
+            })
+            
+            
+            pinItemActionSheet.addAction(cancel)
+            pinItemActionSheet.addAction(getDiretions)
+            self.present(pinItemActionSheet, animated: true, completion: nil)
         }
         
         //if let drawer = self.parent as? LocationMapViewController

@@ -318,7 +318,7 @@ class CloudKitManager {
             if let appDelegate = UIApplication.shared.delegate,
                 let appWindow = appDelegate.window!,
                 let rootViewController = appWindow.rootViewController {
-                rootViewController.present(alertController, animated: true, completion: nil)
+                //rootViewController.present(alertController, animated: true, completion: nil)
             }
         })
     }

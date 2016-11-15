@@ -144,7 +144,23 @@
                     <view key="view" contentMode="scaleToFill" id="7aJ-uW-jY9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fH4-5U-bFn">
+                                <rect key="frame" x="20" y="0.0" width="374" height="736"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="largeAim" translatesAutoresizingMaskIntoConstraints="NO" id="M17-xG-se6">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="736"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fH4-5U-bFn" firstAttribute="top" secondItem="hMC-lS-VmE" secondAttribute="bottom" id="A9s-dP-mtd"/>
+                            <constraint firstItem="ESv-dQ-Lmd" firstAttribute="top" secondItem="fH4-5U-bFn" secondAttribute="bottom" id="iXb-Xf-WiY"/>
+                            <constraint firstItem="fH4-5U-bFn" firstAttribute="leading" secondItem="7aJ-uW-jY9" secondAttribute="leadingMargin" id="n1e-CI-d4K"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fH4-5U-bFn" secondAttribute="trailing" id="ozL-gc-8Os"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Bt-1X-Ly8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -282,7 +298,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="414" height="85"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QrR-SM-B6h" id="YWA-gj-j6e">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="4k0-eu-jP2">
@@ -389,5 +405,6 @@
     <resources>
         <image name="Aim" width="70" height="70"/>
         <image name="UserIcon" width="35" height="35"/>
+        <image name="largeAim" width="1200" height="1200"/>
     </resources>
 </document>

@@ -99,10 +99,10 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5s-RQ-mhw">
-                                <rect key="frame" x="364" y="652" width="42" height="42"/>
+                                <rect key="frame" x="346" y="634" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="LGj-yd-nfD"/>
-                                    <constraint firstAttribute="width" constant="42" id="Sr1-Rx-cCk"/>
+                                    <constraint firstAttribute="height" constant="60" id="LGj-yd-nfD"/>
+                                    <constraint firstAttribute="width" constant="60" id="Sr1-Rx-cCk"/>
                                 </constraints>
                                 <state key="normal" image="Aim"/>
                                 <connections>
@@ -368,7 +368,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Aim" width="42" height="42"/>
+        <image name="Aim" width="70" height="70"/>
         <image name="UserIcon" width="35" height="35"/>
     </resources>
 </document>

@@ -23,6 +23,7 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     //@IBOutlet var temperatureLabel: UILabel!
     
     @IBAction func aimButtonTapped(_ sender: Any) {
+        print("ButtonTapped")
     }
     
     @IBOutlet var aimButtonBottomConstraint: NSLayoutConstraint!

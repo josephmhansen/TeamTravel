@@ -107,6 +107,7 @@
                                 <state key="normal" image="Aim"/>
                                 <connections>
                                     <action selector="aimButtonTapped:" destination="jlc-SX-8Vl" eventType="touchUpInside" id="LB1-Ee-Ox5"/>
+                                    <segue destination="U72-PC-Ruw" kind="presentation" modalTransitionStyle="flipHorizontal" id="JN4-1V-UWz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -131,6 +132,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dVP-c3-ybp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1944.8" y="-224.4377811094453"/>
+        </scene>
+        <!--Flip View Controller-->
+        <scene sceneID="3Tt-Pn-OTR">
+            <objects>
+                <viewController id="U72-PC-Ruw" customClass="FlipViewController" customModule="TeamTravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hMC-lS-VmE"/>
+                        <viewControllerLayoutGuide type="bottom" id="ESv-dQ-Lmd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7aJ-uW-jY9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Bt-1X-Ly8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2708" y="-222"/>
         </scene>
         <!--Location List Drawer Content View Controller-->
         <scene sceneID="1cR-cD-Gai">

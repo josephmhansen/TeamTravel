@@ -291,19 +291,21 @@ extension LocationListDrawerContentViewController: SegmentedControlDelegate {
             }
             if selectedIndex == 0 {
                 locationsToShow = SearchLocationController.shared.allVisibleLocations
-                tableView.reloadData()
+                
                 topFilterSegmentedControl.setSelected(at: 0, animated: true)
                 SearchLocationController.shared.resetAllToVisible()
                 NotificationCenter.default.post(mapFilterNotification)
+                tableView.reloadData()
                 animateTable()
                 
             } else if selectedIndex == 1 {
                 guard let traveler = TravelerController.shared.masterTraveler else { print("No Traveler"); return }
                 locationsToShow = traveler.locationsWishList
-                tableView.reloadData()
+                
                 topFilterSegmentedControl.setSelected(at: 0, animated: true)
                 SearchLocationController.shared.resetAllToVisible()
                 NotificationCenter.default.post(mapFilterNotification)
+                tableView.reloadData()
                 animateTable()
                 
             } else {

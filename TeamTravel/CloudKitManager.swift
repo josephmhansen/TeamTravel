@@ -315,11 +315,11 @@ class CloudKitManager {
             
             alertController.addAction(dismissAction)
             
-            if let appDelegate = UIApplication.shared.delegate,
-                let appWindow = appDelegate.window!,
-                let rootViewController = appWindow.rootViewController {
+            //if let appDelegate = UIApplication.shared.delegate,
+                //let appWindow = appDelegate.window!,
+                //let rootViewController = appWindow.rootViewController {
                 //rootViewController.present(alertController, animated: true, completion: nil)
-            }
+            //}
         })
     }
     

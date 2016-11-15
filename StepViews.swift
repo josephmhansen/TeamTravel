@@ -61,7 +61,7 @@ class StepSixViewController: StepViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if CoreLocationController.shared.currentTravelerLocationForDistance == nil {
-            getStartedButton.setTitle("Finding your location...", for: .disabled)
+            getStartedButton.setTitle("Preparing...", for: .disabled)
             getStartedButton.isEnabled = false
         }
         NotificationCenter.default.addObserver(self, selector: #selector(updateButtonStatus), name: Notification.Name(rawValue: "currentDistanceLocationUpdated"), object: nil)

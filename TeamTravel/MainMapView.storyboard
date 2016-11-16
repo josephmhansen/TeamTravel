@@ -107,7 +107,7 @@
                                 <state key="normal" image="Aim"/>
                                 <connections>
                                     <action selector="aimButtonTapped:" destination="jlc-SX-8Vl" eventType="touchUpInside" id="LB1-Ee-Ox5"/>
-                                    <segue destination="U72-PC-Ruw" kind="presentation" modalTransitionStyle="flipHorizontal" id="JN4-1V-UWz"/>
+                                    <segue destination="U72-PC-Ruw" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="JN4-1V-UWz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -154,7 +154,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="0.58692744006849318" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fH4-5U-bFn" firstAttribute="top" secondItem="hMC-lS-VmE" secondAttribute="bottom" id="A9s-dP-mtd"/>
                             <constraint firstItem="ESv-dQ-Lmd" firstAttribute="top" secondItem="fH4-5U-bFn" secondAttribute="bottom" id="iXb-Xf-WiY"/>

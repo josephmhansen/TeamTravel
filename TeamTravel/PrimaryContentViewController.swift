@@ -35,6 +35,7 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
         super.viewDidLoad()
         self.mapView.delegate = self
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.viewDidAppear(_:)), name: NSNotification.Name(rawValue: "CaptureStarted"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(zoomToUserLocation), name: Notification.Name(rawValue: "currentSearchLocationUpdated"), object: nil)
         mapView.showsUserLocation = true
         

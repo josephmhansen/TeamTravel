@@ -18,6 +18,10 @@ class FlipViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "CaptureStarted")))
+        }
+        sleep(1)
         dismiss(animated: false, completion: nil)
     }
 

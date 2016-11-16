@@ -34,6 +34,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         segmentedControl.setSelected(at: 0, animated: false)
         topFilterSegmentedControl.setSelected(at: 0, animated: false)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.viewDidAppear(_:)), name: NSNotification.Name(rawValue: "CaptureStarted"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(startSearch), name: Notification.Name(rawValue: "currentSearchLocationUpdated"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateSearchResults), name: Notification.Name(rawValue: "currentDistanceLocationUpdated"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateSearchResults), name: Notification.Name(rawValue: "allLocationsReturned"), object: nil)

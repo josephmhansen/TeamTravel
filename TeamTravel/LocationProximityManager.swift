@@ -56,7 +56,7 @@ class LocationProximityManager {
     }
     
     func fireAlertForEnteredRegion(location: Location){
-        let regionAlert = UIAlertController(title: "Entered: \(location.locationName)", message: nil, preferredStyle: .alert)
+        let regionAlert = UIAlertController(title: "Captured: \(location.locationName)", message: nil, preferredStyle: .alert)
         let dismiss = UIAlertAction(title: "Dismiss", style: .cancel)
         regionAlert.addAction(dismiss)
         

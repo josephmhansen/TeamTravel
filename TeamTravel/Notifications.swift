@@ -15,7 +15,7 @@ class Notifications {
         
         let content = UNMutableNotificationContent()
         content.title = withTitle
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.default
         
         let request = UNNotificationRequest(identifier: "notification", content: content, trigger: andTrigger ?? UNTimeIntervalNotificationTrigger(timeInterval: 4, repeats: false))
         

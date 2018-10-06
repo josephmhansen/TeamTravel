@@ -82,7 +82,7 @@ class StatsViewController: UIViewController {
     
     func addViewControllerAsChild(viewController: UIViewController) {
         //add child view controller
-        self.addChildViewController(viewController)
+        self.addChild(viewController)
         // add child as subview
         self.innerView.addSubview(viewController.view)
         
@@ -90,7 +90,7 @@ class StatsViewController: UIViewController {
         
         viewController.view.frame = innerView.bounds
         //Notify Child ViewController
-        viewController.didMove(toParentViewController: self)
+        viewController.didMove(toParent: self)
     }
     
     // MARK: - SegmentedController Functions

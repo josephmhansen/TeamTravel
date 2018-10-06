@@ -34,7 +34,7 @@ class PointsGraphViewController: UIViewController, ORKValueRangeGraphChartViewDa
         pointGraph.animate(withDuration: 2)
     }
     
-    func setupUser(){
+    @objc func setupUser(){
         if TravelerController.shared.masterTraveler == nil {
             MockData.shared.setUpTraveler()
         }

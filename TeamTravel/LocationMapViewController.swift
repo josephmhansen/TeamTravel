@@ -121,7 +121,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
             }
             
             controller.view.removeFromSuperview()
-            controller.removeFromParentViewController()
+            controller.removeFromParent()
         }
         
         didSet {
@@ -133,7 +133,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
             controller.view.translatesAutoresizingMaskIntoConstraints = true
             
             self.primaryContentContainer.addSubview(controller.view)
-            self.addChildViewController(controller)
+            self.addChild(controller)
             
             if self.isViewLoaded
             {
@@ -152,7 +152,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
             }
             
             controller.view.removeFromSuperview()
-            controller.removeFromParentViewController()
+            controller.removeFromParent()
         }
         
         didSet {
@@ -164,7 +164,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
             controller.view.translatesAutoresizingMaskIntoConstraints = true
             
             self.drawerContentContainer.addSubview(controller.view)
-            self.addChildViewController(controller)
+            self.addChild(controller)
             
             if self.isViewLoaded
             {
@@ -361,7 +361,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
         drawerScrollView.delaysContentTouches = true
         drawerScrollView.canCancelContentTouches = true
         drawerScrollView.backgroundColor = UIColor.clear
-        drawerScrollView.decelerationRate = UIScrollViewDecelerationRateFast
+        drawerScrollView.decelerationRate = UIScrollView.DecelerationRate.fast
         drawerScrollView.touchDelegate = self
         
         drawerShadowView.layer.shadowOpacity = shadowOpacity
@@ -407,7 +407,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
             assert(primaryContentContainerView != nil && drawerContentContainerView != nil, "When instantiating from Interface Builder you must provide container views with an embedded view controller.")
             
             // Locate main content VC
-            for child in self.childViewControllers
+            for child in self.children
             {
                 if child.view == primaryContentContainerView.subviews.first
                 {
@@ -588,7 +588,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
     {
         if animated
         {
-            UIView.transition(with: primaryContentContainer, duration: 0.5, options: UIViewAnimationOptions.transitionCrossDissolve, animations: { [weak self] () -> Void in
+            UIView.transition(with: primaryContentContainer, duration: 0.5, options: UIView.AnimationOptions.transitionCrossDissolve, animations: { [weak self] () -> Void in
                 
                 self?.primaryContentViewController = controller
                 
@@ -610,7 +610,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
     {
         if animated
         {
-            UIView.transition(with: drawerContentContainer, duration: 0.5, options: UIViewAnimationOptions.transitionCrossDissolve, animations: { [weak self] () -> Void in
+            UIView.transition(with: drawerContentContainer, duration: 0.5, options: UIView.AnimationOptions.transitionCrossDissolve, animations: { [weak self] () -> Void in
                 
                 self?.drawerContentViewController = controller
                 self?.setDrawerPosition(position: self?.drawerPosition ?? .collapsed, animated: false)
@@ -641,7 +641,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
     
     // MARK: Actions
     
-    func dimmingViewTapRecognizerAction(gestureRecognizer: UITapGestureRecognizer)
+    @objc func dimmingViewTapRecognizerAction(gestureRecognizer: UITapGestureRecognizer)
     {
         if gestureRecognizer == dimmingViewTapRecognizer
         {
@@ -701,10 +701,10 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
                 }
             }
             
-            if abs(Float(currentClosestStop - (self.view.bounds.size.height - topInset))) <= FLT_EPSILON && supportedDrawerPositions.contains(.open)
+            if abs(Float(currentClosestStop - (self.view.bounds.size.height - topInset))) <= .ulpOfOne && supportedDrawerPositions.contains(.open)
             {
                 setDrawerPosition(position: .open, animated: true)
-            } else if abs(Float(currentClosestStop - collapsedHeight)) <= FLT_EPSILON && supportedDrawerPositions.contains(.collapsed)
+            } else if abs(Float(currentClosestStop - collapsedHeight)) <= .ulpOfOne && supportedDrawerPositions.contains(.collapsed)
             {
                 setDrawerPosition(position: .collapsed, animated: true)
             } else if supportedDrawerPositions.contains(.partiallyRevealed){
@@ -817,7 +817,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
     
     // MARK: Propogate child view controller style / status bar presentation based on drawer state
     
-    override open var childViewControllerForStatusBarStyle: UIViewController? {
+    override open var childForStatusBarStyle: UIViewController? {
         get {
             
             if drawerPosition == .open {
@@ -828,7 +828,7 @@ open class LocationMapViewController: UIViewController, UIScrollViewDelegate, Lo
         }
     }
     
-    override open var childViewControllerForStatusBarHidden: UIViewController? {
+    override open var childForStatusBarHidden: UIViewController? {
         get {
             if drawerPosition == .open {
                 return drawerContentViewController

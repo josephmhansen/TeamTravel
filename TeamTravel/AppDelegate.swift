@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     var notification: UIAlertController?
     
-    func presentIcloudAlert() {
+    @objc func presentIcloudAlert() {
         let alertController = UIAlertController(title: "Error Saving", message: "Confirm that you are signed into iCloud", preferredStyle: .alert)
         let actionItem = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
         
@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
 
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.presentNotification(notification:)), name: NSNotification.Name(rawValue: postAlertNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.presentIcloudAlert), name: NSNotification.Name(rawValue: "iCloudNotification"), object: nil)
@@ -83,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("Notification received")
     }
   
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         CoreLocationController.shared.setupLocationManager()
         self.strongReferenceToLocationManager = CoreLocationController.shared.locationManager
         
@@ -118,7 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     // MARK: - Other functions
     
-    func presentNotification(notification: Notification) {
+    @objc func presentNotification(notification: Notification) {
         let alertController = notification.object as? UIAlertController
         self.window?.rootViewController?.present(alertController!, animated: true, completion: nil)
     }

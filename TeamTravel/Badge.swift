@@ -29,10 +29,10 @@ class Badge {
     let description: String
     var hasEarned: Bool
     
-    let travelerReference: CKReference?
+    let travelerReference: CKRecord.Reference?
     let cloudKitRecordID: String?
     
-    init(image: UIImage, name: String, description: String, hasEarned: Bool, travelerReference: CKReference? = nil, cloudKitRecordID: String? = nil) {
+    init(image: UIImage, name: String, description: String, hasEarned: Bool, travelerReference: CKRecord.Reference? = nil, cloudKitRecordID: String? = nil) {
         self.image = image
         self.name = name
         self.description = description

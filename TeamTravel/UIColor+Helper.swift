@@ -38,7 +38,7 @@ extension PolyColor {
     var hex = hexString
     
     if hex.hasPrefix("#") {
-      hex = hex.substring(from: hex.index(hex.startIndex, offsetBy: 1))
+      hex.removeFirst()
     }
     
     guard let hexVal = Int(hex, radix: 16) else {
@@ -46,7 +46,7 @@ extension PolyColor {
       return nil
     }
     
-    switch hex.characters.count {
+    switch hex.count {
     case 3:
       self.init(hex3: hexVal, alpha: alpha)
     case 6:

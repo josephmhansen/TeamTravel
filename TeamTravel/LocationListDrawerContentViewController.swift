@@ -87,7 +87,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     }
     
     //extra functions, hooked up to mock data
-    func startSearch() {
+    @objc func startSearch() {
         if TravelerController.shared.masterTraveler == nil {
             MockData.shared.setUpTraveler()
         }
@@ -101,13 +101,13 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
         }
     }
     
-    func updateSearchResults(){
+    @objc func updateSearchResults(){
         if TravelerController.shared.masterTraveler?.homeLocation == nil {
             TravelerController.shared.masterTraveler?.homeLocation = CoreLocationController.shared.currentTravelerLocationForSearch
         }
         locationsToShow = SearchLocationController.shared.allVisibleLocations
         guard let currentLocation = CoreLocationController.shared.currentTravelerLocationForDistance else { return }
-        TravelerController.shared.masterTraveler?.locationsWishList = (TravelerController.shared.masterTraveler?.locationsWishList.sorted { $0.0.location.distance(from: currentLocation) < $0.1.location.distance(from: currentLocation) })!
+        TravelerController.shared.masterTraveler?.locationsWishList = (TravelerController.shared.masterTraveler?.locationsWishList.sorted { $0.location.distance(from: currentLocation) < $1.location.distance(from: currentLocation) })!
         self.tableView.reloadData()
     }
     
@@ -171,7 +171,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
             let pinItemActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             let getDiretions = UIAlertAction(title: "Get Directions", style: .default, handler: { (_) in
-                let regionSpan = MKCoordinateRegionMakeWithDistance(selectedLocation.coordinate, CLLocationDistance(2000) , CLLocationDistance(2000))
+                let regionSpan = MKCoordinateRegion.init(center: selectedLocation.coordinate, latitudinalMeters: CLLocationDistance(2000) , longitudinalMeters: CLLocationDistance(2000))
                 let placeMark = MKPlacemark(coordinate: selectedLocation.coordinate)
                 let mapItem = MKMapItem(placemark: placeMark)
                 mapItem.name = "\(selectedLocation.locationName)"
@@ -194,7 +194,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
             let pinItemActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             let getDiretions = UIAlertAction(title: "Get Directions", style: .default, handler: { (_) in
-                let regionSpan = MKCoordinateRegionMakeWithDistance(selectedLocation.coordinate, CLLocationDistance(2000) , CLLocationDistance(2000))
+                let regionSpan = MKCoordinateRegion.init(center: selectedLocation.coordinate, latitudinalMeters: CLLocationDistance(2000) , longitudinalMeters: CLLocationDistance(2000))
                 let placeMark = MKPlacemark(coordinate: selectedLocation.coordinate)
                 let mapItem = MKMapItem(placemark: placeMark)
                 mapItem.name = "\(selectedLocation.locationName)"
@@ -228,7 +228,7 @@ class LocationListDrawerContentViewController: UIViewController, UITableViewDele
     }
     
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
             let location = locationsToShow[indexPath.row]

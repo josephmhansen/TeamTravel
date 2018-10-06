@@ -29,7 +29,7 @@ class SearchLocationController  {
     var allVisibleLocations: [Location] {
         guard let location = CoreLocationController.shared.currentTravelerLocationForDistance else { return [] }
         let array = allReturnedLocations.filter{$0.isVisible}
-        return array.sorted { $0.0.location.distance(from: location) < $0.1.location.distance(from: location)}
+        return array.sorted { $0.location.distance(from: location) < $1.location.distance(from: location)}
     }
     
     // MARK: - Manipulate Visible locations
@@ -83,8 +83,8 @@ class SearchLocationController  {
     func queryForLocation(ofType: LocationType, location: CLLocation, completion: @escaping (_ completion: Bool) -> Void) {
         
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        let region = MKCoordinateRegionMake(location.coordinate, span)
-        let request = MKLocalSearchRequest()
+        let region = MKCoordinateRegion.init(center: location.coordinate, span: span)
+        let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = ofType.rawValue
         request.region = region
         let search = MKLocalSearch(request: request)
@@ -92,7 +92,7 @@ class SearchLocationController  {
         search.start { (searchResponses, error) in
             DispatchQueue.main.async {
                 if error != nil {
-                    NSLog("error searching :\(error?.localizedDescription)")
+                    NSLog("error searching :\(error?.localizedDescription ?? "")")
                 }
                 
                 if let responses = searchResponses {

@@ -149,9 +149,9 @@ class CoreLocationController: NSObject, CLLocationManagerDelegate {
     }
     
     /// calculates 20 closest locations and creates geofences for those
-    func configureGeofencesForCurrentLocation() {
+    @objc func configureGeofencesForCurrentLocation() {
         guard let currentLocation = currentTravelerLocationForSearch else { return }
-        let distanceFilteredLocations = SearchLocationController.shared.allVisibleLocations.sorted { $0.0.location.distance(from: currentLocation) < $0.1.location.distance(from: currentLocation) }
+        let distanceFilteredLocations = SearchLocationController.shared.allVisibleLocations.sorted { $0.location.distance(from: currentLocation) < $1.location.distance(from: currentLocation) }
         var locationsToGeofence: [Location] = []
         
         if distanceFilteredLocations.count <= 19 {

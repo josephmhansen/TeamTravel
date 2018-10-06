@@ -65,9 +65,9 @@ class loadingAnimation: UIView {
       anim.keyTimes = [0.0, 0.5, 1.0]
       
       anim.timingFunctions = [
-        CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut),
-        CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut),
-        CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut),
+        CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut),
+        CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
       ];
       
       anim.values = [

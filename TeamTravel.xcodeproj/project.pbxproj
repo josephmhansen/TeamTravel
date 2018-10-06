@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FA448D221688BA80002122C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA448D121688BA80002122C /* CloudKit.framework */; };
+		0FA448D3216891FA0002122C /* LocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAA6671DC951B30088C71F /* LocationMapViewController.swift */; };
 		7200D9FA1DC1059400C2CF22 /* SearchLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7200D9F91DC1059400C2CF22 /* SearchLocationController.swift */; };
 		721E6CCD1DCD3CD300B7C2AA /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721E6CCC1DCD3CD300B7C2AA /* CloudKitManager.swift */; };
 		7224DB411DCA752600E64515 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA53240B1DCA3EF9005F6DC4 /* ResearchKit.framework */; };
 		7224DB421DCA752600E64515 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA53240B1DCA3EF9005F6DC4 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		723445B21DCFEF76003C7390 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723445B11DCFEF76003C7390 /* CloudKit.framework */; };
 		72602F591DBFC02A00FC53EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72602F581DBFC02A00FC53EC /* AppDelegate.swift */; };
 		72602F5E1DBFC02A00FC53EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72602F5C1DBFC02A00FC53EC /* Main.storyboard */; };
 		72602F601DBFC02A00FC53EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72602F5F1DBFC02A00FC53EC /* Assets.xcassets */; };
@@ -47,7 +48,6 @@
 		D0D802531DC00E1900F02629 /* AwardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D802521DC00E1900F02629 /* AwardController.swift */; };
 		D0DAA6631DC950E40088C71F /* PulleyPassthroughScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAA6621DC950E40088C71F /* PulleyPassthroughScrollView.swift */; };
 		D0DAA66A1DC951B30088C71F /* LocationListDrawerContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAA6661DC951B30088C71F /* LocationListDrawerContentViewController.swift */; };
-		D0DAA66B1DC951B30088C71F /* LocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAA6671DC951B30088C71F /* LocationMapViewController.swift */; };
 		D0DAA66C1DC951B30088C71F /* PrimaryContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAA6681DC951B30088C71F /* PrimaryContentViewController.swift */; };
 		D0DAA66D1DC951B30088C71F /* PrimaryTransitionTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAA6691DC951B30088C71F /* PrimaryTransitionTargetViewController.swift */; };
 		FA6384ED1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6384EC1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift */; };
@@ -115,10 +115,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0FA448D121688BA80002122C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		7200D9F91DC1059400C2CF22 /* SearchLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchLocationController.swift; sourceTree = "<group>"; };
 		721E6CCC1DCD3CD300B7C2AA /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		723445AF1DCFEF73003C7390 /* TeamTravel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TeamTravel.entitlements; sourceTree = "<group>"; };
-		723445B11DCFEF76003C7390 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		72602F551DBFC02A00FC53EC /* TeamTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72602F581DBFC02A00FC53EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72602F5D1DBFC02A00FC53EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7224DB411DCA752600E64515 /* ResearchKit.framework in Frameworks */,
-				723445B21DCFEF76003C7390 /* CloudKit.framework in Frameworks */,
+				0FA448D221688BA80002122C /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +207,7 @@
 		723445B01DCFEF76003C7390 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				723445B11DCFEF76003C7390 /* CloudKit.framework */,
+				0FA448D121688BA80002122C /* CloudKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -458,14 +458,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Joseph Hansen";
 				TargetAttributes = {
 					72602F541DBFC02A00FC53EC = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 793L5ZBT7T;
+						DevelopmentTeam = GQMN9RP4XE;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -477,12 +481,14 @@
 					72602F681DBFC02A00FC53EC = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 793L5ZBT7T;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 72602F541DBFC02A00FC53EC;
 					};
 					72602F731DBFC02A00FC53EC = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 793L5ZBT7T;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 72602F541DBFC02A00FC53EC;
 					};
@@ -570,6 +576,7 @@
 				727257AC1DCFE02F007B136F /* CloudKitSync.swift in Sources */,
 				FA6384ED1DC10BF20026C6F6 /* TESTSearchResultTableViewController.swift in Sources */,
 				729234BF1DC7BA090043CB98 /* Constants.swift in Sources */,
+				0FA448D3216891FA0002122C /* LocationMapViewController.swift in Sources */,
 				72E8A5961DC01B9000729613 /* CoreLocationController.swift in Sources */,
 				9C6C5BC81DD121B20011849D /* TutorialPageViewController.swift in Sources */,
 				D0D802531DC00E1900F02629 /* AwardController.swift in Sources */,
@@ -582,7 +589,6 @@
 				FAC346C31DD7A5FC00DE6A56 /* LocationProximityManager.swift in Sources */,
 				D08523B31DCBD59C00D54F65 /* LocalLocationTableViewCell.swift in Sources */,
 				72FFA5171DC90C9000388C52 /* PointsGraphViewController.swift in Sources */,
-				D0DAA66B1DC951B30088C71F /* LocationMapViewController.swift in Sources */,
 				729234BE1DC7BA090043CB98 /* Style.swift in Sources */,
 				72B0E8551DD39DB600952AF2 /* loadingAnimation.swift in Sources */,
 				72602F591DBFC02A00FC53EC /* AppDelegate.swift in Sources */,
@@ -682,15 +688,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -732,15 +746,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -772,12 +794,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TeamTravel/TeamTravel.entitlements;
-				DEVELOPMENT_TEAM = 793L5ZBT7T;
+				DEVELOPMENT_TEAM = GQMN9RP4XE;
 				INFOPLIST_FILE = TeamTravel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Devmountain.TeamTravel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Devmountain.TeamTravel.angel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -787,12 +810,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TeamTravel/TeamTravel.entitlements;
-				DEVELOPMENT_TEAM = 793L5ZBT7T;
+				DEVELOPMENT_TEAM = GQMN9RP4XE;
 				INFOPLIST_FILE = TeamTravel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Devmountain.TeamTravel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Devmountain.TeamTravel.angel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -806,7 +830,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Devmountain.TeamTravelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TeamTravel.app/TeamTravel";
 			};
 			name = Debug;
@@ -821,7 +846,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Devmountain.TeamTravelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TeamTravel.app/TeamTravel";
 			};
 			name = Release;
@@ -835,7 +861,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Devmountain.TeamTravelUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = TeamTravel;
 			};
 			name = Debug;
@@ -849,7 +876,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Devmountain.TeamTravelUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = TeamTravel;
 			};
 			name = Release;

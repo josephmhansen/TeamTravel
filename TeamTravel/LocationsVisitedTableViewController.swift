@@ -18,7 +18,7 @@ class LocationsVisitedTableViewController: UITableViewController {
     }
     
     // MARK: - Notification selectors
-    func updateTableView(){
+    @objc func updateTableView(){
         self.tableView.reloadData()
     }
 

@@ -19,8 +19,8 @@ class CloudKitManager {
     
     static let shared = CloudKitManager()
     
-    let publicDatabase = CKContainer.default().publicCloudDatabase
-    let privateDatabase = CKContainer.default().privateCloudDatabase
+    lazy var publicDatabase = CKContainer.default().publicCloudDatabase
+    lazy var privateDatabase = CKContainer.default().privateCloudDatabase
     
     init() {
         checkCloudKitAvailability()
@@ -45,10 +45,10 @@ class CloudKitManager {
         }
     }
     
-    func fetchUsername(for recordID: CKRecordID,
+    func fetchUsername(for recordID: CKRecord.ID,
                        completion: @escaping ((_ givenName: String?, _ familyName: String?) -> Void) = { _,_ in }) {
         
-        let recordInfo = CKUserIdentityLookupInfo(userRecordID: recordID)
+        let recordInfo = CKUserIdentity.LookupInfo(userRecordID: recordID)
         let operation = CKDiscoverUserIdentitiesOperation(userIdentityLookupInfos: [recordInfo])
         
         var userIdenties = [CKUserIdentity]()
@@ -91,7 +91,7 @@ class CloudKitManager {
     
     // MARK: - Fetch Records
     
-    func fetchRecord(withID recordID: CKRecordID, completion: ((_ record: CKRecord?, _ error: Error?) -> Void)?) {
+    func fetchRecord(withID recordID: CKRecord.ID, completion: ((_ record: CKRecord?, _ error: Error?) -> Void)?) {
         
         privateDatabase.fetch(withRecordID: recordID) { (record, error) in
             
@@ -115,9 +115,9 @@ class CloudKitManager {
         }
         queryOperation.recordFetchedBlock = perRecordBlock
         
-        var queryCompletionBlock: (CKQueryCursor?, Error?) -> Void = { (_, _) in }
+        var queryCompletionBlock: (CKQueryOperation.Cursor?, Error?) -> Void = { (_, _) in }
         
-        queryCompletionBlock = { (queryCursor: CKQueryCursor?, error: Error?) -> Void in
+        queryCompletionBlock = { (queryCursor: CKQueryOperation.Cursor?, error: Error?) -> Void in
             
             if let queryCursor = queryCursor {
                 // there are more results, go fetch them
@@ -166,14 +166,14 @@ class CloudKitManager {
     
     // MARK: - Delete
     
-    func deleteRecordWithID(_ recordID: CKRecordID, completion: ((_ recordID: CKRecordID?, _ error: Error?) -> Void)?) {
+    func deleteRecordWithID(_ recordID: CKRecord.ID, completion: ((_ recordID: CKRecord.ID?, _ error: Error?) -> Void)?) {
         
         privateDatabase.delete(withRecordID: recordID) { (recordID, error) in
             completion?(recordID, error)
         }
     }
     
-    func deleteRecordsWithID(_ recordIDs: [CKRecordID], completion: ((_ records: [CKRecord]?, _ recordIDs: [CKRecordID]?, _ error: Error?) -> Void)?) {
+    func deleteRecordsWithID(_ recordIDs: [CKRecord.ID], completion: ((_ records: [CKRecord]?, _ recordIDs: [CKRecord.ID]?, _ error: Error?) -> Void)?) {
         
         let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: recordIDs)
         operation.savePolicy = .ifServerRecordUnchanged
@@ -224,12 +224,12 @@ class CloudKitManager {
                    contentAvailable: Bool,
                    alertBody: String? = nil,
                    desiredKeys: [String]? = nil,
-                   options: CKQuerySubscriptionOptions,
+                   options: CKQuerySubscription.Options,
                    completion: ((_ subscription: CKSubscription?, _ error: Error?) -> Void)?) {
         
         let subscription = CKQuerySubscription(recordType: type, predicate: predicate, subscriptionID: subscriptionID, options: options)
         
-        let notificationInfo = CKNotificationInfo()
+        let notificationInfo = CKSubscription.NotificationInfo()
         notificationInfo.alertBody = alertBody
         notificationInfo.shouldSendContentAvailable = contentAvailable
         notificationInfo.desiredKeys = desiredKeys
@@ -342,7 +342,7 @@ class CloudKitManager {
         }
     }
     
-    func handleCloudKitPermissionStatus(_ permissionStatus: CKApplicationPermissionStatus, error:Error?) {
+    func handleCloudKitPermissionStatus(_ permissionStatus: CKContainer.Application.PermissionStatus, error:Error?) {
         
         if permissionStatus == .granted {
             print("User Discoverability permission granted. User may proceed with full access.")

@@ -59,7 +59,7 @@ extension CKRecord {
     }
     
     convenience init(updatedTravelerWithRecordID: Traveler) {
-        let recordID = CKRecordID(recordName: updatedTravelerWithRecordID.cloudKitRecordID!)
+        let recordID = CKRecord.ID(recordName: updatedTravelerWithRecordID.cloudKitRecordID!)
         self.init(recordType: Traveler.recordType, recordID: recordID)
         
         

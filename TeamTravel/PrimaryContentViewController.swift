@@ -97,9 +97,9 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     }
     
     ///This HERE!!!!
-    func zoomToUserLocation() {
+    @objc func zoomToUserLocation() {
         if let location = CoreLocationController.shared.currentTravelerLocationForSearch {
-            let span = MKCoordinateSpanMake(0.025, 0.025)
+            let span = MKCoordinateSpan.init(latitudeDelta: 0.025, longitudeDelta: 0.025)
             let region = MKCoordinateRegion(center: location.coordinate, span: span)
             //fixed issue with zooming too slow, do more research about async after to delay zoom a little bit
             /*
@@ -154,7 +154,7 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
     
     // MARK: - Draw Map Annotations
     /// Removes old annotations and draws new ones returned from the search.
-    func drawMapAnnotations(){
+    @objc func drawMapAnnotations(){
         // remove old annotations
         let oldAnnotations = self.mapView.annotations
             self.mapView.removeAnnotations(oldAnnotations)
@@ -228,7 +228,7 @@ extension PrimaryContentViewController: MKMapViewDelegate {
             TravelerController.shared.addToMasterTravelerList(location: castAnnotation)
         })
         let getDiretions = UIAlertAction(title: "Get Directions", style: .default, handler: { (_) in
-            let regionSpan = MKCoordinateRegionMakeWithDistance(castAnnotation.coordinate, CLLocationDistance(2000) , CLLocationDistance(2000))
+            let regionSpan = MKCoordinateRegion.init(center: castAnnotation.coordinate, latitudinalMeters: CLLocationDistance(2000) , longitudinalMeters: CLLocationDistance(2000))
             let placeMark = MKPlacemark(coordinate: castAnnotation.coordinate)
             let mapItem = MKMapItem(placemark: placeMark)
             mapItem.name = "\(castAnnotation.locationName)"
@@ -245,7 +245,7 @@ extension PrimaryContentViewController: MKMapViewDelegate {
         self.present(pinItemActionSheet, animated: true, completion: nil)
     }
     
-    func redrawAnnotationsAfterFiltering() {
+    @objc func redrawAnnotationsAfterFiltering() {
         self.drawMapAnnotations()
     }
 }

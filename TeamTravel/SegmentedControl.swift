@@ -275,7 +275,7 @@ extension SegmentedControl: UIGestureRecognizerDelegate {
         return false
     }
 
-    func segmentedControlLongPressed(_ gesture: UIGestureRecognizer) {
+    @objc func segmentedControlLongPressed(_ gesture: UIGestureRecognizer) {
         switch gesture.state {
         case .possible:
             print("LongPressGesture Possible!")
@@ -391,11 +391,11 @@ public extension SegmentedControl {
             let titleLayer: CATextLayer = {
                 let titleLayer = CATextLayer()
                 titleLayer.frame = titleRect
-                titleLayer.alignmentMode = kCAAlignmentCenter
+                titleLayer.alignmentMode = CATextLayerAlignmentMode.center
                 if #available(iOS 10.0, *) {
-                    titleLayer.truncationMode = kCATruncationNone
+                    titleLayer.truncationMode = CATextLayerTruncationMode.none
                 } else {
-                    titleLayer.truncationMode = kCATruncationEnd
+                    titleLayer.truncationMode = CATextLayerTruncationMode.end
                 }
                 titleLayer.string = titleString
                 titleLayer.contentsScale = UIScreen.main.scale

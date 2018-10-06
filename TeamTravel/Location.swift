@@ -56,7 +56,7 @@ class Location: NSObject, MKAnnotation {
     var calendar: Calendar = Calendar(identifier: .gregorian)
     var hasVisitedToday: Bool {
         if datesVisited.count != 0 {
-            let filteredDates = datesVisited.sorted { $0.0 > $0.1}
+            let filteredDates = datesVisited.sorted { $0 > $1}
             if calendar.isDateInToday(filteredDates[0]) {
                 return true
             } else {
@@ -116,7 +116,7 @@ extension CKRecord {
     }
     
     convenience init(updateVisitedLocationWithRecordID: Location) {
-        let recordID = CKRecordID(recordName: updateVisitedLocationWithRecordID.cloudKitRecordID!)
+        let recordID = CKRecord.ID(recordName: updateVisitedLocationWithRecordID.cloudKitRecordID!)
         self.init(recordType: Location.kLocationVisitedRecordType, recordID: recordID)
         self[Location.kLocationName] = updateVisitedLocationWithRecordID.locationName as CKRecordValue?
         self[Location.kCLLocation] = updateVisitedLocationWithRecordID.location as CKRecordValue?

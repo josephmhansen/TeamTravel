@@ -67,7 +67,7 @@ class StepSixViewController: StepViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateButtonStatus), name: Notification.Name(rawValue: "currentDistanceLocationUpdated"), object: nil)
     }
     
-    func updateButtonStatus(){
+    @objc func updateButtonStatus(){
         getStartedButton.isEnabled = true
     }
 
